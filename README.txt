@@ -15,3 +15,6 @@ PUMS1.R
    used to work with 
     http://www.census.gov/acs/www/data_documentation/pums_data/ 
     ( http://www2.census.gov/acs2011_1yr/pums/csv_pus.zip )
+phsample.RData
+   uniform sample of PUMS households and join of people with matching
+   SERIALNO.
