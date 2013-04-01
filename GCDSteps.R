@@ -2,10 +2,10 @@
 d <- read.table('http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/german.data',
    stringsAsFactors=F,header=F)
 colnames(d) = c('Status.of.existing.checking.account', 'Duration.in.month',
- 'Credit.history', 'Purpose', 'Credit.amount', 'Savings
- account/bonds', 'Present.employment.since',
+ 'Credit.history', 'Purpose', 'Credit.amount', 'Savings.account.bonds', 
+ 'Present.employment.since',
  'Installment.rate.in.percentage.of.disposable.income',
- 'Personal.status.and.sex', 'Other.debtors/guarantors',
+ 'Personal.status.and.sex', 'Other.debtors.guarantors',
  'Present.residence.since', 'Property', 'Age.in.years',
  'Other.installment.plans', 'Housing',
  'Number.of.existing.credits.at.this.bank', 'Job',
@@ -73,3 +73,4 @@ for(i in 1:(dim(d))[2]) {
   }
 }
 d$Good.Loan = as.factor(ifelse(d$Good.Loan==1,'GoodLoan','BadLoan'))
+vars = setdiff(colnames(d),'Good.Loan')
