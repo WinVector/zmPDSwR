@@ -5,10 +5,9 @@ Data file is: http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/
 ```bash
 $ shasum spambase.data 
 e28aa2a7d4592b4f5f71347912c1b4b759336b58  spambase.data
-```bash
+```
 
-
-R prep steps:
+Data preparation steps:
 
 ```R
 spamD = read.table('http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data',sep=',',header=F)
@@ -39,28 +38,33 @@ spamD$spam = as.factor(ifelse(spamD$spam>0.5,'spam','non-spam'))
 set.seed(2350290)
 spamD$rgroup = floor(100*runif(dim(spamD)[[1]]))
 #write.table(spamD,file='spamD.tsv',quote=F,sep='\t',row.names=F)
-#spamD = read.table('spamD.tsv',header=T,sep='\t')
-```R
 
-Analysis steps
+```
+
+Analysis steps, download https://raw.github.com/WinVector/zmPDSwR/master/Spambase/spamD.tsv
 
 ```R
+spamD = read.table('spamD.tsv',header=T,sep='\t')
 spamTrain = subset(spamD,spamD$rgroup>=10)
 spamTest = subset(spamD,spamD$rgroup<10)
 spamVars = setdiff(colnames(spamD),list('rgroup','spam'))
-spamFormula = as.formula(paste('spam=="spam"',paste(spamVars,collapse=' + '),sep=' ~ '))
-spamModel = glm(spamFormula,family=binomial(link='logit'),data=spamTrain)
+spamFormula = as.formula(paste('spam=="spam"',
+   paste(spamVars,collapse=' + '),sep=' ~ '))
+spamModel = glm(spamFormula,family=binomial(link='logit'),
+   data=spamTrain)
 spamTrain$pred = predict(spamModel,newdata=spamTrain,type='response')
 spamTest$pred = predict(spamModel,newdata=spamTest,type='response')
 
-trainSpamTable = table(truth=spamTrain$spam,prediction=spamTrain$pred>0.5)
-testSpamTable = table(truth=spamTest$spam,prediction=spamTest$pred>0.5)
-(trainSpamTable[1,2] + trainSpamTable[2.1])/sum(trainSpamTable)
-(testSpamTable[1,2] + testSpamTable[2.1])/sum(testSpamTable)
-#sample = subset(spamTrain,runif(n=dim(spamTrain)[[1]])>0.998,select=c('spam','pred'))
+trainSpamTable = table(truth=spamTrain$spam,
+   prediction=spamTrain$pred>0.5)
+testSpamTable = table(truth=spamTest$spam,
+   prediction=spamTest$pred>0.5)
+#sample = subset(spamTrain,runif(n=dim(spamTrain)[[1]])>0.998,
+#   select=c('spam','pred'))
 sample = subset(spamTrain,
    rownames(spamTrain) %in% list(55,63,2106,3469),
    select=c('spam','pred'))
 table(truth=sample$spam,prediction=sample$pred>0.5)
 table(truth=spamTrain$spam,prediction=spamTrain$pred>0.5)
-```R
+```
+
