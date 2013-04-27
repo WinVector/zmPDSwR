@@ -67,5 +67,16 @@ sample = subset(spamTrain,
 table(truth=sample$spam,prediction=sample$pred>0.5)
 table(truth=spamTrain$spam,prediction=spamTrain$pred>0.5)
 cM = table(truth=spamTrain$spam,prediction=spamTrain$pred>0.5)
+(cM[1,1]+cM[2,2])/sum(cM)
+cM[2,2]/(cM[2,2]+cM[1,2])
+cM[2,2]/(cM[2,2]+cM[2,1])
+cM[1,1]/(cM[1,1]+cM[1,2])
+t = as.table(matrix(data=c(288-1,17,1,13882-17),nrow=2,ncol=2))
+rownames(t) = rownames(cM)
+colnames(t) = colnames(cM)
+(t[1,1]+t[2,2])/sum(t)
+t[2,2]/(t[2,2]+t[1,2])
+t[2,2]/(t[2,2]+t[2,1])
+t[1,1]/(t[1,1]+t[1,2])
 ```
 
