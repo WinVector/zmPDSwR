@@ -12,29 +12,34 @@ No guarantee, indemnification or claim of fitness is made regarding any of these
 [![Creative Commons License](http://i.creativecommons.org/l/by-nc/3.0/88x31.png)] [by-nc]  
 This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc].
 
+No claim of license on derived works.
 
-### Derived works (no claim of license here):
+
+### data sets:
 
 <dl>
-  <dt>car.data.csv</dt>
-    <dd>derived from <a href="http://archive.ics.uci.edu/ml/machine-learning-databases/car/">http://archive.ics.uci.edu/ml/machine-learning-databases/car/</a></dd>
-    
-  <dt>phsample.RData</dt>
-    <dd>uniform sample of PUMS households and join of people with matching SERIALNO.</dd>
+  <dt>PUMS</dt>
+  <dd>working with <a href="http://www.census.gov/acs/www/data_documentation/pums_data/">http://www.census.gov/acs/www/data_documentation/pums_data/</a> </dd>
+  <dt>Spambase</dt>
+  <dd>working with <a href="http://archive.ics.uci.edu/ml/datasets/Spambase">http://archive.ics.uci.edu/ml/datasets/Spambase</a></dd>
+  <dt>Statlog</dt>
+  <dd>working with <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a></dd>
+  <dt>UCICar</dt>
+  <dd>working with <a href="http://archive.ics.uci.edu/ml/machine-learning-databases/car/">http://archive.ics.uci.edu/ml/machine-learning-databases/car/</a></dd>
 </dl>
 
 
-### Our works ([Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc]):
+### legacy files (moving into directories):
 
 <dl>
+  <dt>car.data.csv</dt>
+    <dd>moving to UCICar</dd>
+  <dt>phsample.RData</dt>
+    <dd>moving to PUMS</dd>
   <dt>GCDSteps.R</dt>
-    <dd>used to work with <br />
-     <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a></dd>
-
+    <dd>moving to Statlog</dd>
   <dt>PUMS1.R </dt>
-    <dd>used to work with <br />
-    <a href="http://www.census.gov/acs/www/data_documentation/pums_data/">http://www.census.gov/acs/www/data_documentation/pums_data/</a> <br />
-    ( <a href="http://www2.census.gov/acs2011_1yr/pums/csv_pus.zip">http://www2.census.gov/acs2011_1yr/pums/csv_pus.zip</a> )</dd>
+    <dd>moving to PUMS</dd>
 </dl>
 
   [by-nc]: http://creativecommons.org/licenses/by-nc/3.0/ "Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)"
