@@ -10,8 +10,8 @@ e28aa2a7d4592b4f5f71347912c1b4b759336b58  spambase.data
 Data preparation steps:
 
 ```R
-spamD = read.table('http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data',sep=',',header=F)
-spamCols = c(
+spamD <- read.table('http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data',sep=',',header=F)
+spamCols <- c(
    'word.freq.make', 'word.freq.address', 'word.freq.all',
    'word.freq.3d', 'word.freq.our', 'word.freq.over', 'word.freq.remove',
    'word.freq.internet', 'word.freq.order', 'word.freq.mail',
@@ -33,10 +33,10 @@ spamCols = c(
    'capital.run.length.longest', 'capital.run.length.total',
    'spam'
 )
-colnames(spamD) = spamCols
-spamD$spam = as.factor(ifelse(spamD$spam>0.5,'spam','non-spam'))
+colnames(spamD) <- spamCols
+spamD$spam <- as.factor(ifelse(spamD$spam>0.5,'spam','non-spam'))
 set.seed(2350290)
-spamD$rgroup = floor(100*runif(dim(spamD)[[1]]))
+spamD$rgroup <- floor(100*runif(dim(spamD)[[1]]))
 #write.table(spamD,file='spamD.tsv',quote=F,sep='\t',row.names=F)
 
 ```
@@ -44,36 +44,32 @@ spamD$rgroup = floor(100*runif(dim(spamD)[[1]]))
 Analysis steps, download https://raw.github.com/WinVector/zmPDSwR/master/Spambase/spamD.tsv
 
 ```R
-spamD = read.table('spamD.tsv',header=T,sep='\t')
-spamTrain = subset(spamD,spamD$rgroup>=10)
-spamTest = subset(spamD,spamD$rgroup<10)
-spamVars = setdiff(colnames(spamD),list('rgroup','spam'))
-spamFormula = as.formula(paste('spam=="spam"',
+spamD <- read.table('spamD.tsv',header=T,sep='\t')
+spamTrain <- subset(spamD,spamD$rgroup>=10)
+spamTest <- subset(spamD,spamD$rgroup<10)
+spamVars <- setdiff(colnames(spamD),list('rgroup','spam'))
+spamFormula <- as.formula(paste('spam=="spam"',
    paste(spamVars,collapse=' + '),sep=' ~ '))
-spamModel = glm(spamFormula,family=binomial(link='logit'),
+spamModel <- glm(spamFormula,family=binomial(link='logit'),
    data=spamTrain)
-spamTrain$pred = predict(spamModel,newdata=spamTrain,type='response')
-spamTest$pred = predict(spamModel,newdata=spamTest,type='response')
+spamTrain$pred <- predict(spamModel,newdata=spamTrain,type='response')
+spamTest$pred <- predict(spamModel,newdata=spamTest,type='response')
 
-trainSpamTable = table(truth=spamTrain$spam,
+trainSpamTable <- table(truth=spamTrain$spam,
    prediction=spamTrain$pred>0.5)
-testSpamTable = table(truth=spamTest$spam,
+testSpamTable <- table(truth=spamTest$spam,
    prediction=spamTest$pred>0.5)
-#sample = subset(spamTrain,runif(n=dim(spamTrain)[[1]])>0.998,
-#   select=c('spam','pred'))
-sample = subset(spamTrain,
-   rownames(spamTrain) %in% list(55,63,2106,3469),
-   select=c('spam','pred'))
-table(truth=sample$spam,prediction=sample$pred>0.5)
-table(truth=spamTrain$spam,prediction=spamTrain$pred>0.5)
-cM = table(truth=spamTrain$spam,prediction=spamTrain$pred>0.5)
+# sort(sample(1:(dim(spamTest)[[1]]),size=4,replace=F))
+# [1]   7  35 224 327
+sample <- spamTest[c(7,35,224,327),c('spam','pred')]
+cM <- table(truth=spamTest$spam,prediction=spamTest$pred>0.5)
 (cM[1,1]+cM[2,2])/sum(cM)
 cM[2,2]/(cM[2,2]+cM[1,2])
 cM[2,2]/(cM[2,2]+cM[2,1])
 cM[1,1]/(cM[1,1]+cM[1,2])
-t = as.table(matrix(data=c(288-1,17,1,13882-17),nrow=2,ncol=2))
-rownames(t) = rownames(cM)
-colnames(t) = colnames(cM)
+t <- as.table(matrix(data=c(288-1,17,1,13882-17),nrow=2,ncol=2))
+rownames(t) <- rownames(cM)
+colnames(t) <- colnames(cM)
 (t[1,1]+t[2,2])/sum(t)
 t[2,2]/(t[2,2]+t[1,2])
 t[2,2]/(t[2,2]+t[2,1])
