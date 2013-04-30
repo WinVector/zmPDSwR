@@ -38,7 +38,6 @@ spamD$spam <- as.factor(ifelse(spamD$spam>0.5,'spam','non-spam'))
 set.seed(2350290)
 spamD$rgroup <- floor(100*runif(dim(spamD)[[1]]))
 #write.table(spamD,file='spamD.tsv',quote=F,sep='\t',row.names=F)
-
 ```
 
 Analysis steps, download https://raw.github.com/WinVector/zmPDSwR/master/Spambase/spamD.tsv

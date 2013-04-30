@@ -1,7 +1,7 @@
 # From: http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)
 d <- read.table('http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/german.data',
    stringsAsFactors=F,header=F)
-colnames(d) = c('Status.of.existing.checking.account', 'Duration.in.month',
+colnames(d) <- c('Status.of.existing.checking.account', 'Duration.in.month',
  'Credit.history', 'Purpose', 'Credit.amount', 'Savings.account.bonds', 
  'Present.employment.since',
  'Installment.rate.in.percentage.of.disposable.income',
@@ -11,7 +11,7 @@ colnames(d) = c('Status.of.existing.checking.account', 'Duration.in.month',
  'Number.of.existing.credits.at.this.bank', 'Job',
  'Number.of.people.being.liable.to.provide.maintenance.for',
  'Telephone', 'foreign.worker', 'Good.Loan')
-mapping = list('A11'='... < 0 DM',
+mapping <- list('A11'='... < 0 DM',
  'A12'='0 <= ... < 200 DM',
  'A13'='... >= 200 DM / salary assignments for at least 1 year',
  'A14'='no checking account',
@@ -69,8 +69,9 @@ mapping = list('A11'='... < 0 DM',
  'A202'='no')
 for(i in 1:(dim(d))[2]) {
   if(class(d[,i])=='character') {
-      d[,i] = as.factor(as.character(mapping[d[,i]]))
+      d[,i] <- as.factor(as.character(mapping[d[,i]]))
   }
 }
-d$Good.Loan = as.factor(ifelse(d$Good.Loan==1,'GoodLoan','BadLoan'))
-vars = setdiff(colnames(d),'Good.Loan')
+d$Good.Loan <- as.factor(ifelse(d$Good.Loan==1,'GoodLoan','BadLoan'))
+#save(d,file='GCDData.RData')
+vars <- setdiff(colnames(d),'Good.Loan')

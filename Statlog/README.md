@@ -16,6 +16,10 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Un
 ### Derived works (no claim of license here):
 
 
+<dl>
+  <dt>GCDData.RData</dt>
+    <dd>saved derived data frame</dd>
+</dl>
 
 ### Our works ([Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc]):
 
