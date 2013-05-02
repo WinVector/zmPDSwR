@@ -73,5 +73,11 @@ colnames(t) <- colnames(cM)
 t[2,2]/(t[2,2]+t[1,2])
 t[2,2]/(t[2,2]+t[2,1])
 t[1,1]/(t[1,1]+t[1,2])
+# ROC curve
+library('ROCR')
+eval <- prediction(spamTest$pred,spamTest$spam)
+plot(performance(eval,"tpr","fpr"))
+# AUC
+attributes(performance(eval,'auc'))$y.values[[1]]
 ```
 
