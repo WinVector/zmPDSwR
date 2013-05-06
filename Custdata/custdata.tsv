@@ -1,0 +1,1001 @@
+custid	sex	is.employed	income	marital.stat	health.ins	housing.type	recent.move	num.vehicles	age	state.of.res
+2068	F	NA	11300	Married	TRUE	Homeowner free and clear	FALSE	2	49	Michigan
+2073	F	NA	0	Married	TRUE	Rented	TRUE	3	40	Florida
+2848	M	TRUE	4500	Never Married	FALSE	Rented	TRUE	3	22	Georgia
+5641	M	TRUE	20000	Never Married	FALSE	Occupied with no rent	FALSE	0	22	New Mexico
+6369	F	TRUE	12000	Never Married	TRUE	Rented	TRUE	1	31	Florida
+8322	F	TRUE	180000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	40	New York
+8521	M	TRUE	120000	Never Married	TRUE	Homeowner free and clear	TRUE	1	39	Idaho
+12195	M	TRUE	40000	Married	TRUE	Rented	FALSE	3	48	Michigan
+14989	M	NA	9400	Married	TRUE	Rented	FALSE	2	44	Illinois
+15917	F	TRUE	24000	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	1	70	North Carolina
+16551	F	NA	7000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	46	Georgia
+17134	M	TRUE	220000	Married	TRUE	Homeowner free and clear	TRUE	2	33	Indiana
+17946	F	TRUE	85000	Divorced/Separated	TRUE	Rented	FALSE	1	51	New Hampshire
+18487	F	TRUE	89200	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	63	Georgia
+20383	M	TRUE	170000	Never Married	TRUE	Homeowner with mortgage/loan	TRUE	1	35	South Carolina
+22295	M	TRUE	14400	Married	TRUE	Homeowner free and clear	FALSE	3	54	Pennsylvania
+25863	M	NA	41000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	70	Virginia
+26057	M	TRUE	30000	Married	TRUE	NA	NA	NA	28	Florida
+26355	M	TRUE	80000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	36	New Jersey
+27214	M	NA	18800	Married	TRUE	Homeowner free and clear	FALSE	2	68	Ohio
+27445	F	TRUE	35000	Never Married	TRUE	Rented	FALSE	2	53	Florida
+27761	M	TRUE	24000	Never Married	FALSE	Rented	FALSE	2	33	Illinois
+27928	M	TRUE	75000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	58	New York
+30768	M	TRUE	80000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	50	New Jersey
+31710	F	TRUE	397000	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	2	55	Missouri
+33651	F	TRUE	45000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	2	44	California
+33828	F	TRUE	24900	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	49	Wisconsin
+36825	M	TRUE	17500	Married	FALSE	Rented	FALSE	2	35	South Dakota
+37224	M	TRUE	25800	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	48	Colorado
+38827	F	NA	9700	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	72	Oklahoma
+40132	M	TRUE	22000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	66	Illinois
+40449	M	NA	13000	Married	TRUE	Homeowner free and clear	FALSE	3	84	Kentucky
+42374	M	NA	7800	Never Married	TRUE	Homeowner free and clear	FALSE	1	65	Kentucky
+46099	M	TRUE	36880	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	2	65	Massachusetts
+46791	M	NA	22700	Married	TRUE	Homeowner free and clear	FALSE	2	67	Oklahoma
+47009	F	TRUE	34300	Married	TRUE	Rented	FALSE	1	33	New York
+48479	M	TRUE	90000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	58	Texas
+49496	M	NA	94400	Widowed	TRUE	Homeowner free and clear	FALSE	2	88	Wisconsin
+50220	M	NA	22300	Divorced/Separated	TRUE	Rented	FALSE	1	85	Texas
+51723	F	NA	15700	Widowed	TRUE	Homeowner free and clear	FALSE	1	78	Ohio
+52197	M	NA	65100	Married	TRUE	Homeowner free and clear	FALSE	2	66	Florida
+52382	M	TRUE	45050	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	39	Ohio
+52420	M	TRUE	46000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	57	Florida
+52436	F	TRUE	139000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	46	Pennsylvania
+53186	F	NA	0	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	61	Pennsylvania
+53214	M	TRUE	84010	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	57	New York
+53759	F	NA	0	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	34	Ohio
+54177	M	FALSE	51500	Married	TRUE	Homeowner free and clear	FALSE	2	86	New York
+55873	F	NA	25400	Never Married	TRUE	Rented	FALSE	1	60	New York
+55992	F	NA	0	Married	TRUE	Rented	FALSE	1	38	Colorado
+56040	F	NA	0	Married	TRUE	Rented	TRUE	2	39	California
+62999	M	TRUE	91000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	51	New York
+65004	F	TRUE	150000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	4	49	Florida
+66778	M	TRUE	19000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	40	Virginia
+67776	M	TRUE	52000	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	38	Florida
+68013	M	NA	100	Divorced/Separated	FALSE	NA	NA	NA	28	California
+68221	M	TRUE	78000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	29	California
+69062	M	TRUE	120300	Married	TRUE	Homeowner free and clear	FALSE	4	59	California
+72741	F	NA	42500	Widowed	TRUE	Homeowner free and clear	FALSE	0	88	Michigan
+74447	M	TRUE	162000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	33	Maryland
+76182	F	TRUE	18200	Divorced/Separated	FALSE	Homeowner with mortgage/loan	FALSE	1	41	Connecticut
+77312	M	TRUE	37200	Married	FALSE	Homeowner free and clear	FALSE	2	35	Mississippi
+78476	M	TRUE	76000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	60	Illinois
+79069	M	TRUE	30000	Married	FALSE	Rented	TRUE	1	40	Texas
+80274	M	NA	37300	Married	TRUE	Homeowner free and clear	FALSE	5	68	New Jersey
+80549	M	NA	85200	Married	TRUE	Homeowner free and clear	FALSE	2	75	Arkansas
+82503	M	TRUE	70000	Married	TRUE	Homeowner free and clear	FALSE	2	69	California
+84636	M	TRUE	33600	Married	FALSE	Rented	FALSE	2	32	South Carolina
+84879	F	TRUE	29800	Married	TRUE	Homeowner free and clear	FALSE	2	42	Missouri
+85398	F	TRUE	21600	Never Married	FALSE	Homeowner with mortgage/loan	FALSE	6	44	California
+86711	M	NA	47950	Never Married	TRUE	Homeowner free and clear	FALSE	1	76	California
+86786	F	TRUE	39600	Never Married	TRUE	Rented	FALSE	1	49	New Jersey
+90303	M	NA	0	Never Married	FALSE	NA	NA	NA	45	Kentucky
+90863	M	TRUE	285020	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	37	Washington
+92706	M	NA	9100	Never Married	TRUE	Rented	FALSE	0	82	Rhode Island
+94743	M	TRUE	299000	Married	TRUE	Homeowner free and clear	FALSE	2	64	Missouri
+96964	M	TRUE	266200	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	69	Texas
+97247	F	NA	70500	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	1	78	Idaho
+98086	M	NA	52100	Married	TRUE	Homeowner with mortgage/loan	TRUE	2	69	Florida
+99068	F	TRUE	38800	Never Married	TRUE	Rented	FALSE	3	34	New York
+100475	F	TRUE	28800	Divorced/Separated	TRUE	Rented	FALSE	1	48	Pennsylvania
+102269	M	NA	14400	Married	TRUE	Rented	TRUE	1	84	Washington
+103389	F	TRUE	130000	Never Married	TRUE	Rented	TRUE	1	41	Minnesota
+104048	F	TRUE	15500	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	69	Ohio
+104506	M	NA	30800	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	83	Alaska
+106395	M	TRUE	25700	Married	TRUE	Rented	TRUE	1	32	California
+106726	M	TRUE	39000	Married	TRUE	Rented	FALSE	1	53	South Dakota
+106956	F	TRUE	150600	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	50	Oklahoma
+107458	M	TRUE	182500	Married	TRUE	Homeowner with mortgage/loan	TRUE	2	66	Florida
+108042	F	FALSE	6200	Never Married	TRUE	Rented	FALSE	1	22	Tennessee
+110024	F	NA	18960	Widowed	TRUE	Homeowner free and clear	FALSE	2	83	California
+110699	M	TRUE	60000	Never Married	TRUE	Homeowner free and clear	FALSE	1	53	Iowa
+111870	M	TRUE	26000	Married	FALSE	Homeowner with mortgage/loan	FALSE	1	54	Maryland
+112116	M	TRUE	221000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	65	Minnesota
+113390	M	TRUE	25000	Never Married	FALSE	Rented	FALSE	3	43	Virginia
+114806	F	TRUE	50000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	53	Ohio
+115100	M	NA	0	Never Married	FALSE	NA	NA	NA	29	California
+116171	F	NA	51500	Widowed	TRUE	Homeowner free and clear	FALSE	1	81	Kansas
+116481	F	NA	15900	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	2	88	Oregon
+117491	M	TRUE	110000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	58	New Jersey
+117900	M	TRUE	60000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	40	Massachusetts
+117911	M	TRUE	29500	Widowed	TRUE	Rented	FALSE	2	67	Virginia
+118561	F	NA	9600	Widowed	TRUE	Rented	FALSE	1	60	Texas
+120705	M	TRUE	21400	Never Married	TRUE	Rented	TRUE	0	30	Tennessee
+122231	M	TRUE	100000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	48	Arkansas
+124968	F	TRUE	100000	Never Married	TRUE	Homeowner free and clear	FALSE	1	56	Ohio
+125155	M	TRUE	18000	Married	FALSE	Rented	TRUE	1	55	Missouri
+126507	M	TRUE	112000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	51	Florida
+127965	M	TRUE	90000	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	1	50	Ohio
+131301	M	TRUE	16800	Married	FALSE	Rented	FALSE	2	48	Connecticut
+133268	M	TRUE	140000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	49	Wisconsin
+136206	F	NA	3700	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	56	Alabama
+138865	M	TRUE	10000	Divorced/Separated	FALSE	Rented	FALSE	1	28	New York
+139771	M	TRUE	9600	Married	TRUE	Rented	FALSE	2	42	California
+141492	F	NA	0	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	34	Florida
+145172	M	NA	241000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	83	New Jersey
+146457	M	TRUE	49000	Never Married	TRUE	Rented	FALSE	2	35	New Jersey
+147984	F	NA	0	Married	TRUE	Rented	FALSE	1	49	Florida
+149429	M	TRUE	90000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	2	41	California
+149480	F	NA	0	Married	FALSE	Homeowner free and clear	FALSE	2	46	New York
+150055	F	TRUE	78000	Married	TRUE	Rented	FALSE	2	24	Virginia
+150721	M	TRUE	402000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	44	California
+151170	F	TRUE	9000	Divorced/Separated	TRUE	Rented	FALSE	2	57	Indiana
+151678	M	NA	0	Never Married	FALSE	NA	NA	NA	34	Georgia
+151876	F	NA	18900	Divorced/Separated	TRUE	Rented	FALSE	1	86	Illinois
+153419	M	NA	61400	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	73	Arizona
+155762	M	TRUE	60000	Divorced/Separated	FALSE	Homeowner free and clear	FALSE	2	49	Illinois
+156520	M	TRUE	75000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	40	Illinois
+158530	M	NA	1400	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	83	Texas
+159107	M	NA	40000	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	1	65	New Jersey
+159573	F	NA	14400	Widowed	TRUE	Homeowner free and clear	FALSE	1	69	Kentucky
+164576	F	NA	0	Never Married	FALSE	Rented	FALSE	1	28	Texas
+166246	F	TRUE	19200	Never Married	TRUE	Rented	FALSE	1	30	New York
+167154	M	NA	0	Never Married	FALSE	NA	NA	NA	31	New Jersey
+167498	M	FALSE	45000	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	32	Florida
+169519	F	TRUE	30600	Divorced/Separated	TRUE	Rented	FALSE	1	62	Virginia
+173493	M	FALSE	77000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	56	Texas
+174248	M	NA	29300	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	68	Indiana
+175033	M	NA	269000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	47	New York
+175572	F	FALSE	0	Married	FALSE	Rented	TRUE	2	38	West Virginia
+177122	F	TRUE	2000	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	39	Missouri
+177145	M	TRUE	60000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	46	California
+178178	F	TRUE	54000	Never Married	TRUE	Rented	FALSE	1	35	New York
+178887	F	NA	0	Married	FALSE	Rented	FALSE	0	44	Illinois
+179481	F	TRUE	2000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	53	Texas
+180009	M	FALSE	35000	Divorced/Separated	TRUE	Rented	TRUE	1	31	California
+181385	F	NA	290	Married	FALSE	Homeowner free and clear	FALSE	2	28	Wisconsin
+181754	M	TRUE	34200	Married	TRUE	Rented	FALSE	4	49	Massachusetts
+182072	F	NA	0	Widowed	FALSE	Rented	FALSE	1	45	Georgia
+182146	F	FALSE	40000	Never Married	FALSE	Rented	FALSE	1	35	Colorado
+183889	M	TRUE	32000	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	67	Ohio
+184170	M	NA	68800	Married	TRUE	Homeowner free and clear	FALSE	3	70	Oregon
+184506	M	TRUE	40000	Divorced/Separated	FALSE	Rented	TRUE	2	39	Michigan
+184686	F	TRUE	69000	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	2	59	Virginia
+186475	M	TRUE	27000	Never Married	TRUE	Rented	FALSE	2	29	South Carolina
+186808	F	NA	33600	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	4	61	Alaska
+191018	F	NA	13200	Married	TRUE	Homeowner free and clear	FALSE	4	64	Indiana
+191536	F	NA	19000	Widowed	TRUE	Rented	FALSE	0	82	Oklahoma
+194740	F	FALSE	50000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	53	Iowa
+195539	M	NA	65700	Married	TRUE	Rented	FALSE	2	69	Florida
+196613	F	TRUE	77800	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	45	Washington
+196828	M	TRUE	24800	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	65	Florida
+199788	M	FALSE	43500	Never Married	FALSE	Homeowner free and clear	TRUE	2	37	Louisiana
+203816	F	NA	0	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	57	Michigan
+204591	F	TRUE	47500	Divorced/Separated	TRUE	Rented	FALSE	3	49	Texas
+206122	M	TRUE	127000	Married	TRUE	Rented	FALSE	2	47	Michigan
+209604	M	TRUE	87000	Married	TRUE	Homeowner free and clear	FALSE	4	54	Pennsylvania
+210241	F	TRUE	10000	Never Married	FALSE	Rented	FALSE	1	29	California
+210427	M	NA	12600	Married	TRUE	Homeowner free and clear	FALSE	3	78	Colorado
+211330	F	NA	12200	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	1	78	Massachusetts
+211424	M	TRUE	110000	Divorced/Separated	TRUE	Rented	FALSE	1	50	New York
+213854	M	NA	4000	Never Married	TRUE	Rented	FALSE	0	22	Vermont
+214083	M	NA	54540	Married	TRUE	Homeowner free and clear	FALSE	1	73	West Virginia
+215876	F	NA	53600	Widowed	TRUE	Rented	FALSE	0	88	Texas
+217315	M	TRUE	110000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	47	Rhode Island
+218283	F	NA	20000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	37	New York
+220135	M	TRUE	75000	Divorced/Separated	TRUE	Rented	TRUE	2	64	California
+220142	F	NA	0	Never Married	TRUE	NA	NA	NA	18	Arkansas
+220205	M	TRUE	96000	Never Married	TRUE	Rented	FALSE	1	38	New Jersey
+223271	M	FALSE	54000	Married	TRUE	Rented	TRUE	3	37	California
+223773	F	NA	10200	Widowed	TRUE	Rented	TRUE	1	74	Michigan
+224356	M	TRUE	60000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	60	Virginia
+226840	M	TRUE	70050	Married	TRUE	Homeowner with mortgage/loan	TRUE	3	36	New Hampshire
+227318	M	NA	30000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	69	Connecticut
+228513	F	TRUE	412000	Widowed	TRUE	Homeowner free and clear	FALSE	3	47	Maine
+236067	M	TRUE	140000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	46	Colorado
+236880	F	TRUE	6000	Never Married	TRUE	Rented	FALSE	1	39	Michigan
+237048	M	FALSE	25000	Married	TRUE	Homeowner free and clear	FALSE	3	72	Tennessee
+249492	F	NA	10100	Widowed	TRUE	NA	NA	NA	93	Georgia
+250108	F	TRUE	90000	Divorced/Separated	TRUE	Rented	FALSE	2	31	Illinois
+251365	F	TRUE	58000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	64	Hawaii
+252100	M	TRUE	273000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	2	52	Virginia
+253015	M	TRUE	30000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	35	California
+254969	F	TRUE	42200	Divorced/Separated	FALSE	Rented	FALSE	1	57	Indiana
+258722	F	NA	2680	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	45	Tennessee
+258948	F	NA	10820	Widowed	TRUE	Rented	FALSE	1	85	Kentucky
+259807	M	NA	440	Married	TRUE	NA	NA	NA	49	West Virginia
+262234	M	NA	16000	Married	TRUE	Homeowner free and clear	FALSE	3	65	Georgia
+264292	M	TRUE	90000	Married	TRUE	Homeowner with mortgage/loan	FALSE	0	50	Illinois
+265299	M	NA	65500	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	69	Virginia
+268667	M	NA	200	Never Married	TRUE	NA	NA	NA	31	Pennsylvania
+269836	F	NA	22400	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	1	77	Ohio
+272748	M	TRUE	60000	Never Married	TRUE	Rented	FALSE	3	44	Texas
+274182	M	TRUE	80000	Married	FALSE	Homeowner with mortgage/loan	FALSE	2	36	Utah
+276306	M	FALSE	31200	Married	TRUE	Rented	FALSE	1	29	California
+277784	F	NA	15800	Divorced/Separated	TRUE	Rented	FALSE	1	76	New York
+278995	F	TRUE	37000	Married	TRUE	Rented	TRUE	2	38	Texas
+279538	F	TRUE	62400	Never Married	TRUE	Rented	TRUE	1	42	Indiana
+281529	F	NA	0	Divorced/Separated	FALSE	Homeowner free and clear	FALSE	3	41	Tennessee
+283521	F	TRUE	172000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	55	Wisconsin
+283607	M	TRUE	20000	Married	TRUE	Rented	TRUE	2	41	Tennessee
+284973	F	FALSE	19000	Divorced/Separated	TRUE	Rented	FALSE	2	30	Illinois
+287882	M	TRUE	60000	Married	TRUE	Rented	TRUE	2	137.70002958132	Florida
+291564	F	NA	28100	Widowed	TRUE	Homeowner free and clear	FALSE	1	75	New York
+291599	M	TRUE	45000	Married	TRUE	Rented	FALSE	2	27	California
+291608	F	NA	24700	Widowed	TRUE	Homeowner free and clear	FALSE	1	79	Georgia
+297117	M	TRUE	130000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	63	Louisiana
+298205	M	TRUE	110450	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	38	Maryland
+298782	M	NA	11200	Widowed	TRUE	NA	NA	NA	73	Wisconsin
+303624	M	TRUE	100000	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	41	California
+304200	F	FALSE	0	Divorced/Separated	FALSE	Homeowner with mortgage/loan	FALSE	1	53	Indiana
+307655	F	TRUE	31000	Married	TRUE	Rented	TRUE	3	26	California
+308107	F	TRUE	1800	Never Married	FALSE	Rented	FALSE	1	54	West Virginia
+310588	M	TRUE	110000	Never Married	TRUE	Rented	FALSE	0	40	Florida
+311095	F	TRUE	42000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	51	Kentucky
+314099	F	NA	0	Widowed	FALSE	Rented	TRUE	2	68	Pennsylvania
+315265	M	NA	34900	Married	TRUE	Homeowner free and clear	FALSE	3	82	Illinois
+316205	F	FALSE	6900	Married	TRUE	Rented	FALSE	2	25	New York
+316280	M	TRUE	56000	Divorced/Separated	TRUE	Rented	FALSE	1	44	Ohio
+316753	M	TRUE	54000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	36	Georgia
+317166	F	TRUE	86000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	3	54	New Jersey
+318105	M	TRUE	42200	Divorced/Separated	TRUE	Rented	FALSE	0	54	Texas
+318348	F	TRUE	40000	Divorced/Separated	FALSE	Homeowner with mortgage/loan	FALSE	4	55	Iowa
+319774	M	TRUE	38000	Married	TRUE	Homeowner free and clear	FALSE	3	49	New Jersey
+323508	M	TRUE	135000	Never Married	TRUE	Rented	TRUE	1	27	California
+324029	F	TRUE	25000	Married	TRUE	Rented	FALSE	1	37	Georgia
+330543	F	NA	3000	Married	TRUE	NA	NA	NA	93	Michigan
+331868	F	NA	36600	Widowed	TRUE	Homeowner free and clear	FALSE	2	85	Ohio
+332292	M	TRUE	61000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	3	28	Michigan
+333355	M	FALSE	22000	Married	TRUE	Rented	TRUE	2	44	Texas
+333982	F	NA	19200	Married	TRUE	Homeowner free and clear	FALSE	2	72	Washington
+334135	F	TRUE	200000	Never Married	TRUE	Rented	TRUE	1	32	Texas
+335080	M	TRUE	10000	Married	TRUE	Rented	TRUE	2	28	Wyoming
+335174	M	NA	21000	Married	TRUE	Homeowner with mortgage/loan	FALSE	0	76	Pennsylvania
+337683	F	TRUE	23100	Widowed	TRUE	Rented	FALSE	1	65	Florida
+338635	F	TRUE	13200	Never Married	TRUE	Rented	TRUE	1	21	Georgia
+341507	M	FALSE	25000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	61	New Jersey
+342460	M	TRUE	45000	Married	TRUE	Rented	FALSE	1	32	Virginia
+343235	M	TRUE	24000	Never Married	TRUE	Rented	FALSE	1	32	Nebraska
+344685	M	NA	0	Never Married	TRUE	NA	NA	NA	39	Tennessee
+345994	M	TRUE	177000	Married	TRUE	Homeowner with mortgage/loan	FALSE	5	48	Illinois
+348319	F	NA	0	Married	TRUE	Rented	FALSE	3	26	Indiana
+349344	M	TRUE	77000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	55	Michigan
+351129	F	NA	0	Never Married	TRUE	Rented	FALSE	2	51	New York
+352275	F	FALSE	36000	Married	TRUE	Occupied with no rent	FALSE	3	58	Pennsylvania
+354269	M	NA	22000	Never Married	FALSE	Rented	TRUE	1	29	California
+356073	M	TRUE	130000	Never Married	TRUE	Rented	FALSE	1	54	Texas
+356688	F	TRUE	27000	Never Married	FALSE	Rented	FALSE	1	26	Iowa
+356763	M	TRUE	24000	Married	FALSE	Rented	FALSE	3	48	California
+359997	F	TRUE	80050	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	39	Wisconsin
+360674	M	TRUE	10001	Never Married	TRUE	Rented	FALSE	2	38	Wisconsin
+361561	F	NA	3000	Divorced/Separated	TRUE	Rented	FALSE	1	26	Florida
+361946	M	TRUE	90600	Married	TRUE	Homeowner free and clear	FALSE	2	68	Kentucky
+361968	M	FALSE	27200	Divorced/Separated	TRUE	Rented	FALSE	1	68	New York
+363008	F	NA	5400	Married	TRUE	Rented	FALSE	1	84	Illinois
+364328	M	TRUE	67000	Married	TRUE	Rented	FALSE	1	30	Louisiana
+364991	F	NA	12000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	123.061022636481	Nevada
+368645	M	TRUE	83000	Married	TRUE	Homeowner free and clear	FALSE	2	52	Michigan
+373976	F	TRUE	27000	Divorced/Separated	TRUE	Rented	TRUE	1	56	New York
+374461	M	NA	58600	Divorced/Separated	TRUE	Rented	FALSE	1	80	Mississippi
+374930	M	NA	0	Married	FALSE	NA	NA	NA	55	Maine
+376508	F	NA	0	Married	FALSE	Rented	FALSE	1	42	Iowa
+382338	M	NA	21400	Married	TRUE	Homeowner free and clear	FALSE	1	70	Kansas
+382614	M	NA	24800	Never Married	TRUE	NA	NA	NA	55	New Jersey
+382908	F	NA	30200	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	2	74	Indiana
+383409	M	TRUE	15000	Never Married	FALSE	Rented	FALSE	2	24	Indiana
+383455	M	TRUE	124000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	4	44	Connecticut
+385318	F	NA	10800	Widowed	TRUE	Rented	FALSE	0	72	New York
+388567	F	NA	14600	Divorced/Separated	TRUE	Rented	FALSE	1	44	Virginia
+390273	M	NA	27100	Married	TRUE	Homeowner free and clear	FALSE	2	64	Indiana
+394696	F	NA	10200	Married	TRUE	Rented	FALSE	1	58	Wisconsin
+394790	M	NA	69040	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	75	Tennessee
+395888	M	TRUE	10800	Married	FALSE	Rented	FALSE	1	29	Pennsylvania
+396116	F	NA	0	Married	TRUE	Rented	FALSE	2	25	South Carolina
+396256	M	TRUE	36400	Married	FALSE	Homeowner with mortgage/loan	FALSE	3	34	Minnesota
+396675	F	TRUE	60000	Never Married	TRUE	Rented	TRUE	1	45	Illinois
+397230	F	TRUE	31200	Married	TRUE	Rented	FALSE	2	136.052159552928	Texas
+399150	M	TRUE	50000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	38	Florida
+399930	M	TRUE	55000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	42	Florida
+403690	M	FALSE	34020	Divorced/Separated	FALSE	Homeowner with mortgage/loan	FALSE	2	50	New York
+406984	F	NA	10100	Divorced/Separated	TRUE	Rented	FALSE	1	71	North Carolina
+408221	M	TRUE	134800	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	60	North Carolina
+409728	M	TRUE	44600	Never Married	FALSE	Homeowner with mortgage/loan	FALSE	1	50	Illinois
+411385	M	TRUE	45000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	45	Pennsylvania
+415060	F	FALSE	16000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	60	California
+415381	M	TRUE	109170	Married	TRUE	Homeowner with mortgage/loan	TRUE	2	39	New York
+415575	M	NA	0	Never Married	TRUE	NA	NA	NA	63	Utah
+415741	M	TRUE	65000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	3	47	New Mexico
+416144	F	TRUE	82000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	44	Ohio
+416624	F	TRUE	30000	Married	TRUE	Rented	FALSE	1	43	Texas
+419751	M	TRUE	95300	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	57	Texas
+419951	F	TRUE	12000	Never Married	TRUE	Rented	FALSE	2	21	Wisconsin
+421248	M	TRUE	80000	Married	TRUE	Homeowner free and clear	FALSE	3	58	Nevada
+421666	M	FALSE	24700	Married	TRUE	Rented	FALSE	3	54	Idaho
+423279	M	TRUE	24000	Never Married	TRUE	Rented	TRUE	3	42	Michigan
+423910	M	TRUE	192000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	58	Ohio
+426154	F	NA	10200	Divorced/Separated	TRUE	Rented	FALSE	0	76	Indiana
+427431	F	NA	7900	Divorced/Separated	TRUE	Rented	FALSE	0	45	California
+427589	F	TRUE	40000	Divorced/Separated	TRUE	Rented	TRUE	1	54	California
+430516	F	NA	20000	Widowed	TRUE	Homeowner free and clear	FALSE	1	81	Maine
+431729	M	NA	26700	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	75	Pennsylvania
+432526	F	NA	7300	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	44	West Virginia
+433755	F	NA	60000	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	3	85	Pennsylvania
+435651	F	NA	10800	Divorced/Separated	TRUE	Rented	FALSE	1	63	Pennsylvania
+438304	M	FALSE	9700	Married	TRUE	Rented	FALSE	1	77	Utah
+439284	F	TRUE	1100	Never Married	TRUE	Rented	FALSE	1	32	Kentucky
+440475	M	TRUE	35000	Married	TRUE	Homeowner free and clear	FALSE	2	49	New Hampshire
+441221	M	TRUE	93500	Never Married	TRUE	Rented	TRUE	0	25	New York
+442608	M	TRUE	34000	Never Married	TRUE	Homeowner with mortgage/loan	TRUE	4	23	Kentucky
+445622	F	NA	0	Never Married	TRUE	Rented	FALSE	2	48	Texas
+445937	F	NA	69900	Widowed	TRUE	Rented	FALSE	1	86	Georgia
+445985	M	TRUE	43000	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	56	Texas
+449907	M	TRUE	48000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	42	Minnesota
+450221	M	TRUE	15800	Married	FALSE	Homeowner with mortgage/loan	FALSE	2	64	Washington
+450776	F	TRUE	14900	Divorced/Separated	FALSE	Rented	FALSE	1	33	Florida
+456859	M	TRUE	80	Never Married	TRUE	NA	NA	NA	18	California
+458094	F	NA	0	Divorced/Separated	TRUE	Rented	FALSE	1	41	Michigan
+458212	M	TRUE	170000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	34	Texas
+458265	M	TRUE	15000	Married	TRUE	Homeowner free and clear	FALSE	1	58	Massachusetts
+459429	F	TRUE	60000	Married	TRUE	Rented	FALSE	3	38	Illinois
+459910	M	NA	56300	Married	TRUE	Homeowner free and clear	FALSE	1	93	California
+459959	F	NA	13300	Widowed	TRUE	NA	NA	NA	68	Virginia
+460642	F	TRUE	99670	Divorced/Separated	TRUE	Rented	FALSE	1	44	Alaska
+460925	F	NA	31300	Married	TRUE	Homeowner free and clear	FALSE	1	72	Michigan
+461021	F	FALSE	9600	Widowed	TRUE	Rented	FALSE	2	64	Pennsylvania
+461429	M	NA	12400	Married	TRUE	Rented	FALSE	2	81	West Virginia
+462569	M	NA	22000	Widowed	TRUE	Homeowner free and clear	FALSE	0	89	Iowa
+463808	F	TRUE	90000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	46	Texas
+464082	F	NA	0	Married	FALSE	Rented	FALSE	2	26	Georgia
+465818	F	FALSE	0	Married	FALSE	Homeowner with mortgage/loan	FALSE	3	33	Indiana
+467335	M	TRUE	42600	Never Married	FALSE	Rented	FALSE	1	33	Nebraska
+468344	F	TRUE	35000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	2	28	North Carolina
+468553	M	TRUE	40000	Never Married	TRUE	Rented	FALSE	2	32	Florida
+474507	F	TRUE	3000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	52	California
+478228	M	NA	98900	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	64	New York
+478502	M	TRUE	90000	Married	FALSE	Rented	FALSE	1	62	Tennessee
+479327	F	TRUE	6400	Divorced/Separated	TRUE	Rented	FALSE	2	37	Colorado
+482611	M	TRUE	50000	Married	TRUE	Rented	TRUE	0	24	Virginia
+487124	M	TRUE	2000	Married	FALSE	Rented	FALSE	2	54	Ohio
+487369	F	FALSE	22000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	48	Maryland
+487556	M	TRUE	94700	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	55	Delaware
+489718	M	NA	0	Never Married	TRUE	Rented	TRUE	0	21	New Jersey
+491280	M	NA	127000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	61	Iowa
+491389	F	NA	10000	Married	TRUE	Homeowner free and clear	TRUE	2	51	Illinois
+491848	F	NA	16700	Widowed	TRUE	Rented	FALSE	1	84	Florida
+492072	F	TRUE	80000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	49	New Mexico
+492789	F	NA	0	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	60	Massachusetts
+496465	M	NA	0	Divorced/Separated	FALSE	NA	NA	NA	45	Florida
+497970	F	TRUE	48000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	30	Missouri
+498048	M	TRUE	95000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	60	Pennsylvania
+499492	M	NA	15400	Never Married	TRUE	Homeowner free and clear	FALSE	1	54	California
+499637	F	NA	12000	Never Married	TRUE	NA	NA	NA	93	Florida
+499807	M	TRUE	125000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	43	Massachusetts
+501259	M	TRUE	90000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	56	Oklahoma
+502705	M	TRUE	70000	Married	FALSE	Rented	FALSE	4	37	Illinois
+502764	F	TRUE	71000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	47	Michigan
+503412	M	TRUE	16000	Never Married	TRUE	NA	NA	NA	21	California
+504889	M	FALSE	17300	Married	FALSE	Homeowner with mortgage/loan	FALSE	2	40	Michigan
+505318	F	TRUE	26400	Divorced/Separated	TRUE	Rented	FALSE	1	36	Virginia
+506042	M	TRUE	130100	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	51	Michigan
+509386	F	NA	0	Never Married	TRUE	NA	NA	NA	85	New Jersey
+510349	F	NA	23600	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	78	North Carolina
+510555	M	TRUE	30000	Divorced/Separated	FALSE	Rented	FALSE	2	47	Texas
+511732	F	NA	0	Never Married	FALSE	NA	NA	NA	32	Ohio
+512594	F	TRUE	30900	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	36	California
+516129	F	TRUE	48000	Never Married	FALSE	Rented	FALSE	2	45	Texas
+517253	M	TRUE	141000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	60	New York
+517696	F	NA	6300	Married	TRUE	Homeowner free and clear	FALSE	2	56	California
+518076	F	NA	40600	Widowed	TRUE	Homeowner free and clear	FALSE	2	73	North Carolina
+518899	M	TRUE	148000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	49	Nevada
+519446	F	NA	19500	Divorced/Separated	TRUE	Rented	FALSE	0	70	New Jersey
+520030	M	TRUE	49000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	66	Kansas
+520390	F	TRUE	180000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	51	South Dakota
+523769	F	TRUE	42220	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	43	Georgia
+523990	F	TRUE	90000	Never Married	TRUE	Rented	FALSE	1	31	Michigan
+525942	F	NA	10400	Divorced/Separated	TRUE	Rented	FALSE	0	78	New Jersey
+527928	F	TRUE	93300	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	43	Colorado
+528994	M	NA	0	Divorced/Separated	FALSE	NA	NA	NA	44	California
+532940	M	TRUE	62000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	33	Washington
+532971	M	TRUE	39000	Married	TRUE	Rented	FALSE	2	33	Nebraska
+535114	F	NA	0	Married	FALSE	Homeowner with mortgage/loan	TRUE	1	50	Wisconsin
+536463	M	TRUE	399900	Married	TRUE	Homeowner free and clear	FALSE	2	68	Louisiana
+536879	M	NA	0	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	53	California
+537484	F	TRUE	28000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	51	Illinois
+540956	F	TRUE	13000	Never Married	FALSE	Rented	FALSE	0	49	New York
+542384	F	NA	0	Married	FALSE	Rented	FALSE	2	57	Ohio
+543309	M	NA	10500	Never Married	TRUE	Rented	FALSE	0	44	New Jersey
+545826	F	NA	20300	Divorced/Separated	TRUE	Rented	FALSE	0	78	Louisiana
+546208	M	NA	26000	Divorced/Separated	TRUE	NA	NA	NA	40	Indiana
+547258	M	FALSE	0	Married	TRUE	Rented	FALSE	2	53	Massachusetts
+548303	M	NA	26700	Widowed	TRUE	Homeowner free and clear	FALSE	0	63	Illinois
+549068	M	TRUE	75100	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	42	Louisiana
+550733	F	TRUE	35020	Never Married	TRUE	Rented	FALSE	1	30	California
+551584	M	TRUE	20000	Married	TRUE	Homeowner free and clear	TRUE	1	40	New Jersey
+556935	F	TRUE	120000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	60	Hawaii
+559163	M	NA	47000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	70	Michigan
+559955	M	NA	0	Never Married	FALSE	NA	NA	NA	36	South Carolina
+560007	F	TRUE	100030	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	45	Indiana
+560783	F	NA	0	Never Married	TRUE	NA	NA	NA	37	Hawaii
+561588	F	TRUE	60000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	54	New York
+562962	M	NA	0	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	55	Pennsylvania
+565628	F	TRUE	15000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	58	Arizona
+565740	F	TRUE	44200	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	3	34	Indiana
+568892	F	NA	9600	Widowed	TRUE	Rented	FALSE	0	86	Louisiana
+569414	F	TRUE	50600	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	57	Missouri
+571834	F	FALSE	19200	Never Married	TRUE	Rented	FALSE	1	29	North Carolina
+572341	F	TRUE	16000	Divorced/Separated	TRUE	Rented	FALSE	1	36	Alabama
+573573	M	TRUE	30000	Never Married	TRUE	Rented	TRUE	2	28	South Dakota
+575660	F	TRUE	28000	Never Married	FALSE	Rented	TRUE	1	24	Missouri
+576799	F	TRUE	76600	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	4	47	California
+578596	M	TRUE	143100	Married	TRUE	Homeowner free and clear	FALSE	4	66	Massachusetts
+580304	F	TRUE	32000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	52	Pennsylvania
+581657	F	NA	7500	Widowed	TRUE	Homeowner free and clear	FALSE	1	83	Nebraska
+583093	M	TRUE	16000	Never Married	TRUE	Rented	FALSE	2	48	Florida
+583249	F	TRUE	15000	Never Married	TRUE	Rented	FALSE	2	59	Illinois
+583934	F	NA	24000	Widowed	TRUE	Homeowner free and clear	FALSE	2	69	Pennsylvania
+584570	M	TRUE	22000	Married	TRUE	Rented	FALSE	1	38	Washington
+588705	M	NA	9600	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	84	California
+588711	F	FALSE	58000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	57	Arkansas
+589826	F	TRUE	105000	Never Married	TRUE	Rented	FALSE	1	30	Pennsylvania
+591244	M	NA	72600	Never Married	TRUE	Homeowner free and clear	FALSE	2	58	Wisconsin
+592496	M	TRUE	10700	Divorced/Separated	TRUE	Rented	FALSE	1	60	Texas
+595225	M	TRUE	39200	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	51	Virginia
+595796	M	NA	93400	Married	TRUE	Homeowner free and clear	FALSE	2	82	Illinois
+595944	F	TRUE	59500	Never Married	TRUE	Homeowner free and clear	FALSE	1	63	Georgia
+596523	F	TRUE	80000	Divorced/Separated	TRUE	Rented	TRUE	1	31	Pennsylvania
+597817	F	NA	12500	Widowed	TRUE	Rented	FALSE	1	80	Utah
+598008	M	TRUE	388000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	51	New Jersey
+601247	M	NA	93500	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	3	73	Georgia
+601778	F	TRUE	10100	Widowed	FALSE	Homeowner with mortgage/loan	FALSE	1	63	New Jersey
+603304	M	TRUE	382000	Married	TRUE	Rented	TRUE	2	44	Indiana
+604216	M	NA	16500	Divorced/Separated	FALSE	NA	NA	NA	42	Pennsylvania
+604839	M	TRUE	150000	Never Married	TRUE	Rented	FALSE	2	25	Texas
+605624	F	TRUE	60000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	48	Michigan
+606108	F	TRUE	66000	Never Married	TRUE	Rented	TRUE	1	45	New Jersey
+606307	M	TRUE	120000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	38	Wisconsin
+607766	F	TRUE	19000	Never Married	TRUE	Rented	FALSE	1	49	California
+608789	M	NA	15000	Divorced/Separated	TRUE	NA	NA	NA	58	Pennsylvania
+609449	F	NA	53010	Widowed	TRUE	Homeowner free and clear	FALSE	2	83	Indiana
+612775	M	TRUE	150000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	34	Texas
+612779	F	TRUE	382000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	49	Louisiana
+613391	M	TRUE	6000	Married	TRUE	Rented	TRUE	2	23	Ohio
+616498	M	TRUE	30000	Never Married	FALSE	Rented	FALSE	4	52	Vermont
+618036	M	FALSE	38200	Never Married	FALSE	Rented	FALSE	2	41	Wisconsin
+618059	F	NA	15800	Widowed	TRUE	Occupied with no rent	FALSE	2	89	South Carolina
+618500	F	TRUE	8450	Married	TRUE	Rented	TRUE	3	64	Pennsylvania
+620116	F	TRUE	28000	Married	TRUE	Rented	TRUE	2	26	Alabama
+620452	M	FALSE	17000	Married	FALSE	Homeowner with mortgage/loan	FALSE	1	46	Ohio
+622713	F	TRUE	40000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	4	44	Pennsylvania
+624593	M	TRUE	285000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	54	Illinois
+628305	M	NA	24400	Married	TRUE	NA	NA	NA	93	California
+634710	F	TRUE	5000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	2	54	Minnesota
+635515	F	TRUE	120000	Divorced/Separated	TRUE	Rented	FALSE	1	51	California
+635574	M	TRUE	70000	Never Married	TRUE	Rented	FALSE	2	32	Indiana
+638458	F	NA	8000	Never Married	FALSE	Rented	FALSE	0	43	Virginia
+638760	M	FALSE	20000	Married	FALSE	Homeowner free and clear	FALSE	1	33	Pennsylvania
+642727	F	TRUE	48000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	58	Illinois
+643754	M	TRUE	70000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	54	New Jersey
+645268	M	TRUE	29000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	88	Washington
+646061	F	NA	11500	Widowed	TRUE	Rented	FALSE	2	54	Montana
+646808	M	TRUE	36000	Married	TRUE	Rented	FALSE	0	40	New Jersey
+647206	M	TRUE	65000	Married	FALSE	Homeowner with mortgage/loan	FALSE	4	47	Florida
+648220	M	TRUE	20000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	51	Ohio
+649827	F	NA	5500	Married	TRUE	NA	NA	NA	89	New York
+650803	M	TRUE	61000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	40	Massachusetts
+650961	F	TRUE	60000	Never Married	TRUE	Rented	FALSE	1	38	California
+655940	F	TRUE	35780	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	2	62	Florida
+661353	F	NA	180704	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	64	Illinois
+665669	F	TRUE	38000	Never Married	TRUE	Rented	FALSE	4	33	Pennsylvania
+667156	F	TRUE	40000	Married	TRUE	Rented	TRUE	1	46	New York
+668199	M	TRUE	160000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	45	Colorado
+668750	F	NA	1200	Never Married	FALSE	NA	NA	NA	24	Texas
+668777	M	NA	0	Never Married	FALSE	NA	NA	NA	33	Wisconsin
+673010	M	TRUE	63000	Married	TRUE	Rented	TRUE	1	46	Illinois
+674271	M	FALSE	0	Married	TRUE	Rented	TRUE	1	54	Massachusetts
+679084	M	NA	29200	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	88	Minnesota
+679364	F	FALSE	22800	Married	TRUE	Homeowner free and clear	FALSE	2	55	California
+680475	M	TRUE	2000	Never Married	TRUE	NA	NA	NA	21	Ohio
+680503	M	TRUE	110010	Never Married	TRUE	Rented	FALSE	1	33	New Jersey
+682848	F	TRUE	59000	Widowed	TRUE	Rented	FALSE	0	58	Oregon
+683320	F	TRUE	70200	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	32	Pennsylvania
+683867	M	TRUE	82000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	62	Oklahoma
+684640	M	TRUE	18200	Divorced/Separated	TRUE	Rented	FALSE	1	70	Maryland
+684701	M	NA	12600	Widowed	FALSE	Homeowner with mortgage/loan	FALSE	3	63	Iowa
+685624	M	TRUE	16000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	45	California
+685994	F	TRUE	21100	Married	FALSE	Homeowner free and clear	FALSE	2	63	Maryland
+688580	M	TRUE	48000	Married	TRUE	Rented	TRUE	2	22	Florida
+688736	F	NA	0	Married	TRUE	Rented	FALSE	2	34	Iowa
+692445	M	TRUE	140000	Married	TRUE	Homeowner with mortgage/loan	FALSE	5	48	Illinois
+693235	M	TRUE	36200	Married	TRUE	Homeowner free and clear	FALSE	2	43	Michigan
+693571	F	NA	0	Married	FALSE	Homeowner with mortgage/loan	FALSE	2	44	Michigan
+696895	M	TRUE	30000	Married	FALSE	Homeowner with mortgage/loan	FALSE	2	44	Tennessee
+699499	M	TRUE	65000	Never Married	TRUE	Rented	FALSE	2	29	North Carolina
+702348	F	NA	3000	Married	TRUE	Rented	TRUE	4	20	Texas
+702740	M	TRUE	104000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	35	New York
+705752	F	TRUE	34300	Widowed	TRUE	Rented	FALSE	1	71	Massachusetts
+706135	M	TRUE	120000	Married	TRUE	Homeowner free and clear	FALSE	2	41	South Carolina
+711954	F	TRUE	103500	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	44	Pennsylvania
+712409	M	TRUE	35000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	41	California
+714135	F	TRUE	56200	Never Married	TRUE	Rented	FALSE	1	40	New Mexico
+715902	F	TRUE	160000	Married	TRUE	Rented	FALSE	4	51	New York
+716518	M	TRUE	35050	Married	FALSE	Homeowner with mortgage/loan	FALSE	3	44	New York
+716521	M	TRUE	16100	Married	FALSE	Rented	FALSE	2	62	Louisiana
+719883	M	TRUE	21600	Never Married	FALSE	Rented	FALSE	1	30	Illinois
+721921	M	TRUE	32000	Married	TRUE	Rented	FALSE	3	39	Illinois
+723040	M	TRUE	120190	Married	TRUE	Homeowner free and clear	FALSE	2	54	New York
+724575	F	TRUE	100200	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	56	Massachusetts
+726057	F	TRUE	53000	Married	TRUE	Rented	TRUE	5	52	California
+728498	M	TRUE	120000	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	52	South Carolina
+733069	F	NA	48400	Married	TRUE	Homeowner free and clear	TRUE	1	45	Michigan
+733279	M	TRUE	9600	Married	FALSE	Rented	FALSE	0	52	Ohio
+733457	F	NA	10000	Divorced/Separated	TRUE	Rented	FALSE	0	86	Texas
+735845	M	TRUE	54000	Married	TRUE	Homeowner free and clear	FALSE	1	76	California
+737283	M	NA	0	Married	FALSE	Homeowner with mortgage/loan	FALSE	2	61	Michigan
+739344	M	NA	127500	Widowed	TRUE	Homeowner free and clear	FALSE	5	75	Kentucky
+739654	M	TRUE	45600	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	50	Pennsylvania
+743329	M	TRUE	100600	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	39	Michigan
+743605	F	TRUE	23400	Never Married	TRUE	Rented	FALSE	2	28	Pennsylvania
+748153	F	TRUE	34200	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	1	58	New York
+750282	M	NA	8900	Married	TRUE	Occupied with no rent	FALSE	1	89	Pennsylvania
+752338	M	TRUE	285000	Divorced/Separated	FALSE	Rented	FALSE	2	34	California
+755587	M	TRUE	38080	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	55	Pennsylvania
+756099	M	TRUE	70504	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	62	Wisconsin
+756667	F	TRUE	6300	Married	TRUE	Rented	TRUE	2	45	Pennsylvania
+756752	M	TRUE	17300	Never Married	FALSE	Rented	TRUE	2	29	Pennsylvania
+756892	M	NA	53000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	68	Kentucky
+757404	M	TRUE	22000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	35	West Virginia
+761350	M	TRUE	79100	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	50	New Jersey
+761380	M	TRUE	71800	Married	TRUE	Rented	TRUE	2	34	Pennsylvania
+761424	M	TRUE	90000	Married	TRUE	Homeowner free and clear	FALSE	2	39	Washington
+763255	M	TRUE	18000	Never Married	TRUE	Rented	TRUE	1	23	Minnesota
+766390	M	NA	2100	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	86	Florida
+768162	M	TRUE	190000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	57	California
+773461	F	TRUE	100000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	52	California
+773582	F	NA	27200	Widowed	TRUE	Homeowner free and clear	FALSE	2	74	California
+774920	M	TRUE	71000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	4	43	Virginia
+776005	F	TRUE	5500	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	3	48	California
+776265	F	TRUE	110000	Never Married	TRUE	Homeowner free and clear	FALSE	3	49	Michigan
+776471	M	NA	39900	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	64	Michigan
+778092	M	TRUE	60000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	38	New York
+778821	M	NA	23500	Widowed	TRUE	Homeowner free and clear	FALSE	2	79	Washington
+779164	M	TRUE	45000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	32	California
+782988	M	TRUE	110000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	53	Ohio
+786358	M	TRUE	60000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	56	Illinois
+789913	M	TRUE	30300	Married	TRUE	Rented	FALSE	2	68	California
+792130	F	NA	30000	Never Married	TRUE	Homeowner free and clear	FALSE	1	72	Wisconsin
+795198	F	FALSE	23800	Married	TRUE	Rented	FALSE	2	31	Florida
+799074	F	NA	56500	Married	TRUE	Homeowner free and clear	FALSE	3	74	Alabama
+799565	M	NA	1600	Never Married	FALSE	NA	NA	NA	23	Pennsylvania
+800960	M	NA	258000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	68	Florida
+801018	F	NA	45000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	64	South Carolina
+805224	F	TRUE	56000	Never Married	TRUE	Rented	TRUE	1	33	North Carolina
+805571	M	TRUE	100000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	41	Wisconsin
+809267	M	TRUE	91500	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	62	Illinois
+811443	F	TRUE	10200	Never Married	FALSE	Homeowner with mortgage/loan	FALSE	1	26	Colorado
+814516	F	TRUE	36000	Divorced/Separated	TRUE	Rented	TRUE	1	27	Wisconsin
+814627	M	TRUE	38000	Never Married	TRUE	Rented	FALSE	0	24	Michigan
+816773	M	TRUE	200000	Married	TRUE	Rented	TRUE	2	50	Michigan
+816872	M	NA	41000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	72	Wisconsin
+818228	M	NA	25750	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	2	73	Wisconsin
+819436	F	NA	56800	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	1	81	Pennsylvania
+819585	M	TRUE	36000	Never Married	FALSE	Rented	FALSE	3	38	North Carolina
+820384	M	TRUE	165050	Married	TRUE	Rented	FALSE	2	43	Missouri
+821107	F	TRUE	53900	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	68	Florida
+821682	M	TRUE	40000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	62	Illinois
+822729	M	NA	62130	Married	TRUE	Homeowner free and clear	FALSE	2	67	Ohio
+823146	F	NA	70000	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	1	81	Pennsylvania
+824378	F	NA	48000	Widowed	TRUE	Homeowner free and clear	FALSE	1	75	Missouri
+825129	M	TRUE	60000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	46	California
+825790	F	TRUE	42300	Married	TRUE	Homeowner free and clear	TRUE	1	39	Arkansas
+828208	M	TRUE	439400	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	69	New York
+829195	M	FALSE	3030	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	55	Ohio
+829722	F	NA	29000	Widowed	TRUE	Homeowner free and clear	FALSE	0	78	Tennessee
+830245	M	TRUE	120300	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	48	Ohio
+830758	F	TRUE	4390	Never Married	FALSE	Rented	TRUE	1	24	Michigan
+831497	M	TRUE	95000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	47	Illinois
+832435	M	TRUE	55001	Married	TRUE	Homeowner free and clear	FALSE	3	48	New York
+832866	M	NA	6000	Divorced/Separated	FALSE	Homeowner with mortgage/loan	FALSE	2	57	Wisconsin
+832949	M	TRUE	54000	Divorced/Separated	TRUE	Rented	FALSE	1	42	Kentucky
+833321	M	FALSE	30900	Never Married	FALSE	Homeowner with mortgage/loan	FALSE	2	51	Michigan
+835830	F	TRUE	51000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	41	Washington
+837381	M	TRUE	10800	Never Married	TRUE	NA	NA	NA	20	Virginia
+841342	M	TRUE	85050	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	62	Texas
+843811	F	TRUE	40000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	146.680196558591	Indiana
+844007	M	NA	0	Married	FALSE	NA	NA	NA	46	California
+845421	F	FALSE	4300	Married	TRUE	Rented	FALSE	0	27	Ohio
+846713	M	NA	250	Never Married	TRUE	NA	NA	NA	45	Florida
+847156	M	TRUE	72000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	52	Colorado
+847699	M	TRUE	26300	Never Married	TRUE	Homeowner with mortgage/loan	TRUE	4	26	New York
+848521	M	TRUE	18300	Married	FALSE	Rented	FALSE	3	44	California
+851013	M	TRUE	85200	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	63	Massachusetts
+851287	M	NA	12801	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	2	65	Colorado
+851744	F	TRUE	55000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	2	24	Michigan
+855914	F	FALSE	8400	Married	TRUE	Rented	FALSE	0	31	Connecticut
+856222	F	TRUE	70200	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	55	Hawaii
+857482	F	TRUE	43000	Divorced/Separated	FALSE	Homeowner with mortgage/loan	FALSE	1	63	Washington
+857511	F	TRUE	30	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	54	Illinois
+860763	M	TRUE	66000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	49	Michigan
+861046	F	TRUE	68000	Married	TRUE	Rented	TRUE	2	29	Pennsylvania
+861489	F	FALSE	17000	Divorced/Separated	FALSE	Homeowner with mortgage/loan	FALSE	1	56	New Jersey
+862412	M	TRUE	120000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	75	Pennsylvania
+863276	F	FALSE	19000	Married	TRUE	Rented	FALSE	1	46	Wisconsin
+863391	M	TRUE	17000	Married	TRUE	Rented	FALSE	2	20	Alabama
+863424	F	TRUE	62000	Never Married	TRUE	Rented	FALSE	1	42	Illinois
+863443	F	TRUE	9000	Never Married	FALSE	Rented	FALSE	2	48	New York
+864947	F	NA	22700	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	1	67	Arizona
+867842	F	NA	27400	Widowed	TRUE	Homeowner free and clear	FALSE	1	75	Pennsylvania
+868481	M	TRUE	30000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	36	Missouri
+869997	M	TRUE	62000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	28	Pennsylvania
+870169	M	TRUE	30000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	36	Kentucky
+870909	F	NA	4000	Married	TRUE	Homeowner free and clear	FALSE	2	57	Massachusetts
+871562	M	TRUE	37000	Never Married	FALSE	Rented	TRUE	2	19	Texas
+872071	M	TRUE	141100	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	57	Minnesota
+873626	F	TRUE	35000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	46	Texas
+874159	F	TRUE	7500	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	47	North Carolina
+875771	M	FALSE	175200	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	124.845087232534	Arkansas
+876972	F	TRUE	10000	Married	FALSE	Rented	TRUE	3	28	New York
+878578	M	TRUE	24000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	2	38	Texas
+878875	M	TRUE	40500	Married	TRUE	Rented	TRUE	2	37	Louisiana
+878882	M	TRUE	76000	Married	TRUE	Homeowner with mortgage/loan	FALSE	0	33	Minnesota
+880240	M	NA	0	Never Married	TRUE	NA	NA	NA	87	Georgia
+882950	F	NA	14500	Widowed	TRUE	Homeowner free and clear	FALSE	0	86	Wisconsin
+883639	M	TRUE	55000	Married	TRUE	Rented	FALSE	2	38	California
+884334	M	TRUE	51000	Married	TRUE	Rented	FALSE	2	52	Michigan
+885269	M	FALSE	32500	Married	FALSE	Homeowner with mortgage/loan	FALSE	3	50	New Jersey
+886647	F	TRUE	10600	Never Married	FALSE	Rented	FALSE	4	19	Georgia
+887135	M	NA	233000	Married	TRUE	Homeowner free and clear	FALSE	2	67	Missouri
+887400	M	TRUE	43000	Divorced/Separated	TRUE	Rented	FALSE	2	57	North Carolina
+892483	M	NA	100	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	68	Minnesota
+896869	F	FALSE	22000	Divorced/Separated	FALSE	Rented	FALSE	1	63	Alabama
+897580	M	TRUE	59500	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	50	Pennsylvania
+898396	M	TRUE	45000	Married	TRUE	Homeowner free and clear	FALSE	3	47	Michigan
+900377	M	TRUE	70000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	47	Arizona
+900986	F	TRUE	95050	Married	TRUE	Rented	FALSE	1	33	Illinois
+901246	F	TRUE	65000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	39	Oregon
+902413	M	TRUE	52000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	45	Maryland
+904144	F	NA	5700	Widowed	TRUE	Homeowner free and clear	FALSE	1	93	California
+904594	F	NA	0	Married	FALSE	Rented	TRUE	2	50	Connecticut
+904673	F	NA	0	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	52	Illinois
+907824	F	FALSE	43000	Never Married	FALSE	Rented	FALSE	1	55	New Jersey
+908176	F	NA	10100	Widowed	TRUE	Rented	FALSE	0	76	Pennsylvania
+908928	M	TRUE	32000	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	4	56	Illinois
+909002	F	NA	0	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	31	New York
+911763	F	NA	26800	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	2	77	Pennsylvania
+912196	F	NA	14500	Divorced/Separated	TRUE	Rented	FALSE	0	84	Michigan
+913398	M	FALSE	29000	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	51	New York
+913679	M	NA	22000	Married	TRUE	Homeowner free and clear	FALSE	2	83	California
+914187	F	TRUE	83000	Married	TRUE	Homeowner with mortgage/loan	TRUE	3	25	Florida
+924426	M	TRUE	65000	Divorced/Separated	TRUE	Rented	TRUE	2	37	Oregon
+924897	F	TRUE	155800	Divorced/Separated	TRUE	Rented	FALSE	1	50	Arizona
+925421	M	TRUE	35600	Married	FALSE	Homeowner with mortgage/loan	FALSE	2	49	Georgia
+926808	M	TRUE	17000	Married	FALSE	Rented	FALSE	2	42	Kentucky
+927129	F	FALSE	16500	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	6	32	Maryland
+928004	M	NA	17000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	58	Missouri
+928569	F	TRUE	14800	Married	TRUE	Rented	TRUE	2	21	Florida
+931141	M	TRUE	33000	Divorced/Separated	FALSE	Rented	TRUE	4	25	South Carolina
+931352	F	NA	9600	Widowed	TRUE	Homeowner free and clear	FALSE	1	85	California
+931449	M	NA	42400	Married	TRUE	Homeowner free and clear	FALSE	2	0	Missouri
+932143	F	TRUE	50000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	52	Texas
+932574	M	NA	12500	Never Married	TRUE	Rented	FALSE	0	66	Massachusetts
+934426	M	TRUE	28000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	62	Louisiana
+938913	M	NA	47000	Married	TRUE	Homeowner free and clear	FALSE	1	61	Massachusetts
+940084	M	TRUE	53000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	2	29	California
+948494	M	TRUE	385000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	34	Ohio
+949925	F	TRUE	790	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	44	Florida
+950326	M	TRUE	15000	Never Married	FALSE	Rented	FALSE	1	26	Virginia
+952729	F	TRUE	35000	Never Married	TRUE	Rented	FALSE	1	28	Texas
+953043	F	TRUE	20000	Never Married	TRUE	Rented	TRUE	2	19	Texas
+955457	M	TRUE	32000	Married	TRUE	Homeowner free and clear	FALSE	4	43	Kansas
+957083	M	NA	30400	Divorced/Separated	TRUE	Rented	TRUE	0	64	Pennsylvania
+958271	F	TRUE	180000	Divorced/Separated	TRUE	Rented	FALSE	1	39	New York
+960591	M	TRUE	40000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	49	South Carolina
+961665	M	NA	0	Never Married	FALSE	NA	NA	NA	45	Mississippi
+964297	M	TRUE	10000	Married	TRUE	Homeowner with mortgage/loan	FALSE	5	56	Virginia
+965058	F	FALSE	6000	Never Married	FALSE	Rented	TRUE	1	28	Tennessee
+965618	M	TRUE	113500	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	2	48	Texas
+965689	M	NA	17990	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	56	Texas
+966699	M	TRUE	70000	Divorced/Separated	TRUE	Rented	FALSE	1	50	Georgia
+968478	F	TRUE	46800	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	3	48	Virginia
+968830	M	TRUE	4230	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	3	67	Ohio
+970098	M	NA	19000	Married	TRUE	Rented	TRUE	2	65	New Jersey
+971703	M	FALSE	-8700	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	60	Oklahoma
+971768	M	TRUE	8000	Never Married	FALSE	NA	NA	NA	45	Alabama
+973386	M	TRUE	45800	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	58	Maryland
+973839	M	TRUE	45600	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	67	Virginia
+975187	F	TRUE	46000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	3	48	New York
+975652	F	TRUE	61000	Never Married	TRUE	Rented	FALSE	1	35	Pennsylvania
+979475	F	TRUE	75000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	56	Nebraska
+979736	M	TRUE	32000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	36	Connecticut
+980375	F	TRUE	84000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	61	Wisconsin
+980412	F	NA	28800	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	62	Connecticut
+980947	F	NA	2400	Never Married	TRUE	Rented	TRUE	2	20	Florida
+985415	F	TRUE	39000	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	1	55	Illinois
+986039	M	TRUE	42000	Never Married	FALSE	Rented	FALSE	1	36	Pennsylvania
+986096	M	TRUE	172000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	41	Illinois
+987046	M	TRUE	120350	Married	TRUE	Rented	FALSE	1	44	Wisconsin
+987884	F	TRUE	21000	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	2	50	Illinois
+988264	M	FALSE	5000	Married	TRUE	Homeowner with mortgage/loan	FALSE	5	55	Alabama
+988580	M	NA	17100	Married	TRUE	Homeowner with mortgage/loan	FALSE	0	77	Massachusetts
+991697	F	NA	11000	Never Married	FALSE	Rented	FALSE	2	40	California
+991794	M	NA	14600	Married	TRUE	Homeowner free and clear	FALSE	1	93	New Hampshire
+991888	M	NA	67000	Married	TRUE	Homeowner free and clear	FALSE	1	93	South Dakota
+993668	F	TRUE	80000	Never Married	TRUE	Rented	TRUE	2	39	Illinois
+994628	F	NA	0	Married	FALSE	Rented	FALSE	2	29	California
+996953	F	FALSE	0	Married	FALSE	Rented	TRUE	3	35	Georgia
+997940	F	NA	0	Married	TRUE	Rented	TRUE	2	27	Texas
+998185	F	NA	6000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	36	California
+999444	M	TRUE	24000	Married	TRUE	Rented	FALSE	2	24	Alabama
+1000510	M	TRUE	90000	Married	FALSE	Occupied with no rent	TRUE	3	41	Connecticut
+1002936	F	TRUE	55000	Never Married	TRUE	Rented	FALSE	2	41	Texas
+1003135	M	NA	15400	Married	TRUE	NA	NA	NA	88	Maryland
+1003695	F	NA	0	Never Married	TRUE	Rented	FALSE	1	55	Georgia
+1005559	M	NA	82800	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	63	Michigan
+1006488	F	TRUE	38000	Divorced/Separated	TRUE	Rented	FALSE	0	59	Minnesota
+1010216	F	TRUE	14800	Never Married	TRUE	Rented	FALSE	6	28	Massachusetts
+1016594	M	NA	14400	Married	TRUE	Rented	FALSE	1	69	Ohio
+1022619	M	NA	62800	Divorced/Separated	TRUE	Rented	FALSE	1	72	West Virginia
+1024624	F	TRUE	31900	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	1	62	Ohio
+1024809	M	TRUE	18000	Married	TRUE	Homeowner with mortgage/loan	TRUE	1	24	Nevada
+1026982	M	TRUE	31200	Never Married	FALSE	Rented	TRUE	2	26	Connecticut
+1029778	M	TRUE	11200	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	84	Minnesota
+1031473	M	TRUE	259300	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	4	65	Minnesota
+1031701	M	TRUE	45100	Never Married	TRUE	Rented	FALSE	1	44	Georgia
+1032071	F	FALSE	7190	Never Married	TRUE	Rented	TRUE	1	35	South Carolina
+1032120	F	TRUE	184000	Married	FALSE	Homeowner with mortgage/loan	FALSE	2	41	Ohio
+1032402	M	TRUE	22800	Married	TRUE	Rented	TRUE	2	72	Indiana
+1033341	M	TRUE	4800	Married	TRUE	Occupied with no rent	FALSE	2	34	Texas
+1033571	M	TRUE	31900	Divorced/Separated	TRUE	Rented	FALSE	2	68	Ohio
+1034979	F	NA	750	Never Married	TRUE	Rented	FALSE	1	38	Indiana
+1034994	F	NA	10400	Widowed	TRUE	Occupied with no rent	FALSE	2	57	Ohio
+1036358	F	TRUE	44500	Divorced/Separated	TRUE	Rented	TRUE	1	48	Georgia
+1036746	F	NA	33100	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	2	65	New York
+1037495	F	TRUE	22800	Never Married	FALSE	Rented	TRUE	1	30	New York
+1037857	M	TRUE	39000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	22	Ohio
+1038537	F	TRUE	32000	Never Married	FALSE	Homeowner free and clear	FALSE	1	42	Ohio
+1039209	M	NA	1000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	59	Washington
+1040818	M	TRUE	285500	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	46	North Carolina
+1042303	M	TRUE	71300	Married	TRUE	Rented	FALSE	2	28	Missouri
+1042791	M	FALSE	25800	Married	TRUE	Rented	TRUE	2	46	Ohio
+1044036	F	TRUE	52000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	31	Ohio
+1046317	F	NA	19000	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	1	89	Indiana
+1046696	M	TRUE	24800	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	65	Maryland
+1047534	M	TRUE	200000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	130.401604710147	Washington
+1048652	F	NA	1400	Divorced/Separated	TRUE	Rented	TRUE	1	77	Louisiana
+1048836	M	TRUE	40000	Married	TRUE	Rented	FALSE	3	55	Maryland
+1051439	M	TRUE	96000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	40	Massachusetts
+1052064	M	TRUE	100000	Never Married	TRUE	Rented	FALSE	1	33	Connecticut
+1053513	M	TRUE	135070	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	59	Minnesota
+1055360	F	NA	0	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	58	New York
+1057167	F	NA	29100	Widowed	TRUE	NA	NA	NA	93	North Carolina
+1057778	F	NA	18000	Never Married	TRUE	Rented	FALSE	4	19	California
+1058755	F	TRUE	37000	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	1	59	Texas
+1063014	F	TRUE	82000	Married	TRUE	Rented	FALSE	2	43	California
+1064979	F	TRUE	45000	Divorced/Separated	TRUE	Rented	FALSE	2	43	Pennsylvania
+1065059	F	FALSE	26600	Never Married	FALSE	Rented	FALSE	1	28	California
+1065669	F	TRUE	52500	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	61	Oregon
+1068379	F	TRUE	80700	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	61	Massachusetts
+1068855	M	TRUE	171000	Married	TRUE	Homeowner with mortgage/loan	FALSE	6	59	Pennsylvania
+1072259	M	NA	10500	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	60	Indiana
+1072827	M	TRUE	48000	Married	FALSE	Rented	FALSE	4	64	California
+1075920	M	TRUE	135000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	47	Illinois
+1076007	M	TRUE	25000	Never Married	TRUE	Rented	FALSE	3	25	Pennsylvania
+1079462	F	TRUE	9500	Never Married	TRUE	Rented	FALSE	2	36	Arizona
+1079878	F	NA	37200	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	62	Michigan
+1082333	M	TRUE	45000	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	2	50	South Carolina
+1083939	M	NA	0	Married	TRUE	Homeowner free and clear	FALSE	1	73	Minnesota
+1084583	F	TRUE	12000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	41	Maryland
+1086100	F	FALSE	28000	Never Married	FALSE	Rented	FALSE	2	26	Connecticut
+1086785	F	NA	11600	Married	TRUE	Homeowner free and clear	FALSE	2	84	Washington
+1087193	F	TRUE	99000	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	0	75	Illinois
+1088407	M	TRUE	180000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	36	California
+1089530	F	TRUE	48000	Widowed	TRUE	Rented	FALSE	1	54	Alabama
+1090019	M	TRUE	34000	Married	FALSE	Rented	FALSE	2	57	Ohio
+1095968	F	TRUE	69500	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	46	Florida
+1096606	M	TRUE	52500	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	50	Maine
+1097109	M	TRUE	44000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	50	Ohio
+1097837	F	FALSE	26800	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	53	California
+1100932	F	FALSE	11400	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	40	New Jersey
+1105503	M	TRUE	52200	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	62	California
+1108038	F	TRUE	45500	Married	TRUE	Rented	TRUE	2	40	Texas
+1108230	F	TRUE	30400	Widowed	TRUE	Rented	FALSE	1	64	New York
+1110560	M	TRUE	12000	Never Married	FALSE	Homeowner with mortgage/loan	FALSE	3	20	Texas
+1110962	M	FALSE	3400	Divorced/Separated	FALSE	Rented	FALSE	0	58	North Carolina
+1111699	M	TRUE	117200	Never Married	TRUE	Rented	FALSE	4	40	Pennsylvania
+1114096	M	TRUE	33500	Married	TRUE	Rented	FALSE	1	46	California
+1115937	F	NA	12500	Never Married	TRUE	Rented	FALSE	0	58	Pennsylvania
+1116742	M	TRUE	21600	Married	TRUE	Rented	FALSE	2	65	Michigan
+1117486	M	TRUE	33700	Married	TRUE	Homeowner free and clear	FALSE	1	64	New Jersey
+1117622	F	TRUE	66000	Never Married	TRUE	Homeowner with mortgage/loan	TRUE	1	26	Nebraska
+1120122	M	NA	6000	Never Married	TRUE	NA	NA	NA	80	Mississippi
+1121202	F	TRUE	116000	Married	TRUE	Rented	FALSE	2	37	Pennsylvania
+1121810	F	NA	57700	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	1	80	New York
+1127889	F	TRUE	64270	Divorced/Separated	TRUE	Rented	FALSE	2	55	Virginia
+1131536	M	TRUE	80000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	57	New York
+1131990	F	TRUE	80000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	2	51	Texas
+1132236	F	TRUE	40000	Never Married	TRUE	Rented	FALSE	1	55	Michigan
+1133606	F	NA	24000	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	1	67	Tennessee
+1133846	F	TRUE	75000	Married	TRUE	Homeowner with mortgage/loan	FALSE	5	47	Michigan
+1137728	F	NA	10800	Widowed	TRUE	Homeowner free and clear	FALSE	1	84	New York
+1139422	F	NA	9600	Widowed	TRUE	Rented	FALSE	1	85	New Mexico
+1140783	F	TRUE	39000	Married	TRUE	Rented	FALSE	2	43	Nebraska
+1140973	M	NA	36000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	43	Tennessee
+1143785	F	TRUE	145000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	50	Tennessee
+1144205	M	TRUE	28000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	65	Michigan
+1145290	F	TRUE	450	Married	TRUE	Rented	FALSE	1	33	New York
+1149284	M	TRUE	28800	Divorced/Separated	TRUE	Homeowner with mortgage/loan	TRUE	1	40	Indiana
+1150024	M	TRUE	36000	Married	TRUE	Rented	FALSE	2	37	Washington
+1152584	F	NA	9600	Divorced/Separated	TRUE	Rented	FALSE	0	73	New Jersey
+1152642	M	NA	0	Never Married	FALSE	Rented	FALSE	1	54	Virginia
+1159665	M	TRUE	37000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	46	Maryland
+1159694	M	TRUE	50000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	41	Minnesota
+1159904	M	TRUE	100000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	39	Ohio
+1160167	M	NA	41500	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	74	Maryland
+1165177	M	TRUE	40000	Divorced/Separated	TRUE	Rented	FALSE	2	38	Indiana
+1165631	M	TRUE	41000	Never Married	TRUE	Rented	TRUE	1	37	California
+1167155	M	TRUE	153000	Never Married	TRUE	Rented	FALSE	1	32	New York
+1169067	M	TRUE	165100	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	71	California
+1170716	F	NA	15200	Widowed	TRUE	Rented	FALSE	1	65	Pennsylvania
+1171358	F	TRUE	75000	Never Married	TRUE	Rented	TRUE	1	40	California
+1171408	M	TRUE	9000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	33	Montana
+1172770	M	NA	74500	Married	TRUE	Homeowner free and clear	FALSE	2	62	Connecticut
+1175925	M	NA	0	Married	TRUE	Homeowner with mortgage/loan	FALSE	5	59	New Mexico
+1176266	F	TRUE	60000	Never Married	FALSE	Rented	TRUE	1	45	Tennessee
+1178989	M	TRUE	44000	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	2	58	Virginia
+1180739	F	TRUE	115800	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	52	California
+1181596	M	TRUE	57000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	55	Texas
+1184851	F	TRUE	42000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	66	Pennsylvania
+1185185	M	NA	19000	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	71	Louisiana
+1185382	F	NA	7200	Never Married	TRUE	NA	NA	NA	26	Mississippi
+1192089	M	NA	49000	Married	TRUE	Homeowner free and clear	FALSE	2	77	California
+1194722	F	FALSE	3160	Never Married	FALSE	Rented	FALSE	0	40	Massachusetts
+1197386	F	TRUE	25000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	55	Alabama
+1198992	M	NA	94600	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	70	California
+1199409	M	TRUE	18000	Never Married	FALSE	Rented	FALSE	1	34	Missouri
+1200487	M	NA	0	Never Married	FALSE	NA	NA	NA	36	Texas
+1201949	M	NA	25300	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	4	83	Illinois
+1210039	F	TRUE	48000	Never Married	FALSE	Rented	FALSE	0	48	New York
+1210604	F	NA	31500	Widowed	TRUE	Rented	FALSE	0	89	New York
+1211323	M	NA	46200	Widowed	TRUE	Rented	TRUE	1	74	Texas
+1212823	F	TRUE	328000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	3	37	Ohio
+1213106	M	TRUE	60000	Married	TRUE	Homeowner free and clear	TRUE	2	38	New York
+1213329	F	TRUE	137000	Divorced/Separated	TRUE	Rented	TRUE	1	44	South Carolina
+1213522	M	TRUE	15400	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	58	New Hampshire
+1215332	F	TRUE	42000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	64	New Jersey
+1216026	M	NA	9600	Never Married	FALSE	Rented	FALSE	6	50	Maryland
+1216094	M	NA	32100	Married	TRUE	Homeowner free and clear	FALSE	2	69	Tennessee
+1216112	M	TRUE	46000	Never Married	TRUE	Homeowner free and clear	FALSE	1	41	Pennsylvania
+1216615	F	NA	25000	Widowed	TRUE	Homeowner free and clear	FALSE	3	83	California
+1217985	F	NA	19000	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	2	74	Ohio
+1218268	F	NA	0	Divorced/Separated	TRUE	Rented	FALSE	1	57	Arizona
+1219346	M	NA	0	Never Married	FALSE	NA	NA	NA	23	California
+1222380	M	TRUE	85000	Married	FALSE	Homeowner with mortgage/loan	FALSE	2	33	California
+1222630	F	TRUE	78000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	52	South Carolina
+1223510	F	NA	19600	Widowed	TRUE	Homeowner free and clear	FALSE	2	76	New York
+1224734	M	TRUE	65000	Never Married	TRUE	Occupied with no rent	FALSE	1	52	Ohio
+1225516	F	TRUE	104000	Never Married	TRUE	Rented	FALSE	1	48	Texas
+1225838	M	TRUE	75000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	62	Oklahoma
+1227678	M	TRUE	150000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	52	Ohio
+1229417	F	TRUE	48000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	0	Washington
+1231777	F	TRUE	91010	Never Married	TRUE	Rented	FALSE	1	52	California
+1234349	F	TRUE	68400	Married	TRUE	Homeowner with mortgage/loan	TRUE	1	29	Florida
+1236386	F	NA	12600	Widowed	TRUE	Homeowner free and clear	FALSE	1	78	Pennsylvania
+1236514	F	TRUE	80000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	61	New York
+1236675	M	TRUE	40200	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	39	Pennsylvania
+1237055	M	TRUE	95000	Married	TRUE	Rented	FALSE	1	39	Massachusetts
+1238436	F	NA	0	Married	FALSE	Rented	FALSE	2	25	Tennessee
+1238518	M	NA	13200	Married	TRUE	Homeowner free and clear	FALSE	2	78	Pennsylvania
+1238678	M	TRUE	65000	Married	FALSE	Homeowner with mortgage/loan	FALSE	1	40	Iowa
+1239370	F	TRUE	45000	Married	TRUE	Homeowner with mortgage/loan	TRUE	2	50	Oklahoma
+1239496	M	TRUE	104000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	33	West Virginia
+1241524	M	TRUE	50000	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	2	56	California
+1241975	M	TRUE	35400	Married	FALSE	Homeowner with mortgage/loan	FALSE	2	51	New York
+1245887	F	TRUE	615000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	44	Pennsylvania
+1245912	F	TRUE	14000	Married	TRUE	Occupied with no rent	FALSE	1	28	Ohio
+1249187	F	TRUE	60000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	55	Texas
+1250656	M	TRUE	63000	Married	TRUE	Homeowner with mortgage/loan	FALSE	6	55	Indiana
+1250816	F	TRUE	50000	Never Married	TRUE	Rented	FALSE	1	28	Indiana
+1253904	M	TRUE	100000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	55	New Jersey
+1254684	M	NA	20800	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	93	Florida
+1255530	M	FALSE	2400	Never Married	FALSE	Rented	TRUE	1	50	Tennessee
+1258309	M	TRUE	22000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	52	Pennsylvania
+1259310	M	TRUE	10000	Never Married	FALSE	Rented	TRUE	4	23	New York
+1259643	F	FALSE	0	Divorced/Separated	TRUE	Rented	TRUE	1	57	West Virginia
+1262812	M	TRUE	60000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	70	Maine
+1262853	M	TRUE	8000	Never Married	TRUE	NA	NA	NA	20	Mississippi
+1263543	M	NA	19200	Married	TRUE	Homeowner free and clear	FALSE	3	77	New York
+1264160	F	NA	34400	Widowed	TRUE	Homeowner free and clear	FALSE	1	80	Michigan
+1264817	F	TRUE	64000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	51	Arkansas
+1264848	M	TRUE	36000	Never Married	TRUE	Rented	FALSE	0	40	Pennsylvania
+1267400	M	NA	25000	Divorced/Separated	TRUE	Rented	FALSE	0	70	Florida
+1267682	F	NA	18200	Widowed	TRUE	Homeowner free and clear	FALSE	2	74	Florida
+1267710	M	TRUE	68000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	2	42	Pennsylvania
+1268916	M	TRUE	49000	Married	FALSE	Rented	FALSE	2	42	California
+1269051	F	NA	137600	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	1	69	Pennsylvania
+1269422	M	TRUE	36000	Never Married	TRUE	NA	NA	NA	26	Virginia
+1269661	F	NA	13600	Married	FALSE	Homeowner free and clear	FALSE	2	59	New Jersey
+1273216	M	NA	0	Married	FALSE	Rented	FALSE	2	59	New York
+1274592	M	TRUE	224000	Widowed	TRUE	Homeowner free and clear	FALSE	2	83	California
+1276808	M	TRUE	40000	Never Married	FALSE	Rented	FALSE	1	27	Ohio
+1278230	F	TRUE	110000	Married	TRUE	Homeowner with mortgage/loan	TRUE	2	33	Tennessee
+1278909	M	NA	26910	Married	TRUE	Homeowner free and clear	FALSE	5	70	Missouri
+1280826	M	TRUE	120000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	40	Pennsylvania
+1281448	M	NA	10600	Widowed	TRUE	Homeowner free and clear	FALSE	2	47	Georgia
+1282540	M	NA	35870	Never Married	TRUE	Homeowner free and clear	FALSE	1	52	California
+1282762	M	NA	0	Never Married	FALSE	NA	NA	NA	41	California
+1283591	M	NA	65000	Married	TRUE	Homeowner free and clear	FALSE	2	84	Missouri
+1283783	F	TRUE	40000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	63	Vermont
+1283962	M	TRUE	23950	Never Married	FALSE	Rented	FALSE	1	65	California
+1284555	F	TRUE	191500	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	41	Texas
+1285807	F	TRUE	24000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	31	Minnesota
+1288195	M	TRUE	2000	Never Married	TRUE	Rented	FALSE	0	28	Ohio
+1293509	M	NA	10400	Never Married	TRUE	Rented	TRUE	0	34	Arizona
+1295682	M	NA	250700	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	76	Minnesota
+1297652	M	TRUE	165200	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	62	California
+1299959	M	TRUE	19200	Married	TRUE	Rented	FALSE	3	51	California
+1303744	M	TRUE	23000	Divorced/Separated	TRUE	Rented	TRUE	2	44	Missouri
+1303929	F	FALSE	43400	Never Married	TRUE	Rented	FALSE	1	126.737284407951	West Virginia
+1305771	F	TRUE	14400	Never Married	TRUE	Rented	TRUE	1	31	Virginia
+1307013	F	NA	0	Widowed	FALSE	Rented	FALSE	5	55	New York
+1310634	M	TRUE	18000	Never Married	FALSE	Rented	FALSE	0	24	California
+1314429	M	NA	39000	Married	TRUE	Homeowner free and clear	FALSE	2	69	Michigan
+1317659	M	TRUE	55000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	32	Michigan
+1321154	F	NA	8000	Widowed	TRUE	NA	NA	NA	83	Montana
+1322627	M	NA	20600	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	54	Connecticut
+1324576	M	TRUE	30000	Married	TRUE	Homeowner with mortgage/loan	FALSE	1	39	Pennsylvania
+1327830	M	NA	47000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	67	Wisconsin
+1328084	F	FALSE	4000	Married	TRUE	Rented	FALSE	2	42	Georgia
+1328836	M	NA	54100	Widowed	TRUE	Homeowner free and clear	FALSE	2	86	Kentucky
+1329294	M	TRUE	75200	Married	TRUE	Homeowner free and clear	FALSE	2	65	Florida
+1329913	F	NA	12400	Divorced/Separated	TRUE	Rented	FALSE	0	64	New York
+1333775	M	FALSE	22250	Married	TRUE	Rented	FALSE	3	40	California
+1335632	M	TRUE	28500	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	56	Florida
+1339166	F	TRUE	40000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	46	Utah
+1342135	F	NA	0	Never Married	TRUE	NA	NA	NA	31	Mississippi
+1342272	F	FALSE	1200	Married	FALSE	Rented	FALSE	2	27	Oklahoma
+1348440	M	TRUE	213000	Married	TRUE	Homeowner free and clear	FALSE	2	62	New York
+1353087	M	NA	0	Never Married	FALSE	NA	NA	NA	25	Idaho
+1354211	M	TRUE	136800	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	60	Pennsylvania
+1356541	F	NA	0	Never Married	TRUE	Rented	TRUE	1	21	Kentucky
+1356693	M	TRUE	50000	Married	TRUE	Homeowner free and clear	FALSE	3	47	Missouri
+1358975	F	TRUE	92000	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	1	46	North Carolina
+1359790	M	NA	79950	Married	TRUE	Homeowner free and clear	FALSE	2	67	West Virginia
+1359848	F	FALSE	13000	Married	FALSE	Homeowner free and clear	FALSE	4	59	Oregon
+1361012	F	NA	255000	Widowed	TRUE	Homeowner free and clear	FALSE	1	113.337207373232	Tennessee
+1361709	M	NA	10800	Married	TRUE	Rented	FALSE	2	70	West Virginia
+1362854	F	NA	35700	Married	FALSE	Homeowner with mortgage/loan	FALSE	1	28	Illinois
+1364327	M	TRUE	30000	Married	TRUE	Rented	FALSE	2	40	Texas
+1364927	M	TRUE	160000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	59	Maine
+1366883	F	TRUE	28000	Married	TRUE	Rented	FALSE	1	32	Michigan
+1369231	M	NA	252000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	73	California
+1369460	M	FALSE	0	Never Married	FALSE	Homeowner free and clear	FALSE	3	50	North Dakota
+1369740	M	NA	48330	Widowed	TRUE	Rented	FALSE	1	64	New York
+1370515	F	NA	15300	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	62	Minnesota
+1371785	F	TRUE	44900	Divorced/Separated	FALSE	Homeowner with mortgage/loan	FALSE	4	47	Illinois
+1372296	F	NA	62000	Widowed	TRUE	Homeowner free and clear	TRUE	1	62	Oklahoma
+1375846	F	TRUE	113950	Divorced/Separated	TRUE	Rented	FALSE	2	0	Louisiana
+1377197	M	NA	50000	Married	TRUE	Rented	TRUE	2	38	Massachusetts
+1377390	M	TRUE	63450	Married	TRUE	Homeowner free and clear	FALSE	3	69	Ohio
+1379036	M	FALSE	12000	Divorced/Separated	FALSE	Occupied with no rent	FALSE	2	61	Michigan
+1379307	M	NA	0	Never Married	FALSE	NA	NA	NA	23	Minnesota
+1380075	F	NA	248500	Widowed	TRUE	Homeowner with mortgage/loan	FALSE	1	81	New Jersey
+1386080	F	NA	27000	Divorced/Separated	TRUE	Homeowner free and clear	FALSE	1	65	New York
+1386114	M	TRUE	40000	Married	TRUE	Rented	FALSE	2	41	Texas
+1386763	F	TRUE	43600	Never Married	TRUE	Rented	TRUE	1	29	Tennessee
+1388751	F	FALSE	39000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	45	Minnesota
+1390506	M	TRUE	76000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	33	Illinois
+1391586	M	NA	22000	Married	TRUE	Homeowner free and clear	FALSE	4	64	Ohio
+1392011	F	TRUE	402000	Married	TRUE	Homeowner free and clear	FALSE	1	50	Virginia
+1392648	M	TRUE	70000	Married	TRUE	Homeowner with mortgage/loan	FALSE	5	60	Michigan
+1393413	M	TRUE	9100	Never Married	TRUE	Occupied with no rent	FALSE	1	64	New Jersey
+1393715	F	FALSE	25500	Never Married	TRUE	Rented	FALSE	1	48	Nebraska
+1398054	M	TRUE	125000	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	34	Maryland
+1400440	M	NA	0	Married	TRUE	NA	NA	NA	37	Missouri
+1401383	F	TRUE	50000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	57	Michigan
+1401938	F	TRUE	32000	Divorced/Separated	TRUE	Rented	FALSE	2	24	California
+1402550	M	TRUE	200000	Married	TRUE	Homeowner with mortgage/loan	TRUE	2	37	Florida
+1403515	M	TRUE	382500	Married	TRUE	Homeowner with mortgage/loan	FALSE	3	66	Indiana
+1405584	F	NA	4000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	55	California
+1407195	M	TRUE	33000	Never Married	FALSE	Homeowner with mortgage/loan	TRUE	1	30	Michigan
+1407867	M	TRUE	100300	Divorced/Separated	TRUE	Homeowner with mortgage/loan	FALSE	3	53	Arizona
+1407895	M	TRUE	35000	Married	TRUE	Homeowner with mortgage/loan	FALSE	2	55	Hawaii
+1407916	M	TRUE	30000	Never Married	TRUE	Homeowner with mortgage/loan	FALSE	1	46	Louisiana
+1408280	F	TRUE	18000	Married	TRUE	Homeowner with mortgage/loan	FALSE	4	52	Wisconsin
+1408913	F	NA	1000	Married	TRUE	Rented	FALSE	0	60	Michigan
+1409249	M	NA	36200	Married	TRUE	Homeowner free and clear	FALSE	5	73	New York
+1411132	F	FALSE	46000	Divorced/Separated	TRUE	Rented	TRUE	1	56	Florida
+1411860	F	NA	5400	Widowed	TRUE	NA	NA	NA	89	Pennsylvania
+1412161	M	TRUE	38500	Married	TRUE	Rented	TRUE	1	29	Georgia
+1412971	M	NA	43400	Married	TRUE	Homeowner free and clear	FALSE	1	88	Ohio
+1414286	F	FALSE	20900	Married	FALSE	Rented	FALSE	2	36	New York

@@ -26,6 +26,8 @@ No claim of license on derived works.
   <dd>working with <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a></dd>
   <dt>UCICar</dt>
   <dd>working with <a href="http://archive.ics.uci.edu/ml/machine-learning-databases/car/">http://archive.ics.uci.edu/ml/machine-learning-databases/car/</a></dd>
+  <dt>Custdata</dt>
+  <dd>Synthetic example data derived from Census PUMS data to demonstrate retail related plots.</dd>
 </dl>
 
 
