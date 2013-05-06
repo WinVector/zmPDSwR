@@ -22,10 +22,10 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Un
 </dl>    
 
 Load with 
-'''
+```
 custdata = read.table('custdata.tsv',header=T,sep='\t')
 custdata2 = read.table('custdata2.tsv',header=T,sep='\t')
-'''
+```
 
 
 ### Our works ([Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc]):
