@@ -31,19 +31,5 @@ No claim of license on derived works.
 </dl>
 
 
-### legacy files (moved into directories):
-
-<dl>
-  <dt>car.data.csv</dt>
-    <dd>moved to UCICar</dd>
-  <dt>GCDSteps.R</dt>
-    <dd>moved to Statlog</dd>
-  <dt>GCDSteps.RData</dt>
-    <dd>moved to Statlog</dd>
-  <dt>phsample.RData</dt>
-    <dd>moved to PUMS</dd>
-  <dt>PUMS1.R </dt>
-    <dd>moved to PUMS</dd>
-</dl>
 
   [by-nc]: http://creativecommons.org/licenses/by-nc/3.0/ "Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)"
