@@ -81,3 +81,28 @@ plot(performance(eval,"tpr","fpr"))
 attributes(performance(eval,'auc'))$y.values[[1]]
 ```
 
+Saturated model / Bayes rate estimate
+
+```R
+quantized <- subset(spamD,T,select=spamVars)
+quantized <- as.data.frame(lapply(quantized,
+   function(col) { ecdf(col)(col) }))
+quantized$groupId <- sapply(1:dim(quantized)[[1]],
+   function(row) paste(floor(5*quantized[row,spamVars]),collapse=' '))
+quantized$spam <- spamD$spam
+satTable <- table(quantized$groupId,quantized$spam)
+quantized$satPred <- sapply(1:(dim(quantized)[[1]]),function(rowNum) {
+   row <- satTable[quantized[rowNum,'groupId'],]
+   row['spam']>row['non-spam']
+   })
+quantized$groupCount <- table(quantized$groupId)[quantized$groupId]
+table(quantized$spam,quantized$satPred>0.5)
+repeated <- subset(quantized,groupCount>1)
+cRepeated = table(repeated$spam,repeated$satPred>0.5)
+print(cRepeated)
+#           FALSE TRUE
+#  non-spam  1022    2
+#  spam        31  848
+print((cRepeated[1,1]+cRepeated[2,2])/sum(cRepeated))
+# [1] 0.982659
+```
