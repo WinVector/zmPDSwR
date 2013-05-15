@@ -1,4 +1,5 @@
-## Support files for zmPDSwR
+## Support files for "Practical Data Science with R" 
+# by Nina Zumel and John Mount http://www.manning.com/zumel/
 
 Works derived from others (data sets) remain controlled by them.  We are distributing as these parties have allowed and not making any claim or grant of additional rights or license.
 
