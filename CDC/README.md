@@ -43,16 +43,46 @@ Use SQLScrewdriver to load fixed field data into a H2 database:
 
 Get at a sample of the data from R:
 ```R
-  options( java.parameters = "-Xmx2g" )
-  library(RJDBC)
-  drv <- JDBC("org.h2.Driver","h2-1.3.170.jar",identifier.quote="'")
-  options <- ";LOG=0;CACHE_SIZE=65536;LOCK_MODE=0;UNDO_LOG=0"
-  conn <- dbConnect(drv,paste("jdbc:h2:NATAL",options,sep=''),"u","u")
-  d <- dbGetQuery(conn,"SELECT * FROM natal WHERE ORIGRANDGROUP<=10")
-  dbDisconnect(conn)
-  write.table(d,'natal2010Sample.tsv',quote=F,sep='\t',col.names=T,row.names=F)
-  # gzip -9 natal2010Sample.tsv
-  # d <- read.table('natal2010Sample.tsv.gz',sep='\t',header=T)
+options( java.parameters = "-Xmx2g" )
+library(RJDBC)
+drv <- JDBC("org.h2.Driver","h2-1.3.170.jar",identifier.quote="'")
+options <- ";LOG=0;CACHE_SIZE=65536;LOCK_MODE=0;UNDO_LOG=0"
+conn <- dbConnect(drv,paste("jdbc:h2:NATAL",options,sep=''),"u","u")
+d <- dbGetQuery(conn,"SELECT * FROM natal WHERE ORIGRANDGROUP<=10")
+dbDisconnect(conn)
+write.table(d,'natal2010Sample.tsv',quote=F,sep='\t',col.names=T,row.names=F)
+# gzip -9 natal2010Sample.tsv
+# recode 99 as unknown in APGAR5 column
+d <- read.table('natal2010Sample.tsv.gz',sep='\t',header=T,stringsAsFactors=F)
+# combine rare 4-and above births with 3
+d$DPLURAL = pmin(d$DPLURAL,3)
+# recode unknown in outcome column
+d$APGAR5[d$APGAR5==99] <- NA
+# recode U as unknown in risk columns
+#factorCols <- c('RF_DIAB','RF_GEST','RF_PHYP','RF_GHYP','RF_ECLAM','RF_PPTERM','RF_PPOUTC', 'CIG_REC', 'DPLURAL', 'GESTREC3', 'PRECARE_REC')
+factorCols <- c('CIG_REC', 'DPLURAL', 'GESTREC3', 'PRECARE_REC')
+lapply(subset(d,,select=factorCols),
+   function(col) summary(as.factor(col)))
+for(colName in factorCols) {
+  d[,colName] <- factor(ifelse(d[,colName] %in% list('','U'),NA,d[,colName]))
+}
+numCols <- c('DWGT')
+for(colName in numCols) {
+  d[,colName] <- ifelse(d[,colName] >=999,NA,d[,colName])
+}
+#d$atRisk <- d$BWTR4<2 | d$APGAR5<7
+d$atRisk <- d$APGAR5<7
+riskCols <- c(factorCols,numCols)
+library(reshape2)
+dTrain <- subset(d,ORIGRANDGROUP<=5)
+dTest <- subset(d,ORIGRANDGROUP>5)
+model <- glm(as.formula(paste('atRisk',paste(riskCols,collapse=' + '),sep=' ~ ')),
+  data=dTrain,family=binomial(link='logit'))   
+print(summary(model))
+dTest$pred <- predict(model,newdata=dTest,type='response')
+dplot <- subset(dTest,(!is.na(pred) & (!is.na(atRisk))))
+ambientProb <- mean(dplot$atRisk)
+table(pred=dplot$pred>=2*ambientProb,atRisk=dplot$atRisk)
 ```
 
 
