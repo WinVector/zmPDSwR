@@ -1,3 +1,10 @@
+
+# load('phsample.RData')
+# build indicator for a very restricted subset
+dpus$stdworker <- with(dpus,(PINCP>1000)&(ESR==1)&
+   (PINCP<=250000)&(PERNP>1000)&(PERNP<=250000)&
+   (WKHP>=40)&(AGEP>=20)&(AGEP<=50)&
+   (PWGTP1>0)&(COW %in% (1:7))&(SCHL %in% (1:24)))
 # fix up factors
 dpus$SEX <- as.factor(ifelse(dpus$SEX==1,'M','F'))
 dpus$SEX <- relevel(dpus$SEX,'M')
@@ -24,7 +31,5 @@ schlmap <- c(
 dpus$SCHL <- as.factor(schlmap[dpus$SCHL])
 dpus$SCHL <- relevel(dpus$SCHL,schlmap[1])
 # get a very restricted subset
-psub <- subset(dpus,with(dpus,(PINCP>1000)&(ESR==1)&
-   (PINCP<=250000)&(PERNP>1000)&(PERNP<=250000)&
-   (WKHP>=40)&(AGEP>=20)&(AGEP<=50)&
-   (PWGTP1>0)&(COW %in% (1:7))&(SCHL %in% (1:24))))
+psub <- subset(dpus,dpus$stdworker)
+
