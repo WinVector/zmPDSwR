@@ -12,6 +12,9 @@ No guarantee, indemnification or claim of fitness is made regarding any of these
 [![Creative Commons License](http://i.creativecommons.org/l/by-nc/3.0/88x31.png)] [by-nc]  
 This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc].
 
+### Works of others (no claim of license here):
+
+ * ACS2011_PUMS_README.pdf : orignal Census documentation
 
 ### Derived works (no claim of license here):
 
