@@ -55,11 +55,16 @@ Get at a sample of the data from R:
   # d <- read.table('natal2010Sample.tsv.gz',sep='\t',header=T)
 ```
 
+
+### Works by others (no claim of license here):
+
+* UserGuide2010.pdf : ( CDC supplied data user guide )
+
+
 ### Derived works (no claim of license here):
 
 * fieldRanges.tsv : (derived from CDC documentation, needs editing).
 * natal2010Sample.tsv.gz : uniform sample of CDC 2010 natality data (work in progress).
-
 
 
   [by-nc]: http://creativecommons.org/licenses/by-nc/3.0/ "Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)"
