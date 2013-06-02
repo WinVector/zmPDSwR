@@ -34,7 +34,7 @@ dTest <- subset(d,rgroup>0.9)
 rm(list=c('d','churn','appetency','upselling'))
 ```
  
-ad-hoc modeling
+ad-hoc modeling:
 ```R
 outcomes <- c('churn','appetency','upselling')
 vars <- setdiff(colnames(dTrain),
@@ -91,9 +91,10 @@ dTest$pred <- predict(model,newdata=dTest)
 # 0.60
 
 library('ROCR')
-pred <- prediction(dTest$pred,dTest[,outcome]>0)
-perf <- performance(pred,'auc')
-as.numeric(perf@y.values)
+perfTest <- performance(prediction(dTest$pred,dTest[,outcome]>0),'auc')
+perfTrain <- performance(prediction(dTrain$pred,dTrain[,outcome]>0),'auc')
+print(as.numeric(perfTest@y.values))
+print(as.numeric(perfTrain@y.values))
 
 
 library('ggplot2')
@@ -102,7 +103,8 @@ ggplot(data=dTest) + geom_density(aes(x=pred,color=outcome))
 
 
 library('randomForest')
-model <- randomForest(f,data=dTrain,ntree=20)
+model <- randomForest(f,data=dTrain,ntree=100,maxnodes=50,type='classification')
 dTrain$pred <- predict(model,newdata=dTrain)
 dTest$pred <- predict(model,newdata=dTest)
+# 0.645
 ```
