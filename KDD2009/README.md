@@ -17,7 +17,7 @@ Load data:
 in R:
 ```
 d <- read.table('orange_small_train.data.gz',
-header=T,sep='\t',na.strings=c('NA',''))
+   header=T,sep='\t',na.strings=c('NA',''))
 churn <- read.table('orange_small_train_churn.labels.txt',
    header=F,sep='\t')
 d$churn <- churn$V1
@@ -33,12 +33,11 @@ dTrain <- subset(d,rgroup<=0.9)
 dTest <- subset(d,rgroup>0.9)
 rm(list=c('d','churn','appetency','upselling'))
 ```
-
  
 ad-hoc modeling
 ```R
-utcomes <- c('churn','appetency','upselling')
-ars <- setdiff(colnames(dTrain),
+outcomes <- c('churn','appetency','upselling')
+vars <- setdiff(colnames(dTrain),
    c(outcomes,'rgroup'))
 isGoodVar <- function(x) {
   nonNaRate <- sum(!is.na(x))/length(x)
@@ -60,6 +59,7 @@ dTest <-  subset(dTest,complete.cases(dTest[,c(vars[goodVar],outcomes)]))
 outcome='churn'
 
 catVars <- vars[goodVar & ((sapply(dTrain[,vars],class)=='factor') | (sapply(dTrain[,vars],class)=='character'))]
+f <- as.formula(paste(outcome,'>0 ~ ',paste(vars[goodVar],collapse=' + '),sep=''))
 
 
 for(v in catVars) {
@@ -78,7 +78,6 @@ trainTable <- table(dTrain[,outcome]>0,dTrain$composite)
 predTable <- trainTable[2,]/(trainTable[1,]+trainTable[2,])
 dTest$pred <- predTable[dTest$composite]
 
- f <- as.formula(paste(outcome,'>0 ~ ',paste(vars[goodVar],collapse=' + '),sep=''))
 
 # model <- glm(f,data=dTrain,family=binomial(link='logit'))
 # dTrain$pred <- predict(model,newdata=dTrain,type='response')
@@ -103,7 +102,7 @@ ggplot(data=dTest) + geom_density(aes(x=pred,color=outcome))
 
 
 library('randomForest')
-model <- randomForest(f,data=dTrain)
+model <- randomForest(f,data=dTrain,ntree=20)
 dTrain$pred <- predict(model,newdata=dTrain)
 dTest$pred <- predict(model,newdata=dTest)
 ```
