@@ -32,13 +32,13 @@ d$rgroup <- runif(dim(d)[[1]])
 dTrain <- subset(d,rgroup<=0.9)
 dTest <- subset(d,rgroup>0.9)
 rm(list=c('d','churn','appetency','upselling'))
+outcomes <- c('churn','appetency','upselling')
+vars <- setdiff(colnames(dTrain),
+   c(outcomes,'rgroup'))
 ```
  
 ad-hoc modeling:
 ```R
-outcomes <- c('churn','appetency','upselling')
-vars <- setdiff(colnames(dTrain),
-   c(outcomes,'rgroup'))
 isGoodVar <- function(x) {
   nonNaRate <- sum(!is.na(x))/length(x)
   if(nonNaRate<0.8) {
