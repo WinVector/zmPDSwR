@@ -29,7 +29,8 @@ upselling <- read.table('orange_small_train_upselling.labels.txt',
 d$upselling <- upselling$V1
 set.seed(729375)
 d$rgroup <- runif(dim(d)[[1]])
-dTrain <- subset(d,rgroup<=0.9)
+dTrain <- subset(d,rgroup<=0.8)
+dCal <- subset(d,rgroup>0.8 & rgroup<=0.9)
 dTest <- subset(d,rgroup>0.9)
 rm(list=c('d','churn','appetency','upselling'))
 outcomes <- c('churn','appetency','upselling')
