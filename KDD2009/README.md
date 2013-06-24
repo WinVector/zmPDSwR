@@ -7,6 +7,7 @@ $ shasum *
 	8274d23235630717659898900b7f74092ff339ad  orange_small_train_appetency.labels.txt
 	ec2de79844657fb892ec9047e6304c12b296ff68  orange_small_train_churn.labels.txt
 	4cd2d7c9b20fd3638883a91a2fed6a03a4d5d015  orange_small_train_upselling.labels.txt
+Data to support examples in the chapter on memorization methods in "Practical Data Science with R" ( http://www.manning.com/zumel/ ).
 
 Load data:
 ```bash
@@ -14,7 +15,8 @@ Load data:
   gzip -9 orange_small_train.data
 ```
 
-in R:
+
+To prepare data in R:
 ```
 d <- read.table('orange_small_train.data.gz',
    header=T,sep='\t',na.strings=c('NA',''))
@@ -29,83 +31,284 @@ upselling <- read.table('orange_small_train_upselling.labels.txt',
 d$upselling <- upselling$V1
 set.seed(729375)
 d$rgroup <- runif(dim(d)[[1]])
-dTrain <- subset(d,rgroup<=0.8)
-dCal <- subset(d,rgroup>0.8 & rgroup<=0.9)
+dTrainAll <- subset(d,rgroup<=0.9)
 dTest <- subset(d,rgroup>0.9)
 rm(list=c('d','churn','appetency','upselling'))
 outcomes <- c('churn','appetency','upselling')
-vars <- setdiff(colnames(dTrain),
+vars <- setdiff(colnames(dTrainAll),
    c(outcomes,'rgroup'))
+numericVars <- vars[sapply(dTrainAll[,vars],class) %in% c('numeric','integer')]
+catVars <- vars[sapply(dTrainAll[,vars],class) %in% c('factor','character')]
+useForCal <- rbinom(n=dim(dTrainAll)[[1]],size=1,prob=0.1)>0
+dCal <- subset(dTrainAll,useForCal)
+dTrain <- subset(dTrainAll,!useForCal)
+outcome <- 'churn'
+pos <- '1'
 ```
  
-ad-hoc modeling:
+example modeling:
 ```R
-isGoodVar <- function(x) {
-  nonNaRate <- sum(!is.na(x))/length(x)
-  if(nonNaRate<0.8) {
-     F
-  } else {
-     if( (class(x)=='factor') | (class(x)=='character') ) {
-       nLevels <- sum(!is.na(unique(x)))
-       nLevels>1 & nLevels<=20
-     } else {
-       var(x,na.rm=T)>0
-     }
-  }
+mkPredC <- function(outCol,varCol,appCol) {
+   pPos <- sum(outCol==pos)/length(outCol)
+   naTab <- table(as.factor(outCol[is.na(varCol)]))
+   pPosWna <- (naTab/sum(naTab))[pos]
+   vTab <- table(as.factor(outCol),varCol)
+   pPosWv <- (vTab[pos,]+1.0e-3*pPos)/(colSums(vTab)+1.0e-3)
+   pred <- pPosWv[appCol]
+   pred[is.na(appCol)] <- pPosWna
+   pred[is.na(pred)] <- pPos
+   pred
 }
-goodVar <- sapply(vars,function(v) {isGoodVar(dTrain[,v])})
-dTrain <-  subset(dTrain,complete.cases(dTrain[,c(vars[goodVar],outcomes)]))
-dTest <-  subset(dTest,complete.cases(dTest[,c(vars[goodVar],outcomes)]))
-
-outcome='churn'
-
-catVars <- vars[goodVar & ((sapply(dTrain[,vars],class)=='factor') | (sapply(dTrain[,vars],class)=='character'))]
-f <- as.formula(paste(outcome,'>0 ~ ',paste(vars[goodVar],collapse=' + '),sep=''))
-
 
 for(v in catVars) {
-  x <- dTrain[,v]
-  if( (class(x)=='factor') | (class(x)=='character') ) {
-    fi <- as.formula(paste(outcome,'>0 ~ ',v,sep=''))
-    mi <- glm(fi,data=dTrain,family=binomial(link='logit'))
-    di <- summary(mi)$deviance
-    print(paste(v,di))
-  }
+  pi <- paste('pred',v,sep='')
+  dTrain[,pi] <- mkPredC(dTrain[,outcome],dTrain[,v],dTrain[,v])
+  dTest[,pi] <- mkPredC(dTrain[,outcome],dTrain[,v],dTest[,v])
+  dCal[,pi] <- mkPredC(dTrain[,outcome],dTrain[,v],dCal[,v])
 }
-composite <- c('Var205','Var221','Var227')
-dTrain$composite <- do.call(paste,as.list(dTrain[,composite]))
-dTest$composite <- do.call(paste,as.list(dTest[,composite]))
-trainTable <- table(dTrain[,outcome]>0,dTrain$composite)
-predTable <- trainTable[2,]/(trainTable[1,]+trainTable[2,])
-dTest$pred <- predTable[dTest$composite]
 
 
-# model <- glm(f,data=dTrain,family=binomial(link='logit'))
-# dTrain$pred <- predict(model,newdata=dTrain,type='response')
-# dTest$pred <- predict(model,newdata=dTest,type='response')
-# 0.65
 
-library('rpart')
-model <- rpart(f,data=dTrain,control=rpart.control(cp=0.001))
-dTrain$pred <- predict(model,newdata=dTrain)
-dTest$pred <- predict(model,newdata=dTest)
-# 0.60
+
+mkPredNcat <- function(outCol,varCol,appCol) {
+   cuts <- unique(as.numeric(quantile(varCol,probs=seq(0, 1, 0.1),na.rm=T)))
+   varC <- cut(varCol,cuts)
+   appC <- cut(appCol,cuts)
+   mkPredC(outCol,varC,appC)
+}
+
+
+mkPredNdensity <- function(outCol,varCol,appCol) {
+   nPos <- sum(outCol==pos)
+   pPos <- nPos/length(outCol)
+   naTab <- table(as.factor(outCol[is.na(varCol)]))
+   pPosWna <- (naTab/sum(naTab))[pos]
+   dPos <- density(varCol[outCol==pos],
+      adjust=2,
+      n=256,
+      from=min(varCol,na.rm=T),
+      to=max(varCol,na.rm=T),
+      na.rm=T)
+   dNeg <- density(varCol[outCol!=pos],
+      adjust=2,
+      n=256,
+      from=min(varCol,na.rm=T),
+      to=max(varCol,na.rm=T),
+      na.rm=T)
+   indexD <- function(a,x) {
+      l <- length(a)
+      pmin(pmax(round(((l-1) * x + a[l] - l * a[1])/(a[l]-a[1])),1),l)
+   }
+   indices <- indexD(dPos$x,appCol)
+   posEst <- nPos*dPos$y[indices] + 1.0e-3*pPos
+   negEst <- (length(outCol)-nPos)*dNeg$y[indices] + 1.0e-3
+   pred <- posEst/(posEst + negEst)
+   pred[is.na(appCol)] <- pPosWna
+   pred[is.na(pred)] <- pPos
+   pred
+}
+
+#mkPredN <- mkPredNdensity
+#> print(paste('train',as.numeric(perfTrain@y.values)))
+#[1] "train 0.734406751097394"
+#> print(paste('cal',as.numeric(perfCal@y.values)))
+#[1] "cal 0.72765782971017"
+#> print(paste('test',as.numeric(perfTest@y.values)))
+#[1] "test 0.732182689188075"
+
+mkPredN <- mkPredNcat
+#> print(paste('train',as.numeric(perfTrain@y.values)))
+#[1] "train 0.733887878767371"
+#> print(paste('cal',as.numeric(perfCal@y.values)))
+#[1] "cal 0.71792789642535"
+#> print(paste('test',as.numeric(perfTest@y.values)))
+#[1] "test 0.726387559207025"
+
+
+for(v in numericVars) {
+  pi <- paste('pred',v,sep='')
+  dTrain[,pi] <- mkPredN(dTrain[,outcome],dTrain[,v],dTrain[,v])
+  dTest[,pi] <- mkPredN(dTrain[,outcome],dTrain[,v],dTest[,v])
+  dCal[,pi] <- mkPredN(dTrain[,outcome],dTrain[,v],dCal[,v])
+}
+
+logLikelyhood <- function(outCol,predCol) {
+  sum(ifelse(outCol==pos,log(predCol),log(1-predCol)))
+}
+
+entropy <- function(x) { 
+  xpos <- x[x>0 & !is.na(x)]
+  scaled <- xpos/sum(xpos)
+  sum(-scaled*log(scaled,2))
+}
+
+nPos <- sum(dTrain[,outcome]==pos)
+pPos <- nPos/length(dTrain[,outcome])
+eps <- 1.0e-5
+for(v in c(catVars,numericVars)) {
+  pi <- paste('pred',v,sep='')
+  li <- paste('lift',v,sep='')
+  dTrain[,li] <- log((dTrain[,pi]+eps)/(pPos+eps))
+  dTest[,li] <- log((dTest[,pi]+eps)/(pPos+eps))
+  dCal[,li] <- log((dCal[,pi]+eps)/(pPos+eps))
+}
+
 
 library('ROCR')
-perfTest <- performance(prediction(dTest$pred,dTest[,outcome]>0),'auc')
+
+selVars <- c()
+minStep <- 5
+
+baseRateTrain <- logLikelyhood(dTrain[,outcome],sum(dTrain[,outcome]==pos)/length(dTrain[,outcome]))
+baseRateCheck <- logLikelyhood(dCal[,outcome],sum(dCal[,outcome]==pos)/length(dCal[,outcome]))
+for(v in catVars) {
+  pi <- paste('pred',v,sep='')
+  li <- paste('lift',v,sep='')
+  liTrain <- 2*(logLikelyhood(dTrain[,outcome],dTrain[,pi])- baseRateTrain - 2^entropy(table(dTrain[,pi],useNA='ifany')))
+  liCheck <- 2*(logLikelyhood(dCal[,outcome],dCal[,pi]) - baseRateCheck - 2^entropy(table(dCal[,pi],useNA='ifany')))
+  if((liTrain>=minStep)&(liCheck>minStep)) {
+     print(sprintf("%s, trainAIC: %g calibrationAIC: %g",
+        pi,liTrain,liCheck))
+    selVars <- c(selVars,li)
+  }
+}
+print(selVars)
+for(v in numericVars) {
+  pi <- paste('pred',v,sep='')
+  li <- paste('lift',v,sep='')
+  liTrain <- 2*(logLikelyhood(dTrain[,outcome],dTrain[,pi])-baseRateTrain-1)
+  liCheck <- 2*(logLikelyhood(dCal[,outcome],dCal[,pi])-baseRateCheck-1)
+  if((liTrain>=minStep) && (liCheck>=minStep)) {
+     print(sprintf("%s, trainAIC: %g calibrationAIC: %g",
+        pi,liTrain,liCheck))
+     selVars <- c(selVars,li)
+  }
+}
+print(selVars)
+
+
+f <- paste(outcome,'>0 ~ ',paste(selVars,collapse=' + '),sep='')
+# note, actually the glm() just wants the conditionals not the joints as inputs
+# but that is just a matter of dividing by pPos, so it can compensate in the linear
+# coefficient
+model <- glm(as.formula(f),data=dTrain,family=binomial(link='logit'))
+print(summary(model))
+# could use stepwise regression at this point
+dTrain$pred <- predict(model,type='response',newdata=dTrain)
+dCal$pred <- predict(model,type='response',newdata=dCal)
+dTest$pred <- predict(model,type='response',newdata=dTest)
+
+
 perfTrain <- performance(prediction(dTrain$pred,dTrain[,outcome]>0),'auc')
-print(as.numeric(perfTest@y.values))
-print(as.numeric(perfTrain@y.values))
+perfCal <- performance(prediction(dCal$pred,dCal[,outcome]>0),'auc')
+perfTest <- performance(prediction(dTest$pred,dTest[,outcome]>0),'auc')
+print(paste('train',as.numeric(perfTrain@y.values)))
+print(paste('cal',as.numeric(perfCal@y.values)))
+print(paste('test',as.numeric(perfTest@y.values)))
+
+
+modelRateTrain <- logLikelyhood(dTrain[,outcome],dTrain$pred)
+modelRateCal <- logLikelyhood(dCal[,outcome],dCal$pred)
+modelRateTest <- logLikelyhood(dTest[,outcome],dTest$pred)
 
 
 library('ggplot2')
-dTest$outcome = dTest[,outcome]>0
-ggplot(data=dTest) + geom_density(aes(x=pred,color=outcome))
+
+# show one of the "better" factors
+ggplot(data=dTrain) + geom_density(aes(x=predVar218,color=as.factor(churn)))
+ggplot(data=dTest) + geom_density(aes(x=predVar218,color=as.factor(churn)))
+
+# show one of the "better" numeric predictions
+ggplot(data=dTrain) + geom_density(aes(x=predVar126,color=as.factor(churn)))
+ggplot(data=dTest) + geom_density(aes(x=predVar126,color=as.factor(churn)))
+
+
+# show the model
+ggplot(data=dTrain) + geom_density(aes(x=pred,color=as.factor(churn)))
+ggplot(data=dTest) + geom_density(aes(x=pred,color=as.factor(churn)))
+
+# save(list=ls(),file='KDDSteps.RData')
+
+calcAUC <- function(predcol,outcol) {
+   perf <- performance(prediction(predcol,outcol==pos),'auc')
+   as.numeric(perf@y.values)
+}
+
+
+library('rpart')
+tmodel <- rpart(f,data=dTrain,control=rpart.control(cp=0.001))
+dTrain$tpred <- predict(tmodel,newdata=dTrain)
+dCal$tpred <- predict(tmodel,newdata=dCal)
+dTest$tpred <- predict(tmodel,newdata=dTest)
+calcAUC(dTrain$tpred,dTrain[,outcome])
+# [1] 0.6936439
+calcAUC(dTest$tpred,dTest[,outcome])
+# [1] 0.6785368
+calcAUC(dCal$tpred,dCal[,outcome])
+# [1] 0.6780398
+
+
+
+
+# AUCs by training
+for(v in catVars) {
+  pi <- paste('pred',v,sep='')
+  aucTrain <- calcAUC(dTrain[,pi],dTrain[,outcome])
+  if(aucTrain>=0.8) {
+     aucCal <- calcAUC(dCal[,pi],dCal[,outcome])
+     print(sprintf("%s, trainAUC: %4.3f calibrationAUC: %4.3f",
+       pi,aucTrain,aucCal))
+  }
+}
+# AUCs by calibration
+for(v in catVars) {
+  pi <- paste('pred',v,sep='')
+  aucTrain <- calcAUC(dTrain[,pi],dTrain[,outcome])
+  aucCal <- calcAUC(dCal[,pi],dCal[,outcome])
+  if(aucCal>=0.59) {
+     print(sprintf("%s, trainAUC: %4.3f calibrationAUC: %4.3f",
+       pi,aucTrain,aucCal))
+  }
+}
+
+for(v in numericVars) {
+  pi <- paste('pred',v,sep='')
+  aucTrain <- calcAUC(dTrain[,pi],dTrain[,outcome])
+  if(aucTrain>=0.8) {
+     aucCal <- calcAUC(dCal[,pi],dCal[,outcome])
+     print(sprintf("%s, trainAUC: %4.3f calibrationAUC: %4.3f",
+       pi,aucTrain,aucCal))
+  }
+}
+
 
 
 library('randomForest')
-model <- randomForest(f,data=dTrain,ntree=100,maxnodes=50,type='classification')
-dTrain$pred <- predict(model,newdata=dTrain)
-dTest$pred <- predict(model,newdata=dTest)
-# 0.645
+fmodel <- randomForest(as.formula(f),data=dTrain,ntree=100,maxnodes=50,type='classification')
+dTrain$fpred <- predict(fmodel,newdata=dTrain)
+dTest$fpred <- predict(fmodel,newdata=dTest)
+dCal$fpred <- predict(fmodel,newdata=dCal)
+calcAUC(dTrain$fpred,dTrain[,outcome])
+#[1] 0.7501219
+calcAUC(dTest$fpred,dTest[,outcome])
+# [1] 0.717073
+calcAUC(dCal$fpred,dCal[,outcome])
+# [1] 0.7109103
+
+
+
+# better AUC estimate
+var <- 'Var217'
+aucs <- rep(0,100)
+for(rep in 1:length(aucs)) {
+   useForCalRep <- rbinom(n=dim(dTrainAll)[[1]],size=1,prob=0.1)>0
+   predRep <- mkPredC(dTrainAll[!useForCalRep,outcome],
+      dTrainAll[!useForCalRep,var],
+      dTrainAll[useForCalRep,var])
+   aucs[rep] <- calcAUC(predRep,dTrainAll[useForCalRep,outcome])
+}
+mean(aucs)
+# [1] 0.5556656
+#print(aucs)
+#ggplot() + geom_density(aes(x=aucs))
 ```
