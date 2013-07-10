@@ -78,43 +78,7 @@ mkPredNcat <- function(outCol,varCol,appCol) {
 }
 
 
-mkPredNdensity <- function(outCol,varCol,appCol) {
-   nPos <- sum(outCol==pos)
-   pPos <- nPos/length(outCol)
-   naTab <- table(as.factor(outCol[is.na(varCol)]))
-   pPosWna <- (naTab/sum(naTab))[pos]
-   dPos <- density(varCol[outCol==pos],
-      adjust=2,
-      n=256,
-      from=min(varCol,na.rm=T),
-      to=max(varCol,na.rm=T),
-      na.rm=T)
-   dNeg <- density(varCol[outCol!=pos],
-      adjust=2,
-      n=256,
-      from=min(varCol,na.rm=T),
-      to=max(varCol,na.rm=T),
-      na.rm=T)
-   indexD <- function(a,x) {
-      l <- length(a)
-      pmin(pmax(round(((l-1) * x + a[l] - l * a[1])/(a[l]-a[1])),1),l)
-   }
-   indices <- indexD(dPos$x,appCol)
-   posEst <- nPos*dPos$y[indices] + 1.0e-3*pPos
-   negEst <- (length(outCol)-nPos)*dNeg$y[indices] + 1.0e-3
-   pred <- posEst/(posEst + negEst)
-   pred[is.na(appCol)] <- pPosWna
-   pred[is.na(pred)] <- pPos
-   pred
-}
 
-#mkPredN <- mkPredNdensity
-#> print(paste('train',as.numeric(perfTrain@y.values)))
-#[1] "train 0.734406751097394"
-#> print(paste('cal',as.numeric(perfCal@y.values)))
-#[1] "cal 0.72765782971017"
-#> print(paste('test',as.numeric(perfTest@y.values)))
-#[1] "test 0.732182689188075"
 
 mkPredN <- mkPredNcat
 #> print(paste('train',as.numeric(perfTrain@y.values)))
