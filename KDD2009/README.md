@@ -185,6 +185,7 @@ ggplot(data=dTest) + geom_density(aes(x=predVar218,color=as.factor(churn)))
 # show one of the "better" numeric predictions
 ggplot(data=dTrain) + geom_density(aes(x=predVar126,color=as.factor(churn)))
 ggplot(data=dTest) + geom_density(aes(x=predVar126,color=as.factor(churn)))
+ggplot(data=dCal) + geom_density(aes(x=predVar126,color=as.factor(churn)))
 
 
 # show the model
