@@ -1,0 +1,140 @@
+
+\documentclass{article}
+\usepackage{hyperref,authblk}
+\begin{document}
+\title{Notes on the Buzz data}
+\author{Nina Zumel}
+\author{John Mount}
+\affil{Win-Vector LLC}
+\date{10-25-2013}
+\maketitle
+
+To run this example you need a system with R installed 
+(see \url{http://cran.r-project.org}),
+Latex (see \url{http://tug.org}) and data from 
+\url{https://github.com/WinVector/zmPDSwR/tree/master/Buzz}.
+
+To run this example:
+\begin{enumerate}
+\item Download buzz.Rns and TomsHardware-Relative-Sigma-500.data.txt from the github URL.
+\item Start a copy of R, use {\tt setwd()} to move to the directory you have stored the files.
+\item Make sure knitr is loaded into R ( {\tt install.packages('knitr')} and
+{\tt library(knitr)} ).
+\item In R run: (produces buzz.tex from buzz.Rnw).
+<<knitsteps,tidy=F,eval=F>>=
+knit('buzz.Rnw')
+system('pdflatex buzz.tex')
+@
+\end{enumerate}
+
+Now you can run the following data prep steps:
+
+<<dataprep,tidy=F>>=
+buzzdata <- read.table("TomsHardware-Relative-Sigma-500.data.txt", 
+                      header=F, sep=",")
+
+makevars <- function(colname, ndays=7) {
+  paste(colname, 0:ndays, sep='')
+}
+
+varnames <- c("num.new.disc",
+             "burstiness",
+             "number.total.disc",
+             "auth.increase",
+             "atomic.containers", # not documented
+             "num.displays", # number of times topic displayed to user (measure of interest)
+             "contribution.sparseness", # not documented
+             "avg.auths.per.disc",
+             "num.authors.topic", # total authors on the topic
+             "avg.disc.length",
+             "attention.level.author",
+             "attention.level.contrib"
+)
+
+colnames <- as.vector(sapply(varnames, FUN=makevars))
+colnames <-  c(colnames, "buzz")
+colnames(buzzdata) <- colnames
+
+# Split into training and test
+set.seed(2362690L)
+rgroup <- runif(dim(buzzdata)[1])
+buzztrain <- buzzdata[rgroup > 0.1,]
+buzztest <- buzzdata[rgroup <=0.1,]
+@
+
+This currently returns a training set with \Sexpr{dim(buzztrain)[[1]]} rows and a test set with 
+\Sexpr{dim(buzztest)[[1]]} rows, which 
+\Sexpr{ifelse(dim(buzztrain)[[1]]==7114 & dim(buzztest)[[1]]==791,'is','is not')} the same
+as when this document was prepared.
+
+Notice we have exploded the basic column names into the following:
+<<colnames,tidy=F>>=
+print(colnames)
+@
+
+We are now ready to create a simple model predicting ``buzz'' as function of the
+other columns.
+
+<<model,tidy=F>>=
+# build a model
+# let's use all the input variables
+nlist = varnames
+varslist = as.vector(sapply(nlist, FUN=makevars))
+
+# these were defined previously,  in Chapter 9
+loglikelihood <- function(y, py) {
+  pysmooth <- ifelse(py==0, 1e-12,
+                     ifelse(py==1, 1-1e-12, py))
+  sum(y * log(pysmooth) + (1-y)*log(1 - pysmooth))
+}
+accuracyMeasures <- function(pred, truth, threshold=0.5, name="model") {
+  dev.norm <- -2*loglikelihood(as.numeric(truth), pred)/length(pred)
+  ctable = table(truth=truth,
+                 pred=pred)
+  accuracy <- sum(diag(ctable))/sum(ctable)
+  precision <- ctable[2,2]/sum(ctable[,2])
+  recall <- ctable[2,2]/sum(ctable[2,])
+  f1 <- precision*recall
+  print(paste("precision=", precision, "; recall=" , recall))
+  print(ctable)
+  data.frame(model=name, accuracy=accuracy, f1=f1, dev.norm)
+}
+
+
+library(randomForest)
+bzFormula <- paste('as.factor(buzz) ~ ',paste(varslist,collapse=' + '))
+fmodel <- randomForest(as.formula(bzFormula),
+                      data=buzztrain,
+                      ntree=101,
+                      mtry=floor(sqrt(length(varslist))),
+                      importance=T)
+rframe <- data.frame(truth=buzztrain$buzz, pred=predict(fmodel, newdata=buzztrain))
+print(with(rframe,table(truth=truth,pred=pred)))
+
+rtest <- data.frame(truth=buzztest$buzz, pred=predict(fmodel, newdata=buzztest))
+print(with(rtest,table(truth=truth,pred=pred)))
+
+
+
+print(accuracyMeasures(rframe$pred, rframe$truth))
+print(accuracyMeasures(rtest$pred, rtest$truth))
+@
+
+And we can also make plots (though in this case the classification scores
+are so concentrated near zero and one the plot's smoothing makes for
+a slightly deceptive presentation).
+
+Training performance:
+<<plottrain, tidy=F>>=
+library(ggplot2)
+ggplot(rframe, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
+   geom_density(adjust=0.1,)
+@
+
+Test performance:
+<<plottest,tidy=F>>=
+ggplot(rtest, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
+   geom_density(adjust=0.1)
+@
+
+\end{document}
