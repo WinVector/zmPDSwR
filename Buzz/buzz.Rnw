@@ -23,7 +23,7 @@ To run this example:
 \item In R run: (produces buzz.tex from buzz.Rnw).
 <<knitsteps,tidy=F,eval=F>>=
 knit('buzz.Rnw')
-system('pdflatex buzz.tex')
+system('/usr/texbin/pdflatex buzz.tex')
 @
 \end{enumerate}
 
@@ -105,8 +105,8 @@ library(randomForest)
 bzFormula <- paste('as.factor(buzz) ~ ',paste(varslist,collapse=' + '))
 fmodel <- randomForest(as.formula(bzFormula),
                       data=buzztrain,
-                      ntree=101,
                       mtry=floor(sqrt(length(varslist))),
+                      ntree=101,
                       importance=T)
 rframe <- data.frame(truth=buzztrain$buzz, pred=predict(fmodel, newdata=buzztrain))
 print(with(rframe,table(truth=truth,pred=pred)))
@@ -114,7 +114,44 @@ print(with(rframe,table(truth=truth,pred=pred)))
 rtest <- data.frame(truth=buzztest$buzz, pred=predict(fmodel, newdata=buzztest))
 print(with(rtest,table(truth=truth,pred=pred)))
 
+print(accuracyMeasures(rframe$pred, rframe$truth))
+print(accuracyMeasures(rtest$pred, rtest$truth))
+@
 
+Notice the extreme fall-off from training to test performance, the random forest
+over fit.  In fact the random forest fit all the data if it sees it during training:
+
+<<modelA,tidy=F>>=
+fmodel <- randomForest(as.formula(bzFormula),
+                      data=buzzdata,
+                      mtry=floor(sqrt(length(varslist))),
+                      ntree=101,
+                      importance=T)
+rframe <- data.frame(truth=buzzdata$buzz, pred=predict(fmodel, newdata=buzzdata))
+print(with(rframe,table(truth=truth,pred=pred)))
+print(accuracyMeasures(rframe$pred, rframe$truth))
+@
+
+To try and control the over-fitting we build a new model with the tree
+complexity limited to 100 nodes and the node size to at least 20.
+This is not necessarily a better model (in fact it scores slightly
+poorer on test), but it is one where the training procedure didn't
+have enough freedom to memorize the training data (and therefore maybe
+had visibility into some trade-offs.
+
+<<model2,tidy=F>>=
+fmodel <- randomForest(as.formula(bzFormula),
+                      data=buzztrain,
+                      mtry=floor(sqrt(length(varslist))),
+                      ntree=101,
+                      maxnodes=100,
+                      nodesize=20,
+                      importance=T)
+rframe <- data.frame(truth=buzztrain$buzz, pred=predict(fmodel, newdata=buzztrain))
+print(with(rframe,table(truth=truth,pred=pred)))
+
+rtest <- data.frame(truth=buzztest$buzz, pred=predict(fmodel, newdata=buzztest))
+print(with(rtest,table(truth=truth,pred=pred)))
 
 print(accuracyMeasures(rframe$pred, rframe$truth))
 print(accuracyMeasures(rtest$pred, rtest$truth))
@@ -135,6 +172,16 @@ Test performance:
 <<plottest,tidy=F>>=
 ggplot(rtest, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
    geom_density(adjust=0.1)
+@
+
+Note classifier scores seem to be very concentrated near zero and one
+(meaning the printed confusion matrices pretty much capture the whole
+story and the density plots or any sort of ROC plot doesn't add much
+value in this case).
+
+Save prepared R environment.
+<<save,tidy=F>>=
+save(list=ls(),file='thRS500.Rdata')
 @
 
 \end{document}
