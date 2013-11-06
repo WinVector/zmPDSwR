@@ -6,7 +6,7 @@
 \author{Nina Zumel}
 \author{John Mount}
 \affil{Win-Vector LLC}
-\date{10-25-2013}
+\date{11-6-2013}
 \maketitle
 
 To run this example you need a system with R installed 
@@ -14,11 +14,28 @@ To run this example you need a system with R installed
 Latex (see \url{http://tug.org}) and data from 
 \url{https://github.com/WinVector/zmPDSwR/tree/master/Buzz}.
 
+We are not perfoming any new analysis here, just supplying a direct application of Random Forests on the data.
+
+Data from: \url{http://ama.liglab.fr/datasets/buzz/}
+Using: 
+   \url{http://ama.liglab.fr/datasets/buzz/classification/TomsHardware/Relative_labeling/sigma=500/TomsHardware-Relative-Sigma-500.data}
+
+(described in \url{http://ama.liglab.fr/datasets/buzz/classification/TomsHardware/Relative_labeling/sigma=500/TomsHardware-Relative-Sigma-500.names} )
+
+\begin{verbatim}
+Crypto hashes:
+$ shasum TomsHardware-*.txt
+  5a1cc7863a9da8d6e8380e1446f25eec2032bd91  TomsHardware-Absolute-Sigma-500.data.txt
+  86f2c0f4fba4fb42fe4ee45b48078ab51dba227e  TomsHardware-Absolute-Sigma-500.names.txt
+  c239182c786baf678b55f559b3d0223da91e869c  TomsHardware-Relative-Sigma-500.data.txt
+  ec890723f91ae1dc87371e32943517bcfcd9e16a  TomsHardware-Relative-Sigma-500.names.txt
+\end{verbatim}
+
 To run this example:
 \begin{enumerate}
-\item Download buzz.Rns and TomsHardware-Relative-Sigma-500.data.txt from the github URL.
+\item Download buzz.Rnw and TomsHardware-Relative-Sigma-500.data.txt from the GitHub URL.
 \item Start a copy of R, use {\tt setwd()} to move to the directory you have stored the files.
-\item Make sure knitr is loaded into R ( {\tt install.packages('knitr')} and
+\item Make sure {\tt knitr} is loaded into R ( {\tt install.packages('knitr')} and
 {\tt library(knitr)} ).
 \item In R run: (produces buzz.tex from buzz.Rnw).
 <<knitsteps,tidy=F,eval=F>>=

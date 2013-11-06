@@ -4,6 +4,21 @@
 This is the markdown version of the buzz example.  The primary
 example is latex ( [pdf result](https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzz.pdf) ).
 
+We are not perfoming any new analysis here, just supplying a direct application of Random Forests on the data.
+
+Data from: [http://ama.liglab.fr/datasets/buzz/](http://ama.liglab.fr/datasets/buzz/)
+Using: 
+       [TomsHardware-Relative-Sigma-500.data](http://ama.liglab.fr/datasets/buzz/classification/TomsHardware/Relative_labeling/sigma=500/TomsHardware-Relative-Sigma-500.data)
+
+(described in [TomsHardware-Relative-Sigma-500.names](http://ama.liglab.fr/datasets/buzz/classification/TomsHardware/Relative_labeling/sigma=500/TomsHardware-Relative-Sigma-500.names) )
+
+Crypto hashes:
+shasum TomsHardware-*.txt
+*  5a1cc7863a9da8d6e8380e1446f25eec2032bd91  TomsHardware-Absolute-Sigma-500.data.txt
+*  86f2c0f4fba4fb42fe4ee45b48078ab51dba227e  TomsHardware-Absolute-Sigma-500.names.txt
+*  c239182c786baf678b55f559b3d0223da91e869c  TomsHardware-Relative-Sigma-500.data.txt
+*  ec890723f91ae1dc87371e32943517bcfcd9e16a  TomsHardware-Relative-Sigma-500.names.txt
+
 To run this example you need a system with R installed 
 (see [cran](http://cran.r-project.org)),
 Latex (see [tug](http://tug.org)) and data from 

@@ -16,3 +16,9 @@ $ shasum TomsHardware-*.txt
 
 
 R objects produced by commands in rsteps.R saved in thRS500.Rdata
+
+
+11-6-2013
+
+Adding latex ( https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzz.pdf ) and markdown ( https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzzm.md ) versions of the documentation.
+
