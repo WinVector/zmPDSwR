@@ -108,13 +108,13 @@ fmodel <- randomForest(as.formula(bzFormula),
                       mtry=floor(sqrt(length(varslist))),
                       ntree=101,
                       importance=T)
-rframe <- data.frame(truth=buzztrain$buzz, pred=predict(fmodel, newdata=buzztrain))
-print(with(rframe,table(truth=truth,pred=pred)))
 
+print('training')
+rtrain <- data.frame(truth=buzztrain$buzz, pred=predict(fmodel, newdata=buzztrain))
+print(accuracyMeasures(rtrain$pred, rtrain$truth))
+
+print('test')
 rtest <- data.frame(truth=buzztest$buzz, pred=predict(fmodel, newdata=buzztest))
-print(with(rtest,table(truth=truth,pred=pred)))
-
-print(accuracyMeasures(rframe$pred, rframe$truth))
 print(accuracyMeasures(rtest$pred, rtest$truth))
 @
 
@@ -127,9 +127,9 @@ fmodel <- randomForest(as.formula(bzFormula),
                       mtry=floor(sqrt(length(varslist))),
                       ntree=101,
                       importance=T)
-rframe <- data.frame(truth=buzzdata$buzz, pred=predict(fmodel, newdata=buzzdata))
-print(with(rframe,table(truth=truth,pred=pred)))
-print(accuracyMeasures(rframe$pred, rframe$truth))
+print('all data')
+rall <- data.frame(truth=buzztrain$buzz, pred=predict(fmodel, newdata=buzztrain))
+print(accuracyMeasures(rall$pred, rall$truth))
 @
 
 To try and control the over-fitting we build a new model with the tree
@@ -147,24 +147,22 @@ fmodel <- randomForest(as.formula(bzFormula),
                       maxnodes=100,
                       nodesize=20,
                       importance=T)
-rframe <- data.frame(truth=buzztrain$buzz, pred=predict(fmodel, newdata=buzztrain))
-print(with(rframe,table(truth=truth,pred=pred)))
 
+print('training')
+rtrain <- data.frame(truth=buzztrain$buzz, pred=predict(fmodel, newdata=buzztrain))
+print(accuracyMeasures(rtrain$pred, rtrain$truth))
+
+print('test')
 rtest <- data.frame(truth=buzztest$buzz, pred=predict(fmodel, newdata=buzztest))
-print(with(rtest,table(truth=truth,pred=pred)))
-
-print(accuracyMeasures(rframe$pred, rframe$truth))
 print(accuracyMeasures(rtest$pred, rtest$truth))
 @
 
-And we can also make plots (though in this case the classification scores
-are so concentrated near zero and one the plot's smoothing makes for
-a slightly deceptive presentation).
+And we can also make plots.
 
 Training performance:
 <<plottrain, tidy=F>>=
 library(ggplot2)
-ggplot(rframe, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
+ggplot(rtrain, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
    geom_density(adjust=0.1,)
 @
 
@@ -174,7 +172,7 @@ ggplot(rtest, aes(x=pred, color=(truth==1),linetype=(truth==1))) +
    geom_density(adjust=0.1)
 @
 
-Note classifier scores seem to be very concentrated near zero and one
+Note the classifier scores are concentrated near zero and one
 (meaning the printed confusion matrices pretty much capture the whole
 story and the density plots or any sort of ROC plot doesn't add much
 value in this case).
