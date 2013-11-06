@@ -1,5 +1,10 @@
-<h1 id="markdown-version-of-buzz-data-analysis">Markdown version of Buzz data analysis</h1>
-<p>This is the markdown version of the buzz example converted to html with "pandoc -o buzzm.html buzzm.md". The primary example is latex ( <a href="https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzz.pdf">pdf result</a> ).</p>
+<html>
+<head>
+<title>HTML version of Buzz data analysis</title>
+</head>
+<body>
+<h1 id="markdown-version-of-buzz-data-analysis">HTML version of Buzz data analysis</h1>
+<p>This is the markdown version of the buzz example converted to html with "pandoc -o buzzm.html buzzm.md" (and a quick hand-edit). The primary example is latex ( <a href="https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzz.pdf">pdf result</a> ).</p>
 <p>We are not perfoming any new analysis here, just supplying a direct application of Random Forests on the data.</p>
 <p>Data from: <a href="http://ama.liglab.fr/datasets/buzz/">http://ama.liglab.fr/datasets/buzz/</a> Using: <a href="http://ama.liglab.fr/datasets/buzz/classification/TomsHardware/Relative_labeling/sigma=500/TomsHardware-Relative-Sigma-500.data">TomsHardware-Relative-Sigma-500.data</a></p>
 <p>(described in <a href="http://ama.liglab.fr/datasets/buzz/classification/TomsHardware/Relative_labeling/sigma=500/TomsHardware-Relative-Sigma-500.names">TomsHardware-Relative-Sigma-500.names</a> )</p>
@@ -213,3 +218,5 @@ fmodel &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span 
 <img src="figure/plottest.png" alt="plot of chunk plottest" /><p class="caption">plot of chunk plottest</p>
 </div>
 <p>Note the classifier scores are concentrated near zero and one (meaning the printed confusion matrices pretty much capture the whole story and the density plots or any sort of ROC plot doesn't add much value in this case).</p>
+</body>
+</html>
