@@ -44,9 +44,17 @@ system('/usr/texbin/pdflatex buzz.tex')
 @
 \end{enumerate}
 
+% set up caching and knitr chunk dependency calculation
+% note: you will want to do clean re-runs once in a while to make sure 
+% you are not seeing stale cache results.
+<<setup,tidy=F,cache=F,eval=T,echo=F,results='hide'>>=
+opts_chunk$set(autodep=T)
+dep_auto()
+@
+
 Now you can run the following data prep steps:
 
-<<dataprep,tidy=F>>=
+<<dataprep,tidy=F,cache=T>>=
 buzzdata <- read.table("TomsHardware-Relative-Sigma-500.data.txt", 
                       header=F, sep=",")
 
@@ -85,14 +93,14 @@ This currently returns a training set with \Sexpr{dim(buzztrain)[[1]]} rows and 
 as when this document was prepared.
 
 Notice we have exploded the basic column names into the following:
-<<colnames,tidy=F>>=
+<<colnames,tidy=F,cache=T>>=
 print(colnames)
 @
 
 We are now ready to create a simple model predicting ``buzz'' as function of the
 other columns.
 
-<<model,tidy=F>>=
+<<model,tidy=F,cache=T>>=
 # build a model
 # let's use all the input variables
 nlist = varnames
@@ -138,7 +146,7 @@ print(accuracyMeasures(rtest$pred, rtest$truth))
 Notice the extreme fall-off from training to test performance, the random forest
 over fit.  In fact the random forest fit all the data if it sees it during training:
 
-<<modelA,tidy=F>>=
+<<modelA,tidy=F,cache=T>>=
 fmodel <- randomForest(as.formula(bzFormula),
                       data=buzzdata,
                       mtry=floor(sqrt(length(varslist))),
@@ -156,7 +164,7 @@ poorer on test), but it is one where the training procedure didn't
 have enough freedom to memorize the training data (and therefore maybe
 had visibility into some trade-offs.
 
-<<model2,tidy=F>>=
+<<model2,tidy=F,cache=T>>=
 fmodel <- randomForest(as.formula(bzFormula),
                       data=buzztrain,
                       mtry=floor(sqrt(length(varslist))),
@@ -177,14 +185,18 @@ print(accuracyMeasures(rtest$pred, rtest$truth))
 And we can also make plots.
 
 Training performance:
-<<plottrain, tidy=F>>=
+% Trick: since this block is cached the side-effect (saving a new copy
+% of the PDF will not happen unless the block is re-run.
+<<plottrain, tidy=F,cache=T>>=
 library(ggplot2)
 ggplot(rtrain, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
    geom_density(adjust=0.1,)
 @
 
 Test performance:
-<<plottest,tidy=F>>=
+% Trick: since this block is cached the side-effect (saving a new copy
+% of the PDF will not happen unless the block is re-run.
+<<plottest,tidy=F,cache=T>>=
 ggplot(rtest, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
    geom_density(adjust=0.1)
 @
@@ -195,8 +207,17 @@ story and the density plots or any sort of ROC plot doesn't add much
 value in this case).
 
 Save prepared R environment.
-<<save,tidy=F>>=
-save(list=ls(),file='thRS500.Rdata')
+% Another way to conditionally save, check for file.
+% message=F is letting message() calls get routed to console instead
+% of the document.
+<<save,tidy=F,cache=F,message=F,eval=T,results='hide'>>=
+fname <- 'thRS500.Rdata'
+if(!file.exists(fname)) {
+   save(list=ls(),file=fname)
+   message(paste('saved',fname))
+} else {
+   message(paste('skipped saving',fname))
+}
 @
 
 \end{document}
