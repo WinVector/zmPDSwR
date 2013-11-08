@@ -1,8 +1,14 @@
 
 # Markdown version of Buzz data analysis
 
-This is the markdown version of the buzz example.  The primary
-example is latex ( [pdf result](https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzz.pdf) ).
+by: Nina Zumel and John Mount
+Win-Vector LLC
+11-8-2013
+
+
+To run this example you need a system with R installed (see [http://cran.r-project.org](http://cran.r-project.org)), and data from 
+[https://github.com/WinVector/zmPDSwR/tree/master/Buzz](https://github.com/WinVector/zmPDSwR/tree/master/Buzz).
+
 
 We are not perfoming any new analysis here, just supplying a direct application of Random Forests on the data.
 
@@ -34,12 +40,22 @@ library(knitr) ).
 knit('buzzm.Rmd')
 ```
 
+<!-- set up caching and knitr chunk dependency calculation -->
+<!-- note: you will want to do clean re-runs once in a while to make sure -->
+<!-- you are not seeing stale cache results. -->
+```{setup,tidy=F,cache=F,eval=T,echo=F,results='hide'}
+opts_chunk$set(autodep=T)
+dep_auto()
+```
+
 
 Now you can run the following data prep steps:
 
-```{r dataprep,tidy=F}
-buzzdata <- read.table("TomsHardware-Relative-Sigma-500.data.txt", 
-                      header=F, sep=",")
+```{r dataprep,tidy=F,cache=T}
+infile <- "TomsHardware-Relative-Sigma-500.data.txt"
+paste('checked at',date())
+system(paste('shasum',infile),intern=T)  # write down file hash
+buzzdata <- read.table(infile, header=F, sep=",")
 
 makevars <- function(colname, ndays=7) {
   paste(colname, 0:ndays, sep='')
@@ -76,14 +92,14 @@ This currently returns a training set with `r dim(buzztrain)[[1]]` rows and a te
 as when this document was prepared.
 
 Notice we have exploded the basic column names into the following:
-```{r colnames,tidy=F}
+```{r colnames,tidy=F,cache=T}
 print(colnames)
 ```
 
 We are now ready to create a simple model predicting "buzz" as function of the
 other columns.
 
-```{r model,tidy=F}
+```{r model,tidy=F,cache=T}
 # build a model
 # let's use all the input variables
 nlist = varnames
@@ -129,7 +145,7 @@ print(accuracyMeasures(rtest$pred, rtest$truth))
 Notice the extreme fall-off from training to test performance, the random forest
 over fit.  In fact the random forest fit all the data if it sees it during training:
 
-```{r modelA,tidy=F}
+```{r modelA,tidy=F,cache=T}
 fmodel <- randomForest(as.formula(bzFormula),
                       data=buzzdata,
                       mtry=floor(sqrt(length(varslist))),
@@ -147,7 +163,7 @@ poorer on test), but it is one where the training procedure didn't
 have enough freedom to memorize the training data (and therefore maybe
 had visibility into some trade-offs.
 
-```{r model2,tidy=F}
+```{r model2,tidy=F,cache=T}
 fmodel <- randomForest(as.formula(bzFormula),
                       data=buzztrain,
                       mtry=floor(sqrt(length(varslist))),
@@ -168,14 +184,18 @@ print(accuracyMeasures(rtest$pred, rtest$truth))
 And we can also make plots.
 
 Training performance:
-```{r plottrain, tidy=F}
+<!-- Trick: since this block is cached the side-effect (saving a new copy -->
+<!-- of the PDF will not happen unless the block is re-run. -->
+```{r plottrain, tidy=F,cache=F}
 library(ggplot2)
 ggplot(rtrain, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
    geom_density(adjust=0.1,)
 ```
 
 Test performance:
-```{r plottest,tidy=F}
+<!-- Trick: since this block is cached the side-effect (saving a new copy -->
+<!-- of the PDF will not happen unless the block is re-run. -->
+```{r plottest,tidy=F,cache=F}
 ggplot(rtest, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
    geom_density(adjust=0.1)
 ```
@@ -185,4 +205,21 @@ Note the classifier scores are concentrated near zero and one
 story and the density plots or any sort of ROC plot doesn't add much
 value in this case).
 
+Save prepared R environment.
+<!-- Another way to conditionally save, check for file. -->
+<!-- message=F is letting message() calls get routed to console instead -->
+<!-- of the document. -->
+```{r save,tidy=F,cache=F,message=F,eval=T}
+fname <- 'thRS500.Rdata'
+if(!file.exists(fname)) {
+   save(list=ls(),file=fname)
+   message(paste('saved',fname))  # message to running R console
+   print(paste('saved',fname))    # print to document
+} else {
+   message(paste('skipped saving',fname)) # message to running R console
+   print(paste('skipped saving',fname))   # print to document
+}
+paste('checked at',date())
+system(paste('shasum',fname),intern=T)  # write down file hash
+```
 

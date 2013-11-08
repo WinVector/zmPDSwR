@@ -102,7 +102,12 @@ To run this example:
 % set up caching and knitr chunk dependency calculation
 % note: you will want to do clean re-runs once in a while to make sure 
 % you are not seeing stale cache results.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 
+
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning: file cache/\_\_objects not found\\\#\# Warning: file cache/\_\_globals not found}}\end{kframe}
+\end{knitrout}
 
 
 Now you can run the following data prep steps:
@@ -110,8 +115,20 @@ Now you can run the following data prep steps:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlstd{buzzdata} \hlkwb{<-} \hlkwd{read.table}\hlstd{(}\hlstr{"TomsHardware-Relative-Sigma-500.data.txt"}\hlstd{,}
-                      \hlkwc{header}\hlstd{=F,} \hlkwc{sep}\hlstd{=}\hlstr{","}\hlstd{)}
+\hlstd{infile} \hlkwb{<-} \hlstr{"TomsHardware-Relative-Sigma-500.data.txt"}
+\hlkwd{paste}\hlstd{(}\hlstr{'checked at'}\hlstd{,}\hlkwd{date}\hlstd{())}
+\end{alltt}
+\begin{verbatim}
+## [1] "checked at Fri Nov  8 11:18:07 2013"
+\end{verbatim}
+\begin{alltt}
+\hlkwd{system}\hlstd{(}\hlkwd{paste}\hlstd{(}\hlstr{'shasum'}\hlstd{,infile),}\hlkwc{intern}\hlstd{=T)}  \hlcom{# write down file hash}
+\end{alltt}
+\begin{verbatim}
+## [1] "c239182c786baf678b55f559b3d0223da91e869c  TomsHardware-Relative-Sigma-500.data.txt"
+\end{verbatim}
+\begin{alltt}
+\hlstd{buzzdata} \hlkwb{<-} \hlkwd{read.table}\hlstd{(infile,} \hlkwc{header}\hlstd{=F,} \hlkwc{sep}\hlstd{=}\hlstr{","}\hlstd{)}
 \hlstd{makevars} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{colname}\hlstd{,} \hlkwc{ndays}\hlstd{=}\hlnum{7}\hlstd{) \{}
   \hlkwd{paste}\hlstd{(colname,} \hlnum{0}\hlopt{:}\hlstd{ndays,} \hlkwc{sep}\hlstd{=}\hlstr{''}\hlstd{)}
 \hlstd{\}}
@@ -426,11 +443,28 @@ Save prepared R environment.
 \hlstd{fname} \hlkwb{<-} \hlstr{'thRS500.Rdata'}
 \hlkwa{if}\hlstd{(}\hlopt{!}\hlkwd{file.exists}\hlstd{(fname)) \{}
    \hlkwd{save}\hlstd{(}\hlkwc{list}\hlstd{=}\hlkwd{ls}\hlstd{(),}\hlkwc{file}\hlstd{=fname)}
-   \hlkwd{message}\hlstd{(}\hlkwd{paste}\hlstd{(}\hlstr{'saved'}\hlstd{,fname))}
+   \hlkwd{message}\hlstd{(}\hlkwd{paste}\hlstd{(}\hlstr{'saved'}\hlstd{,fname))}  \hlcom{# message to running R console}
+   \hlkwd{print}\hlstd{(}\hlkwd{paste}\hlstd{(}\hlstr{'saved'}\hlstd{,fname))}    \hlcom{# print to document}
 \hlstd{\}} \hlkwa{else} \hlstd{\{}
-   \hlkwd{message}\hlstd{(}\hlkwd{paste}\hlstd{(}\hlstr{'skipped saving'}\hlstd{,fname))}
+   \hlkwd{message}\hlstd{(}\hlkwd{paste}\hlstd{(}\hlstr{'skipped saving'}\hlstd{,fname))} \hlcom{# message to running R console}
+   \hlkwd{print}\hlstd{(}\hlkwd{paste}\hlstd{(}\hlstr{'skipped saving'}\hlstd{,fname))}   \hlcom{# print to document}
 \hlstd{\}}
 \end{alltt}
+\begin{verbatim}
+## [1] "skipped saving thRS500.Rdata"
+\end{verbatim}
+\begin{alltt}
+\hlkwd{paste}\hlstd{(}\hlstr{'checked at'}\hlstd{,}\hlkwd{date}\hlstd{())}
+\end{alltt}
+\begin{verbatim}
+## [1] "checked at Fri Nov  8 11:20:26 2013"
+\end{verbatim}
+\begin{alltt}
+\hlkwd{system}\hlstd{(}\hlkwd{paste}\hlstd{(}\hlstr{'shasum'}\hlstd{,fname),}\hlkwc{intern}\hlstd{=T)}  \hlcom{# write down file hash}
+\end{alltt}
+\begin{verbatim}
+## [1] "304895b8b5860ac5c995e10bd3b8c995820d60a0  thRS500.Rdata"
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 

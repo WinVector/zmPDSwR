@@ -1,8 +1,14 @@
 
 # Markdown version of Buzz data analysis
 
-This is the markdown version of the buzz example.  The primary
-example is latex ( [pdf result](https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzz.pdf) ).
+by: Nina Zumel and John Mount
+Win-Vector LLC
+11-8-2013
+
+
+To run this example you need a system with R installed (see [http://cran.r-project.org](http://cran.r-project.org)), and data from 
+[https://github.com/WinVector/zmPDSwR/tree/master/Buzz](https://github.com/WinVector/zmPDSwR/tree/master/Buzz).
+
 
 We are not perfoming any new analysis here, just supplying a direct application of Random Forests on the data.
 
@@ -36,13 +42,37 @@ knit('buzzm.Rmd')
 ```
 
 
+<!-- set up caching and knitr chunk dependency calculation -->
+<!-- note: you will want to do clean re-runs once in a while to make sure -->
+<!-- you are not seeing stale cache results. -->
+```{setup,tidy=F,cache=F,eval=T,echo=F,results='hide'}
+opts_chunk$set(autodep=T)
+dep_auto()
+```
+
 
 Now you can run the following data prep steps:
 
 
 ```r
-buzzdata <- read.table("TomsHardware-Relative-Sigma-500.data.txt", 
-                      header=F, sep=",")
+infile <- "TomsHardware-Relative-Sigma-500.data.txt"
+paste('checked at',date())
+```
+
+```
+## [1] "checked at Fri Nov  8 11:21:37 2013"
+```
+
+```r
+system(paste('shasum',infile),intern=T)  # write down file hash
+```
+
+```
+## [1] "c239182c786baf678b55f559b3d0223da91e869c  TomsHardware-Relative-Sigma-500.data.txt"
+```
+
+```r
+buzzdata <- read.table(infile, header=F, sep=",")
 
 makevars <- function(colname, ndays=7) {
   paste(colname, 0:ndays, sep='')
@@ -331,6 +361,8 @@ print(accuracyMeasures(rtest$pred, rtest$truth))
 And we can also make plots.
 
 Training performance:
+<!-- Trick: since this block is cached the side-effect (saving a new copy -->
+<!-- of the PDF will not happen unless the block is re-run. -->
 
 ```r
 library(ggplot2)
@@ -342,6 +374,8 @@ ggplot(rtrain, aes(x=pred, color=(truth==1),linetype=(truth==1))) +
 
 
 Test performance:
+<!-- Trick: since this block is cached the side-effect (saving a new copy -->
+<!-- of the PDF will not happen unless the block is re-run. -->
 
 ```r
 ggplot(rtest, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
@@ -355,5 +389,42 @@ Note the classifier scores are concentrated near zero and one
 (meaning the printed confusion matrices pretty much capture the whole
 story and the density plots or any sort of ROC plot doesn't add much
 value in this case).
+
+Save prepared R environment.
+<!-- Another way to conditionally save, check for file. -->
+<!-- message=F is letting message() calls get routed to console instead -->
+<!-- of the document. -->
+
+```r
+fname <- 'thRS500.Rdata'
+if(!file.exists(fname)) {
+   save(list=ls(),file=fname)
+   message(paste('saved',fname))  # message to running R console
+   print(paste('saved',fname))    # print to document
+} else {
+   message(paste('skipped saving',fname)) # message to running R console
+   print(paste('skipped saving',fname))   # print to document
+}
+```
+
+```
+## [1] "skipped saving thRS500.Rdata"
+```
+
+```r
+paste('checked at',date())
+```
+
+```
+## [1] "checked at Fri Nov  8 11:23:56 2013"
+```
+
+```r
+system(paste('shasum',fname),intern=T)  # write down file hash
+```
+
+```
+## [1] "304895b8b5860ac5c995e10bd3b8c995820d60a0  thRS500.Rdata"
+```
 
 

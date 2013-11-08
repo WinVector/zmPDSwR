@@ -55,8 +55,10 @@ dep_auto()
 Now you can run the following data prep steps:
 
 <<dataprep,tidy=F,cache=T>>=
-buzzdata <- read.table("TomsHardware-Relative-Sigma-500.data.txt", 
-                      header=F, sep=",")
+infile <- "TomsHardware-Relative-Sigma-500.data.txt"
+paste('checked at',date())
+system(paste('shasum',infile),intern=T)  # write down file hash
+buzzdata <- read.table(infile, header=F, sep=",")
 
 makevars <- function(colname, ndays=7) {
   paste(colname, 0:ndays, sep='')
@@ -210,14 +212,18 @@ Save prepared R environment.
 % Another way to conditionally save, check for file.
 % message=F is letting message() calls get routed to console instead
 % of the document.
-<<save,tidy=F,cache=F,message=F,eval=T,results='hide'>>=
+<<save,tidy=F,cache=F,message=F,eval=T>>=
 fname <- 'thRS500.Rdata'
 if(!file.exists(fname)) {
    save(list=ls(),file=fname)
-   message(paste('saved',fname))
+   message(paste('saved',fname))  # message to running R console
+   print(paste('saved',fname))    # print to document
 } else {
-   message(paste('skipped saving',fname))
+   message(paste('skipped saving',fname)) # message to running R console
+   print(paste('skipped saving',fname))   # print to document
 }
+paste('checked at',date())
+system(paste('shasum',fname),intern=T)  # write down file hash
 @
 
 \end{document}

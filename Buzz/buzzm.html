@@ -1,10 +1,6 @@
-<html>
-<head>
-<title>HTML version of Buzz data analysis</title>
-</head>
-<body>
-<h1 id="markdown-version-of-buzz-data-analysis">HTML version of Buzz data analysis</h1>
-<p>This is the markdown version of the buzz example converted to html with "pandoc -o buzzm.html buzzm.md" (and a quick hand-edit). The primary example is latex ( <a href="https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzz.pdf">pdf result</a> ).</p>
+<h1 id="markdown-version-of-buzz-data-analysis">Markdown version of Buzz data analysis</h1>
+<p>by: Nina Zumel and John Mount Win-Vector LLC 11-8-2013</p>
+<p>To run this example you need a system with R installed (see <a href="http://cran.r-project.org">http://cran.r-project.org</a>), and data from <a href="https://github.com/WinVector/zmPDSwR/tree/master/Buzz">https://github.com/WinVector/zmPDSwR/tree/master/Buzz</a>.</p>
 <p>We are not perfoming any new analysis here, just supplying a direct application of Random Forests on the data.</p>
 <p>Data from: <a href="http://ama.liglab.fr/datasets/buzz/">http://ama.liglab.fr/datasets/buzz/</a> Using: <a href="http://ama.liglab.fr/datasets/buzz/classification/TomsHardware/Relative_labeling/sigma=500/TomsHardware-Relative-Sigma-500.data">TomsHardware-Relative-Sigma-500.data</a></p>
 <p>(described in <a href="http://ama.liglab.fr/datasets/buzz/classification/TomsHardware/Relative_labeling/sigma=500/TomsHardware-Relative-Sigma-500.names">TomsHardware-Relative-Sigma-500.names</a> )</p>
@@ -12,9 +8,17 @@
 <p>To run this example you need a system with R installed (see <a href="http://cran.r-project.org">cran</a>), Latex (see <a href="http://tug.org">tug</a>) and data from <a href="https://github.com/WinVector/zmPDSwR/tree/master/Buzz">zmPDSwR</a>.</p>
 <p>To run this example: * Download buzzm.Rmd and TomsHardware-Relative-Sigma-500.data.txt from the github URL. * Start a copy of R, use setwd() to move to the directory you have stored the files. * Make sure knitr is loaded into R ( install.packages('knitr') and library(knitr) ). * In R run: (produces <a href="https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzzm.md">buzzm.md</a> from buzzm.Rmd).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">knit</span>(<span class="st">&#39;buzzm.Rmd&#39;</span>)</code></pre>
+<!-- set up caching and knitr chunk dependency calculation -->
+<!-- note: you will want to do clean re-runs once in a while to make sure -->
+<!-- you are not seeing stale cache results. -->
+<p><code>{setup,tidy=F,cache=F,eval=T,echo=F,results='hide'} opts_chunk$set(autodep=T) dep_auto()</code></p>
 <p>Now you can run the following data prep steps:</p>
-<pre class="sourceCode r"><code class="sourceCode r">buzzdata &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;TomsHardware-Relative-Sigma-500.data.txt&quot;</span>, 
-                      <span class="dt">header=</span>F, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r">infile &lt;-<span class="st"> &quot;TomsHardware-Relative-Sigma-500.data.txt&quot;</span>
+<span class="kw">paste</span>(<span class="st">&#39;checked at&#39;</span>,<span class="kw">date</span>())</code></pre>
+<pre><code>## [1] &quot;checked at Fri Nov  8 11:21:37 2013&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system</span>(<span class="kw">paste</span>(<span class="st">&#39;shasum&#39;</span>,infile),<span class="dt">intern=</span>T)  <span class="co"># write down file hash</span></code></pre>
+<pre><code>## [1] &quot;c239182c786baf678b55f559b3d0223da91e869c  TomsHardware-Relative-Sigma-500.data.txt&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">buzzdata &lt;-<span class="st"> </span><span class="kw">read.table</span>(infile, <span class="dt">header=</span>F, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)
 
 makevars &lt;-<span class="st"> </span>function(colname, <span class="dt">ndays=</span><span class="dv">7</span>) {
   <span class="kw">paste</span>(colname, <span class="dv">0</span>:ndays, <span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
@@ -204,19 +208,32 @@ fmodel &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span 
 ##   model accuracy     f1 dev.norm
 ## 1 model   0.9204 0.6817    4.401</code></pre>
 <p>And we can also make plots.</p>
-<p>Training performance:</p>
+<p>Training performance: <!-- Trick: since this block is cached the side-effect (saving a new copy --> <!-- of the PDF will not happen unless the block is re-run. --></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 <span class="kw">ggplot</span>(rtrain, <span class="kw">aes</span>(<span class="dt">x=</span>pred, <span class="dt">color=</span>(truth==<span class="dv">1</span>),<span class="dt">linetype=</span>(truth==<span class="dv">1</span>))) +<span class="st"> </span>
 <span class="st">   </span><span class="kw">geom_density</span>(<span class="dt">adjust=</span><span class="fl">0.1</span>,)</code></pre>
 <div class="figure">
 <img src="figure/plottrain.png" alt="plot of chunk plottrain" /><p class="caption">plot of chunk plottrain</p>
 </div>
-<p>Test performance:</p>
+<p>Test performance: <!-- Trick: since this block is cached the side-effect (saving a new copy --> <!-- of the PDF will not happen unless the block is re-run. --></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(rtest, <span class="kw">aes</span>(<span class="dt">x=</span>pred, <span class="dt">color=</span>(truth==<span class="dv">1</span>),<span class="dt">linetype=</span>(truth==<span class="dv">1</span>))) +<span class="st"> </span>
 <span class="st">   </span><span class="kw">geom_density</span>(<span class="dt">adjust=</span><span class="fl">0.1</span>)</code></pre>
 <div class="figure">
 <img src="figure/plottest.png" alt="plot of chunk plottest" /><p class="caption">plot of chunk plottest</p>
 </div>
 <p>Note the classifier scores are concentrated near zero and one (meaning the printed confusion matrices pretty much capture the whole story and the density plots or any sort of ROC plot doesn't add much value in this case).</p>
-</body>
-</html>
+<p>Save prepared R environment. <!-- Another way to conditionally save, check for file. --> <!-- message=F is letting message() calls get routed to console instead --> <!-- of the document. --></p>
+<pre class="sourceCode r"><code class="sourceCode r">fname &lt;-<span class="st"> &#39;thRS500.Rdata&#39;</span>
+if(!<span class="kw">file.exists</span>(fname)) {
+   <span class="kw">save</span>(<span class="dt">list=</span><span class="kw">ls</span>(),<span class="dt">file=</span>fname)
+   <span class="kw">message</span>(<span class="kw">paste</span>(<span class="st">&#39;saved&#39;</span>,fname))  <span class="co"># message to running R console</span>
+   <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&#39;saved&#39;</span>,fname))    <span class="co"># print to document</span>
+} else {
+   <span class="kw">message</span>(<span class="kw">paste</span>(<span class="st">&#39;skipped saving&#39;</span>,fname)) <span class="co"># message to running R console</span>
+   <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&#39;skipped saving&#39;</span>,fname))   <span class="co"># print to document</span>
+}</code></pre>
+<pre><code>## [1] &quot;skipped saving thRS500.Rdata&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&#39;checked at&#39;</span>,<span class="kw">date</span>())</code></pre>
+<pre><code>## [1] &quot;checked at Fri Nov  8 11:23:56 2013&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system</span>(<span class="kw">paste</span>(<span class="st">&#39;shasum&#39;</span>,fname),<span class="dt">intern=</span>T)  <span class="co"># write down file hash</span></code></pre>
+<pre><code>## [1] &quot;304895b8b5860ac5c995e10bd3b8c995820d60a0  thRS500.Rdata&quot;</code></pre>
