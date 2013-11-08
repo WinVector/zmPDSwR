@@ -102,12 +102,7 @@ To run this example:
 % set up caching and knitr chunk dependency calculation
 % note: you will want to do clean re-runs once in a while to make sure 
 % you are not seeing stale cache results.
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: file cache/\_\_objects not found\\\#\# Warning: file cache/\_\_globals not found}}\end{kframe}
-\end{knitrout}
 
 
 Now you can run the following data prep steps:
@@ -119,7 +114,7 @@ Now you can run the following data prep steps:
 \hlkwd{paste}\hlstd{(}\hlstr{'checked at'}\hlstd{,}\hlkwd{date}\hlstd{())}
 \end{alltt}
 \begin{verbatim}
-## [1] "checked at Fri Nov  8 11:18:07 2013"
+## [1] "checked at Fri Nov  8 15:01:39 2013"
 \end{verbatim}
 \begin{alltt}
 \hlkwd{system}\hlstd{(}\hlkwd{paste}\hlstd{(}\hlstr{'shasum'}\hlstd{,infile),}\hlkwc{intern}\hlstd{=T)}  \hlcom{# write down file hash}
@@ -253,10 +248,6 @@ other columns.
   \hlkwd{data.frame}\hlstd{(}\hlkwc{model}\hlstd{=name,} \hlkwc{accuracy}\hlstd{=accuracy,} \hlkwc{f1}\hlstd{=f1, dev.norm)}
 \hlstd{\}}
 \hlkwd{library}\hlstd{(randomForest)}
-\end{alltt}
-
-
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# randomForest 4.6-7\\\#\# Type rfNews() to see new features/changes/bug fixes.}}\begin{alltt}
 \hlstd{bzFormula} \hlkwb{<-} \hlkwd{paste}\hlstd{(}\hlstr{'as.factor(buzz) ~ '}\hlstd{,}\hlkwd{paste}\hlstd{(varslist,}\hlkwc{collapse}\hlstd{=}\hlstr{' + '}\hlstd{))}
 \hlstd{fmodel} \hlkwb{<-} \hlkwd{randomForest}\hlstd{(}\hlkwd{as.formula}\hlstd{(bzFormula),}
                       \hlkwc{data}\hlstd{=buzztrain,}
@@ -457,7 +448,7 @@ Save prepared R environment.
 \hlkwd{paste}\hlstd{(}\hlstr{'checked at'}\hlstd{,}\hlkwd{date}\hlstd{())}
 \end{alltt}
 \begin{verbatim}
-## [1] "checked at Fri Nov  8 11:20:26 2013"
+## [1] "checked at Fri Nov  8 15:04:41 2013"
 \end{verbatim}
 \begin{alltt}
 \hlkwd{system}\hlstd{(}\hlkwd{paste}\hlstd{(}\hlstr{'shasum'}\hlstd{,fname),}\hlkwc{intern}\hlstd{=T)}  \hlcom{# write down file hash}
