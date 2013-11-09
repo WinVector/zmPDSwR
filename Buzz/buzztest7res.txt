@@ -1,0 +1,295 @@
+val=1
+nerrors=0
+nwarnings=0
+query=
+errors=
+warnings=
+data row
+$num.new.disc0
+[1] 6
+
+$num.new.disc1
+[1] 7
+
+$num.new.disc2
+[1] 7
+
+$num.new.disc3
+[1] 10
+
+$num.new.disc4
+[1] 6
+
+$num.new.disc5
+[1] 5
+
+$num.new.disc6
+[1] 5
+
+$num.new.disc7
+[1] 1
+
+$burstiness0
+[1] 0.333333
+
+$burstiness1
+[1] 0.35
+
+$burstiness2
+[1] 0.4375
+
+$burstiness3
+[1] 0.555556
+
+$burstiness4
+[1] 0.375
+
+$burstiness5
+[1] 0.277778
+
+$burstiness6
+[1] 0.3125
+
+$burstiness7
+[1] 0.1
+
+$number.total.disc0
+[1] 18
+
+$number.total.disc1
+[1] 20
+
+$number.total.disc2
+[1] 16
+
+$number.total.disc3
+[1] 18
+
+$number.total.disc4
+[1] 16
+
+$number.total.disc5
+[1] 18
+
+$number.total.disc6
+[1] 16
+
+$number.total.disc7
+[1] 10
+
+$auth.increase0
+[1] 18
+
+$auth.increase1
+[1] 8
+
+$auth.increase2
+[1] 10
+
+$auth.increase3
+[1] 17
+
+$auth.increase4
+[1] 7
+
+$auth.increase5
+[1] 8
+
+$auth.increase6
+[1] 10
+
+$auth.increase7
+[1] 8
+
+$atomic.containers0
+[1] 179
+
+$atomic.containers1
+[1] 184
+
+$atomic.containers2
+[1] 187
+
+$atomic.containers3
+[1] 217
+
+$atomic.containers4
+[1] 217
+
+$atomic.containers5
+[1] 124
+
+$atomic.containers6
+[1] 93
+
+$atomic.containers7
+[1] 247
+
+$num.displays0
+[1] 8957
+
+$num.displays1
+[1] 10933
+
+$num.displays2
+[1] 9594
+
+$num.displays3
+[1] 9293
+
+$num.displays4
+[1] 8642
+
+$num.displays5
+[1] 7552
+
+$num.displays6
+[1] 8111
+
+$num.displays7
+[1] 18435
+
+$contribution.sparseness0
+[1] 0.026549
+
+$contribution.sparseness1
+[1] 0.027322
+
+$contribution.sparseness2
+[1] 0.023529
+
+$contribution.sparseness3
+[1] 0.026049
+
+$contribution.sparseness4
+[1] 0.023599
+
+$contribution.sparseness5
+[1] 0.025899
+
+$contribution.sparseness6
+[1] 0.013223
+
+$contribution.sparseness7
+[1] 0.007018
+
+$avg.auths.per.disc0
+[1] 13.5
+
+$avg.auths.per.disc1
+[1] 10.95
+
+$avg.auths.per.disc2
+[1] 8.3125
+
+$avg.auths.per.disc3
+[1] 10.11111
+
+$avg.auths.per.disc4
+[1] 6.0625
+
+$avg.auths.per.disc5
+[1] 11.94444
+
+$avg.auths.per.disc6
+[1] 8.875
+
+$avg.auths.per.disc7
+[1] 11.2
+
+$num.authors.topic0
+[1] 69
+
+$num.authors.topic1
+[1] 49
+
+$num.authors.topic2
+[1] 43
+
+$num.authors.topic3
+[1] 70
+
+$num.authors.topic4
+[1] 62
+
+$num.authors.topic5
+[1] 55
+
+$num.authors.topic6
+[1] 41
+
+$num.authors.topic7
+[1] 61
+
+$avg.disc.length0
+[1] 42.72222
+
+$avg.disc.length1
+[1] 36.4
+
+$avg.disc.length2
+[1] 27.0625
+
+$avg.disc.length3
+[1] 32.61111
+
+$avg.disc.length4
+[1] 31.25
+
+$avg.disc.length5
+[1] 46.22222
+
+$avg.disc.length6
+[1] 37.375
+
+$avg.disc.length7
+[1] 53.4
+
+$attention.level.author0
+[1] 0.022765
+
+$attention.level.author1
+[1] 0.016862
+
+$attention.level.author2
+[1] 0.015602
+
+$attention.level.author3
+[1] 0.025594
+
+$attention.level.author4
+[1] 0.022001
+
+$attention.level.author5
+[1] 0.019144
+
+$attention.level.author6
+[1] 0.014211
+
+$attention.level.author7
+[1] 0.021344
+
+$attention.level.contrib0
+[1] 0.008736
+
+$attention.level.contrib1
+[1] 0.009465
+
+$attention.level.contrib2
+[1] 0.009874
+
+$attention.level.contrib3
+[1] 0.0068
+
+$attention.level.contrib4
+[1] 0.011021
+
+$attention.level.contrib5
+[1] 0.005425
+
+$attention.level.contrib6
+[1] 0.003736
+
+$attention.level.contrib7
+[1] 0.012799
+
