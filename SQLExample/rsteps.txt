@@ -10,13 +10,12 @@ pthin <- melt(prices,id.vars=c('date'),
    variable.name='daysBefore',value.name='price')
 
 daysCodes <- c('day.of.stay', 'X1.before', 'X2.before', 'X3.before')
-bthin$nDayBefore <- match(bthin$daysBefore,daysCodes)
-pthin$nDayBefore <- match(pthin$daysBefore,daysCodes)
+bthin$nDayBefore <- match(bthin$daysBefore,daysCodes)-1
+pthin$nDayBefore <- match(pthin$daysBefore,daysCodes)-1
 
 # prevent sqldf from triggering tcl/tk dependency
 # see: https://code.google.com/p/sqldf/ Troubleshooting
 options(gsubfn.engine = "R") 
-
 library('sqldf')
 joined <- sqldf('
   select
