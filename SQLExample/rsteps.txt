@@ -1,0 +1,56 @@
+
+library('xlsx')
+bookings <- read.xlsx('Workbook1.xlsx',1,startRow=3)
+prices <- read.xlsx('Workbook1.xlsx',2,startRow=3)
+
+library('reshape2')
+bthin <- melt(bookings,id.vars=c('date'),
+   variable.name='daysBefore',value.name='bookings')
+pthin <- melt(prices,id.vars=c('date'),
+   variable.name='daysBefore',value.name='price')
+
+daysCodes <- c('day.of.stay', 'X1.before', 'X2.before', 'X3.before')
+bthin$nDayBefore <- match(bthin$daysBefore,daysCodes)
+pthin$nDayBefore <- match(pthin$daysBefore,daysCodes)
+
+# prevent sqldf from triggering tcl/tk dependency
+# see: https://code.google.com/p/sqldf/ Troubleshooting
+options(gsubfn.engine = "R") 
+
+library('sqldf')
+joined <- sqldf('
+  select
+     b1.date,
+     b1.daysBefore as daysBefore1,
+     b1.bookings as bookings1,
+     b2.daysBefore as daysBefore2,
+     b2.bookings as bookings2,
+     p.price
+  from
+     bthin b1
+  join
+     bthin b2
+  on
+     b1.date=b2.date
+     and b1.nDayBefore+1=b2.nDayBefore
+  join
+     pthin p
+  on
+     b1.date=p.date
+     and b2.nDayBefore=p.nDayBefore
+')
+
+library('ggplot2')
+joined$dbookings <- joined$bookings1 - joined$bookings2
+ggplot(data=joined,aes(x=price,y=dbookings)) +
+  geom_point() + geom_smooth(method='lm')
+
+
+
+#dateOffset <- function(dateStrings) {
+#  baseDate <- as.POSIXct(strptime("2000-01-01","%Y-%m-%d"))
+#  round(as.numeric(as.POSIXct(strptime(prices$date,"%Y-%m-%d")) - baseDate))
+#}
+#prices$dateOffset <- dateOffset(prices$date)
+#bookings$dateOffset <- dateOffset(bookings$date)
+
