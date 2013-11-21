@@ -2,12 +2,13 @@
 # SQL example in knitr Markdown
 
 Material from [Practical Data Science with R examples GitHub archive](https://github.com/WinVector/zmPDSwR/)
-In support of the Hotel/SQL example in Appendix B of [Practical Data Science with R](http://affiliate.manning.com/idevaffiliate.php?id=1273_360) by Nina Zumel and John Mount.
+In support of the Hotel/SQL example in Appendix A of [Practical Data Science with R](http://affiliate.manning.com/idevaffiliate.php?id=1273_360) by Nina Zumel and John Mount.
 
 
  * start with README.Rmd
- * produce README.md by running "knit('README.Rmd')" in R ( or "echo "library('knitr'); knit('README.Rmd')" | R --vanilla" from the bash shell)
+ * produce README.md by running "knit('README.Rmd')" in R
  * produce README.html by running "pandoc README.md -o README.html" in bash shell
+ * or all in one shot at the bash shell: echo "library('knitr'); knit('README.Rmd')" | R --vanilla ; pandoc README.md -o README.html
 
 
 ```r

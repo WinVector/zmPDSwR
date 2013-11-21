@@ -1,9 +1,10 @@
 <h1 id="sql-example-in-knitr-markdown">SQL example in knitr Markdown</h1>
-<p>Material from <a href="https://github.com/WinVector/zmPDSwR/">Practical Data Science with R examples GitHub archive</a> In support of the Hotel/SQL example in Appendix B of <a href="http://affiliate.manning.com/idevaffiliate.php?id=1273_360">Practical Data Science with R</a> by Nina Zumel and John Mount.</p>
+<p>Material from <a href="https://github.com/WinVector/zmPDSwR/">Practical Data Science with R examples GitHub archive</a> In support of the Hotel/SQL example in Appendix A of <a href="http://affiliate.manning.com/idevaffiliate.php?id=1273_360">Practical Data Science with R</a> by Nina Zumel and John Mount.</p>
 <ul>
 <li>start with README.Rmd</li>
-<li>produce README.md by running &quot;knit('README.Rmd')&quot; in R ( or &quot;echo &quot;library('knitr'); knit('README.Rmd')&quot; | R --vanilla&quot; from the bash shell)</li>
+<li>produce README.md by running &quot;knit('README.Rmd')&quot; in R</li>
 <li>produce README.html by running &quot;pandoc README.md -o README.html&quot; in bash shell</li>
+<li>or all in one shot at the bash shell: echo &quot;library('knitr'); knit('README.Rmd')&quot; | R --vanilla ; pandoc README.md -o README.html</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&#39;xlsx&#39;</span>)</code></pre>
 <pre><code>## Loading required package: xlsxjars
