@@ -1,0 +1,83 @@
+<h1 id="sql-example-in-knitr-markdown">SQL example in knitr Markdown</h1>
+<p>Material from <a href="https://github.com/WinVector/zmPDSwR/">Practical Data Science with R examples GitHub archive</a> In support of the Hotel/SQL example in Appendix B of <a href="http://affiliate.manning.com/idevaffiliate.php?id=1273_360">Practical Data Science with R</a> by Nina Zumel and John Mount.</p>
+<ul>
+<li>start with README.Rmd</li>
+<li>produce README.md by running &quot;knit('README.Rmd')&quot; in R ( or &quot;echo &quot;library('knitr'); knit('README.Rmd')&quot; | R --vanilla&quot; from the bash shell)</li>
+<li>produce README.html by running &quot;pandoc README.md -o README.html&quot; in bash shell</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&#39;xlsx&#39;</span>)</code></pre>
+<pre><code>## Loading required package: xlsxjars
+## Loading required package: rJava</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">bookings &lt;-<span class="st"> </span><span class="kw">read.xlsx</span>(<span class="st">&#39;Workbook1.xlsx&#39;</span>,<span class="dv">1</span>,<span class="dt">startRow=</span><span class="dv">3</span>)
+prices &lt;-<span class="st"> </span><span class="kw">read.xlsx</span>(<span class="st">&#39;Workbook1.xlsx&#39;</span>,<span class="dv">2</span>,<span class="dt">startRow=</span><span class="dv">3</span>)
+
+<span class="kw">library</span>(<span class="st">&#39;reshape2&#39;</span>)
+bthin &lt;-<span class="st"> </span><span class="kw">melt</span>(bookings,<span class="dt">id.vars=</span><span class="kw">c</span>(<span class="st">&#39;date&#39;</span>),
+   <span class="dt">variable.name=</span><span class="st">&#39;daysBefore&#39;</span>,<span class="dt">value.name=</span><span class="st">&#39;bookings&#39;</span>)
+pthin &lt;-<span class="st"> </span><span class="kw">melt</span>(prices,<span class="dt">id.vars=</span><span class="kw">c</span>(<span class="st">&#39;date&#39;</span>),
+   <span class="dt">variable.name=</span><span class="st">&#39;daysBefore&#39;</span>,<span class="dt">value.name=</span><span class="st">&#39;price&#39;</span>)
+
+daysCodes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;day.of.stay&#39;</span>, <span class="st">&#39;X1.before&#39;</span>, <span class="st">&#39;X2.before&#39;</span>, <span class="st">&#39;X3.before&#39;</span>)
+bthin$nDaysBefore &lt;-<span class="st"> </span><span class="kw">match</span>(bthin$daysBefore,daysCodes)-<span class="dv">1</span>
+pthin$nDaysBefore &lt;-<span class="st"> </span><span class="kw">match</span>(pthin$daysBefore,daysCodes)-<span class="dv">1</span>
+
+<span class="co"># prevent sqldf from triggering tcl/tk dependency</span>
+<span class="co"># see: https://code.google.com/p/sqldf/ Troubleshooting</span>
+<span class="kw">options</span>(<span class="dt">gsubfn.engine =</span> <span class="st">&quot;R&quot;</span>)
+<span class="kw">library</span>(<span class="st">&#39;sqldf&#39;</span>)</code></pre>
+<pre><code>## Loading required package: DBI
+## Loading required package: gsubfn
+## Loading required package: proto
+## Loading required package: chron
+## Loading required package: RSQLite
+## Loading required package: RSQLite.extfuns</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">joined &lt;-<span class="st"> </span><span class="kw">sqldf</span>(<span class="st">&#39;</span>
+<span class="st">  select</span>
+<span class="st">     bCurrent.date as StayDate,</span>
+<span class="st">     bCurrent.daysBefore as daysBefore,</span>
+<span class="st">     bCurrent.nDaysBefore as nDaysBefore,</span>
+<span class="st">     p.price as price,</span>
+<span class="st">     bCurrent.bookings as bookingsCurrent,</span>
+<span class="st">     bPrevious.bookings as bookingsPrevious,</span>
+<span class="st">     bCurrent.bookings - bPrevious.bookings as pickup</span>
+<span class="st">  from</span>
+<span class="st">     bthin bCurrent</span>
+<span class="st">  join</span>
+<span class="st">     bthin bPrevious</span>
+<span class="st">  on</span>
+<span class="st">     bCurrent.date=bPrevious.date</span>
+<span class="st">     and bCurrent.nDaysBefore+1=bPrevious.nDaysBefore</span>
+<span class="st">  join</span>
+<span class="st">     pthin p</span>
+<span class="st">  on</span>
+<span class="st">     bCurrent.date=p.date</span>
+<span class="st">     and bCurrent.nDaysBefore=p.nDaysBefore</span>
+<span class="st">&#39;</span>)
+
+<span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
+plt &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>joined,<span class="kw">aes</span>(<span class="dt">x=</span>price,<span class="dt">y=</span>pickup)) +
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_jitter</span>() +<span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>)
+<span class="kw">print</span>(plt)</code></pre>
+<div class="figure">
+<img src="figure/allsteps.png" alt="plot of chunk allsteps" /><p class="caption">plot of chunk allsteps</p>
+</div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="dt">filename=</span><span class="st">&#39;HotelRelation.pdf&#39;</span>,<span class="dt">plot=</span>plt)</code></pre>
+<pre><code>## Saving 7 x 7 in image</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">print</span>(<span class="kw">summary</span>(<span class="kw">lm</span>(pickup~price,<span class="dt">data=</span>joined)))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = pickup ~ price, data = joined)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+##  -4.62  -2.81  -1.21   3.39   6.38 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  11.0077     7.9874    1.38      0.2
+## price        -0.0280     0.0319   -0.88      0.4
+## 
+## Residual standard error: 4.21 on 10 degrees of freedom
+## Multiple R-squared:  0.0714, Adjusted R-squared:  -0.0214 
+## F-statistic: 0.769 on 1 and 10 DF,  p-value: 0.401</code></pre>

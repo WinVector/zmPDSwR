@@ -1,4 +1,15 @@
 
+# SQL example in knitr Markdown
+
+Material from [Practical Data Science with R examples GitHub archive](https://github.com/WinVector/zmPDSwR/)
+In support of the Hotel/SQL example in Appendix B of [Practical Data Science with R](http://affiliate.manning.com/idevaffiliate.php?id=1273_360) by Nina Zumel and John Mount.
+
+
+ * start with README.Rmd
+ * produce README.md by running "knit('README.Rmd')" in R ( or "echo "library('knitr'); knit('README.Rmd')" | R --vanilla" from the bash shell)
+ * produce README.html by running "pandoc README.md -o README.html" in bash shell
+
+```{r allsteps,tidy=F}
 library('xlsx')
 bookings <- read.xlsx('Workbook1.xlsx',1,startRow=3)
 prices <- read.xlsx('Workbook1.xlsx',2,startRow=3)
@@ -41,31 +52,11 @@ joined <- sqldf('
 ')
 
 library('ggplot2')
-ggplot(data=joined,aes(x=price,y=pickup)) +
+plt <- ggplot(data=joined,aes(x=price,y=pickup)) +
   geom_point() + geom_jitter() + geom_smooth(method='lm')
+print(plt)
+ggsave(filename='HotelRelation.pdf',plot=plt)
+
 print(summary(lm(pickup~price,data=joined)))
-#
-#Call:
-#lm(formula = pickup ~ price, data = joined)
-#
-#Residuals:
-#   Min     1Q Median     3Q    Max
-#-4.614 -2.812 -1.213  3.387  6.386
-#
-#Coefficients:
-#            Estimate Std. Error t value Pr(>|t|)
-#(Intercept) 11.00765    7.98736   1.378    0.198
-#price       -0.02798    0.03190  -0.877    0.401
-#
-#Residual standard error: 4.21 on 10 degrees of freedom
-#Multiple R-squared:  0.07144,  Adjusted R-squared:  -0.02142
-#F-statistic: 0.7693 on 1 and 10 DF,  p-value: 0.401
-
-
-#dateOffset <- function(dateStrings) {
-#  baseDate <- as.POSIXct(strptime("2000-01-01","%Y-%m-%d"))
-#  round(as.numeric(as.POSIXct(strptime(prices$date,"%Y-%m-%d")) - baseDate))
-#}
-#prices$dateOffset <- dateOffset(prices$date)
-#bookings$dateOffset <- dateOffset(bookings$date)
+```
 
