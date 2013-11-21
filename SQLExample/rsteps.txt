@@ -10,40 +10,56 @@ pthin <- melt(prices,id.vars=c('date'),
    variable.name='daysBefore',value.name='price')
 
 daysCodes <- c('day.of.stay', 'X1.before', 'X2.before', 'X3.before')
-bthin$nDayBefore <- match(bthin$daysBefore,daysCodes)-1
-pthin$nDayBefore <- match(pthin$daysBefore,daysCodes)-1
+bthin$nDaysBefore <- match(bthin$daysBefore,daysCodes)-1
+pthin$nDaysBefore <- match(pthin$daysBefore,daysCodes)-1
 
 # prevent sqldf from triggering tcl/tk dependency
 # see: https://code.google.com/p/sqldf/ Troubleshooting
-options(gsubfn.engine = "R") 
+options(gsubfn.engine = "R")
 library('sqldf')
 joined <- sqldf('
   select
-     b1.date,
-     b1.daysBefore as daysBefore1,
-     b1.bookings as bookings1,
-     b2.daysBefore as daysBefore2,
-     b2.bookings as bookings2,
-     p.price
+     bCurrent.date as StayDate,
+     bCurrent.daysBefore as daysBefore,
+     bCurrent.nDaysBefore as nDaysBefore,
+     p.price as price,
+     bCurrent.bookings as bookingsCurrent,
+     bPrevious.bookings as bookingsPrevious,
+     bCurrent.bookings - bPrevious.bookings as pickup
   from
-     bthin b1
+     bthin bCurrent
   join
-     bthin b2
+     bthin bPrevious
   on
-     b1.date=b2.date
-     and b1.nDayBefore+1=b2.nDayBefore
+     bCurrent.date=bPrevious.date
+     and bCurrent.nDaysBefore+1=bPrevious.nDaysBefore
   join
      pthin p
   on
-     b1.date=p.date
-     and b2.nDayBefore=p.nDayBefore
+     bCurrent.date=p.date
+     and bCurrent.nDaysBefore=p.nDaysBefore
 ')
 
 library('ggplot2')
-joined$dbookings <- joined$bookings1 - joined$bookings2
-ggplot(data=joined,aes(x=price,y=dbookings)) +
-  geom_point() + geom_smooth(method='lm')
-
+ggplot(data=joined,aes(x=price,y=pickup)) +
+  geom_point() + geom_jitter() + geom_smooth(method='lm')
+print(summary(lm(pickup~price,data=joined)))
+#
+#Call:
+#lm(formula = pickup ~ price, data = joined)
+#
+#Residuals:
+#   Min     1Q Median     3Q    Max
+#-4.614 -2.812 -1.213  3.387  6.386
+#
+#Coefficients:
+#            Estimate Std. Error t value Pr(>|t|)
+#(Intercept) 11.00765    7.98736   1.378    0.198
+#price       -0.02798    0.03190  -0.877    0.401
+#
+#Residual standard error: 4.21 on 10 degrees of freedom
+#Multiple R-squared:  0.07144,  Adjusted R-squared:  -0.02142
+#F-statistic: 0.7693 on 1 and 10 DF,  p-value: 0.401
 
 
 #dateOffset <- function(dateStrings) {
