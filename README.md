@@ -19,31 +19,16 @@ No claim of license on derived works.
 ### data sets:
 
  * [Bookdata](Bookdata)
-
-<dl>
-  <dt>[Bookdata](Bookdata)</dt>
-  <dd></dd>
-
-  <dt>CDC</dt>
-  <dd>working with <a href="http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm">US CDC natality data</a> </dd>
-
-  <dt>PUMS</dt>
-  <dd>working with <a href="http://www.census.gov/acs/www/data_documentation/pums_data/">US Census PUMS data</a> </dd>
-
-
-  <dt>Spambase</dt>
-  <dd>working with <a href="http://archive.ics.uci.edu/ml/datasets/Spambase">http://archive.ics.uci.edu/ml/datasets/Spambase</a></dd>
-
-  <dt>Statlog</dt>
-  <dd>working with <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a></dd>
-
-  <dt>UCICar</dt>
-  <dd>working with <a href="http://archive.ics.uci.edu/ml/machine-learning-databases/car/">http://archive.ics.uci.edu/ml/machine-learning-databases/car/</a></dd>
-
-  <dt>Custdata</dt>
-  <dd>Synthetic example data derived from Census PUMS data to demonstrate retail related plots.</dd>
-</dl>
-
+ * [Buzz](Buzz)
+ * [CDC](CDC) Example of working with [US CDC natality data](http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm).
+ * [Custdata](Custdata) Synthetic example data derived from Census PUMS data to demonstrate retail related plots.
+ * [KDD2009](KDD2009)
+ * [PUMS](PUMS) Example of working with [US Census PUMS data](http://www.census.gov/acs/www/data_documentation/pums_data/).
+ * [Protein](Protein)
+ * [SQLExample](SQLExample)
+ * [Spambase](Spambase) Example of working with a [pre-prepared Email spam dataset](http://archive.ics.uci.edu/ml/datasets/Spambase).
+ * [Statlog](Statlog) Example of working with [German load data](http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)).
+ * [UCICar](UCICar) Example of working with [synthetic car rating data](http://archive.ics.uci.edu/ml/machine-learning-databases/car/).
 
 
   [by-nc]: http://creativecommons.org/licenses/by-nc/3.0/ "Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)"
