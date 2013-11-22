@@ -1,4 +1,4 @@
-## Support files for "Practical Data Science with R" 
+# Support files for "Practical Data Science with R" 
 # by Nina Zumel and John Mount http://www.manning.com/zumel/
 
 Works derived from others (data sets) remain controlled by them.  We are distributing as these parties have allowed and not making any claim or grant of additional rights or license.
@@ -15,6 +15,10 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Un
 
 No claim of license on derived works.
 
+### The book:
+
+ * ["Practical Data Science with R" by Nina Zumel and John Mount](http://affiliate.manning.com/idevaffiliate.php?id=1273_360)
+ 
 
 ### Zip file of code excerpts from the book:
 
