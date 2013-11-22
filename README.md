@@ -18,6 +18,8 @@ No claim of license on derived works.
 
 ### data sets:
 
+ * [Bookdata](Bookdata)
+
 <dl>
   <dt>[Bookdata](Bookdata)</dt>
   <dd></dd>
