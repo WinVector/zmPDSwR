@@ -28,6 +28,10 @@ Includes works derived from others (data sets) remain controlled by them.  We ar
 
   [by-nc]: http://creativecommons.org/licenses/by-nc/3.0/ "Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)"
 
+## Download
+
+You can download all of the examples and code by following the "git clone" or "download zip" instructions at our master repository: [github.com/WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR).
+
 ## License for documentation, notes, code, and derived data: 
 
 [![Creative Commons License](http://i.creativecommons.org/l/by-nc/3.0/88x31.png)] [by-nc]  
