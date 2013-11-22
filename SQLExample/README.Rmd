@@ -5,8 +5,8 @@ Material from [Practical Data Science with R examples GitHub archive](https://gi
 In support of the Hotel/SQL example in Appendix A of [Practical Data Science with R](http://affiliate.manning.com/idevaffiliate.php?id=1273_360) by Nina Zumel and John Mount.
 
 
- * start with README.Rmd
- * produce README.md by running "knit('README.Rmd')" in R
+ * start with README.Rmd and Workbook1.xlsx
+ * produce README.md and HotelRelation.pdf by running "knit('README.Rmd')" in R
  * produce README.html by running "pandoc README.md -o README.html" in bash shell
  * or all in one shot at the bash shell: echo "library('knitr'); knit('README.Rmd')" | R --vanilla ; pandoc README.md -o README.html
 
