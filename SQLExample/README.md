@@ -6,7 +6,7 @@ In support of the Hotel/SQL example in Appendix A of [Practical Data Science wit
 
 
  * start with README.Rmd and Workbook1.xlsx
- * produce README.md and HotelRelation.pdf by running "knit('README.Rmd')" in R
+ * produce README.md, HotelRelation.pdf and figure/* by running "knit('README.Rmd')" in R
  * produce README.html by running "pandoc README.md -o README.html" in bash shell
  * or all in one shot at the bash shell: echo "library('knitr'); knit('README.Rmd')" | R --vanilla ; pandoc README.md -o README.html
 
