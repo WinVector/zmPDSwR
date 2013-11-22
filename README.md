@@ -16,6 +16,10 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Un
 No claim of license on derived works.
 
 
+### Zip file of code excerpts from the book:
+
+ * [CodeExamples.zip](CodeExamples.zip)
+
 ### Example data sets:
 
  * [Bookdata](Bookdata) Data about  [book ratings](http://www.informatik.uni-freiburg.de/~cziegler/BX/).
