@@ -1,30 +1,17 @@
-# Support files for "Practical Data Science with R" 
-# by Nina Zumel and John Mount http://www.manning.com/zumel/
+# Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
 
-Works derived from others (data sets) remain controlled by them.  We are distributing as these parties have allowed and not making any claim or grant of additional rights or license.
-
-Work we have created (scripts) is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc].
-
-No guarantee, indemnification or claim of fitness is made regarding any of these items.
-
-
-### License: 
-
-[![Creative Commons License](http://i.creativecommons.org/l/by-nc/3.0/88x31.png)] [by-nc]  
-This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc].
-
-No claim of license on derived works.
-
-### The book:
+## The book:
 
  * ["Practical Data Science with R" by Nina Zumel and John Mount](http://affiliate.manning.com/idevaffiliate.php?id=1273_360)
  
 
-### Zip file of code excerpts from the book:
+## Zip file of code excerpts from the book:
 
- * [CodeExamples.zip](CodeExamples.zip)
+ * [CodeExamples.zip](CodeExamples.zip) (code under [Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc]. No guarantee, indemnification or claim of fitness is made regarding any of these items.).
 
-### Example data sets:
+## Example data sets:
+
+Includes works derived from others (data sets) remain controlled by them.  We are distributing as these parties have allowed and not making any claim or grant of additional rights or license.
 
  * [Bookdata](Bookdata) Data about  [book ratings](http://www.informatik.uni-freiburg.de/~cziegler/BX/).
  * [Buzz](Buzz) Data about  [forum activity](http://ama.liglab.fr/datasets/buzz/).
@@ -40,3 +27,14 @@ No claim of license on derived works.
 
 
   [by-nc]: http://creativecommons.org/licenses/by-nc/3.0/ "Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)"
+
+## License for documentation, notes, code, and derived data: 
+
+[![Creative Commons License](http://i.creativecommons.org/l/by-nc/3.0/88x31.png)] [by-nc]  
+This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc].
+
+No guarantee, indemnification or claim of fitness is made regarding any of these items.
+
+No claim of license on works of others or derived data.
+
+
