@@ -13,17 +13,17 @@
 
 Includes works derived from others (data sets) remain controlled by them.  We are distributing as these parties have allowed and not making any claim or grant of additional rights or license.
 
- * [Bookdata](Bookdata) Data about [book ratings](http://www.informatik.uni-freiburg.de/~cziegler/BX/).
- * [Buzz](Buzz) Data about [forum activity](http://ama.liglab.fr/datasets/buzz/).
- * [CDC](CDC) Data about  [US CDC birth statistics](http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm).
+ * [Bookdata](Bookdata) Book ratings [source](http://www.informatik.uni-freiburg.de/~cziegler/BX/).
+ * [Buzz](Buzz) Discussion forum popularity [source](http://ama.liglab.fr/datasets/buzz/).
+ * [CDC](CDC) US CDC birth statistics [source](http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm).
  * [Custdata](Custdata) Synthetic example data derived from Census PUMS data to demonstrate retail related plots.
- * [KDD2009](KDD2009) Data about  [credit account prediction](http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction).
- * [PUMS](PUMS) Data from [US Census PUMS](http://www.census.gov/acs/www/data_documentation/pums_data/).
- * [Protein](Protein) Data about  [dietary protein sources across multiple countries](http://lib.stat.cmu.edu/DASL/Datafiles/Protein.html)
+ * [KDD2009](KDD2009) Credit account prediction [source](http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction).
+ * [PUMS](PUMS) US Census PUMS [source](http://www.census.gov/acs/www/data_documentation/pums_data/).
+ * [Protein](Protein) Dietary protein sources across multiple countries [source](http://lib.stat.cmu.edu/DASL/Datafiles/Protein.html).
  * [SQLExample](SQLExample) Synthetic example data relating price to hotel reservation pickup.
- * [Spambase](Spambase) Data about a [email spam classification](http://archive.ics.uci.edu/ml/datasets/Spambase).
- * [Statlog](Statlog) Data about  [German loans](http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/)
- * [UCICar](UCICar) Data about [synthetic car ratings](http://archive.ics.uci.edu/ml/machine-learning-databases/car/).
+ * [Spambase](Spambase) Email spam classification [source](http://archive.ics.uci.edu/ml/datasets/Spambase).
+ * [Statlog](Statlog) German loans defaults [source](http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/).
+ * [UCICar](UCICar) Synthetic car ratings [source](http://archive.ics.uci.edu/ml/machine-learning-databases/car/).
 
 
   [by-nc]: http://creativecommons.org/licenses/by-nc/3.0/ "Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)"
