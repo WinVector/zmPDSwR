@@ -27,7 +27,7 @@ No claim of license on derived works.
  * [Protein](Protein)
  * [SQLExample](SQLExample)
  * [Spambase](Spambase) Example of working with a [pre-prepared Email spam dataset](http://archive.ics.uci.edu/ml/datasets/Spambase).
- * [Statlog](Statlog) Example of working with [German load data](http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)).
+ * [Statlog](Statlog) Example of working with [German load data](http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/)
  * [UCICar](UCICar) Example of working with [synthetic car rating data](http://archive.ics.uci.edu/ml/machine-learning-databases/car/).
 
 
