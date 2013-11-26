@@ -1,18 +1,15 @@
-Works derived from others (data sets) remain controlled by them.  We
- are distributing as these parties have allowed and not making any
- claim or grant of additional rights or license.
 
-Work we have created (scripts) is licensed under a [Creative Commons
-Attribution-NonCommercial 3.0 Unported License] [by-nc].
+# Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
 
-No guarantee, indemnification or claim of fitness is made regarding any of these items.
 
-### License:
+ * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://affiliate.manning.com/idevaffiliate.php?id=1273_360)
+ * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
 
-[![Creative Commons License](http://i.creativecommons.org/l/by-nc/3.0/88x31.png)] [by-nc]
-This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc].
 
-### Original data: 
+## The code and data in this directory supports examples from Chapter 8: Using Unsupervised Methods
+
+
+## Original data: 
 Book-Crossing dataset mined by Cai-Nicolas Ziegler, DBIS Freiburg
 original link http://www.informatik.uni-freiburg.de/~cziegler/BX/
 
@@ -35,12 +32,12 @@ appear.
 http://www.informatik.uni-freiburg.de/~cziegler/BX/WWW-2005-Preprint.pdf
 
 
-### Derived works (no claim of license here):
+## Derived works (no claim of license here):
 bxBooks.RData   : R-binary version of Book-Crossing dataset.
 
 bookdata.tsv    : tab-separated file containing customer book ratings by title and numerical rating
 
-### Our works ([Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc]):
+## Our works ([Creative Commons Attribution-NonCommercial 3.0 Unported License]):
 
 read_bookcrossing.R   : script to read in original data files and create bxBooks.RData
 
