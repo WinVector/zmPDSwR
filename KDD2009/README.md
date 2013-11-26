@@ -1,4 +1,18 @@
 
+
+# Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
+
+
+ * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://affiliate.manning.com/idevaffiliate.php?id=1273_360)
+ * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
+
+
+## The code and data in this directory supports examples from:
+ * Chapter 5: Choosing and Evaluating Models
+ * Chapter 6: Using Memorization Methods
+
+
+
 6-2-2013
 Data from: http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction
 Downloaded:

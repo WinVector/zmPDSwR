@@ -1,0 +1,101 @@
+<h1 id="example-code-and-data-for-practical-data-science-with-r-by-nina-zumel-and-john-mount-manning-2014.">Example code and data for &quot;Practical Data Science with R&quot; by Nina Zumel and John Mount, Manning 2014.</h1>
+<ul>
+<li>The book: <a href="http://affiliate.manning.com/idevaffiliate.php?id=1273_360">&quot;Practical Data Science with R&quot; by Nina Zumel and John Mount, Manning 2014</a></li>
+<li>The support site: <a href="https://github.com/WinVector/zmPDSwR">GitHub WinVector/zmPDSwR</a></li>
+</ul>
+<h2 id="the-code-and-data-in-this-directory-supports-examples-from">The code and data in this directory supports examples from:</h2>
+<ul>
+<li>Chapter 5: Choosing and Evaluating Models</li>
+<li>Chapter 9: Exploring Advanced Methods</li>
+</ul>
+<p>4-26-2013 Data from http://archive.ics.uci.edu/ml/datasets/Spambase Data file is: http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">shasum</span> spambase.data 
+<span class="kw">e28aa2a7d4592b4f5f71347912c1b4b759336b58</span>  spambase.data</code></pre>
+<p>Data preparation steps:</p>
+<pre class="sourceCode R"><code class="sourceCode r">spamD &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data&#39;</span>,<span class="dt">sep=</span><span class="st">&#39;,&#39;</span>,<span class="dt">header=</span>F)
+spamCols &lt;-<span class="st"> </span><span class="kw">c</span>(
+   <span class="st">&#39;word.freq.make&#39;</span>, <span class="st">&#39;word.freq.address&#39;</span>, <span class="st">&#39;word.freq.all&#39;</span>,
+   <span class="st">&#39;word.freq.3d&#39;</span>, <span class="st">&#39;word.freq.our&#39;</span>, <span class="st">&#39;word.freq.over&#39;</span>, <span class="st">&#39;word.freq.remove&#39;</span>,
+   <span class="st">&#39;word.freq.internet&#39;</span>, <span class="st">&#39;word.freq.order&#39;</span>, <span class="st">&#39;word.freq.mail&#39;</span>,
+   <span class="st">&#39;word.freq.receive&#39;</span>, <span class="st">&#39;word.freq.will&#39;</span>, <span class="st">&#39;word.freq.people&#39;</span>,
+   <span class="st">&#39;word.freq.report&#39;</span>, <span class="st">&#39;word.freq.addresses&#39;</span>, <span class="st">&#39;word.freq.free&#39;</span>,
+   <span class="st">&#39;word.freq.business&#39;</span>, <span class="st">&#39;word.freq.email&#39;</span>, <span class="st">&#39;word.freq.you&#39;</span>,
+   <span class="st">&#39;word.freq.credit&#39;</span>, <span class="st">&#39;word.freq.your&#39;</span>, <span class="st">&#39;word.freq.font&#39;</span>,
+   <span class="st">&#39;word.freq.000&#39;</span>, <span class="st">&#39;word.freq.money&#39;</span>, <span class="st">&#39;word.freq.hp&#39;</span>, <span class="st">&#39;word.freq.hpl&#39;</span>,
+   <span class="st">&#39;word.freq.george&#39;</span>, <span class="st">&#39;word.freq.650&#39;</span>, <span class="st">&#39;word.freq.lab&#39;</span>,
+   <span class="st">&#39;word.freq.labs&#39;</span>, <span class="st">&#39;word.freq.telnet&#39;</span>, <span class="st">&#39;word.freq.857&#39;</span>,
+   <span class="st">&#39;word.freq.data&#39;</span>, <span class="st">&#39;word.freq.415&#39;</span>, <span class="st">&#39;word.freq.85&#39;</span>,
+   <span class="st">&#39;word.freq.technology&#39;</span>, <span class="st">&#39;word.freq.1999&#39;</span>, <span class="st">&#39;word.freq.parts&#39;</span>,
+   <span class="st">&#39;word.freq.pm&#39;</span>, <span class="st">&#39;word.freq.direct&#39;</span>, <span class="st">&#39;word.freq.cs&#39;</span>,
+   <span class="st">&#39;word.freq.meeting&#39;</span>, <span class="st">&#39;word.freq.original&#39;</span>, <span class="st">&#39;word.freq.project&#39;</span>,
+   <span class="st">&#39;word.freq.re&#39;</span>, <span class="st">&#39;word.freq.edu&#39;</span>, <span class="st">&#39;word.freq.table&#39;</span>,
+   <span class="st">&#39;word.freq.conference&#39;</span>, <span class="st">&#39;char.freq.semi&#39;</span>, <span class="st">&#39;char.freq.lparen&#39;</span>,
+   <span class="st">&#39;char.freq.lbrack&#39;</span>, <span class="st">&#39;char.freq.bang&#39;</span>, <span class="st">&#39;char.freq.dollar&#39;</span>,
+   <span class="st">&#39;char.freq.hash&#39;</span>, <span class="st">&#39;capital.run.length.average&#39;</span>,
+   <span class="st">&#39;capital.run.length.longest&#39;</span>, <span class="st">&#39;capital.run.length.total&#39;</span>,
+   <span class="st">&#39;spam&#39;</span>
+)
+<span class="kw">colnames</span>(spamD) &lt;-<span class="st"> </span>spamCols
+spamD$spam &lt;-<span class="st"> </span><span class="kw">as.factor</span>(<span class="kw">ifelse</span>(spamD$spam&gt;<span class="fl">0.5</span>,<span class="st">&#39;spam&#39;</span>,<span class="st">&#39;non-spam&#39;</span>))
+<span class="kw">set.seed</span>(<span class="dv">2350290</span>)
+spamD$rgroup &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="dv">100</span>*<span class="kw">runif</span>(<span class="kw">dim</span>(spamD)[[<span class="dv">1</span>]]))
+<span class="co">#write.table(spamD,file=&#39;spamD.tsv&#39;,quote=F,sep=&#39;\t&#39;,row.names=F)</span></code></pre>
+<p>Analysis steps, download https://raw.github.com/WinVector/zmPDSwR/master/Spambase/spamD.tsv</p>
+<pre class="sourceCode R"><code class="sourceCode r">spamD &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;spamD.tsv&#39;</span>,<span class="dt">header=</span>T,<span class="dt">sep=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)
+spamTrain &lt;-<span class="st"> </span><span class="kw">subset</span>(spamD,spamD$rgroup&gt;=<span class="dv">10</span>)
+spamTest &lt;-<span class="st"> </span><span class="kw">subset</span>(spamD,spamD$rgroup&lt;<span class="dv">10</span>)
+spamVars &lt;-<span class="st"> </span><span class="kw">setdiff</span>(<span class="kw">colnames</span>(spamD),<span class="kw">list</span>(<span class="st">&#39;rgroup&#39;</span>,<span class="st">&#39;spam&#39;</span>))
+spamFormula &lt;-<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&#39;spam==&quot;spam&quot;&#39;</span>,
+   <span class="kw">paste</span>(spamVars,<span class="dt">collapse=</span><span class="st">&#39; + &#39;</span>),<span class="dt">sep=</span><span class="st">&#39; ~ &#39;</span>))
+spamModel &lt;-<span class="st"> </span><span class="kw">glm</span>(spamFormula,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&#39;logit&#39;</span>),
+   <span class="dt">data=</span>spamTrain)
+spamTrain$pred &lt;-<span class="st"> </span><span class="kw">predict</span>(spamModel,<span class="dt">newdata=</span>spamTrain,<span class="dt">type=</span><span class="st">&#39;response&#39;</span>)
+spamTest$pred &lt;-<span class="st"> </span><span class="kw">predict</span>(spamModel,<span class="dt">newdata=</span>spamTest,<span class="dt">type=</span><span class="st">&#39;response&#39;</span>)
+
+trainSpamTable &lt;-<span class="st"> </span><span class="kw">table</span>(<span class="dt">truth=</span>spamTrain$spam,
+   <span class="dt">prediction=</span>spamTrain$pred&gt;<span class="fl">0.5</span>)
+testSpamTable &lt;-<span class="st"> </span><span class="kw">table</span>(<span class="dt">truth=</span>spamTest$spam,
+   <span class="dt">prediction=</span>spamTest$pred&gt;<span class="fl">0.5</span>)
+<span class="co"># sort(sample(1:(dim(spamTest)[[1]]),size=4,replace=F))</span>
+<span class="co"># [1]   7  35 224 327</span>
+sample &lt;-<span class="st"> </span>spamTest[<span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">35</span>,<span class="dv">224</span>,<span class="dv">327</span>),<span class="kw">c</span>(<span class="st">&#39;spam&#39;</span>,<span class="st">&#39;pred&#39;</span>)]
+cM &lt;-<span class="st"> </span><span class="kw">table</span>(<span class="dt">truth=</span>spamTest$spam,<span class="dt">prediction=</span>spamTest$pred&gt;<span class="fl">0.5</span>)
+(cM[<span class="dv">1</span>,<span class="dv">1</span>]+cM[<span class="dv">2</span>,<span class="dv">2</span>])/<span class="kw">sum</span>(cM)
+cM[<span class="dv">2</span>,<span class="dv">2</span>]/(cM[<span class="dv">2</span>,<span class="dv">2</span>]+cM[<span class="dv">1</span>,<span class="dv">2</span>])
+cM[<span class="dv">2</span>,<span class="dv">2</span>]/(cM[<span class="dv">2</span>,<span class="dv">2</span>]+cM[<span class="dv">2</span>,<span class="dv">1</span>])
+cM[<span class="dv">1</span>,<span class="dv">1</span>]/(cM[<span class="dv">1</span>,<span class="dv">1</span>]+cM[<span class="dv">1</span>,<span class="dv">2</span>])
+t &lt;-<span class="st"> </span><span class="kw">as.table</span>(<span class="kw">matrix</span>(<span class="dt">data=</span><span class="kw">c</span>(<span class="dv">288-1</span>,<span class="dv">17</span>,<span class="dv">1</span>,<span class="dv">13882-17</span>),<span class="dt">nrow=</span><span class="dv">2</span>,<span class="dt">ncol=</span><span class="dv">2</span>))
+<span class="kw">rownames</span>(t) &lt;-<span class="st"> </span><span class="kw">rownames</span>(cM)
+<span class="kw">colnames</span>(t) &lt;-<span class="st"> </span><span class="kw">colnames</span>(cM)
+(t[<span class="dv">1</span>,<span class="dv">1</span>]+t[<span class="dv">2</span>,<span class="dv">2</span>])/<span class="kw">sum</span>(t)
+t[<span class="dv">2</span>,<span class="dv">2</span>]/(t[<span class="dv">2</span>,<span class="dv">2</span>]+t[<span class="dv">1</span>,<span class="dv">2</span>])
+t[<span class="dv">2</span>,<span class="dv">2</span>]/(t[<span class="dv">2</span>,<span class="dv">2</span>]+t[<span class="dv">2</span>,<span class="dv">1</span>])
+t[<span class="dv">1</span>,<span class="dv">1</span>]/(t[<span class="dv">1</span>,<span class="dv">1</span>]+t[<span class="dv">1</span>,<span class="dv">2</span>])
+<span class="co"># ROC curve</span>
+<span class="kw">library</span>(<span class="st">&#39;ROCR&#39;</span>)
+eval &lt;-<span class="st"> </span><span class="kw">prediction</span>(spamTest$pred,spamTest$spam)
+<span class="kw">plot</span>(<span class="kw">performance</span>(eval,<span class="st">&quot;tpr&quot;</span>,<span class="st">&quot;fpr&quot;</span>))
+<span class="co"># AUC</span>
+<span class="kw">attributes</span>(<span class="kw">performance</span>(eval,<span class="st">&#39;auc&#39;</span>))$y.values[[<span class="dv">1</span>]]</code></pre>
+<p>Saturated model / Bayes rate estimate</p>
+<pre class="sourceCode R"><code class="sourceCode r">quantized &lt;-<span class="st"> </span><span class="kw">subset</span>(spamD,T,<span class="dt">select=</span>spamVars)
+quantized &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">lapply</span>(quantized,
+   function(col) { <span class="kw">ecdf</span>(col)(col) }))
+quantized$groupId &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="dv">1</span>:<span class="kw">dim</span>(quantized)[[<span class="dv">1</span>]],
+   function(row) <span class="kw">paste</span>(<span class="kw">floor</span>(<span class="dv">5</span>*quantized[row,spamVars]),<span class="dt">collapse=</span><span class="st">&#39; &#39;</span>))
+quantized$spam &lt;-<span class="st"> </span>spamD$spam
+satTable &lt;-<span class="st"> </span><span class="kw">table</span>(quantized$groupId,quantized$spam)
+quantized$satPred &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="dv">1</span>:(<span class="kw">dim</span>(quantized)[[<span class="dv">1</span>]]),function(rowNum) {
+   row &lt;-<span class="st"> </span>satTable[quantized[rowNum,<span class="st">&#39;groupId&#39;</span>],]
+   row[<span class="st">&#39;spam&#39;</span>]&gt;row[<span class="st">&#39;non-spam&#39;</span>]
+   })
+quantized$groupCount &lt;-<span class="st"> </span><span class="kw">table</span>(quantized$groupId)[quantized$groupId]
+<span class="kw">table</span>(quantized$spam,quantized$satPred&gt;<span class="fl">0.5</span>)
+repeated &lt;-<span class="st"> </span><span class="kw">subset</span>(quantized,groupCount&gt;<span class="dv">1</span>)
+cRepeated =<span class="st"> </span><span class="kw">table</span>(repeated$spam,repeated$satPred&gt;<span class="fl">0.5</span>)
+<span class="kw">print</span>(cRepeated)
+<span class="co">#           FALSE TRUE</span>
+<span class="co">#  non-spam  1022    2</span>
+<span class="co">#  spam        31  848</span>
+<span class="kw">print</span>((cRepeated[<span class="dv">1</span>,<span class="dv">1</span>]+cRepeated[<span class="dv">2</span>,<span class="dv">2</span>])/<span class="kw">sum</span>(cRepeated))
+<span class="co"># [1] 0.982659</span></code></pre>

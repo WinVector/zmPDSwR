@@ -6,7 +6,8 @@
  * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
 
 
-## The code and data in this directory supports examples from Chapter 8: Using Unsupervised Methods
+## The code and data in this directory supports examples from:
+ * Chapter 8: Using Unsupervised Methods
 
 
 ## Original data: 

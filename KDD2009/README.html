@@ -1,0 +1,270 @@
+<h1 id="example-code-and-data-for-practical-data-science-with-r-by-nina-zumel-and-john-mount-manning-2014.">Example code and data for &quot;Practical Data Science with R&quot; by Nina Zumel and John Mount, Manning 2014.</h1>
+<ul>
+<li>The book: <a href="http://affiliate.manning.com/idevaffiliate.php?id=1273_360">&quot;Practical Data Science with R&quot; by Nina Zumel and John Mount, Manning 2014</a></li>
+<li>The support site: <a href="https://github.com/WinVector/zmPDSwR">GitHub WinVector/zmPDSwR</a></li>
+</ul>
+<h2 id="the-code-and-data-in-this-directory-supports-examples-from">The code and data in this directory supports examples from:</h2>
+<ul>
+<li>Chapter 5: Choosing and Evaluating Models</li>
+<li>Chapter 6: Using Memorization Methods</li>
+</ul>
+<p>6-2-2013 Data from: http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction Downloaded: $ shasum * e43a38e3477e38b354943519954b719ec7623c2f orange_small_train.data.zip 8274d23235630717659898900b7f74092ff339ad orange_small_train_appetency.labels.txt ec2de79844657fb892ec9047e6304c12b296ff68 orange_small_train_churn.labels.txt 4cd2d7c9b20fd3638883a91a2fed6a03a4d5d015 orange_small_train_upselling.labels.txt Data to support examples in the chapter on memorization methods in &quot;Practical Data Science with R&quot; ( http://www.manning.com/zumel/ ).</p>
+<p>Load data:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">  <span class="kw">unzip</span> orange_small_train.data.zip
+  <span class="kw">gzip</span> -9 orange_small_train.data</code></pre>
+<p>To prepare data in R:</p>
+<pre><code>d &lt;- read.table(&#39;orange_small_train.data.gz&#39;,
+   header=T,sep=&#39;\t&#39;,na.strings=c(&#39;NA&#39;,&#39;&#39;))
+churn &lt;- read.table(&#39;orange_small_train_churn.labels.txt&#39;,
+   header=F,sep=&#39;\t&#39;)
+d$churn &lt;- churn$V1
+appetency &lt;- read.table(&#39;orange_small_train_appetency.labels.txt&#39;,
+   header=F,sep=&#39;\t&#39;)
+d$appetency &lt;- appetency$V1
+upselling &lt;- read.table(&#39;orange_small_train_upselling.labels.txt&#39;,
+   header=F,sep=&#39;\t&#39;)
+d$upselling &lt;- upselling$V1
+set.seed(729375)
+d$rgroup &lt;- runif(dim(d)[[1]])
+dTrainAll &lt;- subset(d,rgroup&lt;=0.9)
+dTest &lt;- subset(d,rgroup&gt;0.9)
+rm(list=c(&#39;d&#39;,&#39;churn&#39;,&#39;appetency&#39;,&#39;upselling&#39;))
+outcomes &lt;- c(&#39;churn&#39;,&#39;appetency&#39;,&#39;upselling&#39;)
+vars &lt;- setdiff(colnames(dTrainAll),
+   c(outcomes,&#39;rgroup&#39;))
+numericVars &lt;- vars[sapply(dTrainAll[,vars],class) %in% c(&#39;numeric&#39;,&#39;integer&#39;)]
+catVars &lt;- vars[sapply(dTrainAll[,vars],class) %in% c(&#39;factor&#39;,&#39;character&#39;)]
+useForCal &lt;- rbinom(n=dim(dTrainAll)[[1]],size=1,prob=0.1)&gt;0
+dCal &lt;- subset(dTrainAll,useForCal)
+dTrain &lt;- subset(dTrainAll,!useForCal)
+outcome &lt;- &#39;churn&#39;
+pos &lt;- &#39;1&#39;</code></pre>
+<p>example modeling:</p>
+<pre class="sourceCode R"><code class="sourceCode r">mkPredC &lt;-<span class="st"> </span>function(outCol,varCol,appCol) {
+   pPos &lt;-<span class="st"> </span><span class="kw">sum</span>(outCol==pos)/<span class="kw">length</span>(outCol)
+   naTab &lt;-<span class="st"> </span><span class="kw">table</span>(<span class="kw">as.factor</span>(outCol[<span class="kw">is.na</span>(varCol)]))
+   pPosWna &lt;-<span class="st"> </span>(naTab/<span class="kw">sum</span>(naTab))[pos]
+   vTab &lt;-<span class="st"> </span><span class="kw">table</span>(<span class="kw">as.factor</span>(outCol),varCol)
+   pPosWv &lt;-<span class="st"> </span>(vTab[pos,]+<span class="fl">1.0e-3</span>*pPos)/(<span class="kw">colSums</span>(vTab)+<span class="fl">1.0e-3</span>)
+   pred &lt;-<span class="st"> </span>pPosWv[appCol]
+   pred[<span class="kw">is.na</span>(appCol)] &lt;-<span class="st"> </span>pPosWna
+   pred[<span class="kw">is.na</span>(pred)] &lt;-<span class="st"> </span>pPos
+   pred
+}
+
+for(v in catVars) {
+  pi &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;pred&#39;</span>,v,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+  dTrain[,pi] &lt;-<span class="st"> </span><span class="kw">mkPredC</span>(dTrain[,outcome],dTrain[,v],dTrain[,v])
+  dTest[,pi] &lt;-<span class="st"> </span><span class="kw">mkPredC</span>(dTrain[,outcome],dTrain[,v],dTest[,v])
+  dCal[,pi] &lt;-<span class="st"> </span><span class="kw">mkPredC</span>(dTrain[,outcome],dTrain[,v],dCal[,v])
+}
+
+
+
+
+mkPredNcat &lt;-<span class="st"> </span>function(outCol,varCol,appCol) {
+   cuts &lt;-<span class="st"> </span><span class="kw">unique</span>(<span class="kw">as.numeric</span>(<span class="kw">quantile</span>(varCol,<span class="dt">probs=</span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>),<span class="dt">na.rm=</span>T)))
+   varC &lt;-<span class="st"> </span><span class="kw">cut</span>(varCol,cuts)
+   appC &lt;-<span class="st"> </span><span class="kw">cut</span>(appCol,cuts)
+   <span class="kw">mkPredC</span>(outCol,varC,appC)
+}
+
+
+
+
+mkPredN &lt;-<span class="st"> </span>mkPredNcat
+<span class="co">#&gt; print(paste(&#39;train&#39;,as.numeric(perfTrain@y.values)))</span>
+<span class="co">#[1] &quot;train 0.733887878767371&quot;</span>
+<span class="co">#&gt; print(paste(&#39;cal&#39;,as.numeric(perfCal@y.values)))</span>
+<span class="co">#[1] &quot;cal 0.71792789642535&quot;</span>
+<span class="co">#&gt; print(paste(&#39;test&#39;,as.numeric(perfTest@y.values)))</span>
+<span class="co">#[1] &quot;test 0.726387559207025&quot;</span>
+
+
+for(v in numericVars) {
+  pi &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;pred&#39;</span>,v,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+  dTrain[,pi] &lt;-<span class="st"> </span><span class="kw">mkPredN</span>(dTrain[,outcome],dTrain[,v],dTrain[,v])
+  dTest[,pi] &lt;-<span class="st"> </span><span class="kw">mkPredN</span>(dTrain[,outcome],dTrain[,v],dTest[,v])
+  dCal[,pi] &lt;-<span class="st"> </span><span class="kw">mkPredN</span>(dTrain[,outcome],dTrain[,v],dCal[,v])
+}
+
+logLikelyhood &lt;-<span class="st"> </span>function(outCol,predCol) {
+  <span class="kw">sum</span>(<span class="kw">ifelse</span>(outCol==pos,<span class="kw">log</span>(predCol),<span class="kw">log</span>(<span class="dv">1</span>-predCol)))
+}
+
+entropy &lt;-<span class="st"> </span>function(x) { 
+  xpos &lt;-<span class="st"> </span>x[x&gt;<span class="dv">0</span> &amp;<span class="st"> </span>!<span class="kw">is.na</span>(x)]
+  scaled &lt;-<span class="st"> </span>xpos/<span class="kw">sum</span>(xpos)
+  <span class="kw">sum</span>(-scaled*<span class="kw">log</span>(scaled,<span class="dv">2</span>))
+}
+
+nPos &lt;-<span class="st"> </span><span class="kw">sum</span>(dTrain[,outcome]==pos)
+pPos &lt;-<span class="st"> </span>nPos/<span class="kw">length</span>(dTrain[,outcome])
+eps &lt;-<span class="st"> </span><span class="fl">1.0e-5</span>
+for(v in <span class="kw">c</span>(catVars,numericVars)) {
+  pi &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;pred&#39;</span>,v,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+  li &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;lift&#39;</span>,v,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+  dTrain[,li] &lt;-<span class="st"> </span><span class="kw">log</span>((dTrain[,pi]+eps)/(pPos+eps))
+  dTest[,li] &lt;-<span class="st"> </span><span class="kw">log</span>((dTest[,pi]+eps)/(pPos+eps))
+  dCal[,li] &lt;-<span class="st"> </span><span class="kw">log</span>((dCal[,pi]+eps)/(pPos+eps))
+}
+
+
+<span class="kw">library</span>(<span class="st">&#39;ROCR&#39;</span>)
+
+selVars &lt;-<span class="st"> </span><span class="kw">c</span>()
+minStep &lt;-<span class="st"> </span><span class="dv">5</span>
+
+baseRateTrain &lt;-<span class="st"> </span><span class="kw">logLikelyhood</span>(dTrain[,outcome],<span class="kw">sum</span>(dTrain[,outcome]==pos)/<span class="kw">length</span>(dTrain[,outcome]))
+baseRateCheck &lt;-<span class="st"> </span><span class="kw">logLikelyhood</span>(dCal[,outcome],<span class="kw">sum</span>(dCal[,outcome]==pos)/<span class="kw">length</span>(dCal[,outcome]))
+for(v in catVars) {
+  pi &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;pred&#39;</span>,v,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+  li &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;lift&#39;</span>,v,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+  liTrain &lt;-<span class="st"> </span><span class="dv">2</span>*(<span class="kw">logLikelyhood</span>(dTrain[,outcome],dTrain[,pi])-<span class="st"> </span>baseRateTrain -<span class="st"> </span><span class="dv">2</span>^<span class="kw">entropy</span>(<span class="kw">table</span>(dTrain[,pi],<span class="dt">useNA=</span><span class="st">&#39;ifany&#39;</span>)))
+  liCheck &lt;-<span class="st"> </span><span class="dv">2</span>*(<span class="kw">logLikelyhood</span>(dCal[,outcome],dCal[,pi]) -<span class="st"> </span>baseRateCheck -<span class="st"> </span><span class="dv">2</span>^<span class="kw">entropy</span>(<span class="kw">table</span>(dCal[,pi],<span class="dt">useNA=</span><span class="st">&#39;ifany&#39;</span>)))
+  if((liTrain&gt;=minStep)&amp;(liCheck&gt;minStep)) {
+     <span class="kw">print</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%s, trainAIC: %g calibrationAIC: %g&quot;</span>,
+        pi,liTrain,liCheck))
+    selVars &lt;-<span class="st"> </span><span class="kw">c</span>(selVars,li)
+  }
+}
+<span class="kw">print</span>(selVars)
+for(v in numericVars) {
+  pi &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;pred&#39;</span>,v,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+  li &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;lift&#39;</span>,v,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+  liTrain &lt;-<span class="st"> </span><span class="dv">2</span>*(<span class="kw">logLikelyhood</span>(dTrain[,outcome],dTrain[,pi])-baseRateTrain<span class="dv">-1</span>)
+  liCheck &lt;-<span class="st"> </span><span class="dv">2</span>*(<span class="kw">logLikelyhood</span>(dCal[,outcome],dCal[,pi])-baseRateCheck<span class="dv">-1</span>)
+  if((liTrain&gt;=minStep) &amp;&amp;<span class="st"> </span>(liCheck&gt;=minStep)) {
+     <span class="kw">print</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%s, trainAIC: %g calibrationAIC: %g&quot;</span>,
+        pi,liTrain,liCheck))
+     selVars &lt;-<span class="st"> </span><span class="kw">c</span>(selVars,li)
+  }
+}
+<span class="kw">print</span>(selVars)
+
+
+f &lt;-<span class="st"> </span><span class="kw">paste</span>(outcome,<span class="st">&#39;&gt;0 ~ &#39;</span>,<span class="kw">paste</span>(selVars,<span class="dt">collapse=</span><span class="st">&#39; + &#39;</span>),<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+<span class="co"># note, actually the glm() just wants the conditionals not the joints as inputs</span>
+<span class="co"># but that is just a matter of dividing by pPos, so it can compensate in the linear</span>
+<span class="co"># coefficient</span>
+model &lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="kw">as.formula</span>(f),<span class="dt">data=</span>dTrain,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&#39;logit&#39;</span>))
+<span class="kw">print</span>(<span class="kw">summary</span>(model))
+<span class="co"># could use stepwise regression at this point</span>
+dTrain$pred &lt;-<span class="st"> </span><span class="kw">predict</span>(model,<span class="dt">type=</span><span class="st">&#39;response&#39;</span>,<span class="dt">newdata=</span>dTrain)
+dCal$pred &lt;-<span class="st"> </span><span class="kw">predict</span>(model,<span class="dt">type=</span><span class="st">&#39;response&#39;</span>,<span class="dt">newdata=</span>dCal)
+dTest$pred &lt;-<span class="st"> </span><span class="kw">predict</span>(model,<span class="dt">type=</span><span class="st">&#39;response&#39;</span>,<span class="dt">newdata=</span>dTest)
+
+
+perfTrain &lt;-<span class="st"> </span><span class="kw">performance</span>(<span class="kw">prediction</span>(dTrain$pred,dTrain[,outcome]&gt;<span class="dv">0</span>),<span class="st">&#39;auc&#39;</span>)
+perfCal &lt;-<span class="st"> </span><span class="kw">performance</span>(<span class="kw">prediction</span>(dCal$pred,dCal[,outcome]&gt;<span class="dv">0</span>),<span class="st">&#39;auc&#39;</span>)
+perfTest &lt;-<span class="st"> </span><span class="kw">performance</span>(<span class="kw">prediction</span>(dTest$pred,dTest[,outcome]&gt;<span class="dv">0</span>),<span class="st">&#39;auc&#39;</span>)
+<span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&#39;train&#39;</span>,<span class="kw">as.numeric</span>(perfTrain@y.values)))
+<span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&#39;cal&#39;</span>,<span class="kw">as.numeric</span>(perfCal@y.values)))
+<span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&#39;test&#39;</span>,<span class="kw">as.numeric</span>(perfTest@y.values)))
+
+
+modelRateTrain &lt;-<span class="st"> </span><span class="kw">logLikelyhood</span>(dTrain[,outcome],dTrain$pred)
+modelRateCal &lt;-<span class="st"> </span><span class="kw">logLikelyhood</span>(dCal[,outcome],dCal$pred)
+modelRateTest &lt;-<span class="st"> </span><span class="kw">logLikelyhood</span>(dTest[,outcome],dTest$pred)
+
+
+<span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
+
+<span class="co"># show one of the &quot;better&quot; factors</span>
+<span class="kw">ggplot</span>(<span class="dt">data=</span>dTrain) +<span class="st"> </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">x=</span>predVar218,<span class="dt">color=</span><span class="kw">as.factor</span>(churn)))
+<span class="kw">ggplot</span>(<span class="dt">data=</span>dTest) +<span class="st"> </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">x=</span>predVar218,<span class="dt">color=</span><span class="kw">as.factor</span>(churn)))
+
+<span class="co"># show one of the &quot;better&quot; numeric predictions</span>
+<span class="kw">ggplot</span>(<span class="dt">data=</span>dTrain) +<span class="st"> </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">x=</span>predVar126,<span class="dt">color=</span><span class="kw">as.factor</span>(churn)))
+<span class="kw">ggplot</span>(<span class="dt">data=</span>dTest) +<span class="st"> </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">x=</span>predVar126,<span class="dt">color=</span><span class="kw">as.factor</span>(churn)))
+<span class="kw">ggplot</span>(<span class="dt">data=</span>dCal) +<span class="st"> </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">x=</span>predVar126,<span class="dt">color=</span><span class="kw">as.factor</span>(churn)))
+
+
+<span class="co"># show the model</span>
+<span class="kw">ggplot</span>(<span class="dt">data=</span>dTrain) +<span class="st"> </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">x=</span>pred,<span class="dt">color=</span><span class="kw">as.factor</span>(churn)))
+<span class="kw">ggplot</span>(<span class="dt">data=</span>dTest) +<span class="st"> </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">x=</span>pred,<span class="dt">color=</span><span class="kw">as.factor</span>(churn)))
+
+<span class="co"># save(list=ls(),file=&#39;KDDSteps.RData&#39;)</span>
+
+calcAUC &lt;-<span class="st"> </span>function(predcol,outcol) {
+   perf &lt;-<span class="st"> </span><span class="kw">performance</span>(<span class="kw">prediction</span>(predcol,outcol==pos),<span class="st">&#39;auc&#39;</span>)
+   <span class="kw">as.numeric</span>(perf@y.values)
+}
+
+
+<span class="kw">library</span>(<span class="st">&#39;rpart&#39;</span>)
+tmodel &lt;-<span class="st"> </span><span class="kw">rpart</span>(f,<span class="dt">data=</span>dTrain,<span class="dt">control=</span><span class="kw">rpart.control</span>(<span class="dt">cp=</span><span class="fl">0.001</span>))
+dTrain$tpred &lt;-<span class="st"> </span><span class="kw">predict</span>(tmodel,<span class="dt">newdata=</span>dTrain)
+dCal$tpred &lt;-<span class="st"> </span><span class="kw">predict</span>(tmodel,<span class="dt">newdata=</span>dCal)
+dTest$tpred &lt;-<span class="st"> </span><span class="kw">predict</span>(tmodel,<span class="dt">newdata=</span>dTest)
+<span class="kw">calcAUC</span>(dTrain$tpred,dTrain[,outcome])
+<span class="co"># [1] 0.6936439</span>
+<span class="kw">calcAUC</span>(dTest$tpred,dTest[,outcome])
+<span class="co"># [1] 0.6785368</span>
+<span class="kw">calcAUC</span>(dCal$tpred,dCal[,outcome])
+<span class="co"># [1] 0.6780398</span>
+
+
+
+
+<span class="co"># AUCs by training</span>
+for(v in catVars) {
+  pi &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;pred&#39;</span>,v,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+  aucTrain &lt;-<span class="st"> </span><span class="kw">calcAUC</span>(dTrain[,pi],dTrain[,outcome])
+  if(aucTrain&gt;=<span class="fl">0.8</span>) {
+     aucCal &lt;-<span class="st"> </span><span class="kw">calcAUC</span>(dCal[,pi],dCal[,outcome])
+     <span class="kw">print</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%s, trainAUC: %4.3f calibrationAUC: %4.3f&quot;</span>,
+       pi,aucTrain,aucCal))
+  }
+}
+<span class="co"># AUCs by calibration</span>
+for(v in catVars) {
+  pi &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;pred&#39;</span>,v,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+  aucTrain &lt;-<span class="st"> </span><span class="kw">calcAUC</span>(dTrain[,pi],dTrain[,outcome])
+  aucCal &lt;-<span class="st"> </span><span class="kw">calcAUC</span>(dCal[,pi],dCal[,outcome])
+  if(aucCal&gt;=<span class="fl">0.59</span>) {
+     <span class="kw">print</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%s, trainAUC: %4.3f calibrationAUC: %4.3f&quot;</span>,
+       pi,aucTrain,aucCal))
+  }
+}
+
+for(v in numericVars) {
+  pi &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;pred&#39;</span>,v,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+  aucTrain &lt;-<span class="st"> </span><span class="kw">calcAUC</span>(dTrain[,pi],dTrain[,outcome])
+  if(aucTrain&gt;=<span class="fl">0.8</span>) {
+     aucCal &lt;-<span class="st"> </span><span class="kw">calcAUC</span>(dCal[,pi],dCal[,outcome])
+     <span class="kw">print</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%s, trainAUC: %4.3f calibrationAUC: %4.3f&quot;</span>,
+       pi,aucTrain,aucCal))
+  }
+}
+
+
+
+<span class="kw">library</span>(<span class="st">&#39;randomForest&#39;</span>)
+fmodel &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span class="kw">as.formula</span>(f),<span class="dt">data=</span>dTrain,<span class="dt">ntree=</span><span class="dv">100</span>,<span class="dt">maxnodes=</span><span class="dv">50</span>,<span class="dt">type=</span><span class="st">&#39;classification&#39;</span>)
+dTrain$fpred &lt;-<span class="st"> </span><span class="kw">predict</span>(fmodel,<span class="dt">newdata=</span>dTrain)
+dTest$fpred &lt;-<span class="st"> </span><span class="kw">predict</span>(fmodel,<span class="dt">newdata=</span>dTest)
+dCal$fpred &lt;-<span class="st"> </span><span class="kw">predict</span>(fmodel,<span class="dt">newdata=</span>dCal)
+<span class="kw">calcAUC</span>(dTrain$fpred,dTrain[,outcome])
+<span class="co">#[1] 0.7501219</span>
+<span class="kw">calcAUC</span>(dTest$fpred,dTest[,outcome])
+<span class="co"># [1] 0.717073</span>
+<span class="kw">calcAUC</span>(dCal$fpred,dCal[,outcome])
+<span class="co"># [1] 0.7109103</span>
+
+
+
+<span class="co"># better AUC estimate</span>
+var &lt;-<span class="st"> &#39;Var217&#39;</span>
+aucs &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">100</span>)
+for(rep in <span class="dv">1</span>:<span class="kw">length</span>(aucs)) {
+   useForCalRep &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n=</span><span class="kw">dim</span>(dTrainAll)[[<span class="dv">1</span>]],<span class="dt">size=</span><span class="dv">1</span>,<span class="dt">prob=</span><span class="fl">0.1</span>)&gt;<span class="dv">0</span>
+   predRep &lt;-<span class="st"> </span><span class="kw">mkPredC</span>(dTrainAll[!useForCalRep,outcome],
+      dTrainAll[!useForCalRep,var],
+      dTrainAll[useForCalRep,var])
+   aucs[rep] &lt;-<span class="st"> </span><span class="kw">calcAUC</span>(predRep,dTrainAll[useForCalRep,outcome])
+}
+<span class="kw">mean</span>(aucs)
+<span class="co"># [1] 0.5556656</span>
+<span class="co">#print(aucs)</span>
+<span class="co">#ggplot() + geom_density(aes(x=aucs))</span></code></pre>
