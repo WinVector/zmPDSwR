@@ -8,7 +8,7 @@
 
 ## The code and data in this directory supports examples from:
  * Chapter 3: Exploring Data
-
+ * Chapter 4: Managing data
 
 ### Derived works (no claim of license here):
 

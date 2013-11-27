@@ -8,7 +8,7 @@
 
 ## The code and data in this directory supports examples from:
  * Chapter 10: Documentation and Deployment
- * Chapter 11 :Producing Effective Presentations
+ * Chapter 11: Producing Effective Presentations
 
 
 ## Original data: 
