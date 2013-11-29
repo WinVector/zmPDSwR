@@ -2,7 +2,7 @@
 # Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
 
 
- * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://affiliate.manning.com/idevaffiliate.php?id=1273_360)
+ * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://affiliate.manning.com/idevaffiliate.php?id=1273_360) (book copyright Manning Publications Co., all rights reserved)
  * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
 
 
@@ -18,7 +18,10 @@
 </dl>    
 
 
-### Our works ([Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc]):
+## License for additional documentation, notes, code, and example data: 
 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
-  [by-nc]: http://creativecommons.org/licenses/by-nc/3.0/ "Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)"
+No guarantee, indemnification or claim of fitness is made regarding any of these items.
+
+No claim of license on works of others or derived data.

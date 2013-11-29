@@ -2,7 +2,7 @@
 # Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
 
 
- * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://affiliate.manning.com/idevaffiliate.php?id=1273_360)
+ * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://affiliate.manning.com/idevaffiliate.php?id=1273_360) (book copyright Manning Publications Co., all rights reserved)
  * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
 
 
@@ -33,16 +33,17 @@ appear.
 http://www.informatik.uni-freiburg.de/~cziegler/BX/WWW-2005-Preprint.pdf
 
 
-## Derived works (no claim of license here):
-bxBooks.RData   : R-binary version of Book-Crossing dataset.
+## Derived works (no claim of license on these):
 
-bookdata.tsv    : tab-separated file containing customer book ratings by title and numerical rating
+ * bxBooks.RData   : R-binary version of Book-Crossing dataset.
+ * bookdata.tsv    : tab-separated file containing customer book ratings by title and numerical rating
 
-## Our works ([Creative Commons Attribution-NonCommercial 3.0 Unported License]):
+## Our additional documentation, notes, code, and example data: 
 
-read_bookcrossing.R   : script to read in original data files and create bxBooks.RData
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
-create_bookdata.R     : script to create the data file bookdata.tsv
+ * read_bookcrossing.R   : script to read in original data files and create bxBooks.RData
+ * create_bookdata.R     : script to create the data file bookdata.tsv
 
 
 

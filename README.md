@@ -1,12 +1,12 @@
 # Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
 
- * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://affiliate.manning.com/idevaffiliate.php?id=1273_360)
+ * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://affiliate.manning.com/idevaffiliate.php?id=1273_360) (book copyright Manning Publications Co., all rights reserved)
  * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
  
 
 ## Zip file of code excerpts from the book:
 
- * [CodeExamples.zip](CodeExamples.zip) (code under [Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc]. No guarantee, indemnification or claim of fitness is made regarding any of these items.).
+ * [CodeExamples.zip](CodeExamples.zip)
 
 ## Example data sets:
 
@@ -25,16 +25,13 @@ Includes works derived from others (data sets) remain controlled by them.  We ar
  * [UCICar](UCICar) Synthetic car ratings [source](http://archive.ics.uci.edu/ml/machine-learning-databases/car/).
 
 
-  [by-nc]: http://creativecommons.org/licenses/by-nc/3.0/ "Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0)"
-
 ## Download
 
 You can download all of the examples and code by following the "git clone" or "download zip" instructions at our master repository: [github.com/WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR).
 
-## License for documentation, notes, code, and derived data: 
+## License for additional documentation, notes, code, and example data: 
 
-[![Creative Commons License](http://i.creativecommons.org/l/by-nc/3.0/88x31.png)] [by-nc]  
-This work is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License] [by-nc].
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
 No guarantee, indemnification or claim of fitness is made regarding any of these items.
 
