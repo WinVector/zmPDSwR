@@ -70,7 +70,7 @@ ggplot(s,aes(x=week,y=FractionHumanAbsorption)) +
    geom_point() + geom_smooth()
 ```
 
-By design the Caco2 permeability remains a plus for human intestine absorption throughout this data set, it is just that effects (changing over time) are dominating.  We are assuming that everything that improves both Caco2 and human intestinal absorption was tried at the beginning of the project, and that for the part of the project we now see the group is trying things that directly improve human intestine absorption even when they are known to harm Caco2.  The group would like high Caco2, but it is secondary to the more direct measurement of human intestinal absorption- so they are willing to make more and more trade-offs as the project gets further along.  The time/week variable is standing in for all of these actual omitted factors.
+By design the Caco2 permeability remains a plus for human intestine absorption throughout this data set, it is just that other effects (changing over time) are dominating.  We are assuming that everything that improves both Caco2 and human intestinal absorption was tried at the beginning of the project, and that for the part of the project we now see the group is trying things that directly improve human intestine absorption even when they are known to harm Caco2.  The group would like high Caco2, but it is secondary to the more direct measurement of human intestinal absorption- so they are willing to make more and more trade-offs as the project gets further along.  The time/week variable is standing in for all of these actual omitted factors.
 
 ```{r synthP,tidy=F}
 print(summary(glm(data=s, FractionHumanAbsorption~log(Caco2A2BPapp),
