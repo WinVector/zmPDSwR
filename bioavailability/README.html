@@ -52,7 +52,7 @@ d &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">d$model &lt;-<span class="st"> </span><span class="kw">predict</span>(model,<span class="dt">newdata=</span>d,<span class="dt">type=</span><span class="st">&#39;response&#39;</span>)
-<span class="kw">ggplot</span>(d,) +
+<span class="kw">ggplot</span>(d) +
 <span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Caco2A2BPapp,<span class="dt">y=</span>FractionHumanAbsorption)) +<span class="st"> </span>
 <span class="st">   </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Caco2A2BPapp,<span class="dt">y=</span>model)) +
 <span class="st">   </span><span class="kw">scale_x_log10</span>()</code></pre>
@@ -75,6 +75,12 @@ s$FractionHumanAbsorption &lt;-<span class="st"> </span>
 <span class="st">   </span><span class="kw">rnorm</span>(<span class="dv">100</span>)/<span class="dv">3</span>)
 <span class="kw">write.table</span>(s,<span class="st">&#39;synth.csv&#39;</span>,<span class="dt">sep=</span><span class="st">&#39;,&#39;</span>,<span class="dt">quote=</span>F,<span class="dt">row.names=</span>F)</code></pre>
 <p>What we have done is simulate a drug optimization managed to increase human intestine absorption (presumably by making changes that directly worked in that domain) that happened to lose Caco2 permeability as we went. Remember there is not causal relation between Caco2 permeability and absorption in the human small intestine- they just tend to be correlated.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(s,<span class="kw">aes</span>(<span class="dt">x=</span>week,<span class="dt">y=</span>FractionHumanAbsorption)) +
+<span class="st">   </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_smooth</span>()</code></pre>
+<pre><code>## geom_smooth: method=&quot;auto&quot; and size of largest group is &lt;1000, so using loess. Use &#39;method = x&#39; to change the smoothing method.</code></pre>
+<div class="figure">
+<img src="figure/graphT.png" alt="plot of chunk graphT" /><p class="caption">plot of chunk graphT</p>
+</div>
 <p>By design the Caco2 permeability remains a plus for human intestine absorption throughout this data set, it is just that effects (changing over time) are dominating. We are assuming that everything that improves both Caco2 and human intestinal absorption was tried at the beginning of the project, and that for the part of the project we now see the group is trying things that directly improve human intestine absorption even when they are known to harm Caco2. The group would like high Caco2, but it is secondary to the more direct measurement of human intestinal absorption- so they are willing to make more and more trade-offs as the project gets further along. The time/week variable is standing in for all of these actual omitted factors.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">summary</span>(<span class="kw">glm</span>(<span class="dt">data=</span>s, FractionHumanAbsorption~<span class="kw">log</span>(Caco2A2BPapp),
    <span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&#39;logit&#39;</span>))))</code></pre>

@@ -36,7 +36,7 @@ model <- glm(data=d, FractionHumanAbsorption~log(Caco2A2BPapp),
    family=binomial(link='logit'))
 print(summary(model))
 d$model <- predict(model,newdata=d,type='response')
-ggplot(d,) +
+ggplot(d) +
    geom_point(aes(x=Caco2A2BPapp,y=FractionHumanAbsorption)) + 
    geom_line(aes(x=Caco2A2BPapp,y=model)) +
    scale_x_log10()
@@ -64,6 +64,11 @@ write.table(s,'synth.csv',sep=',',quote=F,row.names=F)
 ```
 
 What we have done is simulate a drug optimization managed to increase human intestine absorption (presumably by making changes that directly worked in that domain) that happened to lose Caco2 permeability as we went.  Remember there is not causal relation between Caco2 permeability and absorption in the human small intestine- they just tend to be correlated.
+
+```{r graphT,tidy=F}
+ggplot(s,aes(x=week,y=FractionHumanAbsorption)) +
+   geom_point() + geom_smooth()
+```
 
 By design the Caco2 permeability remains a plus for human intestine absorption throughout this data set, it is just that effects (changing over time) are dominating.  We are assuming that everything that improves both Caco2 and human intestinal absorption was tried at the beginning of the project, and that for the part of the project we now see the group is trying things that directly improve human intestine absorption even when they are known to harm Caco2.  The group would like high Caco2, but it is secondary to the more direct measurement of human intestinal absorption- so they are willing to make more and more trade-offs as the project gets further along.  The time/week variable is standing in for all of these actual omitted factors.
 
