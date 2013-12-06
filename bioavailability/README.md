@@ -1,5 +1,15 @@
 
-## Bioavailability example data
+# Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
+
+
+ * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://affiliate.manning.com/idevaffiliate.php?id=1273_360) (book copyright Manning Publications Co., all rights reserved)
+ * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
+
+
+## The code and data in this directory supports examples from:
+ * Appendix B: Some Important Statistical Concepts
+
+## Bioavailability example data (fair use)
 
 This data is copied from Figure 4 of the public promotional material found at: 
 [Caco-2 Permeability Assay](http://www.cyprotex.com/admepk/in-vitro-permeability/caco-2-permeability/) and was converted to numeric estimates using [WebPlotDigitizer](http://arohatgi.info/WebPlotDigitizer/) .

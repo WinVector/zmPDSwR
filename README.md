@@ -12,6 +12,7 @@
 
 Includes works derived from others (data sets) remain controlled by them.  We are distributing as these parties have allowed and not making any claim or grant of additional rights or license.
 
+ * [bioavailability](bioavailability) Synthetic simple [ADME](http://en.wikipedia.org/wiki/ADME) data [source](http://www.cyprotex.com/admepk/in-vitro-permeability/caco-2-permeability/).
  * [Bookdata](Bookdata) Book ratings [source](http://www.informatik.uni-freiburg.de/~cziegler/BX/).
  * [Buzz](Buzz) Discussion forum popularity [source](http://ama.liglab.fr/datasets/buzz/).
  * [CDC](CDC) US CDC birth statistics [source](http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm).
