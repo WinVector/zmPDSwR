@@ -89,7 +89,7 @@ This gives us the estimate that log() increase of cm/s unit measured of Caco2 pe
 
 What we want is a data-set that might be typical of a drug series being optimized.  So you would see the percent human absorption going up over time (as better and better drug candidates are made).  If the initial candidate drugs were optimized for Caco2 permeability you might also see Caco2 permeability go down as actual human ADME is optimized (as we move away from the initial Caco2 candidates).  A naive analysis of only data from such a series could easily (through [omitted variable bias](http://en.wikipedia.org/wiki/Omitted-variable_bias) (see also [confounding variables](http://en.wikipedia.org/wiki/Confounding_variable) and [nuisance variables](http://en.wikipedia.org/wiki/Nuisance_variable)) imply a relation that good Caco2 relates to bad ADME (when in fact we tend to believe good Caco2 relates to good ADME).  This is why you can not always get away with a simple "spray and pray" style of data analysis.
 
-One way to fix this is to introduce candidate variables and re-try the modeling.  In our example the omitted variable will be date (which is often a good candidate).  Other ways to deal with the problem could be through appropriate [fixed effects models](http://en.wikipedia.org/wiki/Fixed_effects_model), [random effects models](http://en.wikipedia.org/wiki/Random_effects_model), control of priors, control of regularization or forcing orthogonalization of variables.
+One way to fix this is to introduce candidate variables and re-try the modeling.  In our example the omitted variable will be date (which is often a good candidate).  Other ways to deal with the problem could be through appropriate [fixed effects models](http://en.wikipedia.org/wiki/Fixed_effects_model), [random effects models](http://en.wikipedia.org/wiki/Random_effects_model), control of priors, use of hierarchical models, control of regularization or forcing orthogonalization of variables.
 
 Our synthetic data set is given as:
 
@@ -98,10 +98,18 @@ set.seed(2535251)
 s <- data.frame(week=1:100)
 s$Caco2A2BPapp <- sort(sample(d$Caco2A2BPapp,100,replace=T),decreasing=T)
 sigmoid <- function(x) {1/(1+exp(-x))}
-s$FractionHumanAbsorption <- sigmoid(Intercept + log(s$Caco2A2BPapp) + 
-   10*log(s$week) - mean(10*log(s$week)) +
-   5*rnorm(100))
+s$FractionHumanAbsorption <- 
+ sigmoid(Intercept + cacoEffect*log(s$Caco2A2BPapp) + 
+   s$week/10 - mean(s$week/10) +
+   rnorm(100)/3)
 write.table(s,'synth.csv',sep=',',quote=F,row.names=F)
+```
+
+
+What we have done is simulate a drug optimization managed to increase human intestine absorption (presumably by making changes that directly worked in that domain) than happened to lose Caco2 permeability as we went.  The Caco2 permeability remains a plus for human intestine absorption throughout this data set, it is just we have found other better effects that allowed us to improve human intestine absorption even when we lost Caco2 permeability to the changes.  We are assuming that everything that improves both Caco2 and human intestinal absorption was tried at the beginning of the project, and that for the part of the project we now see the group is trying things that directly improve human intestine absorption even when they are known to harm Caco2.  The group would like high Caco2, but it is secondary to the more direct measurement of human intestinal absorption- so they are willing to make more and more trade-offs as the project gets further along.  The time/week variable is standing in for all of these actual omitted factors.
+
+
+```r
 print(summary(glm(data=s, FractionHumanAbsorption~log(Caco2A2BPapp),
    family=binomial(link='logit'))))
 ```
@@ -118,22 +126,22 @@ print(summary(glm(data=s, FractionHumanAbsorption~log(Caco2A2BPapp),
 ## 
 ## Deviance Residuals: 
 ##    Min      1Q  Median      3Q     Max  
-## -1.205  -0.758  -0.724   0.996   1.591  
+## -0.609  -0.246  -0.118   0.202   0.557  
 ## 
 ## Coefficients:
-##                   Estimate Std. Error z value Pr(>|z|)   
-## (Intercept)        -3.3057     1.1810   -2.80   0.0051 **
-## log(Caco2A2BPapp)  -0.2203     0.0931   -2.37   0.0180 * 
+##                   Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)        -10.003      2.752   -3.64  0.00028 ***
+## log(Caco2A2BPapp)   -0.969      0.257   -3.77  0.00016 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 95.279  on 99  degrees of freedom
-## Residual deviance: 89.506  on 98  degrees of freedom
-## AIC: 129
+##     Null deviance: 43.7821  on 99  degrees of freedom
+## Residual deviance:  9.4621  on 98  degrees of freedom
+## AIC: 64.7
 ## 
-## Number of Fisher Scoring iterations: 4
+## Number of Fisher Scoring iterations: 6
 ```
 
 ```r
@@ -145,16 +153,16 @@ ggplot(s,aes(x=Caco2A2BPapp,y=FractionHumanAbsorption)) +
 ## geom_smooth: method="auto" and size of largest group is <1000, so using loess. Use 'method = x' to change the smoothing method.
 ```
 
-![plot of chunk synth1](figure/synth1.png) 
+![plot of chunk synthP](figure/synthP.png) 
 
 
-As you can see the deliberately inserted positive relation between log(Caco2) and absorption is hidden and lost on simple analyses.  The warning point to look for is "the sign of the Caco2 coefficient seems wrong."  The issue is that log(week) and log(Caco2) are (negatively) correlated, so if one is missing the opposite of the other can be used as substitute for prediction (leading to confusing coefficients).  This is a reminder that even a model making good predictions may not be actually be a good explanation.
+As you can see the deliberately inserted positive relation between log(Caco2) and absorption is hidden and lost on simple analyses.  The warning point to look for is "the sign of the Caco2 coefficient seems wrong."  The issue is that week and log(Caco2) are (negatively) correlated, so if one is missing the opposite of the other can be used as substitute for prediction (leading to confusing coefficients).  This is a reminder that even a model making good predictions may not be actually be a good explanation.
 
 To fix our problem we have to at least fit jointly with the omitted variable:
 
 
 ```r
-print(summary(glm(data=s,FractionHumanAbsorption~log(week)+log(Caco2A2BPapp),
+print(summary(glm(data=s,FractionHumanAbsorption~week+log(Caco2A2BPapp),
    family=binomial(link='logit'))))
 ```
 
@@ -165,37 +173,37 @@ print(summary(glm(data=s,FractionHumanAbsorption~log(week)+log(Caco2A2BPapp),
 ```
 ## 
 ## Call:
-## glm(formula = FractionHumanAbsorption ~ log(week) + log(Caco2A2BPapp), 
+## glm(formula = FractionHumanAbsorption ~ week + log(Caco2A2BPapp), 
 ##     family = binomial(link = "logit"), data = s)
 ## 
 ## Deviance Residuals: 
-##    Min      1Q  Median      3Q     Max  
-## -1.350  -0.823  -0.122   0.826   1.500  
+##     Min       1Q   Median       3Q      Max  
+## -0.3474  -0.0568  -0.0010   0.0709   0.3038  
 ## 
 ## Coefficients:
 ##                   Estimate Std. Error z value Pr(>|z|)   
-## (Intercept)         -7.549      2.632   -2.87   0.0041 **
-## log(week)            3.729      1.344    2.77   0.0055 **
-## log(Caco2A2BPapp)    0.602      0.270    2.23   0.0258 * 
+## (Intercept)         3.1413     4.6837    0.67   0.5024   
+## week                0.1033     0.0386    2.68   0.0074 **
+## log(Caco2A2BPapp)   0.5689     0.5419    1.05   0.2938   
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 95.279  on 99  degrees of freedom
-## Residual deviance: 72.520  on 97  degrees of freedom
-## AIC: 112.5
+##     Null deviance: 43.7821  on 99  degrees of freedom
+## Residual deviance:  1.2595  on 97  degrees of freedom
+## AIC: 47.82
 ## 
 ## Number of Fisher Scoring iterations: 6
 ```
 
 Note: since we are guessing both variables and variable transforms (log()) this problem would be a good candidate for using a generalized additive model (as in the GAM package).
 
-Notice we got reasonable (but not great) estimates of the coefficients for week and Caco2 effects.  But we may not always have data that is diverse enough to effect such a recovery (even when we correctly supply the omitted variable).  When that doesn't work we need to try and force effects onto the omitted variable.  At this point you have trouble and methods don't always give you all of what you want.  For example you might try to force all of the explanatory value onto the log(week) variable by using R's offset command (a technique that allows us to fit residuals in many circumstances see help(offset) and help(formula)):
+Notice we got reasonable (but not great) estimates of the coefficients for week and Caco2 effects (though we did not achieve significance on the Caco2 effect estimate).  But we may not always have data that is diverse enough to effect such a recovery (even when we correctly supply the omitted variable).  When that doesn't work we need to try and force effects onto the omitted variable.  At this point you have trouble and methods don't always give you all of what you want.  For example you might try to force all of the explanatory value onto the week variable by using R's offset command (a technique that allows us to fit residuals in many circumstances see help(offset) and help(formula)):
 
 
 ```r
-mF <- glm(data=s, FractionHumanAbsorption~log(week),
+mF <- glm(data=s, FractionHumanAbsorption~week,
     family=binomial(link='logit'))
 ```
 
@@ -204,38 +212,39 @@ mF <- glm(data=s, FractionHumanAbsorption~log(week),
 ```
 
 ```r
+weekEffect <- mF$coefficients['week']
 print(summary(mF))
 ```
 
 ```
 ## 
 ## Call:
-## glm(formula = FractionHumanAbsorption ~ log(week), family = binomial(link = "logit"), 
+## glm(formula = FractionHumanAbsorption ~ week, family = binomial(link = "logit"), 
 ##     data = s)
 ## 
 ## Deviance Residuals: 
-##    Min      1Q  Median      3Q     Max  
-## -1.254  -0.788  -0.378   0.936   1.555  
+##     Min       1Q   Median       3Q      Max  
+## -0.3037  -0.1312  -0.0575   0.0776   0.3833  
 ## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(>|z|)    
-## (Intercept)   -5.566      1.602   -3.47  0.00051 ***
-## log(week)      1.306      0.401    3.26  0.00112 ** 
+## (Intercept)  -1.8130     0.5499   -3.30  0.00098 ***
+## week          0.0676     0.0142    4.77  1.8e-06 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 95.279  on 99  degrees of freedom
-## Residual deviance: 78.718  on 98  degrees of freedom
-## AIC: 117.7
+##     Null deviance: 43.7821  on 99  degrees of freedom
+## Residual deviance:  2.3203  on 98  degrees of freedom
+## AIC: 49.78
 ## 
-## Number of Fisher Scoring iterations: 5
+## Number of Fisher Scoring iterations: 6
 ```
 
 ```r
 print(summary(glm(data=s,FractionHumanAbsorption~log(Caco2A2BPapp) +
-   offset(mF$coefficients['log(week)']*log(week)),
+   offset(weekEffect*week),
    family=binomial(link='logit'))))
 ```
 
@@ -247,30 +256,28 @@ print(summary(glm(data=s,FractionHumanAbsorption~log(Caco2A2BPapp) +
 ```
 ## 
 ## Call:
-## glm(formula = FractionHumanAbsorption ~ log(Caco2A2BPapp) + offset(mF$coefficients["log(week)"] * 
-##     log(week)), family = binomial(link = "logit"), data = s)
+## glm(formula = FractionHumanAbsorption ~ log(Caco2A2BPapp) + offset(weekEffect * 
+##     week), family = binomial(link = "logit"), data = s)
 ## 
 ## Deviance Residuals: 
-##    Min      1Q  Median      3Q     Max  
-## -1.139  -0.846  -0.408   1.061   1.436  
+##     Min       1Q   Median       3Q      Max  
+## -0.3274  -0.1184  -0.0209   0.1050   0.3815  
 ## 
 ## Coefficients:
-##                   Estimate Std. Error z value Pr(>|z|)   
-## (Intercept)        -4.1000     1.2627   -3.25   0.0012 **
-## log(Caco2A2BPapp)   0.1152     0.0982    1.17   0.2406   
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+##                   Estimate Std. Error z value Pr(>|z|)
+## (Intercept)        -0.9283     2.1973   -0.42     0.67
+## log(Caco2A2BPapp)   0.0818     0.2007    0.41     0.68
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 78.718  on 99  degrees of freedom
-## Residual deviance: 77.371  on 98  degrees of freedom
-## AIC: 116.3
+##     Null deviance: 2.3203  on 99  degrees of freedom
+## Residual deviance: 2.1663  on 98  degrees of freedom
+## AIC: 51.41
 ## 
-## Number of Fisher Scoring iterations: 4
+## Number of Fisher Scoring iterations: 6
 ```
 
 
-Notice our estimate of both the log(week) coefficient and the log(Caco2) coefficients are much worse in this case.  So offset is not a silver bullet (though it did at least get the sign of the log(Caco2) coefficient right, but did not achieve significance for the estimate).
+Notice our estimate of both the week coefficient and the log(Caco2) coefficients are much worse in this case.  So offset is not a silver bullet (though it did at least get the sign of the log(Caco2) coefficient right, but did not achieve significance for the estimate).
 
 
