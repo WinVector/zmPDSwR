@@ -101,6 +101,7 @@ sigmoid <- function(x) {1/(1+exp(-x))}
 s$FractionHumanAbsorption <- sigmoid(Intercept + log(s$Caco2A2BPapp) + 
    10*log(s$week) - mean(10*log(s$week)) +
    5*rnorm(100))
+write.table(s,'synth.csv',sep=',',quote=F,row.names=F)
 print(summary(glm(data=s, FractionHumanAbsorption~log(Caco2A2BPapp),
    family=binomial(link='logit'))))
 ```
