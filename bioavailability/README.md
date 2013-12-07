@@ -9,18 +9,17 @@
 ## The code and data in this directory supports examples from:
  * Appendix B: Some Important Statistical Concepts
 
-## Bioavailability example data (fair use)
+## Bioavailability example data
 
-This data is copied from Figure 4 of the public promotional material found at: 
-[Caco-2 Permeability Assay](http://www.cyprotex.com/admepk/in-vitro-permeability/caco-2-permeability/) and was converted to numeric estimates using [WebPlotDigitizer](http://arohatgi.info/WebPlotDigitizer/) .
+This data is transcribed from Figure 4 of the public promotional material found at: [Caco-2 Permeability Assay](http://www.cyprotex.com/admepk/in-vitro-permeability/caco-2-permeability/) and was converted to numeric estimates using [WebPlotDigitizer](http://arohatgi.info/WebPlotDigitizer/).  This may seem a bit aggressive, but such actions are allowed under [fair use](http://en.wikipedia.org/wiki/Fair_use) (one of the rights copyright holders must grant in return for government copyright protection; in this case we meet many of the intended terms/factors of fair use:  we are using for research of a small amount factual data with no negative effect on the original).  Also, a data scientist is going to have to get use to doing some work to get data.
 
 The original Figure 4 is:
 
 ![Figure4](Figure4.gif)
 
-This graph relates the measured rate of [Caco2](http://en.wikipedia.org/wiki/Caco-2) permeability which is how fast a molecule travels across a monolayer of cells derived from a large intestine carcinoma.  The hope is that even though the immortal cell culture is not a working organ that Caco2 permeability rates predict how much of a drug will be ingested through a human small intestine (before passing to the large intestine, which is less involved in complicated absorption than the small intestine).  You can see Caco2 is a test by analogy: whole human absorption is estimated from a cell culture using different mechanisms than the actual complete human body.  So Caco2 doesn't determine the [ADME](http://en.wikipedia.org/wiki/ADME) properties of a drug, but is considered a useful signal or feature to measure.
+This graph relates the measured rate of [Caco2](http://en.wikipedia.org/wiki/Caco-2) permeability which is how fast a molecule travels across a monolayer of cells derived from a large intestine carcinoma.  The hope is that even though the immortal cell culture is not a working organ that Caco2 permeability rates predict how much of a drug will be ingested through a human small intestine (before passing to the large intestine, which is less involved in complicated molecule absorption than the small intestine).  You can see Caco2 is a test by analogy: whole human absorption is estimated from a cell culture using different mechanisms than the actual complete human body.  So Caco2 doesn't determine the [ADME](http://en.wikipedia.org/wiki/ADME) properties of a drug, but is considered a useful correlated signal or feature to measure.
 
-And estimated data from the graph is stored in [caco2.csv](caco2.csv), which produces the following graph:
+Estimated data from the graph is stored in [caco2.csv](caco2.csv), which produces the following graph:
 
 
 ```r
@@ -97,9 +96,10 @@ cacoEffect <- model$coefficients['log(Caco2A2BPapp)']
 
 This gives us the estimate that log() increase of cm/s unit measured of Caco2 permeability tends to increase the logit of human intestinal absorption fraction by 0.4992.  Which we will use to produce our deliberately problematic synthetic example.
 
-What we want is a data-set that might be typical of a drug series being optimized.  So you would see the percent human absorption going up over time (as better and better drug candidates are made).  If the initial candidate drugs were optimized for Caco2 permeability you might also see Caco2 permeability go down as actual human ADME is optimized (as we move away from the initial Caco2 candidates).  A naive analysis of only data from such a series could easily (through [omitted variable bias](http://en.wikipedia.org/wiki/Omitted-variable_bias) (see also [confounding variables](http://en.wikipedia.org/wiki/Confounding_variable) and [nuisance variables](http://en.wikipedia.org/wiki/Nuisance_variable)) imply a relation that good Caco2 relates to bad ADME (when in fact we tend to believe good Caco2 relates to good ADME).  This is why you can not always get away with a simple "spray and pray" style of data analysis.
+What we want is a data-set that might be typical of a drug series being optimized.  In projects as intense as drug optimization you see early candidate drugs "that have all the typical features" and work okay.  Later candidate drugs tend to work better (the optimization) but often don't have as many of the features that were thought to be important early in the project (as the feature relations are not strict, and it is not always possible for a drug candidate to simultaneously be the best on many different scales).
 
-One way to fix this is to introduce candidate variables and re-try the modeling.  In our example the omitted variable will be date (which is often a good candidate).  Other ways to deal with the problem could be through appropriate [fixed effects models](http://en.wikipedia.org/wiki/Fixed_effects_model), [random effects models](http://en.wikipedia.org/wiki/Random_effects_model), control of priors, use of hierarchical models, control of regularization or forcing orthogonalization of variables.
+So you would expect to see the percent human absorption going up over time (as better and better drug candidates are made).  If the initial candidate drugs were optimized for Caco2 permeability you might also see Caco2 permeability go down as actual human ADME is optimized (as we move away from the initial Caco2 favored candidates).  A naive analysis of only data from such a series could easily (through [omitted variable bias](http://en.wikipedia.org/wiki/Omitted-variable_bias) (see also [confounding variables](http://en.wikipedia.org/wiki/Confounding_variable) and [nuisance variables](http://en.wikipedia.org/wiki/Nuisance_variable)) imply a relation that good Caco2 relates to bad ADME (when in fact we tend to believe good Caco2 relates to good ADME).  This is why you can not always get away with a simple every variable is equal "spray and pray" style of data analysis.
+
 
 Our synthetic data set is given as:
 
@@ -116,7 +116,7 @@ write.table(s,'synth.csv',sep=',',quote=F,row.names=F)
 ```
 
 
-What we have done is simulate a drug optimization managed to increase human intestine absorption (presumably by making changes that directly worked in that domain) that happened to lose Caco2 permeability as we went.  Remember there is not causal relation between Caco2 permeability and absorption in the human small intestine- they just tend to be correlated.
+What we have done is simulate a drug optimization managed to increase human intestine absorption (presumably by making changes that directly worked in that domain) that happened to lose Caco2 permeability as we went.  Remember there is not a completely causal relation between Caco2 permeability and absorption in the human small intestine- but they are correlated through many shared factors (and are not identical because of many un-shared factors).
 
 
 ```r
@@ -131,7 +131,9 @@ ggplot(s,aes(x=week,y=FractionHumanAbsorption)) +
 ![plot of chunk graphT](figure/graphT.png) 
 
 
-By design the Caco2 permeability remains a plus for human intestine absorption throughout this data set, it is just that other effects (changing over time) are dominating.  We are assuming that everything that improves both Caco2 and human intestinal absorption was tried at the beginning of the project, and that for the part of the project we now see the group is trying things that directly improve human intestine absorption even when they are known to harm Caco2.  The group would like high Caco2, but it is secondary to the more direct measurement of human intestinal absorption- so they are willing to make more and more trade-offs as the project gets further along.  The time/week variable is standing in for all of these actual omitted factors.
+By design the Caco2 permeability remains is in fact a plus for human intestine absorption throughout this data set, it is just that other effects (changing over time) are dominating.  But as we watch the data over time we see human intestine absorption increasing over time and Caco2 permeability dropping over time: leading to a spurious observation of an inverse correlation.
+We are assuming that everything that improves both Caco2 and human intestinal absorption was tried at the beginning of the project, and that for the part of the project we now see the group is trying things that directly improve human intestine absorption even when they are known to harm Caco2.  The group would like high Caco2, but it is secondary to the more direct measurement of human intestinal absorption- so they are willing to make more and more trade-offs as the project gets further along.  The time/week variable is standing in for all of these actual omitted factors.
+
 
 
 ```r
@@ -183,7 +185,9 @@ ggplot(s,aes(x=Caco2A2BPapp,y=FractionHumanAbsorption)) +
 
 As you can see the deliberately inserted positive relation between log(Caco2) and absorption is hidden and lost on simple analyses.  The warning point to look for is "the sign of the Caco2 coefficient seems wrong."  The issue is that week and log(Caco2) are (negatively) correlated, so if one is missing the opposite of the other can be used as substitute for prediction (leading to confusing coefficients).  This is a reminder that even a model making good predictions may not be actually be a good explanation.
 
-To fix our problem we have to at least fit jointly with the omitted variable:
+One way to fix this is to introduce candidate variables and re-try the modeling.  In our example the omitted variable will be date (which is often a good candidate).  Other ways to deal with the problem could be through appropriate [fixed effects models](http://en.wikipedia.org/wiki/Fixed_effects_model), [random effects models](http://en.wikipedia.org/wiki/Random_effects_model), control of priors, use of hierarchical models, control of regularization or forcing orthogonalization of variables.
+
+So, to fix our problem we have to at least fit jointly with the omitted variable:
 
 
 ```r
@@ -306,3 +310,7 @@ print(summary(glm(data=s,FractionHumanAbsorption~log(Caco2A2BPapp) +
 Notice our estimate of both the week coefficient and the log(Caco2) coefficients are much worse in this case.  So offset is not a silver bullet (though it did at least get the sign of the log(Caco2) coefficient right, but did not achieve significance for the estimate).
 
 
+Document rendering command (in bash):
+```
+echo "library('knitr'); knit('README.Rmd')" | R --vanilla ; pandoc -o README.html README.md
+```
