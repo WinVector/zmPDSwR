@@ -60,7 +60,13 @@ d &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="
 <img src="figure/model1.png" alt="plot of chunk model1" /><p class="caption">plot of chunk model1</p>
 </div>
 <pre class="sourceCode r"><code class="sourceCode r">Intercept &lt;-<span class="st"> </span>model$coefficients[<span class="st">&#39;(Intercept)&#39;</span>]
-cacoEffect &lt;-<span class="st"> </span>model$coefficients[<span class="st">&#39;log(Caco2A2BPapp)&#39;</span>]</code></pre>
+<span class="kw">print</span>(Intercept)</code></pre>
+<pre><code>## (Intercept) 
+##       7.489</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">cacoEffect &lt;-<span class="st"> </span>model$coefficients[<span class="st">&#39;log(Caco2A2BPapp)&#39;</span>]
+<span class="kw">print</span>(cacoEffect)</code></pre>
+<pre><code>## log(Caco2A2BPapp) 
+##            0.4992</code></pre>
 <p>This gives us the estimate that log() increase of cm/s unit measured of Caco2 permeability tends to increase the logit of human intestinal absorption fraction by 0.4992. Which we will use to produce our deliberately problematic synthetic example.</p>
 <p>What we want is a data-set that might be typical of a drug series being optimized. In projects as intense as drug optimization you see early candidate drugs &quot;that have all the typical features&quot; and work okay. Later candidate drugs tend to work better (the optimization) but often don't have as many of the features that were thought to be important early in the project (as the feature relations are not strict, and it is not always possible for a drug candidate to simultaneously be the best on many different scales).</p>
 <p>So you would expect to see the percent human absorption going up over time (as better and better drug candidates are made). If the initial candidate drugs were optimized for Caco2 permeability you might also see Caco2 permeability go down as actual human ADME is optimized (as we move away from the initial Caco2 favored candidates). A naive analysis of only data from such a series could easily (through <a href="http://en.wikipedia.org/wiki/Omitted-variable_bias">omitted variable bias</a> (see also <a href="http://en.wikipedia.org/wiki/Confounding_variable">confounding variables</a> and <a href="http://en.wikipedia.org/wiki/Nuisance_variable">nuisance variables</a>) imply a relation that good Caco2 relates to bad ADME (when in fact we tend to believe good Caco2 relates to good ADME). This is why you can not always get away with a simple every variable is equal &quot;spray and pray&quot; style of data analysis.</p>

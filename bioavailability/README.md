@@ -90,7 +90,22 @@ ggplot(d) +
 
 ```r
 Intercept <- model$coefficients['(Intercept)']
+print(Intercept)
+```
+
+```
+## (Intercept) 
+##       7.489
+```
+
+```r
 cacoEffect <- model$coefficients['log(Caco2A2BPapp)']
+print(cacoEffect)
+```
+
+```
+## log(Caco2A2BPapp) 
+##            0.4992
 ```
 
 

@@ -40,7 +40,9 @@ ggplot(d) +
    geom_line(aes(x=Caco2A2BPapp,y=model)) +
    scale_x_log10()
 Intercept <- model$coefficients['(Intercept)']
+print(Intercept)
 cacoEffect <- model$coefficients['log(Caco2A2BPapp)']
+print(cacoEffect)
 ```
 
 This gives us the estimate that log() increase of cm/s unit measured of Caco2 permeability tends to increase the logit of human intestinal absorption fraction by `r format(cacoEffect)`.  Which we will use to produce our deliberately problematic synthetic example.
