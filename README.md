@@ -12,18 +12,18 @@
 
 Includes works derived from others (data sets) remain controlled by them.  We are distributing as these parties have allowed and not making any claim or grant of additional rights or license.
 
- * [bioavailability](bioavailability) Synthetic simple [ADME](http://en.wikipedia.org/wiki/ADME) data [source](http://www.cyprotex.com/admepk/in-vitro-permeability/caco-2-permeability/).
- * [Bookdata](Bookdata) Book ratings [source](http://www.informatik.uni-freiburg.de/~cziegler/BX/).
- * [Buzz](Buzz) Discussion forum popularity [source](http://ama.liglab.fr/datasets/buzz/).
- * [CDC](CDC) US CDC birth statistics [source](http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm).
+ * [bioavailability](bioavailability) Synthetic simple [ADME](http://en.wikipedia.org/wiki/ADME) data ([source](http://www.cyprotex.com/admepk/in-vitro-permeability/caco-2-permeability/)).
+ * [Bookdata](Bookdata) Book ratings ([source](http://www.informatik.uni-freiburg.de/~cziegler/BX/)).
+ * [Buzz](Buzz) Discussion forum popularity ([source](http://ama.liglab.fr/datasets/buzz/)).
+ * [CDC](CDC) US CDC birth statistics ([source](http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm)).
  * [Custdata](Custdata) Synthetic example data derived from Census PUMS data to demonstrate retail related plots.
- * [KDD2009](KDD2009) Credit account prediction [source](http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction).
- * [PUMS](PUMS) US Census PUMS [source](http://www.census.gov/acs/www/data_documentation/pums_data/).
- * [Protein](Protein) Dietary protein sources across multiple countries [source](http://lib.stat.cmu.edu/DASL/Datafiles/Protein.html).
+ * [KDD2009](KDD2009) Credit account prediction ([source](http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction)).
+ * [PUMS](PUMS) US Census PUMS ([source](http://www.census.gov/acs/www/data_documentation/pums_data/)).
+ * [Protein](Protein) Dietary protein sources across multiple countries ([source](http://lib.stat.cmu.edu/DASL/Datafiles/Protein.html)).
  * [SQLExample](SQLExample) Synthetic example data relating price to hotel reservation pickup.
- * [Spambase](Spambase) Email spam classification [source](http://archive.ics.uci.edu/ml/datasets/Spambase).
- * [Statlog](Statlog) German loans defaults [source](http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/).
- * [UCICar](UCICar) Synthetic car ratings [source](http://archive.ics.uci.edu/ml/machine-learning-databases/car/).
+ * [Spambase](Spambase) Email spam classification ([source](http://archive.ics.uci.edu/ml/datasets/Spambase)).
+ * [Statlog](Statlog) German loans defaults ([source](http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/)).
+ * [UCICar](UCICar) Synthetic car ratings ([source](http://archive.ics.uci.edu/ml/machine-learning-databases/car/)).
 
 
 ## Download
