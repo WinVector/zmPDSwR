@@ -128,6 +128,7 @@ s$FractionHumanAbsorption <-
    s$week/10 - mean(s$week/10) +
    rnorm(100)/3)
 write.table(s,'synth.csv',sep=',',quote=F,row.names=F)
+save(s,d,file='synth.RData')
 ```
 
 

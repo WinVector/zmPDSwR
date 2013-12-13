@@ -63,6 +63,7 @@ s$FractionHumanAbsorption <-
    s$week/10 - mean(s$week/10) +
    rnorm(100)/3)
 write.table(s,'synth.csv',sep=',',quote=F,row.names=F)
+save(s,d,file='synth.RData')
 ```
 
 What we have done is simulate a drug optimization managed to increase human intestine absorption (presumably by making changes that directly worked in that domain) that happened to lose Caco2 permeability as we went.  Remember there is not a completely causal relation between Caco2 permeability and absorption in the human small intestine- but they are correlated through many shared factors (and are not identical because of many un-shared factors).

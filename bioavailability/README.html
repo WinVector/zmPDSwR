@@ -79,7 +79,8 @@ s$FractionHumanAbsorption &lt;-<span class="st"> </span>
 <span class="st"> </span><span class="kw">sigmoid</span>(Intercept +<span class="st"> </span>cacoEffect*<span class="kw">log</span>(s$Caco2A2BPapp) +<span class="st"> </span>
 <span class="st">   </span>s$week/<span class="dv">10</span> -<span class="st"> </span><span class="kw">mean</span>(s$week/<span class="dv">10</span>) +
 <span class="st">   </span><span class="kw">rnorm</span>(<span class="dv">100</span>)/<span class="dv">3</span>)
-<span class="kw">write.table</span>(s,<span class="st">&#39;synth.csv&#39;</span>,<span class="dt">sep=</span><span class="st">&#39;,&#39;</span>,<span class="dt">quote=</span>F,<span class="dt">row.names=</span>F)</code></pre>
+<span class="kw">write.table</span>(s,<span class="st">&#39;synth.csv&#39;</span>,<span class="dt">sep=</span><span class="st">&#39;,&#39;</span>,<span class="dt">quote=</span>F,<span class="dt">row.names=</span>F)
+<span class="kw">save</span>(s,d,<span class="dt">file=</span><span class="st">&#39;synth.RData&#39;</span>)</code></pre>
 <p>What we have done is simulate a drug optimization managed to increase human intestine absorption (presumably by making changes that directly worked in that domain) that happened to lose Caco2 permeability as we went. Remember there is not a completely causal relation between Caco2 permeability and absorption in the human small intestine- but they are correlated through many shared factors (and are not identical because of many un-shared factors).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(s,<span class="kw">aes</span>(<span class="dt">x=</span>week,<span class="dt">y=</span>FractionHumanAbsorption)) +
 <span class="st">   </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_smooth</span>()</code></pre>
