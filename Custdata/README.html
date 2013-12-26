@@ -19,8 +19,9 @@ Synthetic example data derived from Census PUMS data to demonstrate retail relat
 </dl>    
 
 <p>Load with</p>
-<pre><code>custdata = read.table(&#39;custdata.tsv&#39;,header=T,sep=&#39;\t&#39;)
-custdata2 = read.table(&#39;custdata2.tsv&#39;,header=T,sep=&#39;\t&#39;)</code></pre>
+<pre><code>custdata &lt;- read.table(&#39;custdata.tsv&#39;,header=T,sep=&#39;\t&#39;)
+custdata2 &lt;- read.table(&#39;custdata2.tsv&#39;,header=T,sep=&#39;\t&#39;)
+load(&#39;exampleData.rData&#39;) # overrides custdata</code></pre>
 <h2 id="license-for-additional-documentation-notes-code-and-example-data">License for additional documentation, notes, code, and example data:</h2>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 <p>No guarantee, indemnification or claim of fitness is made regarding any of these items.</p>
