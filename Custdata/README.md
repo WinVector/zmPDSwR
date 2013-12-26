@@ -20,8 +20,9 @@
 
 Load with 
 ```
-custdata = read.table('custdata.tsv',header=T,sep='\t')
-custdata2 = read.table('custdata2.tsv',header=T,sep='\t')
+custdata <- read.table('custdata.tsv',header=T,sep='\t')
+custdata2 <- read.table('custdata2.tsv',header=T,sep='\t')
+load('exampleData.rData') # overrides custdata
 ```
 
 
