@@ -1,0 +1,246 @@
+Position	Len	Field	Description	Flag.Position	Rev.	Values	Definition
+7	1	REVISION	Revision	NA	U,R	A	
+15-18	4	DOB_YY	Birth Year	NA	U,R	2009	
+19-20	2	DOB_MM	Birth Month	NA	U,R	01	
+29	1	DOB_WK	Weekday	NA	U,R	1	
+30-31	2	OTERR	Occurrence Territory	NA	U,R		
+37-39	3	OCNTY	Occurrence County	NA	U,R		
+40	1	OCNTYPOP	Occurrence County Pop	NA	U,R	0	
+41	1	BFACIL	Birth Place	676	R	1	
+42	1	UBFACIL	Birth Place	NA	U,R	1	
+59	1	BFACIL3	Birth Place Recode	NA	U,R	1	
+87	1	MAGE_IMPFLG	Mother's Age Imputed	NA	U,R	Blank	
+88	1	MAGE_REPFLG	Reported Age of Mother Flag	NA	U,R	Blank	
+89-90	2	MAGER	Mother's Single Year of Age	NA	U,R	12	
+91-92	2	MAGER14	Mother's Age Recode 14	NA	U,R	01	
+93	1	MAGER9	Mother's Age Recode 9	NA	U,R	1	
+94-95	2	MBCNTRY	Mother's Birth Country	NA	U,R	AA-ZZ	
+109-110	2	MRTERR	Mother's Residence Territory	NA	U,R		
+114-116	3	MRCNTY	Mother's County of Residence	NA	U,R		
+132	1	RCNTY_POP	Population of Residence County	NA	U,R	0	
+137	1	RECTYPE	Record Type	NA	U,R	1	
+138	1	RESTATUS	Residence Status	NA	U,R		
+139-140	2	MBRACE	Mother's Bridged Race	NA	R**	01	
+141-142	2	MRACE	Mother's Race	NA	U		
+143	1	MRACEREC	Mother's Race Recode	NA	U,R		
+144	1	MRACEIMP	Mother's Race Imputed Flag	NA	U,R	Blank	
+148	1	UMHISP	Mother's Hispanic Origin	NA			
+149	1	MRACEHISP	Mother's Race/Hispanic Origin	NA			
+153	1	MAR	Mother's Marital Status	NA	U,R		
+154	1	MAR_IMP	Mother's Marital Status Imputed Flag	NA	U,R	Blank	
+155	1	MEDUC	Mother's Education	571	R	th	grade or less
+156-157	2	DMEDUC	Mother's Education	647	U	00	
+158	1	MEDUC_REC	Mother's Education Recode	NA			
+175	1	FAGERPT_FLG	Father's Reported Age Used	NA	U,R	Blank	
+182-183	2	FAGECOMB	Father's Combined Age (Revised)	NA	R	09-98	
+184-185	2	UFAGECOMB	Father's Combined Age	NA	U,R	10-98	
+186-187	2	FAGEREC11	Father's Age Recode 11	NA	U,R	01	
+188-189	2	FBRACE	Father's Bridged Race	NA	R**	01	
+191	1	FRACEREC	Father's Race Recode	NA	U,R		
+195	1	UFHISP	Father's Hispanic Origin	NA			
+196	1	FRACEHISP	Father's Race/Hisp Origin	NA			
+199-200	2	FRACE	Father's Race	NA	U		
+212	1	LBO_REC	Live Birth Order Recode	NA	U,R	1-7	
+217	1	TBO_REC	Total Birth Order Recode	NA	U,R	1-7	
+245-246	2	PRECARE	Month Prenatal Care Began	NA			
+247	1	PRECARE_REC	Moth Prenatal Care Began Recode	NA			
+256-257	2	MPCB	Month Prenatal Care Began	NA			
+258	1	MPCB_REC6	Month Prenatal Care Began Recode 6	NA			
+259	1	MPCB_REC5	Month Prenatal Care Began Recode 5	NA			
+270-271	2	UPREVIS	Number of Prenatal Visits	NA	U,R	00-49	
+272-273	2	PREVIS_REC	Number of Prenatal Visits Recode	NA	U,R	01	
+276-277	2	WTGAIN	Weight Gain	648	U,R	00-97	
+278	1	WTGAIN_REC	Weight Gain Recode	648	U,R	1	
+280	1	DFPC_IMP	Day of Date First Prenatal Care Imputed	NA	R	Blank	
+284-285	2	CIG_1	st Trimester	575	R	00-97	
+286-287	2	CIG_2	nd Trimester	575	R	00-97	
+288-289	2	CIG_3	rd Trimester	575	R	00-97	
+290	1	TOBUSE	Tobacco Use	667	U	1	
+291-292	2	CIGS	Cigarettes per Day	NA	U	00-97	
+293	1	CIG_REC6	Cigarette Recode	NA	U	0	
+294	1	CIG_REC	Cigarette Recode	575	R	Y	
+305-307	3	PWGT	Prepregnancy Weight	577	R	074	
+309-311	3	DWGT	Maternal Delivery Weight 578	NA	R	099	
+313-319	9	Risk	Factors (Revised)	NA			
+313	1	RF_DIAB	Prepregnancy Diabetes	582	R		
+314	1	RF_GEST	Gestational Diabetes	583	R		
+315	1	RF_PHYP	Prepregnancy Hypertension	NA			
+316	1	RF_GHYP	Gestational Hypertension	585	R		
+317	1	RF_ECLAM	Eclampsia	586	R		
+318	1	RF_PPTERM	Previous Preterm Birth	587	R		
+319	1	RF_PPOUTC	Poor Pregnancy Outcome	588	R		
+324	1	RF_CESAR	Previous Cesarean Deliveries	NA			
+325-326	2	RF_CESARN	Number of Previous Cesarean Deliveries	NA			
+328-344	17	Risk	Factors	NA			
+331	1	URF_DIAB	Diabetes	684	U,R		
+335	1	URF_CHYPER	Chronic Hypertension	688	U,R		
+336	1	URF_PHYPER	Pregnancy Associated Hypertension	NA			
+337	1	URF_ECLAM	Eclampsia	690	U,R		
+351-354	4	Obstetric	Procedures (Revised)	NA			
+351	1	OP_CERV	Cervical Cerclage	601	R		
+352	1	OP_TOCOL	Tocolysis	602	R		
+353	1	OP_ECVS	Successful External Cephalic Version	NA			
+354	1	OP_ECVF	Failed External Cephalic Version	NA			
+355-361	7	Obstetric	Procedures	NA			
+357	1	UOP_INDUC	Induction of Labor	703	U,R		
+359	1	UOP_TOCOL	Tocolysis	705	U,R		
+362-364	3	Onset	of Labor	NA		Y	
+362	1	ON_RUPTR	Premature Rupture of Membrane	NA			
+363	1	ON_PRECIP	Precipitous Labor	606	R		
+364	1	ON_PROL	Prolonged Labor	607	R		
+365-373	9	Characteristics	of Labor and Delivery (Revised)	NA			
+365	1	LD_INDL	Induction of Labor	608	R		
+366	1	LD_AUGM	Augmentation of Labor	609	R		
+367	1	LD_NVPR	Non-Vertex Presentation	610	R		
+368	1	LD_STER	Steroids	611	R		
+369	1	LD_ANTI	Antibiotics	612	R		
+370	1	LD_CHOR	Chorioamnionitis	613	R		
+371	1	LD_MECS	Meconium Staining	614	R		
+372	1	LD_FINT	Fetal Intolerance	615	R		
+373	1	LD_ANES	Anesthesia	616	R		
+374-389	16	Complications	of Labor and Delivery	NA			
+375	1	ULD_MECO	Meconium	712	U,R		
+381	1	ULD_PRECIP	Precipitous Labor	718	U,R		
+384	1	ULD_BREECH	Breech	721	U,R		
+390-394	5	Method	of Delivery (Revised)	NA			
+390	1	ME_ATTF	Attempted Forceps	617	R	Y	
+391	1	ME_ATTV	Attempted Vacuum	618	R	Y	
+392	1	ME_PRES	Fetal Presentation	619	R	1	
+393	1	ME_ROUT	Route & Method of Delivery	NA			
+394	1	ME_TRIAL	Trial of Labor Attempted	621	R	Y	
+395-400	6	Method	of Delivery (Unrevised)	NA			
+395	1	UME_VAG	Vaginal	730	U		
+396	1	UME_VBAC	Vaginal after cesarean	731	U		
+397	1	UME_PRIMC	Primary cesarean	732	U		
+398	1	UME_REPEC	Repeat cesarean	733	U		
+399	1	UME_FORCP	Forceps	734	U,R		
+400	1	UME_VAC	Vacuum	735	U,R		
+401	1	RDMETH_REC	Delivery Method Recode (Revised)	NA	R	1	
+402	1	UDMETH_REC	Delivery Method Recode (Unrevised)	NA	U	1	
+403	1	DMETH_REC		NA	U,R	1	
+410	1	ATTEND	Attendant	NA	U,R	1	
+415-416	2	APGAR5	Five Minute APGAR Score	NA			
+417	1	APGAR5R	Five Minute APGAR Recode	NA			
+423	1	DPLURAL	Plurality Recode	NA	U,R	1	
+425	1	IMP_PLUR	Plurality Imputed	NA	U,R	Blank	
+436	1	SEX	Sex of Infant	NA	U,R	M	
+437	1	IMP_SEX	Imputed Sex	NA	U,R	Blank	
+438-439	2	DLMP_MM	Last Normal Menses - Month	NA	U,R	01	
+442-445	4	DLMP_YY	Last Normal Menses - Year	NA	U,R	nnnn	
+446-447	2	ESTGEST	Obstetric/Clinical Gestation Est.	NA			
+451-452	2	COMBGEST	Gestation ? Detail in Weeks 670	NA	U,R	th	through 47th week of Gestation
+453-454	2	GESTREC10	Gestation Recode 10	NA	U,R	01	
+455	1	GESTREC3	Gestation Recode 3	NA	U,R	1	
+456	1	OBGEST_FLG	Obstetric/Clinical Est. of Gestation Used Flag U,R	NA		Blank	
+457	1	GEST_IMP	Gestation Imputed Flag	NA	U,R	Blank	
+463-466	4	DBWT	Birth Weight ? Detail in Grams	NA	U,R	0227-8165	Number of grams
+471-472	2	BWTR12	Birth Weight Recode 12	NA	U,R	01	
+473	1	BWTR4	Birth Weight Recode 4	NA	U,R	1	
+476-482	7	Abnormal	Conditions of the Newborn (Revised)	NA			
+476	1	AB_AVEN1	Assisted Ventilation	628	R		
+477	1	AB_AVEN6	Assisted Ventilation > 6 hrs 629	NA	R		
+478	1	AB_NICU	Admission to NICU	630	R		
+479	1	AB_SURF	Surfactant	631	R		
+480	1	AB_ANTI	Antibiotics	632	R		
+481	1	AB_SEIZ	Seizures	633	R		
+482	1	AB_BINJ	Birth Injury	634	R		
+492-503	12	Congenital	Anomalies of the Newborn (Revised)	NA			
+492	1	CA_ANEN	Anencephaly	635	R		
+493	1	CA_MNSB	Meningomyelocele / Spina Bifida	NA			
+494	1	CA_CCHD	Cyanotic Congenital Heart Disease	NA			
+495	1	CA_CDH	Congenital Diaphragmatic Hernia	NA			
+496	1	CA_OMPH	Omphalocele	639	R		
+497	1	CA_GAST	Gastroschisis	640	R		
+498	1	CA_LIMB	Limb Reduction Defect	641	R		
+499	1	CA_CLEFT	Cleft Lip w/ or w/o Cleft Palate	NA			
+500	1	CA_CLPAL	Cleft Palate alone	643	R		
+501	1	CA_DOWNS	Down Syndrome	644	R	C	
+502	1	CA_DISOR	Suspected Chromosomal Disorder	NA			
+503	1	CA_HYPO	Hypospadias	646	R	Y	
+504-525	22	Congenital	Anomalies of the Newborn	NA			
+504	1	UCA_ANEN	Anencephalus	752	U,R		
+505	1	UCA_SPINA	Spina Bifida / Meningocele 753	NA	U,R		
+513	1	UCA_OMPHA	Omphalocele / Gastroschisis	NA			
+518	1	UCA_CELFTLP	Cleft Lip / Palate	766	U,R		
+521	1	UCA_HERNIA	Diaphragmatic Hernia	769	U,R		
+523	1	UCA_DOWNS	Down Syndrome	771	U,R		
+569	1	F_MORIGIN	Origin of Mother	NA	U,R		
+570	1	F_FORIGIN	Origin of Father	NA	U,R		
+571	1	F_MEDUC	Education of Mother	NA	R		
+573	1	F_CLINEST	Clinical Estimate of Gestation	NA	U,R		
+574	1	F_APGAR5	Five minute APGAR	NA	U,R		
+575	1	F_TOBACO	Tobacco use	NA	R		
+577	1	F_PWGT	Prepregnancy Weight	NA	R		
+578	1	F_DWGT	Delivery Weight	NA	R		
+582	1	F_RF_PDIAB	Prepregnancy Diabetes	NA	R		
+583	1	F_RF_GDIAB	Gestational Diabetes	NA	R		
+584	1	F_RF_PHYPER	Prepregnancy Hypertension	NA	R		
+585	1	F_RF_GHYPER	Gestational Hypertension	NA	R		
+586	1	F_RF_ECLAMP	Eclampsia	NA	R		
+587	1	F_RF_PPB	Previous Preterm Birth	NA	R		
+588	1	F_RF_PPO	Poor Pregnancy outcomes	NA	R		
+593	1	F_RF_CESAR	Previous Cesarean	NA	R		
+594	1	F_RF_NCESAR	Number of Previous Cesareans	NA	R		
+601	1	F_OB_CERVIC	Cervical Cerclage	NA	R		
+602	1	F_OB_TOCO	Tocolysis	NA	R		
+603	1	F_OB_SUCC	Successful External Cephalic Version	NA	R		
+604	1	F_OB_FAIL	Failed External Cephalic Version	NA	R		
+605	1	F_OL_RUPTURE	Premature Rupture of the Membranes	NA	R		
+606	1	F_OL_PRECIP	Precipitous Labor	NA	R		
+607	1	F_OL_PROLONG	Prolonged Labor	NA	R		
+608	1	F_LD_INDUCT	Induction of Labor	NA	R		
+609	1	F_LD_AUGMENT	Augmentation of Labor	NA	R		
+611	1	F_LD_STERIODS	Steroids	NA	R		
+612	1	F_LD_ANTIBIO	Antibiotics	NA	R		
+613	1	F_LD_CHORIO	Chorioamnionitis	NA	R		
+614	1	F_LD_MECON	Meconium Staining	NA	R		
+615	1	F_LD_FINTOL	Fetal Intolerance	NA	R		
+616	1	F_LD_ANESTH	Anesthesia	NA	R		
+619	1	F_MD_PRESENT	Fetal Presentation	NA	R		
+620	1	F_MD_ROUTE	Final Route and Method of Delivery	NA	R		
+621	1	F_MD_TRIAL	Trial of Labor Attempted	NA	R		
+628	1	F_AB_VENT	Assisted Ventilation	NA	R		
+629	1	F_AB_VENT6	Assisted Ventilation >6 hrs	NA	R		
+630	1	F_AB_NIUC	Admission to NICU	NA	R		
+631	1	F_AB_SURFAC	Surfactant	NA	R		
+632	1	F_AB_ANTIBIO	Antibiotics	NA	R		
+633	1	F_AB_SEIZ	Seizures	NA	R		
+634	1	F_AB_INJ	Birth Injury	NA	R		
+635	1	F_CA_ANEN	Anencephaly	NA	R		
+636	1	F_CA_MENIN	Meningomyelocele/Spina Bifida	NA	R		
+637	1	F_CA_HEART	Cyanotic Congenital Heart Disease	NA	R		
+638	1	F_CA_HERNIA	Congenital Diaphragmatic Hernia	NA	R		
+639	1	F_CA_OMPHA	Omphalocele	NA	R		
+640	1	F_CA_GASTRO	Gastroschisis	NA	R		
+641	1	F_CA_LIMB	Limb Reduction Defect	NA	R		
+642	1	F_CA_CLEFTLP	Cleft Lip with or without Cleft Palate	NA	R		
+643	1	F_CA_CLEFT	Cleft Plate Alone	NA	R		
+644	1	F_CA_DOWNS	Down Syndrome	NA	R		
+645	1	F_CA_CHROM	Suspected Chromosomal Disorder	NA	R		
+646	1	F_CA_HYPOS	Hypospadias	NA	R		
+647	1	F_MED	Mother's Education	NA	U		
+648	1	F_WTGAIN	Weight Gain	NA	U,R		
+667	1	F_TOBAC	Tobacco Use	NA	U		
+668	1	F_MPCB	Month Prenatal Care Began	NA	R		
+669	1	F_MPCB_U	Month Prenatal Care Began	NA	U		
+684	1	F_URF_DIABETES	Diabetes	NA	U,R		
+688	1	F_URF_CHYPER	Chronic Hypertension	NA	U,R		
+689	1	F_URF_PHYPER	Pregnancy Associated Hypertension	NA	U,R		
+690	1	F_URF_ECLAMP	Eclampsia	NA	U,R		
+703	1	F_UOB_INDUCT	Induction of Labor	NA	U,R		
+705	1	F_UOB_TOCOL	Tocolysis	NA	U,R		
+712	1	F_ULD_MECONIUM	Meconium	NA	U,R		
+718	1	F_ULD_PRECIP	Precipitous Labor	NA	U,R		
+721	1	F_ULD_BREECH	Breech	NA	U,R		
+730	1	F_U_VAGINAL	Vaginal	NA	U		
+731	1	F_U_VBAC	Vaginal after Cesarean	NA	U		
+732	1	F_U_PRIMAC	Primary Cesarean	NA	U		
+733	1	F_U_REPEAC	Repeat Cesarean	NA	U		
+734	1	F_U_FORCEP	Forceps	NA	U,R		
+735	1	F_U_VACUUM	Vacuum	NA	U,R		
+752	1	F_UCA_ANEN	Anencephalus	NA	U,R		
+753	1	F_UCA_SPINA	Spina Bifida / Meningocele	NA	U,R		
+761	1	Omphalocele	/ Gastroschisis	NA	U,R		
+766	1	F_UCA_CLEFTLP	Cleft Lip / Palate	NA	U,R		
+769	1	F_UCA_HERNIA	Hernia	NA	U,R		
+771	1	F_UCA_DOWNS	Down Syndrome	NA	U,R		
