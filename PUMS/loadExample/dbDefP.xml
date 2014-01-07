@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+ <comment>testdb</comment>
+ <entry key="user">miner_demo</entry>
+ <entry key="password"></entry>
+ <entry key="driver">org.postgresql.Driver</entry>
+ <entry key="url">jdbc:postgresql://localhost:5432/miner_demo</entry>
+</properties>
