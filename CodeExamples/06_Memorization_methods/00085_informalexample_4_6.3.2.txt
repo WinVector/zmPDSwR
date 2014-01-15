@@ -1,0 +1,13 @@
+# informalexample:4_6.3.2 
+# informalexample:4 : Memorization methods : Building models using many variables : Using decision trees 
+f <- paste(outcome,'>0 ~ ',paste(selVars,collapse=' + '),sep='')
+> tmodel <- rpart(f,data=dTrain,
+   control=rpart.control(cp=0.001,minsplit=1000,
+      minbucket=1000,maxdepth=5)
+ )
+> print(calcAUC(predict(tmodel,newdata=dTrain),dTrain[,outcome]))
+[1] 0.6856049
+> print(calcAUC(predict(tmodel,newdata=dTest),dTest[,outcome]))
+[1] 0.6753746
+> print(calcAUC(predict(tmodel,newdata=dCal),dCal[,outcome]))
+[1] 0.6755194

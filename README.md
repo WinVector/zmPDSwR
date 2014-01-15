@@ -7,6 +7,7 @@
 ## Zip file of code excerpts from the book:
 
  * [CodeExamples.zip](CodeExamples.zip)
+ * [CodeExamples directory](CodeExamples)
 
 ## Example data sets:
 

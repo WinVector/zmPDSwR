@@ -1,0 +1,4 @@
+# informalexample:1_9.2.1 
+# informalexample:1 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
+            relationships : Understanding GAMs 
+f(x[i,]) = b0 + b[1] x[i,1] + b[2] x[i,2] + ... b[n] x[i,n]

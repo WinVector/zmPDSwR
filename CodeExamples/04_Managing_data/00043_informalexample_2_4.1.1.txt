@@ -1,0 +1,30 @@
+# informalexample:2_4.1.1 
+# informalexample:2 : Managing data : Cleaning data : Treating missing values (NAs) 
+> custdata$is.employed.fix <- ifelse(is.na(custdata$is.employed),  	# Note: 1 
+                                   "missing",                    	# Note: 2 
+                                   ifelse(custdata$is.employed==T, 	# Note: 3 
+                                          "employed",
+                                          "not employed"))  	# Note: 4 
+
+> summary(as.factor(custdata$is.employed.fix)) 	# Note: 5 
+
+    employed      missing not employed
+         599          328           73
+
+# Note 1: 
+#   If is.employed value is missing... 
+
+# Note 2: 
+#   assign the value "missing" 
+
+# Note 3: 
+#   otherwise if is.employed==TRUE assign the value 
+#   "employed"... 
+
+# Note 4: 
+#   else assign the value "not employed" 
+
+# Note 5: 
+#   The transformation has turned the variable type 
+#   from factor to string. You can change it back with the as.factor() 
+#   function. 
