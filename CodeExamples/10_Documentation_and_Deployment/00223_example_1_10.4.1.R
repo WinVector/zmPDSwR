@@ -1,6 +1,5 @@
 # example:1_10.4.1 
-# example:1 : Documentation and Deployment : Deploying models : Deploying models as R http services 
-
+# example:1 : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
 library(Rook)  	# Note: 1 
 load('thRS500.Rdata') 	# Note: 2 
 library(randomForest) 	# Note: 3 
@@ -51,43 +50,48 @@ s$start() 	# Note: 10
 ##
 ##      http://127.0.0.1:11953/custom/modelFn  	# Note: 11 
 
-
 # Note 1: 
-#   Load the rook http server library. 
+#   Load the rook HTTP server 
+#   library 
 
 # Note 2: 
-#   Load the saved buzz workspace (includes the random 
-#   forests model). 
+#   Load the saved buzz workspace 
+#   (includes the random forests model) 
 
 # Note 3: 
-#   Load the random forests library (loading the 
-#   workspace does not load the library). 
+#   Load the random forests 
+#   library (loading the workspace doesn’t load the 
+#   library) 
 
 # Note 4: 
-#   Determine which variables are numeric (in the rook 
-#   server everything defaults to character). 
+#   Determine which variables are 
+#   numeric (in the rook server, everything defaults to 
+#   character). 
 
 # Note 5: 
-#   Declare the modeling service. 
+#   Declare the modeling 
+#   service 
 
 # Note 6: 
-#   This block does the actual work: parse data and 
-#   apply the model. 
+#   This block does the actual 
+#   work: parse data and apply the model 
 
 # Note 7: 
-#   Format results, place in a list and 
-#   return. 
+#   Format results, place in a 
+#   list and return 
 
 # Note 8: 
-#   Start a new rook http service. 
+#   Start a new rook HTTP 
+#   service 
 
 # Note 9: 
-#   Register our model function as a http 
-#   service. 
+#   Register our model function as 
+#   an HTTP service 
 
 # Note 10: 
-#   Start the http server. 
+#   Start the HTTP 
+#   server 
 
 # Note 11: 
-#   This is the URL the service is running 
-#   at. 
+#   This is the URL where the 
+#   service is running 

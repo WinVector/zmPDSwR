@@ -15,40 +15,65 @@ dbDisconnect(conn) 	# Note: 7
 save(dhus,dpus,file='phsample.RData') 	# Note: 8 
 
 # Note 1: 
-#   Set Java option for extra memory before DB drivers are 
-#   loaded. 
+#    
+#   Set Java option for extra memory before DB 
+#   drivers are loaded. 
+#    
 
 # Note 2: 
+#    
 #   Specify the name of the database driver, same 
 #   as in our XML database configuration. 
+#    
 
 # Note 3: 
-#   Specify where to find the implementation of the 
-#   specified database driver. 
+#    
+#   Specify where to find the implementation of 
+#   the 
+#   specified 
+#   database driver. 
+#    
 
 # Note 4: 
-#   SQL column names with mixed case capitalization, special characters, 
-#   or that collide with reserved words must be quoted. We’re specifying 
-#   single-quote as the quote we’ll use when quoting column names, which may be 
-#   a different quote than the one we’re using for SQL literals. 
+#    
+#   SQL column names with mixed-case 
+#   capitalization, special characters, or that 
+#   collide with reserved words must be quoted. We 
+#   specify single-quote as the quote we’ll use when 
+#   quoting column names, which may different than the 
+#   quote we use for SQL literals. 
+#    
 
 # Note 5: 
-#   Create a data frame called dhus from * (everything) from the d 
-#   database table hus, taking only rows where ORGINRANGGROUP <= 1. The 
-#   ORGINRANDGROUP column is a random integer from 0 through 999 that 
-#   SQLScrewdriver adds to the rows during data load to facilitate sampling. In 
-#   this case we’re taking 2/1000ths of the data rows to get small 
-#   sample. 
+#    
+#   Create a data frame called dhus from * 
+#   (everything) from the d database table hus, taking 
+#   only rows where ORGINRANGGROUP <= 1. The 
+#   ORGINRANDGROUP column is a random integer from 0 
+#   through 999 that SQL Screwdriver adds to the rows 
+#   during data load to facilitate sampling. In this 
+#   case, we’re taking 2/1000 of the data rows to get 
+#   a small sample. 
+#    
 
 # Note 6: 
-#   Create a data frame called dpus from the database table pus, 
-#   taking only records that have a household ID in the set of household IDs we 
+#    
+#   Create a data frame called dpus from the 
+#   database table pus, taking only records that have 
+#   a household ID in the set of household IDs we 
 #   selected from households table hus. 
+#    
 
 # Note 7: 
+#    
 #   Disconnect for the database. 
+#    
 
 # Note 8: 
-#   Save the two data frames into a file named phsample.RData, can 
-#   be read in with load(). Try help("save") or help("load") for more 
+#    
+#   Save the two data frames into a file named 
+#   phsample.RData, which can be read in with 
+#   load(). Try 
+#   help("save") or help("load") for more 
 #   details. 
+#    

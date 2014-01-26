@@ -1,6 +1,5 @@
 # informalexample:3_10.3.2 
-# informalexample:3 : Documentation and Deployment : Using comments and version control for running documentation : Using version control to record history 
-
+# informalexample:3 : Documentation and deployment : Using comments and version control for running documentation : Using version control to record history 
 commit c02839e0b34172f54fd68201f64895295b9d7609
 Author: John Mount <jmount@win-vector.com>
 Date:   Sat Nov 9 13:28:30 2013 -0800
@@ -12,4 +11,3 @@ Author: John Mount <jmount@win-vector.com>
 Date:   Sat Nov 9 12:01:14 2013 -0800
 
     Add rook examples
-

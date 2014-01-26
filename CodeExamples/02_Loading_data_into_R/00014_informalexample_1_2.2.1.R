@@ -1,5 +1,5 @@
 # informalexample:1_2.2.1 
-# informalexample:1 : Loading data into R : Working with relational databases : A production-sized example 
+# informalexample:1 : Loading data into R : Working with relational databases : A production-size example 
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
@@ -12,23 +12,37 @@
 </properties>
 
 # Note 1: 
-#   User name to use for database 
+#    
+#   Username to use for database 
 #   connection. 
+#    
 
 # Note 2: 
+#    
 #   Password to use for database 
 #   connection. 
+#    
 
 # Note 3: 
-#   Java classname of the database driver. SQLScrewdriver used JDBC 
-#   which is a broad database application programming interface layer. You 
-#   could use another database such as PostgreSQL by specifying a different 
-#   driver name such as org.postgresql.Driver.  
+#    
+#   Java classname of the database driver. SQL 
+#   Screwdriver used JDBC, which is a broad database 
+#   application programming interface layer. You could 
+#   use another database such as PostgreSQL by 
+#   specifying a different driver name, such as 
+#   org.postgresql.Driver. 
+#    
 
 # Note 4: 
-#   URL specifying database. For H2 it is just jdbc:h2: followed by the 
-#   file prefix you wish to use to store data. The items after the semicolon 
-#   are performance options. For Postgresql it would be something more like 
-#   jdbc:postgresql://host:5432/db. The descriptions of the URL format and 
-#   drivers should be part of your database documentation, and you can use 
-#   SQuirreL SQL to confirm you have them right. 
+#    
+#   URL specifying database. For H2, it’s just 
+#   jdbc:h2: followed by the file prefix you wish to 
+#   use to store data. The items after the semicolon 
+#   are performance options. For PostgreSQL, it would 
+#   be something more like 
+#   jdbc:postgresql://host:5432/db. The descriptions 
+#   of the URL format and drivers should be part of 
+#   your database documentation, and you can use 
+#   SQuirreL SQL to confirm you have them 
+#   right. 
+#    

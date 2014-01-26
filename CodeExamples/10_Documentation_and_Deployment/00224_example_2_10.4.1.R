@@ -1,6 +1,5 @@
 # example:2_10.4.1 
-# example:2 : Documentation and Deployment : Deploying models : Deploying models as R http services 
-
+# example:2 : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
 rowAsForm <- function(url,row) { 	# Note: 1 
    s <- paste('<HTML><HEAD></HEAD><BODY><FORM action="',url,
       '" enctype="multipart/form-data" method="POST">\n',sep='')
@@ -17,16 +16,17 @@ rowAsForm <- function(url,row) { 	# Note: 1
 url <- 'http://127.0.0.1:11953/custom/modelFn' 	# Note: 2 
 cat(rowAsForm(url,buzztest[7,]),file='buzztest7.html') 	# Note: 3 
 
-
 # Note 1: 
-#   Function to convert a row of dataset into a 
-#   huge HTML form that transmits all of the variable values to HTTP server on 
-#   submit (when the SEND button is pressed). 
+#   Function to convert a row 
+#   of dataset into a huge HTML form that transmits all 
+#   of the variable values to HTTP server on submit 
+#   (when the Send button is pressed) 
 
 # Note 2: 
-#   The URL we started the rook http server 
-#   on. 
+#   The URL we started the rook 
+#   HTTP server on 
 
 # Note 3: 
-#   Write the form representing the variables for 
-#   the 7th test example to a file. 
+#   Write the form representing 
+#   the variables for the 7th test example to a 
+#   file 

@@ -1,6 +1,5 @@
 # informalexample:4_10.2.3 
-# informalexample:4 : Documentation and Deployment : Using knitr to produce milestone documentation : Using knitr to document the buzz data 
-
+# informalexample:4 : Documentation and deployment : Using knitr to produce milestone documentation : Using knitr to document the buzz data 
 Save prepared R environment.
 % Another way to conditionally save, check for file.
 % message=F is letting message() calls get routed to console instead
@@ -18,4 +17,3 @@ if(!file.exists(fname)) {
 paste('checked at',date())
 system(paste('shasum',fname),intern=T)  # write down file hash
 @
-

@@ -1,6 +1,5 @@
 # informalexample:2_10.3.3 
-# informalexample:2 : Documentation and Deployment : Using comments and version control for running documentation : Using version control to explore your project 
-
+# informalexample:2 : Documentation and deployment : Using comments and version control for running documentation : Using version control to explore your project 
 git log --graph --name-status
 * commit c49c853cbcbb1e5a923d6e1127aa54ec7335d1b3
 | Author: John Mount <jmount@win-vector.com>
@@ -19,4 +18,3 @@ git log --graph --name-status
 |     update
 |
 | M     CodeExamples.zip
-

@@ -14,12 +14,18 @@ uciCar <- read.table(  	# Note: 1
 #    
 
 # Note 2: 
-#   Filename or URL to get the data 
-#   from. 
+#    
+#   Filename or URL to get the data from. 
+#    
 
 # Note 3: 
-#   Specify the column or field separator as a comma 
+#    
+#   Specify the column or field separator as a 
+#   comma. 
+#    
 
 # Note 4: 
-#   Tell R to expect a header line that defines the data column 
-#   names 
+#    
+#   Tell R to expect a header line that defines 
+#   the data column names. 
+#    

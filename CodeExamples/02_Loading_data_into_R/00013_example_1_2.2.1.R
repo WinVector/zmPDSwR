@@ -1,5 +1,5 @@
 # example:1_2.2.1 
-# example:1 : Loading data into R : Working with relational databases : A production-sized example 
+# example:1 : Loading data into R : Working with relational databases : A production-size example 
 3-12-2013
 PUMS Data set from:
   http://www.census.gov/acs/www/data_documentation/pums_data/ 	# Note: 1 
@@ -19,29 +19,41 @@ PUMS Data set from:
       aa0f4add21e327b96d9898b850e618aeca10f6d0  csv_pus.zip
 
 # Note 1: 
-#   Where we found the data documentation. This is important to 
-#   record as many data files don’t contain links back to the documentation. 
-#   Census PUMS does in fact contain embedded documentation, but not every 
-#   source is so careful. 
+#    
+#   Where we found the data documentation. This 
+#   is important to record as many data files don’t 
+#   contain links back to the documentation. Census 
+#   PUMS does in fact contain embedded documentation, 
+#   but not every source is so careful. 
+#    
 
 # Note 2: 
-#   How we navigated from the documentation 
-#   site to the actual data files. It may be necessary to record this if the 
-#   data supplier requires any sort of click-through license to get to the 
-#   actual data. 
+#    
+#   How we navigated from the documentation site 
+#   to the actual data files. It may be necessary to 
+#   record this if the data supplier requires any sort 
+#   of click-through license to get to the actual 
+#   data. 
+#    
 
 # Note 3: 
-#   The actual files we 
-#   downloaded. 
+#    
+#   The actual files we downloaded. 
+#    
 
 # Note 4: 
-#   The sizes of the files after we 
-#   downloaded them. 
+#    
+#   The sizes of the files after we downloaded 
+#   them. 
+#    
 
 # Note 5: 
-#   Cryptographic hashes of the file contents 
-#   we downloaded. These are very short summaries (called hashes) that are 
-#   very unlikely to have the same value for different files. These 
-#   summaries can later help us determine if another researcher in our 
-#   organization is in fact using the same data distribution or 
-#   not. 
+#    
+#   Cryptographic hashes of the file contents we 
+#   downloaded. These are very short summaries (called 
+#   hashes) that are very unlikely to have the same 
+#   value for different files. These summaries can 
+#   later help us determine if another researcher in 
+#   our organization is using the same data 
+#   distribution or not. 
+#    

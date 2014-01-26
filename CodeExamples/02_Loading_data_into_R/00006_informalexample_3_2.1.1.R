@@ -30,10 +30,12 @@
 
 # Note 2: 
 #    
-#   The [1] is just an output sequence marker; the actual information is: uciCar has 1728 
-#   rows and 7 columns. Always try to confirm you got a good parse by at 
-#   least checking that the number of rows is exactly one fewer than the 
-#   number of lines of text in the original file. The difference of one 
-#   is because the column header counts as a line, but not as a data 
-#   row. 
+#   The [1] is just an output sequence 
+#   marker. The actual information is this: uciCar has 
+#   1728 rows and 7 columns. Always try to confirm you 
+#   got a good parse by at least checking that the 
+#   number of rows is exactly one fewer than the 
+#   number of lines of text in the original file. The 
+#   difference of one is because the column header 
+#   counts as a line, but not as a data row. 
 #    

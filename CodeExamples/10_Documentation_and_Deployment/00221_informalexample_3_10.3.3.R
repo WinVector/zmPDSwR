@@ -1,6 +1,5 @@
 # informalexample:3_10.3.3 
-# informalexample:3 : Documentation and Deployment : Using comments and version control for running documentation : Using version control to explore your project 
-
+# informalexample:3 : Documentation and deployment : Using comments and version control for running documentation : Using version control to explore your project 
 $ git log --name-status -- README.txt
 
 commit 2541bb0b9a2173eb1d471e11d4aca3b690a011ef
@@ -18,4 +17,3 @@ Date:   Thu Mar 21 17:58:48 2013 -0700
     update licenses
 
 M       README.txt
-

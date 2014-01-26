@@ -28,25 +28,37 @@ dtrain = subset(psub,ORIGRANDGROUP >= 500)  	# Note: 5
 dtest = subset(psub,ORIGRANDGROUP < 500)    	# Note: 6 
 
 # Note 1: 
+#    
 #   Reencode sex from 1/2 to M/F. 
+#    
 
 # Note 2: 
+#    
 #   Make the reference sex M, so F encodes a 
 #   difference from M in models. 
+#    
 
 # Note 3: 
+#    
 #   Reencode class of worker info into a more 
 #   readable form. 
+#    
 
 # Note 4: 
-#   Reencode education info into a more readable form 
-#   and fewer levels (merge all levels below high school into same 
-#   encoding). 
+#    
+#   Reencode education info into a more readable 
+#   form and fewer levels (merge all levels below high 
+#   school into same encoding). 
+#    
 
 # Note 5: 
+#    
 #   Subset of data rows used for model 
 #   training. 
+#    
 
 # Note 6: 
+#    
 #   Subset of data rows used for model 
 #   testing. 
+#    

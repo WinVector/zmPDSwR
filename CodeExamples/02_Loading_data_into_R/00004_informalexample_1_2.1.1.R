@@ -9,13 +9,19 @@ vhigh,vhigh,2,2,med,low,unacc
 
 # Note 1: 
 #    
-#   The header row contains the names of the data columns, in this case separated by commas. 
-#   When the separators are commas the format is called comma 
-#   separated values or .csv 
+#   The header row contains the names of the data 
+#   columns, in this case separated by commas. When 
+#   the separators are commas, the format is called 
+#   comma-separated values, or 
+#   .csv. 
 #    
 
 # Note 2: 
+#    
 #   The data rows are in the same format as the 
-#   header row, but each row contains actual data values. In this case the first 
-#   row represents the set of name/value pairs: buying=vhigh, maintenance=vhigh, 
-#   doors=2, persons=2, and so on. 
+#   header row, but each row contains actual data 
+#   values. In this case, the first row represents the 
+#   set of name/value pairs: buying=vhigh, 
+#   maintenance=vhigh, doors=2, persons=2, and so 
+#   on. 
+#    

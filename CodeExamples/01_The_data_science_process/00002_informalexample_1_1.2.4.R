@@ -1,5 +1,5 @@
 # informalexample:1_1.2.4 
-# informalexample:1 : The data science process : The stages of a data science project : Model evaluation and critique 
+# informalexample:1 : The data science process : Stages of a data science project : Model evaluation and critique 
 > resultframe <- data.frame(Good.Loan=creditdata$Good.Loan,
                            pred=predict(model, type="class"))
 > rtab <- table(resultframe) 	# Note: 1 
@@ -19,22 +19,33 @@ Good.Loan  BadLoan GoodLoan
 [1] 0.01857143
 
 # Note 1: 
-#   Create the confusion matrix. Rows represent actual loan status; columns 
-#   represent predicted loan status. The diagonal entries represent correct 
-#   predictions. 
+#    
+#   Create the confusion matrix. Rows represent 
+#   actual loan status; columns represent predicted 
+#   loan status. The diagonal entries represent 
+#   correct predictions. 
+#    
 
 # Note 2: 
-#   Overall model accuracy. 73% of the predictions were 
-#   correct. 
+#    
+#   Overall model accuracy: 73% of the predictions 
+#   were correct. 
+#    
 
 # Note 3: 
-#   Model precision: 76% of the applicants predicted as 
-#   bad really did default. 
+#    
+#   Model precision: 76% of the applicants 
+#   predicted as bad really did default. 
+#    
 
 # Note 4: 
-#   Model recall: The model found 14% of the defaulting 
-#   loans. 
+#    
+#   Model recall: the model found 14% of the 
+#   defaulting loans. 
+#    
 
 # Note 5: 
-#   False positive rate: 2% of the good applicants were 
-#   mistakenly identified as bad. 
+#    
+#   False positive rate: 2% of the good applicants 
+#   were mistakenly identified as bad. 
+#    

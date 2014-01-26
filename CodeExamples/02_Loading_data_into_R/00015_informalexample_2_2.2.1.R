@@ -1,5 +1,5 @@
 # informalexample:2_2.2.1 
-# informalexample:2 : Loading data into R : Working with relational databases : A production-sized example 
+# informalexample:2 : Loading data into R : Working with relational databases : A production-size example 
 java -classpath SQLScrewdriver.jar:h2-1.3.170.jar \ 	# Note: 1 
    com.winvector.db.LoadFiles \ 	# Note: 2 
    file:dbDef.xml \ 	# Note: 3 
@@ -12,27 +12,42 @@ java -classpath SQLScrewdriver.jar:h2-1.3.170.jar \ 	# Note: 7
    file:csv_pus/ss11pusa.csv file:csv_pus/ss11pusb.csv
 
 # Note 1: 
-#   Java command and required jars. The jars in 
-#   this case are SQLScrewdriver and the required database driver. 
+#    
+#   Java command and required JARs. The JARs in 
+#   this case are SQL Screwdriver and the required 
+#   database driver. 
+#    
 
 # Note 2: 
-#   Class to run: LoadFiles, the meat of 
-#   SQLScrewdriver. 
+#    
+#   Class to run: LoadFiles, the meat of SQL 
+#   Screwdriver. 
+#    
 
 # Note 3: 
-#   URL pointing to database 
-#   credentials. 
+#    
+#   URL pointing to database credentials. 
+#    
 
 # Note 4: 
-#   Separator to expect in input file (use t for tab). 
+#    
+#   Separator to expect in input file (use t for 
+#   tab). 
+#    
 
 # Note 5: 
+#    
 #   Name of table to create. 
+#    
 
 # Note 6: 
-#   List of comma separated files to load into 
+#    
+#   List of comma-separated files to load into 
 #   table. 
+#    
 
 # Note 7: 
+#    
 #   Same load pattern for personal information 
 #   table. 
+#    

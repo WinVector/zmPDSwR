@@ -1,6 +1,5 @@
 # example:1_10.3.3 
-# example:1 : Documentation and Deployment : Using comments and version control for running documentation : Using version control to explore your project 
-
+# example:1 : Documentation and deployment : Using comments and version control for running documentation : Using version control to explore your project 
 diff --git a/CDC/NatalBirthData.rData b/CDC/NatalBirthData.rData
 ...
 +++ b/CDC/prepBirthWeightData.R
@@ -13,4 +12,3 @@ diff --git a/CDC/NatalBirthData.rData b/CDC/NatalBirthData.rData
 +  ifelse(col %in% c("", "U"), NA, ifelse(col=="Y", T, F))
 +}
 ...
-

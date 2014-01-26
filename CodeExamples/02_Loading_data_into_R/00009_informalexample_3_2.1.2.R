@@ -1,5 +1,5 @@
 # informalexample:3_2.1.2 
-# informalexample:3 : Loading data into R : Working with data from files : Using R on less structured data 
+# informalexample:3 : Loading data into R : Working with data from files : Using R on less-structured data 
 colnames(d) <- c('Status.of.existing.checking.account',
    'Duration.in.month',  'Credit.history', 'Purpose',
    'Credit.amount', 'Savings account/bonds',

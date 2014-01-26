@@ -1,8 +1,6 @@
 # informalexample:1_10.4.1 
-# informalexample:1 : Documentation and Deployment : Deploying models : Deploying models as R http services 
-
+# informalexample:1 : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
 val=1
 nerrors=0
 nwarnings=0
 ...
-

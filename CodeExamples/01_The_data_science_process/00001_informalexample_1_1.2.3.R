@@ -1,5 +1,5 @@
 # informalexample:1_1.2.3 
-# informalexample:1 : The data science process : The stages of a data science project : Modeling  
+# informalexample:1 : The data science process : Stages of a data science project : Modeling  
 library('rpart')
 load('GCDData.RData')
 model <- rpart(Good.Loan ~
