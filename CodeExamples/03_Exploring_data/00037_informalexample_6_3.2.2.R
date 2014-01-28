@@ -5,12 +5,13 @@ ggplot(custdata2, aes(x=age, y=as.numeric(health.ins))) + 	# Note: 1
    geom_smooth() 	# Note: 3 
 
 # Note 1: 
-#   The boolean variable health.ins must be converted to a 0/1 variable 
-#   using as.numeric 
+#    The Boolean variable health.ins must be 
+#   converted to a 0/1 variable using as.numeric.  
 
 # Note 2: 
-#   Since y values can only be zero or one, add a small jitter to get a 
-#   sense of data density 
+#    Since y values can 
+#   only be 0 or 1, add a small jitter to get a sense of data 
+#   density.  
 
 # Note 3: 
-#   Add smoothing curve 
+#    Add smoothing curve.  

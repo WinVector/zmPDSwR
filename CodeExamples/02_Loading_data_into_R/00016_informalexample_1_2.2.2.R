@@ -29,9 +29,7 @@ save(dhus,dpus,file='phsample.RData') 	# Note: 8
 # Note 3: 
 #    
 #   Specify where to find the implementation of 
-#   the 
-#   specified 
-#   database driver. 
+#   the database driver. 
 #    
 
 # Note 4: 
@@ -47,7 +45,7 @@ save(dhus,dpus,file='phsample.RData') 	# Note: 8
 # Note 5: 
 #    
 #   Create a data frame called dhus from * 
-#   (everything) from the d database table hus, taking 
+#   (everything) from the database table hus, taking 
 #   only rows where ORGINRANGGROUP <= 1. The 
 #   ORGINRANDGROUP column is a random integer from 0 
 #   through 999 that SQL Screwdriver adds to the rows 
@@ -72,8 +70,7 @@ save(dhus,dpus,file='phsample.RData') 	# Note: 8
 # Note 8: 
 #    
 #   Save the two data frames into a file named 
-#   phsample.RData, which can be read in with 
-#   load(). Try 
-#   help("save") or help("load") for more 
+#   phsample.RData, which can be read in with load(). 
+#   Try help("save") or help("load") for more 
 #   details. 
 #    

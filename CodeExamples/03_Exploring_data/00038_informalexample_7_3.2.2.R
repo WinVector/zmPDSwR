@@ -8,12 +8,12 @@ ggplot(custdata2, aes(x=age, y=income)) +
    ylim(0,200000)
 
 # Note 1: 
-#   Load hexbin library 
+#    Load hexbin library.  
 
 # Note 2: 
-#   Create hexbin with age binned into 5-year increments, income in 
-#   increments of $10,000 
+#    Create hexbin with age binned into 5-year 
+#   increments, income in increments of $10,000.  
 
 # Note 3: 
-#   Add smoothing curve in white, suppress standard error ribbon 
-#   (se=F) 
+#    Add smoothing curve in white; suppress 
+#   standard error ribbon (se=F).  

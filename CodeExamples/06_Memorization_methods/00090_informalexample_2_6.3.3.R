@@ -9,4 +9,4 @@ plotROC <- function(predcol,outcol) {
       geom_line(data=pf,aes(x=FalsePositiveRate,y=TruePositiveRate)) +
       geom_line(aes(x=c(0,1),y=c(0,1)))
 }
-print(plotROC(knnPredP(dTest[,selVars]),dTest[,outcome]))
+print(plotROC(knnPred(dTest[,selVars]),dTest[,outcome]))

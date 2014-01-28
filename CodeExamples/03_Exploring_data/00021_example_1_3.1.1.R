@@ -1,5 +1,5 @@
 # example:1_3.1.1 
-# example:1 : Exploring data : Using summary statistics to spot problems : Typical problems that can be spotted from data summaries 
+# example:1 : Exploring data : Using summary statistics to spot problems : Typical problems revealed by data summaries 
  is.employed         	# Note: 1 
  Mode :logical
  FALSE:73
@@ -25,13 +25,14 @@
 
 
 # Note 1: 
-#    The variable is.employed is missing for about a third of the 
-#   data. Why? Is employment status unknown? Did the company start 
-#   collecting employment data only recently? Does NA mean “not in the 
-#   active workforce” (for example, students or stay-at-home parents)?  
+#    The variable is.employed is missing for 
+#   about a third of the data. Why? Is employment status unknown? Did the 
+#   company start collecting employment data only recently? Does NA mean “not in 
+#   the active workforce” (for example, students or stay-at-home 
+#   parents)?  
 
 # Note 2: 
-#    The variables housing.type, recent.move, and num.vehicles are 
-#   only missing a few values. It’s probably safe to just drop the rows that 
-#   are missing values—especially if the missing values are all the same 56 
-#   rows.  
+#    The variables housing.type, recent.move, 
+#   and num.vehicles are only missing a few values. It’s probably safe to just 
+#   drop the rows that are missing values—especially if the missing values are 
+#   all the same 56 rows.  

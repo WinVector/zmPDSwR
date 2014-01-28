@@ -30,33 +30,37 @@ Montana     : 1    Max.   :100.00
    theme(axis.text.y=element_text(size=rel(0.8)))
 
 # Note 1: 
-#    The table() command aggregates the data by state of 
-#   residence—exactly the information that bar chart plots.  
+#    The table() command aggregates the data by state of residence—exactly the information the bar 
+#   chart plots.  
 
 # Note 2: 
-#    Convert the table object to a data frame using as.data.frame(). 
-#   The default column names are Var1 and Freq.  
+#    Convert the table object to a data frame 
+#   using as.data.frame(). The default column names are Var1 and Freq. 
+#    
 
 # Note 3: 
-#    Rename the columns for readability.  
+#    Rename the columns for readability. 
+#    
 
 # Note 4: 
 #    Notice that the default ordering for the 
-#   state.of.res variable is alphabetical  
+#   state.of.res variable is alphabetical.  
 
 # Note 5: 
 #    Use the reorder() function to set the 
-#   state.of.res variable to be count-ordered. Use the transform() function 
+#   state.of.res variable to be count ordered. Use the transform() function 
 #   to apply the transformation to the state.of.res data frame.  
 
 # Note 6: 
-#    The state.of.res variable is now count ordered.  
+#    The state.of.res variable is now count 
+#   ordered.  
 
 # Note 7: 
-#    Since the data is being passed to geom_bar 
-#   pre-aggregated, specify both the x and y variables, and use 
-#   stat="identity" to plot the data exactly as given.  
+#    Since the data is being passed to 
+#   geom_bar pre-aggregated, specify both the x and 
+#   y variables, and use stat="identity" to plot the 
+#   data exactly as given.  
 
 # Note 8: 
-#    Flip the axes and reduce the size of the label 
-#   text as before.  
+#    Flip the axes and reduce the size of the 
+#   label text as before.  

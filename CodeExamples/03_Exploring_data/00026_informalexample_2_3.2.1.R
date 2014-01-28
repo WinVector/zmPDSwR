@@ -6,8 +6,9 @@ ggplot(custdata) + geom_density(aes(x=income)) +
    scale_x_continuous(labels=dollar) 	# Note: 2 
 
 # Note 1: 
-#   The scales package brings in the dollar scale 
-#   notation. 
+#    The scales package brings in the dollar 
+#   scale notation.  
 
 # Note 2: 
-#   Set the x-axis labels to dollars. 
+#    Set the x-axis labels to 
+#   dollars.  

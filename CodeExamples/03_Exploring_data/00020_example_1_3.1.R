@@ -56,19 +56,20 @@ Max.   :146.7   Ohio        : 51
 
 
 # Note 1: 
-#    The variable is.employed is missing for about 
-#   a third of the data. The variable income has negative values, which are 
+#    The variable is.employed is missing for 
+#   about a third of the data. The variable income has negative values, which are 
 #   potentially invalid.  
 
 # Note 2: 
-#    About 84% of the customers have health insurance.  
+#    About 84% of the customers have health 
+#   insurance.  
 
 # Note 3: 
-#    The variables housing.type, recent.move, and num.vehicles 
-#   are each missing 56 values.  
+#    The variables housing.type, recent.move, and 
+#   num.vehicles are each missing 56 values.  
 
 # Note 4: 
 #    The average value of the variable age seems 
 #   plausible, but the minimum and maximum values seem unlikely. The variable 
-#   state.of.res is a categorical variable; summary() reports how many customers are 
-#   in each state (for the first few states).  
+#   state.of.res is a categorical variable; summary() reports how many customers are in 
+#   each state (for the first few states).  

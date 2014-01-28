@@ -12,7 +12,8 @@ ggplot(custdata) + geom_bar(aes(x=marital.stat,
    position="fill")        	# Note: 3 
 
 # Note 1: 
-#   Stacked bar chart, the default 
+#    Stacked bar chart, the 
+#   default  
 
 # Note 2: 
 #    Side-by-side bar chart  

@@ -6,9 +6,10 @@ ggplot(custdata, aes(x=marital.stat)) +
    position=position_jitter(h=0.01)) 	# Note: 2 
 
 # Note 1: 
-#   Set the points just under the y-axis, three-quarters of default 
-#   size, and make them slightly transparent with the alpha 
-#   parameter 
+#    Set the points just under the y-axis, 
+#   three-quarters of default size, and make them slightly transparent with 
+#   the alpha parameter.  
 
 # Note 2: 
-#   Jitter the points slightly for legibility  
+#    Jitter the points slightly for 
+#   legibility.  

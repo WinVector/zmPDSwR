@@ -7,10 +7,11 @@ ggplot(custdata) +
    binwidth=5, fill="gray") 	# Note: 2 
 
 # Note 1: 
-#   Load the ggplot2 library, if you haven’t already done so. 
+#    Load the ggplot2 library, if you haven’t 
+#   already done so.  
 
 # Note 2: 
-#   The binwidth parameter tells the geom_histogram call how to make 
-#   bins of five-year intervals (default is datarange/30). The fill 
-#   parameter specifies the color of the histogram bars (default: 
-#   black). 
+#    The binwidth parameter tells the 
+#   geom_histogram call how to make bins of five-year intervals (default is 
+#   datarange/30). The fill parameter specifies the color of the histogram 
+#   bars (default: black).  

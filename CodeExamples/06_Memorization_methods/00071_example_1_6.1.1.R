@@ -13,21 +13,21 @@ d$appetency <- appetency$V1 	# Note: 5
 upselling <- read.table('orange_small_train_upselling.labels.txt',
    header=F,sep='\t')
 d$upselling <- upselling$V1 	# Note: 6 
-set.seed(729375)
+set.seed(729375) 	# Note: 7 
 d$rgroup <- runif(dim(d)[[1]])
 dTrainAll <- subset(d,rgroup<=0.9)
-dTest <- subset(d,rgroup>0.9) 	# Note: 7 
+dTest <- subset(d,rgroup>0.9) 	# Note: 8 
 outcomes=c('churn','appetency','upselling')
 vars <- setdiff(colnames(dTrainAll),
    c(outcomes,'rgroup'))
 catVars <- vars[sapply(dTrainAll[,vars],class) %in%
-   c('factor','character')] 	# Note: 8 
+   c('factor','character')] 	# Note: 9 
 numericVars <- vars[sapply(dTrainAll[,vars],class) %in%
-   c('numeric','integer')] 	# Note: 9 
-rm(list=c('d','churn','appetency','upselling')) 	# Note: 10 
-outcome <- 'churn' 	# Note: 11 
-pos <- '1' 	# Note: 12 
-useForCal <- rbinom(n=dim(dTrainAll)[[1]],size=1,prob=0.1)>0 	# Note: 13 
+   c('numeric','integer')] 	# Note: 10 
+rm(list=c('d','churn','appetency','upselling')) 	# Note: 11 
+outcome <- 'churn' 	# Note: 12 
+pos <- '1' 	# Note: 13 
+useForCal <- rbinom(n=dim(dTrainAll)[[1]],size=1,prob=0.1)>0 	# Note: 14 
 dCal <- subset(dTrainAll,useForCal)
 dTrain <- subset(dTrainAll,!useForCal)
 
@@ -58,30 +58,37 @@ dTrain <- subset(dTrainAll,!useForCal)
 #   a new column 
 
 # Note 7: 
+#   By setting the seed to the  
+#   pseudo-random number generator we make  
+#   our work reproducible: somebody re-doing it 
+#   will see the exact same results 
+#    
+
+# Note 8: 
 #   Split data into 
 #   train and test subsets 
 
-# Note 8: 
+# Note 9: 
 #   Identify which 
 #   features are categorical variables 
 
-# Note 9: 
+# Note 10: 
 #   Identify which 
 #   features are numeric variables 
 
-# Note 10: 
+# Note 11: 
 #   Remove unneeded objects 
 #   from workspace 
 
-# Note 11: 
+# Note 12: 
 #   Choose which 
 #   outcome to model (churn) 
 
-# Note 12: 
+# Note 13: 
 #   Choose which 
 #   outcome is considered positive 
 
-# Note 13: 
+# Note 14: 
 #   Further split 
 #   training data into training and 
 #   calibration 

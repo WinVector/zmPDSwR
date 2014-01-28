@@ -9,11 +9,11 @@ cor(custdata2$age, custdata2$income) 	# Note: 2
 [1] -0.02240845 	# Note: 3 
 
 # Note 1: 
-#   Only consider subset of data with reasonable age and income 
-#   values 
+#    Only consider a subset of data with 
+#   reasonable age and income values.  
 
 # Note 2: 
-#   Get correlation of age and income 
+#    Get correlation of age and income.  
 
 # Note 3: 
-#   Resulting correlation 
+#    Resulting correlation.  

@@ -5,14 +5,14 @@
 > knnTrain <- dTrain[,selVars]
 > knnCl <- dTrain[,outcome]==pos
 > knnPred <- function(df) {
-+    knnDecision <- knn(knnTrain,df,knnCl,k=nK,prob=T)
-+    ifelse(knnDecision==TRUE,
-+       attributes(knnDecision)$prob,
-+       1-(attributes(knnDecision)$prob))
-+ }
+    knnDecision <- knn(knnTrain,df,knnCl,k=nK,prob=T)
+    ifelse(knnDecision==TRUE,
+       attributes(knnDecision)$prob,
+       1-(attributes(knnDecision)$prob))
+}
 > print(calcAUC(knnPred(dTrain[,selVars]),dTrain[,outcome]))
-[1] 0.7418755
+[1] 0.7443927
 > print(calcAUC(knnPred(dCal[,selVars]),dCal[,outcome]))
-[1] 0.7205581
+[1] 0.7119394
 > print(calcAUC(knnPred(dTest[,selVars]),dTest[,outcome]))
-[1] 0.7090571
+[1] 0.718256

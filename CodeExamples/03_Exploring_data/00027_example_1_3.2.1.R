@@ -6,9 +6,9 @@ ggplot(custdata) + geom_density(aes(x=income)) +
 
 
 # Note 1: 
-#   Set the x-axis to be in log10 scale, with 
-#   manually set tick points and labels as dollars 
+#    Set the x-axis to be in log10 scale, with 
+#   manually set tick points and labels as dollars.  
 
 # Note 2: 
-#   Add log-scaled tick marks to the top and 
-#   bottom of the graph 
+#    Add log-scaled tick marks to the top and 
+#   bottom of the graph.  
