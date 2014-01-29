@@ -1,3 +1,0 @@
-# informalexample:5_7.1.1 
-# informalexample:5 : Linear and logistic regression : Using linear regression : Understanding linear regression 
-x[i]^2  nearly equals -22 + 11 x[i]

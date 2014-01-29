@@ -1,0 +1,12 @@
+# informalexample:3_10.2.3 
+# informalexample:3 : Documentation and deployment : Using knitr to produce milestone documentation : Using knitr to document the buzz data 
+rtest <- data.frame(truth=buzztest$buzz,
+  pred=predict(fmodel, newdata=buzztest))
+print(accuracyMeasures(rtest$pred, rtest$truth))
+## [1] "precision= 0.809782608695652 ; recall= 0.84180790960452"
+##      pred
+## truth   0   1
+##     0 579  35
+##     1  28 149
+##   model accuracy     f1 dev.norm
+## 1 model   0.9204 0.6817    4.401

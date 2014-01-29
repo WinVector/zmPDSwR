@@ -1,0 +1,5 @@
+# informalexample:6_7.2.5 
+# informalexample:6 : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
+Null deviance: 2698.7  on 14211  degrees of freedom
+Residual deviance: 2463.0  on 14198  degrees of freedom
+AIC: 2491

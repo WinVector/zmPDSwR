@@ -6,8 +6,8 @@ f <- paste(outcome,'>0 ~ ',paste(selVars,collapse=' + '),sep='')
       minbucket=1000,maxdepth=5)
  )
 > print(calcAUC(predict(tmodel,newdata=dTrain),dTrain[,outcome]))
-[1] 0.6856049
+[1] 0.6906852
 > print(calcAUC(predict(tmodel,newdata=dTest),dTest[,outcome]))
-[1] 0.6753746
+[1] 0.6843595
 > print(calcAUC(predict(tmodel,newdata=dCal),dCal[,outcome]))
-[1] 0.6755194
+[1] 0.6669301

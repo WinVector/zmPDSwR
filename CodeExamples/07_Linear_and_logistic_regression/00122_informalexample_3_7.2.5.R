@@ -1,5 +1,0 @@
-# informalexample:3_7.2.5 
-# informalexample:3 : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
-Deviance Residuals:
-    Min       1Q   Median       3Q      Max
--0.9732  -0.1818  -0.1511  -0.1358   3.2641
