@@ -8,6 +8,9 @@
 <li>Chapter 5: Choosing and Evaluating Models</li>
 <li>Chapter 6: Using Memorization Methods</li>
 </ul>
+<p>A workspace containing most of the results has been saved as KDD2009.Rdata and can be loaded in R with the command:</p>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&#39;KDD2009.Rdata&#39;</span>)</code></pre>
+<p>(note you will have to re-load various libraries like ROCR to perform some of the steps).</p>
 <p>6-2-2013 Data from: http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction Downloaded: $ shasum * e43a38e3477e38b354943519954b719ec7623c2f orange_small_train.data.zip 8274d23235630717659898900b7f74092ff339ad orange_small_train_appetency.labels.txt ec2de79844657fb892ec9047e6304c12b296ff68 orange_small_train_churn.labels.txt 4cd2d7c9b20fd3638883a91a2fed6a03a4d5d015 orange_small_train_upselling.labels.txt Data to support examples in the chapter on memorization methods in &quot;Practical Data Science with R&quot; ( http://www.manning.com/zumel/ ).</p>
 <p>Load data:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">  <span class="kw">unzip</span> orange_small_train.data.zip

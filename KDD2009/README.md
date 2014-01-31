@@ -12,6 +12,12 @@
  * Chapter 6: Using Memorization Methods
 
 
+A workspace containing most of the results has been saved as KDD2009.Rdata and can be loaded in R with the command:
+```R
+load('KDD2009.Rdata')
+```
+(note you will have to re-load various libraries like ROCR to perform some of the steps).
+
 
 6-2-2013
 Data from: http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction
