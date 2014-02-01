@@ -8,9 +8,13 @@ library('ROCR')
 
 gmodel <- gbm(as.formula(f),interaction.depth=5,dist='bernoulli',
    data=dTrain)
-calcAUC(predict(gmodel,n.trees=100,newdata=dTrain),dTrain[,outcome])
-## [1] 0.7008435
-calcAUC(predict(gmodel,n.trees=100,newdata=dCal),dCal[,outcome])
-## [1] 0.6793182
-calcAUC(predict(gmodel,n.trees=100,newdata=dTest),dTest[,outcome])
-## [1] 0.7064753
+calcAUC(predict(gmodel,n.trees=100,newdata=dTrain,type='response'),
+   dTrain[,outcome])
+## [1] 0.7025148
+calcAUC(predict(gmodel,n.trees=100,newdata=dCal,type='response'),
+   dCal[,outcome])
+## [1] 0.6803138
+calcAUC(predict(gmodel,n.trees=100,newdata=dTest,type='response'),
+   dTest[,outcome])
+## [1] 0.7095189
+
