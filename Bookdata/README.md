@@ -35,8 +35,8 @@ http://www.informatik.uni-freiburg.de/~cziegler/BX/WWW-2005-Preprint.pdf
 
 ## Derived works (no claim of license on these):
 
- * bxBooks.RData   : R-binary version of Book-Crossing dataset.
- * bookdata.tsv    : tab-separated file containing customer book ratings by title and numerical rating
+ * bxBooks.RData     : R-binary version of Book-Crossing dataset.
+ * bookdata.tsv.gz   : gzipped tab-separated file containing customer book ratings by title and numerical rating
 
 ## Our additional documentation, notes, code, and example data: 
 
