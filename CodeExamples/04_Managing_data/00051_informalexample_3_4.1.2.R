@@ -8,14 +8,22 @@
       56      732      212
 
 # Note 1: 
-#   Select the age ranges of interest. The upper and 
-#   lower bounds should encompass the full range of the data.  
+#    
+#   Select the age ranges of interest. The upper 
+#   and lower bounds should encompass the full range 
+#   of the data.  
+#    
 
 # Note 2: 
-#   Cut the data into age ranges. The include.lowest=T 
-#   argument makes sure that zero age data is included in the lowest age 
-#   range category. By default it would be excluded.  
+#    
+#   Cut the data into age ranges. The 
+#   include.lowest=T argument makes sure that zero age 
+#   data is included in the lowest age range category. 
+#   By default it would be excluded.  
+#    
 
 # Note 3: 
-#    The output of cut() is a factor variable. 
+#    
+#   The output of cut() is a factor variable. 
+#    
 #    

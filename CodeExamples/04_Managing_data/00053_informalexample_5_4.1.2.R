@@ -15,12 +15,18 @@
 -2.74100 -0.72630 -0.09011  0.00000  0.65210  5.03500
 
 # Note 1: 
+#    
 #   Take the mean.  
+#    
 
 # Note 2: 
+#    
 #   Take the standard deviation.  
+#    
 
 # Note 3: 
-#    Use the mean value as the origin (or reference 
-#   point) and rescale the distance from the mean by the standard deviation. 
+#    
+#   Use the mean value as the origin (or 
+#   reference point) and rescale the distance from the 
+#   mean by the standard deviation. 
 #    

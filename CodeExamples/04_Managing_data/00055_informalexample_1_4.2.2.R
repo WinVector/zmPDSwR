@@ -9,13 +9,22 @@
 [1] 907
 
 # Note 1: 
-#   dim(custdata) returns the number of rows and columns of 
-#   the data frame as a vector, so dim(custdata)[1] returns the number of rows.  
+#    
+#   dim(custdata) returns the number of rows and 
+#   columns of the data frame as a vector, so 
+#   dim(custdata)[1] returns the number of rows. 
+#    
+#    
 
 # Note 2: 
-#    Here we generate a test set of about 10% of the data 
-#   (93 customers—a little over 9%, actually) and train on the remaining 90%.  
+#    
+#   Here we generate a test set of about 10% of 
+#   the data (93 customers—a little over 9%, actually) 
+#   and train on the remaining 90%.  
+#    
 
 # Note 3: 
-#    Here we generate a training using the remaining data. 
+#    
+#   Here we generate a training using the 
+#   remaining data.  
 #    

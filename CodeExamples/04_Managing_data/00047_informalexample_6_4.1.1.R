@@ -25,23 +25,35 @@
            328
 
 # Note 1: 
-#   Select some income ranges of interest. To use 
-#   the cut() function, the upper and lower bounds should encompass the full 
-#   income range of the data.  
+#    
+#   Select some income ranges of interest. To 
+#   use the cut() function, the upper and lower bounds 
+#   should encompass the full income range of the 
+#   data.  
+#    
 
 # Note 2: 
+#    
 #   Cut the data into income ranges. The 
-#   include.lowest=T argument makes sure that zero income data is included 
-#   in the lowest income range category. By default it would be excluded.  
+#   include.lowest=T argument makes sure that zero 
+#   income data is included in the lowest income range 
+#   category. By default it would be excluded.  
+#    
 
 # Note 3: 
-#   The cut() function produces factor variables. 
-#   Note the NAs are preserved.  
+#    
+#   The cut() function produces factor 
+#   variables. Note the NAs are preserved.  
+#    
 
 # Note 4: 
-#    To preserve the category names before adding a 
-#   new category, convert the variable to strings.  
+#    
+#   To preserve the category names before adding 
+#   a new category, convert the variables to strings.  
+#    
 
 # Note 5: 
-#    Add the “no income” category to replace the 
-#   NAs.  
+#    
+#   Add the "no income" category to replace the 
+#   NAs. 
+#    

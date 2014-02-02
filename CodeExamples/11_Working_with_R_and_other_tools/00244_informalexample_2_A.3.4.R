@@ -1,5 +1,5 @@
 # informalexample:2_A.3.4 
-# informalexample:2 : Installing tools and working with R : Using databases with R : An example SQL data transformation task 
+# informalexample:2 : Working with R and other tools : Using databases with R : An example SQL data transformation task 
 > print(bookings)
         date day.of.stay X1.before X2.before X3.before
 1 2009-06-30         105        98        95        96

@@ -1,5 +1,5 @@
 # example:2_A.3.4 
-# example:2 : Installing tools and working with R : Using databases with R : An example SQL data transformation task 
+# example:2 : Working with R and other tools : Using databases with R : An example SQL data transformation task 
 options(gsubfn.engine = "R") 	# Note: 1 
 library('sqldf')
 joined <- sqldf(' 	# Note: 2 

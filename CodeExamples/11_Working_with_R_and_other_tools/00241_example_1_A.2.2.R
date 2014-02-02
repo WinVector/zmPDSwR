@@ -1,5 +1,5 @@
 # example:1_A.2.2 
-# example:1 : Installing tools and working with R : Starting with R : Primary R data types 
+# example:1 : Working with R and other tools : Starting with R : Primary R data types 
 
 d <- data.frame(x=factor(c('a','b','c')),
                    y=c(1,2,3))

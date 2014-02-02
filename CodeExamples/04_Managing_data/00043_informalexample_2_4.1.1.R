@@ -12,19 +12,30 @@
          599          328           73
 
 # Note 1: 
+#    
 #   If is.employed value is missing... 
+#    
 
 # Note 2: 
-#   assign the value "missing" 
+#    
+#   ...assign the value "missing". 
+#   Otherwise... 
+#    
 
 # Note 3: 
-#   otherwise if is.employed==TRUE assign the value 
+#    
+#   ...if is.employed==TRUE, assign the value 
 #   "employed"... 
+#    
 
 # Note 4: 
-#   else assign the value "not employed" 
+#    
+#   ...or the value "not employed". 
+#    
 
 # Note 5: 
-#   The transformation has turned the variable type 
-#   from factor to string. You can change it back with the as.factor() 
-#   function. 
+#    
+#   The transformation has turned the variable 
+#   type from factor to string. You can change it back 
+#   with the as.factor() function. 
+#    

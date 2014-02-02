@@ -1,7 +1,7 @@
 # informalexample:1_8.2.3 
 # informalexample:1 : Unsupervised methods : Association rules : Mining association rules with the arules package 
 library(arules)  	# Note: 1 
-bookbaskets <- read.transactions("bookdata.tsv", format="single",  	# Note: 2 
+bookbaskets <- read.transactions("bookdata.tsv.gz", format="single",  	# Note: 2 
                                  sep="\t",                    	# Note: 3 
                                  cols=c("userid", "title"),    	# Note: 4 
                                  rm.duplicates=T)       	# Note: 5 

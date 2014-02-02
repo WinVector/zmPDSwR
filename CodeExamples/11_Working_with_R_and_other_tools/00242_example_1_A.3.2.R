@@ -1,5 +1,5 @@
 # example:1_A.3.2 
-# example:1 : Installing tools and working with R : Using databases with R : Starting with SQuirreL SQL 
+# example:1 : Working with R and other tools : Using databases with R : Starting with SQuirreL SQL 
 
 > install.packages('RJDBC')  	# Note: 1 
 > library('RJDBC') 	# Note: 2 
@@ -31,12 +31,12 @@
 # Note 5: 
 #   Run a select SQL query using 
 #   the database connection to populate a 
-#   dataframe. 
+#   data frame. 
 
 # Note 6: 
 #   Print the result 
-#   dataframe. 
+#   data frame. 
 
 # Note 7: 
 #   The database table as an R 
-#   dataframe. 
+#   data frame. 

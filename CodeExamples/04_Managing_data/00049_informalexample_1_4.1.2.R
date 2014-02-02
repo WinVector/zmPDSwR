@@ -33,16 +33,25 @@
 -0.1791  0.2729  0.6992  1.0820  1.3120 11.6600
 
 # Note 1: 
-#   Suppose medianincome is a data frame of median income 
-#   by state 
+#    
+#   Suppose medianincome is a data frame of median 
+#   income by state. 
+#    
 
 # Note 2: 
-#   Merge median income information into the custdata data 
-#   frame by matching the column custdata$state.of.res to the column 
-#   medianincome$State  
+#    
+#   Merge median income information into the 
+#   custdata data frame by matching the column 
+#   custdata$state.of.res to the column 
+#   medianincome$State. 
+#    
 
 # Note 3: 
-#   Median.Income is now part of custdata  
+#    
+#   Median.Income is now part of custdata. 
+#    
 
 # Note 4: 
-#   Normalize income by Median.Income  
+#    
+#   Normalize income by Median.Income. 
+#    

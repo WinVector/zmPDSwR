@@ -1,5 +1,5 @@
 # example:1_A.3.4 
-# example:1 : Installing tools and working with R : Using databases with R : An example SQL data transformation task 
+# example:1 : Working with R and other tools : Using databases with R : An example SQL data transformation task 
 library('reshape2')
 bthin <- melt(bookings,id.vars=c('date'),
    variable.name='daysBefore',value.name='bookings') 	# Note: 1 

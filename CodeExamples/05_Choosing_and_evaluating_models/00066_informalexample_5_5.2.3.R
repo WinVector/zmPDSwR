@@ -17,21 +17,26 @@
 [1] 0.3971897
 
 # Note 1: 
-#   Define function that 
-#   computes the entropy from list of outcome 
-#   counts 
+#    
+#   Define function that computes the entropy 
+#   from list of outcome counts 
+#    
 
 # Note 2: 
-#   Calculate entropy of 
-#   spam/non-spam distribution 
+#    
+#   Calculate entropy of spam/non-spam 
+#   distribution 
+#    
 
 # Note 3: 
-#   Function to calculate 
-#   conditional or remaining entropy of spam 
-#   distribution (rows) given prediction 
-#   (columns) 
+#    
+#   Function to calculate conditional or 
+#   remaining entropy of spam distribution (rows) 
+#   given prediction (columns) 
+#    
 
 # Note 4: 
-#   Calculate 
-#   conditional or remaining entropy of spam 
-#   distribution given prediction 
+#    
+#   Calculate conditional or remaining entropy 
+#   of spam distribution given prediction 
+#    

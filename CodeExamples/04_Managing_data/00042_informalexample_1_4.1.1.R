@@ -13,13 +13,19 @@
                 NA's   :56
 
 # Note 1: 
+#    
 #   Restrict to the rows where housing.type is 
-#   NA 
+#   NA. 
+#    
 
 # Note 2: 
+#    
 #   Look only at the columns recent.move and 
-#   num.vehicles 
+#   num.vehicles. 
+#    
 
 # Note 3: 
-#   The output: all NAs. All the missing data comes from 
-#   the same rows. 
+#    
+#   The output: all NAs. All the missing data 
+#   comes from the same rows. 
+#    

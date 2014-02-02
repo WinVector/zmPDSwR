@@ -10,6 +10,8 @@
       0   35000   66200   66200   66200  615000
 
 # Note 1: 
-#   Don’t forget the argument "na.rm=T"! Otherwise, 
-#   the mean() function will include the NAs by default, and meanIncome will 
-#   be NA.  
+#    
+#   Don’t forget the argument "na.rm=T"! 
+#   Otherwise, the mean() function will include the 
+#   NAs by default, and meanIncome will be NA.  
+#    

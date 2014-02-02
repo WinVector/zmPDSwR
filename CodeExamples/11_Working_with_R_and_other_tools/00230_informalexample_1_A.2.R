@@ -1,5 +1,5 @@
 # informalexample:1_A.2 
-# informalexample:1 : Installing tools and working with R : Starting with R 
+# informalexample:1 : Working with R and other tools : Starting with R 
 > 1
 [1] 1
 > 1/2

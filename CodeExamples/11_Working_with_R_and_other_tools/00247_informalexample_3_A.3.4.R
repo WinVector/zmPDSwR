@@ -1,5 +1,5 @@
 # informalexample:3_A.3.4 
-# informalexample:3 : Installing tools and working with R : Using databases with R : An example SQL data transformation task 
+# informalexample:3 : Working with R and other tools : Using databases with R : An example SQL data transformation task 
 library('ggplot2')
 ggplot(data=joined,aes(x=price,y=pickup)) +
   geom_point() + geom_jitter() + geom_smooth(method='lm')

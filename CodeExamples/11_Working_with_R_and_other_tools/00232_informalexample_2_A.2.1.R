@@ -1,5 +1,5 @@
 # informalexample:2_A.2.1 
-# informalexample:2 : Installing tools and working with R : Starting with R : Primary Features of R 
+# informalexample:2 : Working with R and other tools : Starting with R : Primary Features of R 
 
 > divide <- function(numerator,denominator) { numerator/denominator }
 > divide(1,2)
