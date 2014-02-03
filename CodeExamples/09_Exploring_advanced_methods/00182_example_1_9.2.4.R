@@ -1,6 +1,9 @@
 # example:1_9.2.4 
 # example:1 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
             relationships : Using GAM on actual data 
+load("NatalBirthData.rData")
+train <- sdata[sdata$ORIGRANDGROUP<=5,]
+test <- sdata[sdata$ORIGRANDGROUP>5,]
 > form.lin <- as.formula("DBWT ~ PWGT + WTGAIN + MAGER + UPREVIS")
 > linmodel <- lm(form.lin, data=train)  	# Note: 1 
 > summary(linmodel)
