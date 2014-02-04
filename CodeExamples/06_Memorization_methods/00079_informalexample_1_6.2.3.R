@@ -18,11 +18,11 @@
 #   For 100 iterations... 
 
 # Note 2: 
-#   Select random subset of about 10% of the training data as hold-out set 
+#   ...select a random subset of about 10% of the training data as hold-out set,... 
 
 # Note 3: 
-#   Use the random 90% of training data to train model, then evaluate that model on hold-out 
-#   set 
+#   ...use the random 90% of training data to train model and evaluate that model on hold-out 
+#   set,... 
 
 # Note 4: 
-#   Calculate resulting model’s AUC using the hold-out set, store that value, and repeat 
+#   ...calculate resulting model’s AUC using hold-out set; store that value and repeat. 

@@ -5,9 +5,9 @@ pred.lin <- predict(linmodel, newdata=test)  	# Note: 1
 pred.glin <- predict(glinmodel, newdata=test)
 
 cor(pred.lin, test$DBWT)^2           	# Note: 2 
-# [1] 0.09656043
+# [1] 0.0616812
 cor(pred.glin, test$DBWT)^2
-# [1] 0.1160727
+# [1] 0.08857426
 
 # Note 1: 
 #   Run both the linear model and the GAM on the test data 

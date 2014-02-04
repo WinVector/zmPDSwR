@@ -32,11 +32,21 @@ for(v in numericVars) { 	# Note: 3
 }
 
 # Note 1: 
-#   Define a convenience function to compute log likelihood 
+#    
+#   Define a convenience function to compute log 
+#   likelihood. 
+#    
 
 # Note 2: 
-#   Run through categorical variables and pick based on a deviance improvement  
-#   (related to difference in log likelihoods see chapter 3 
+#    
+#   Run through categorical variables and pick 
+#   based on a deviance improvement (related to 
+#   difference in log likelihoods; see chapter 
+#   3). 
+#    
 
 # Note 3: 
-#   Run through categorical variables and pick based on a deviance improvement 
+#    
+#   Run through categorical variables and pick 
+#   based on a deviance improvement. 
+#    

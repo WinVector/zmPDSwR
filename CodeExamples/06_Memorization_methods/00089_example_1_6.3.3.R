@@ -18,15 +18,28 @@
 [1] 0.718256
 
 # Note 1: 
-#   Build a data frame with only the variables we wish to use for classification 
+#    
+#   Build a data frame with only the variables we 
+#   wish to use for classification. 
+#    
 
 # Note 2: 
-#   Buid a vector with the known training outcomes 
+#    
+#   Build a vector with the known training 
+#   outcomes. 
+#    
 
 # Note 3: 
-#   Bind the knn() training function with our data in a new function 
+#    
+#   Bind the knn() training function with our data 
+#   in a new function. 
+#    
 
 # Note 4: 
-#   Convert knn's unfortunate convention of  
-#   calculating probability as "proportion of the votes for the winning class" 
-#   into the more useful "calculated probability of being a positive example." 
+#    
+#   Convert knn’s unfortunate convention of 
+#   calculating probability as “proportion of the 
+#   votes for the winning class” into the more useful 
+#   “calculated probability of being a positive 
+#   example.” 
+#    

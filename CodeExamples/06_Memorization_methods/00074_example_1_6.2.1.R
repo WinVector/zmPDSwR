@@ -13,38 +13,52 @@ mkPredC <- function(outCol,varCol,appCol) { 	# Note: 1
 }
 
 # Note 1: 
-#   Given a vector of training outcomes 
-#   (outCol), a categorical training variable (varCol), 
-#   and a prediction variable (appCol), use outCol and 
-#   varCol to build a single variable model and then 
+#    
+#   Given a vector of training outcomes (outCol), 
+#   a categorical training variable (varCol), and a 
+#   prediction variable (appCol), use outCol and 
+#   varCol to build a single-variable model and then 
 #   apply the model to appCol to get new 
-#   predictions 
+#   predictions. 
+#    
 
 # Note 2: 
-#   Get stats on how often outcome is 
-#   positive during training 
+#    
+#   Get stats on how often outcome is positive 
+#   during training. 
+#    
 
 # Note 3: 
-#   Get stats on how often outcome 
-#   is positive for NA values of variable during 
-#   training 
+#    
+#   Get stats on how often outcome is positive for 
+#   NA values of variable during training. 
+#    
 
 # Note 4: 
-#   Get stats on how often outcome 
-#   is positive, conditioned on levels of training 
-#   variable 
+#    
+#   Get stats on how often outcome is positive, 
+#   conditioned on levels of training variable. 
+#    
 
 # Note 5: 
-#   Make predictions by looking up 
-#   levels of appCol 
+#    
+#   Make predictions by looking up levels of 
+#   appCol. 
+#    
 
 # Note 6: 
+#    
 #   Add in predictions for NA levels of 
-#   appCol 
+#   appCol. 
+#    
 
 # Note 7: 
-#   Add in predictions for levels of 
-#   appCol that weren’t known during training 
+#    
+#   Add in predictions for levels of appCol that 
+#   weren’t known during training. 
+#    
 
 # Note 8: 
-#   Return vector of predictions 
+#    
+#   Return vector of predictions. 
+#    
