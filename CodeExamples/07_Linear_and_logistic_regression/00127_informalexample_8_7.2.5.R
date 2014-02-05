@@ -20,21 +20,26 @@ p <- pchisq(delDev, deldf, lower.tail=F)                  	# Note: 4
 [1] 5.84896e-43
 
 # Note 1: 
-#   Null model has (number of 
-#   data points - 1) degrees of freedom 
+#    
+#   Null model has (number of data points - 1) 
+#   degrees of freedom. 
+#    
 
 # Note 2: 
-#   Fitted model has (number 
-#   of data points - number of coefficients) degrees 
-#   of freedom 
+#    
+#   Fitted model has (number of data points - 
+#   number of coefficients) degrees of freedom. 
+#    
 
 # Note 3: 
-#   Compute difference in 
-#   deviances and difference in degrees of 
-#   freedom 
+#    
+#   Compute difference in deviances and 
+#   difference in degrees of freedom. 
+#    
 
 # Note 4: 
-#   Estimate probability of 
-#   seeing the observed difference in deviances under 
-#   null model (the p-value) using chi-squared 
-#   distribution 
+#    
+#   Estimate probability of seeing the observed 
+#   difference in deviances under null model (the 
+#   p-value) using chi-squared distribution. 
+#    

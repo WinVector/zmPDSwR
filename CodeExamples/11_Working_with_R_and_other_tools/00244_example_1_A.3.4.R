@@ -21,16 +21,16 @@ pthin <- melt(prices,id.vars=c('date'),
 
 # Note 1: 
 #   Use melt to change 
-#   columns that are not date (i.e. day.of.stay, 
-#   Xk.before) to values stored in a new column called 
+#   columns that are not date (day.of.stay, Xk.before) 
+#   to values stored in a new column called 
 #   daysBefore. Each booking count becomes a new row 
 #   (instead of having many different bookings in the 
 #   same row). 
 
 # Note 2: 
 #   Use melt to change 
-#   columns that are not date (i.e. day.of.stay, 
-#   Xk.before) to values stored in a new column called 
+#   columns that are not date (day.of.stay, Xk.before) 
+#   to values stored in a new column called 
 #   daysBefore. Each price entry becomes a new row 
 #   (instead of having many different pricings in the 
 #   same row). 
@@ -38,9 +38,9 @@ pthin <- melt(prices,id.vars=c('date'),
 # Note 3: 
 #   Use match and dayCodes 
 #   list to convert key strings to numeric 
-#   nDaysBefore. 
+#   nDaysBefore in our bookings data. 
 
 # Note 4: 
 #   Use match and dayCodes 
 #   list to convert key strings to numeric 
-#   nDaysBefore. 
+#   nDaysBefore in our price data. 

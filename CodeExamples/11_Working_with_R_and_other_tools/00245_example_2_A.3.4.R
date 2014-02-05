@@ -25,12 +25,11 @@ joined <- sqldf(' 	# Note: 2
      and bCurrent.nDaysBefore=p.nDaysBefore 	# Note: 9 
 ')
 
-
 # Note 1: 
 #   Prevent 
 #   library(sqldf) from triggering a tcl/tk dependency 
-#   which causes R to exit on OSX if X11 isn't 
-#   installed. See: https://code.google.com/p/sqldf/ 
+#   which causes R to exit on OSX if X11 isn’t 
+#   installed. See https://code.google.com/p/sqldf/ 
 #   for troubleshooting details. 
 
 # Note 2: 
@@ -40,7 +39,7 @@ joined <- sqldf(' 	# Note: 2
 
 # Note 3: 
 #   SQL statements 
-#   typically start with the word "select." 
+#   typically start with the word “select.” 
 
 # Note 4: 
 #   List of derived columns (and 

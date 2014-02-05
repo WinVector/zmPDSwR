@@ -1,6 +1,5 @@
 # informalexample:2_A.2.2 
 # informalexample:2 : Working with R and other tools : Starting with R : Primary R data types 
-
 > x <- list('a'=6,b='fred')
 > names(x)
 [1] "a" "b"
@@ -28,4 +27,3 @@ $b
 
 $b
 [1] "fred"
-

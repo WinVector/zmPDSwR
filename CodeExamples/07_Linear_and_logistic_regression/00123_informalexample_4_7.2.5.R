@@ -13,15 +13,20 @@ edev <- sign(as.numeric(train$atRisk) - pred) *        	# Note: 3
 -0.9732 -0.1818 -0.1511 -0.1244 -0.1358  3.2640
 
 # Note 1: 
-#   Create vector of 
-#   predictions for training data 
+#    
+#   Create vector of predictions for training 
+#   data. 
+#    
 
 # Note 2: 
-#   Function to return the 
-#   log-likelihoods for each data point. Argument y is 
-#   the true outcome (as a numeric variable, 0/1); 
-#   argument py is the predicted probability 
+#    
+#   Function to return the log likelihoods for 
+#   each data point. Argument y is the true outcome 
+#   (as a numeric variable, 0/1); argument py is the 
+#   predicted probability. 
+#    
 
 # Note 3: 
-#   Calculate deviance 
-#   residuals 
+#    
+#   Calculate deviance residuals. 
+#    

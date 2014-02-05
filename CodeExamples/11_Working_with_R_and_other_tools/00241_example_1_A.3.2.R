@@ -1,6 +1,5 @@
 # example:1_A.3.2 
 # example:1 : Working with R and other tools : Using databases with R : Starting with SQuirreL SQL 
-
 > install.packages('RJDBC')  	# Note: 1 
 > library('RJDBC') 	# Note: 2 
 > drv <- JDBC("org.h2.Driver","h2-1.3.170.jar",identifier.quote="'") 	# Note: 3 
@@ -10,7 +9,6 @@
   STATUSID NAME
 1        1  Joe
 2        2 Fred       	# Note: 7 
-
 
 # Note 1: 
 #   Install the RJDBC package 
@@ -34,8 +32,8 @@
 #   data frame. 
 
 # Note 6: 
-#   Print the result 
-#   data frame. 
+#   Print the result data 
+#   frame. 
 
 # Note 7: 
 #   The database table as an R 

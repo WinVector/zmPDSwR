@@ -17,10 +17,13 @@ pred    FALSE TRUE
 [1] 2.664159
 
 # Note 1: 
-#   Build confusion 
-#   matrix 
+#    
+#   Build confusion matrix. 
+#    
 
 # Note 2: 
-#   Rows contain predicted 
-#   negatives and positives; columns contain actual 
-#   negatives and positives. 
+#    
+#   Rows contain predicted negatives and 
+#   positives; columns contain actual negatives and 
+#   positives. 
+#    

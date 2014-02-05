@@ -38,7 +38,7 @@ resid.dev.test <- -2*loglikelihood(testy, testpred)
 
 # Note 1: 
 #    
-#   Function to calculate the log-likelihood of 
+#   Function to calculate the log likelihood of 
 #   a dataset. Variable y is the outcome 
 #   in numeric form (1 for positive examples, 0 for 
 #   negative). Variable py is the 
@@ -49,40 +49,40 @@ resid.dev.test <- -2*loglikelihood(testy, testpred)
 # Note 2: 
 #    
 #   Calculate rate of positive examples in 
-#   dataset 
+#   dataset. 
 #    
 
 # Note 3: 
 #    
-#   Calculate null deviance 
+#   Calculate null deviance. 
 #    
 
 # Note 4: 
 #    
 #   For training data, the null deviance is 
-#   stored in the slot model$null.deviance 
+#   stored in the slot model$null.deviance. 
 #    
 
 # Note 5: 
 #    
 #   Predict probabilities for training 
-#   data 
+#   data. 
 #    
 
 # Note 6: 
 #    
 #   Calculate deviance of model for training 
-#   data 
+#   data. 
 #    
 
 # Note 7: 
 #    
 #   For training data, model deviance is stored 
-#   in the slot model$deviance 
+#   in the slot model$deviance. 
 #    
 
 # Note 8: 
 #    
 #   Calculate null deviance and residual 
-#   deviance for test data 
+#   deviance for test data. 
 #    

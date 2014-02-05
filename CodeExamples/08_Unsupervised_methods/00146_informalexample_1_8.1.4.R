@@ -67,7 +67,7 @@ size          5     -none- numeric
 
 # Note 1: 
 #    
-#   Run kmeans() with five clusters, 100 random 
+#   Run kmeans() with five clusters (kbest.p=5), 100 random 
 #   starts and 100 maximum iterations per run. 
 #    
 

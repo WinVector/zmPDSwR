@@ -20,4 +20,3 @@ print(summary(lm(pickup~price,data=joined)))
 #Residual standard error: 4.21 on 10 degrees of freedom
 #Multiple R-squared:  0.07144,  Adjusted R-squared:  -0.02142
 #F-statistic: 0.7693 on 1 and 10 DF,  p-value: 0.401
-

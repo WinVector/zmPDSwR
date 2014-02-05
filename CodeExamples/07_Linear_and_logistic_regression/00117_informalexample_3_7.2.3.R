@@ -37,59 +37,79 @@ p2 <- ggplot(rocFrame, aes(x=threshold)) +          	# Note: 12
 nplot(list(p1, p2))                                	# Note: 13 
 
 # Note 1: 
-#   Load ROCR library  
+#    
+#   Load ROCR library. 
+#    
 
 # Note 2: 
-#   Load grid library (you 
-#   will need this for the nplot function 
-#   below) 
+#    
+#   Load grid library (you’ll need this for the 
+#   nplot function below). 
+#    
 
 # Note 3: 
-#   Create ROCR prediction 
-#   object 
+#    
+#   Create ROCR prediction object. 
+#    
 
 # Note 4: 
-#   Create ROCR object to 
-#   calculate precision as a function of 
-#   threshold 
+#    
+#   Create ROCR object to calculate precision as 
+#   a function of threshold. 
+#    
 
 # Note 5: 
-#   Create ROCR object to 
-#   calculate recall as a function of 
-#   threshold 
+#    
+#   Create ROCR object to calculate recall as a 
+#   function of threshold. 
+#    
 
 # Note 6: 
-#   ROCR objects are what R 
-#   calls S4 objects; the slots (or fields) of an S4 
-#   object are stored as lists within the object. You 
-#   extract the slots from an S4 object using @ 
-#   notation. 
+#    
+#   ROCR objects are what R calls S4 objects; 
+#   the slots (or fields) of an S4 object are stored 
+#   as lists within the object. You extract the slots 
+#   from an S4 object using @ notation. 
+#    
 
 # Note 7: 
-#   The x values (thresholds) 
-#   are the same in both predObj and recObj, so you 
-#   only need to extract them once 
+#    
+#   The x values (thresholds) are the same in 
+#   both predObj and recObj, so you only need to 
+#   extract them once. 
+#    
 
 # Note 8: 
-#   Build data frame with 
-#   thresholds, precision, and recall 
+#    
+#   Build data frame with thresholds, precision, 
+#   and recall. 
+#    
 
 # Note 9: 
-#   Function to plot multiple 
-#   plots on one page (stacked) 
+#    
+#   Function to plot multiple plots on one page 
+#   (stacked). 
+#    
 
 # Note 10: 
-#   Calculate rate of 
-#   at-risk births in the training set 
+#    
+#   Calculate rate of at-risk births in the 
+#   training set. 
+#    
 
 # Note 11: 
-#   Plot enrichment rate as a 
-#   function of threshold 
+#    
+#   Plot enrichment rate as a function of 
+#   threshold. 
+#    
 
 # Note 12: 
-#   Plot recall as a function 
-#   of threshold 
+#    
+#   Plot recall as a function of 
+#   threshold. 
+#    
 
 # Note 13: 
-#   Show both plots 
-#   simultaneously 
+#    
+#   Show both plots simultaneously. 
+#    

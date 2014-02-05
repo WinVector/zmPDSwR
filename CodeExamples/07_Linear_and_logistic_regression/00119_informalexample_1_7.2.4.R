@@ -1,5 +1,6 @@
 # informalexample:1_7.2.4 
-# informalexample:1 : Linear and logistic regression : Using logistic regression : Finding relations and extracting advice 
+# informalexample:1 : Linear and logistic regression : Using logistic regression : Finding relations and extracting
+                                advice 
 > coefficients(model)
              (Intercept)                     PWGT
              -4.41218940               0.00376166

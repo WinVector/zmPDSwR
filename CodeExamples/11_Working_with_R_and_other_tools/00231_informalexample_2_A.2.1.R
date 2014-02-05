@@ -1,6 +1,5 @@
 # informalexample:2_A.2.1 
-# informalexample:2 : Working with R and other tools : Starting with R : Primary Features of R 
-
+# informalexample:2 : Working with R and other tools : Starting with R : Primary features of R 
 > divide <- function(numerator,denominator) { numerator/denominator }
 > divide(1,2)
 [1] 0.5
@@ -8,4 +7,5 @@
 [1] 2
 > divide(denominator=2,numerator=1)
 [1] 0.5
-
+divide(denominator<-2,numerator<-1)  # yields 2, a wrong answer
+[1] 2
