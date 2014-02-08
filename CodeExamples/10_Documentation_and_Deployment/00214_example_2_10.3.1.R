@@ -1,5 +1,7 @@
 # example:2_10.3.1 
 # example:2 : Documentation and deployment : Using comments and version control for running documentation : Writing effective comments 
+# Title: Useless comment 
+
 #######################################
 # Function: addone
 # Author: John Mount
@@ -10,3 +12,4 @@
 # Purpose: Adds one
 #######################################
 addone <- function(x) { x + 1 }
+

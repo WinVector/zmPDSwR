@@ -1,5 +1,7 @@
 # example:1_9.1.2 
 # example:1 : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using random forests to further improve prediction 
+# Title: Using random forests 
+
 library(randomForest)           	# Note: 1 
 
 fmodel <- randomForest(spamFormula,    	# Note: 2 
@@ -26,3 +28,4 @@ fmodel <- randomForest(spamFormula,    	# Note: 2
 # Note 5: 
 #   Tell the algorithm to save information to be used for calculating variable importance (we’ll 
 #   see this later). 
+

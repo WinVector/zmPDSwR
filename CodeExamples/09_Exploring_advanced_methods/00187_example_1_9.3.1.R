@@ -1,5 +1,7 @@
 # example:1_9.3.1 
 # example:1 : Exploring advanced methods : Using kernel methods to increase data separation : Understanding kernel functions 
+# Title: An artificial kernel example 
+
 > u <- c(1,2)
 > v <- c(3,4)
 > k <- function(u,v) { 	# Note: 1 
@@ -35,3 +37,4 @@
 # Note 4: 
 #   Confirm phi() agrees with k(,) (phi() is the 
 #   certificate that shows k(,) is in fact a kernel) 
+

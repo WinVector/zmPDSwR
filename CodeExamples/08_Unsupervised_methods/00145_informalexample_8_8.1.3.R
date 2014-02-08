@@ -1,5 +1,7 @@
 # informalexample:8_8.1.3 
 # informalexample:8 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
+# Title: Calinski-Harabasz index 
+
 library(reshape2)                                         	# Note: 1 
 clustcrit <- ch_criterion(pmatrix, 10, method="hclust")     	# Note: 2 
 critframe <- data.frame(k=1:10, ch=scale(clustcrit$crit),   	# Note: 3 
@@ -36,3 +38,4 @@ ggplot(critframe, aes(x=k, y=score, color=measure)) +     	# Note: 5
 
 # Note 5: 
 #   Plot it. 
+

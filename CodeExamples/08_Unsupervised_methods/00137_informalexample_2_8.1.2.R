@@ -1,5 +1,7 @@
 # informalexample:2_8.1.2 
 # informalexample:2 : Unsupervised methods : Cluster analysis : Preparing the data 
+# Title: Units and scaling 
+
 vars.to.use <- colnames(protein)[-1]       	# Note: 1 
 pmatrix <- scale(protein[,vars.to.use])    	# Note: 2 
 pcenter <- attr(pmatrix, "scaled:center")  	# Note: 3 
@@ -23,3 +25,4 @@ pscale <- attr(pmatrix, "scaled:scale")
 #   columns; scaled:scale returns the standard 
 #   deviations. We’ll store these away so we can 
 #   “unscale” the data later. 
+

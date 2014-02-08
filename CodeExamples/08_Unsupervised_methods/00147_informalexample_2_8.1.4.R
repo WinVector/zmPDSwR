@@ -1,5 +1,8 @@
 # informalexample:2_8.1.4 
 # informalexample:2 : Unsupervised methods : Cluster analysis : The k-means algorithm 
+# Title: The kmeansruns() function for picking
+                                                k 
+
 > clustering.ch <- kmeansruns(pmatrix, krange=1:10, criterion="ch")   	# Note: 1 
 > clustering.ch$bestk                                                	# Note: 2 
 [1] 2
@@ -78,3 +81,4 @@ bestk         1     -none- numeric
 #   kmeansruns() also returns the output of 
 #   kmeans for k=bestk. 
 #    
+

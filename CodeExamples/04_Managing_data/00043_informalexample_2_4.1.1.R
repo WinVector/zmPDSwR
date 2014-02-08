@@ -1,5 +1,7 @@
 # informalexample:2_4.1.1 
 # informalexample:2 : Managing data : Cleaning data : Treating missing values (NAs) 
+# Title: Missing data in categorical variables 
+
 > custdata$is.employed.fix <- ifelse(is.na(custdata$is.employed),  	# Note: 1 
                                    "missing",                    	# Note: 2 
                                    ifelse(custdata$is.employed==T, 	# Note: 3 
@@ -39,3 +41,4 @@
 #   type from factor to string. You can change it back 
 #   with the as.factor() function. 
 #    
+

@@ -1,5 +1,8 @@
 # informalexample:5_3.2.1 
 # informalexample:5 : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
+# Title: A horizontal bar chart can be easier to read when there are several
+                        categories with long names. 
+
 ggplot(custdata) +
    geom_bar(aes(x=state.of.res), fill="gray") +  	# Note: 1 
    coord_flip() + 	# Note: 2 
@@ -16,3 +19,4 @@ ggplot(custdata) +
 # Note 3: 
 #    Reduce the size of the y-axis tick 
 #   labels to 80% of default size for legibility.  
+

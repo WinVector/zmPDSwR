@@ -1,5 +1,7 @@
 # example:1_9.3.2 
 # example:1 : Exploring advanced methods : Using kernel methods to increase data separation : Using an explicit kernel on a problem 
+# Title: Applying stepwise linear regression to PUMS data 
+
 dtrain <- subset(psub,ORIGRANDGROUP >= 500)
 dtest <- subset(psub,ORIGRANDGROUP < 500)  	# Note: 1 
 m1 <- step( 	# Note: 2 
@@ -31,3 +33,4 @@ print(rmse(log(dtest$PINCP,base=10),
 # Note 5: 
 #   Calculate the root mean square error between 
 #   the prediction and the actuals 
+

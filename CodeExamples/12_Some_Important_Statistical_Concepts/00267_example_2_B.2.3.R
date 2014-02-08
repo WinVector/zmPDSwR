@@ -1,5 +1,8 @@
 # example:2_B.2.3 
-# example:2 : Some Important Statistical Concepts : Statistical theory : Power of tests 
+# example:2 : Some important statistical concepts : Statistical theory : Power of tests 
+# Title: Exact binomial sample size
+                calculation 
+
 errorProb <- function(targetRate,difference,size) { 	# Note: 1 
    pbinom(ceiling((targetRate-difference)*size),
       size=size,prob=targetRate) 
@@ -38,15 +41,16 @@ print(errorProb(0.045,0.004,size))
 
 # Note 1: 
 #   Define a function that calculates the probability of 
-#   seeing a low number of conversions assuming the actual conversion rate is 
-#   targetRate and the size of the experiment is size. Low is considered be a count 
-#   that is at least difference*size below the expected value 
+#   seeing a low number of conversions, assuming the actual conversion rate is 
+#   targetRate and the size of the experiment is size. Low is considered be a 
+#   count that is at least difference*size below the expected value 
 #   targetRate*size. 
 
 # Note 2: 
 #   Calculate probability of a bad experiment using 
-#   estimated experiment size. The failures odds are around 4% (under the 5% we are 
-#   designing for) which means the estimate size was slightly high. 
+#   estimated experiment size. The failure odds are around 4% (under the 5% we 
+#   are designing for), which means the estimate size was slightly 
+#   high. 
 
 # Note 3: 
 #   Define a binary search that finds a non-positive value 
@@ -55,5 +59,6 @@ print(errorProb(0.045,0.004,size))
 #   issues). 
 
 # Note 4: 
-#   Calculate the required sample size for our 
-#   B-experiment. 
+#   Calculate the required sample size for our B 
+#   experiment. 
+

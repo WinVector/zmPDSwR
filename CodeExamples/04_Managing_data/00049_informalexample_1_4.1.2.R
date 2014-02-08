@@ -1,5 +1,7 @@
 # informalexample:1_4.1.2 
 # informalexample:1 : Managing data : Cleaning data : Data transformations 
+# Title: Data transformations 
+
 > summary(medianincome)  	# Note: 1 
 
         State    Median.Income
@@ -55,3 +57,4 @@
 #    
 #   Normalize income by Median.Income. 
 #    
+

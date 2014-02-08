@@ -1,5 +1,7 @@
 # informalexample:9_3.2.2 
 # informalexample:9 : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
+# Title: Health insurance versus marital status: filled bar chart with rug 
+
 ggplot(custdata, aes(x=marital.stat)) +
    geom_bar(aes(fill=health.ins), position="fill") +
    geom_point(aes(y=-0.05), size=0.75, alpha=0.3, 	# Note: 1 
@@ -13,3 +15,4 @@ ggplot(custdata, aes(x=marital.stat)) +
 # Note 2: 
 #    Jitter the points slightly for 
 #   legibility.  
+

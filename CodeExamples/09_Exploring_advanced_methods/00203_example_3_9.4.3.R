@@ -1,6 +1,8 @@
 # example:3_9.4.3 
 # example:3 : Exploring advanced methods : Using support vector machines to model complicated decision
             boundaries : Using SVMs on real data 
+# Title: Printing the SVM results summary 
+
 > print(summary(svmM))
 Length  Class   Mode
      1   ksvm     S4
@@ -19,3 +21,4 @@ Objective Function Value : -4635.266
 Training error : 0.02824
 Cross validation error : 0.076275
 Probability model included.
+

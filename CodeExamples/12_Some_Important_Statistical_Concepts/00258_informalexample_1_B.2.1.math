@@ -1,0 +1,6 @@
+# informalexample:1_B.2.1 
+# informalexample:1 : Some important statistical concepts : Statistical theory : Statistical philosophy 
+# Title: Bias variance decomposition 
+
+E[(y[i]-f(x[i,]))^2] = bias^2 + variance + irreducibleError
+

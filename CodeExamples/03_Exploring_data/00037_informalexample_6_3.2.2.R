@@ -1,5 +1,8 @@
 # informalexample:6_3.2.2 
 # informalexample:6 : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
+# Title: Distribution of customers with health insurance, as a function of
+                        age 
+
 ggplot(custdata2, aes(x=age, y=as.numeric(health.ins))) + 	# Note: 1 
    geom_point(position=position_jitter(w=0.05, h=0.05)) +  	# Note: 2 
    geom_smooth() 	# Note: 3 
@@ -15,3 +18,4 @@ ggplot(custdata2, aes(x=age, y=as.numeric(health.ins))) + 	# Note: 1
 
 # Note 3: 
 #    Add smoothing curve.  
+

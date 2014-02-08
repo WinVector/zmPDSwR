@@ -1,6 +1,8 @@
 # example:1_9.4.2 
 # example:1 : Exploring advanced methods : Using support vector machines to model complicated decision
             boundaries : Trying an SVM on artificial example data 
+# Title: Setting up the spirals data as an example classification problem 
+
 > library('kernlab')
 > data('spirals')  	# Note: 1 
 > sc <- specc(spirals, centers = 2) 	# Note: 2 
@@ -27,3 +29,4 @@
 # Note 4: 
 #   Plot the spirals with class 
 #   labels 
+

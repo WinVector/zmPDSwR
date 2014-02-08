@@ -1,5 +1,8 @@
 # informalexample:1_3.2.1 
 # informalexample:1 : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
+# Title: A histogram tells you where your data is concentrated. It also visually
+                        highlights outliers and anomalies. 
+
 library(ggplot2)     	# Note: 1 
 
 ggplot(custdata) +
@@ -15,3 +18,4 @@ ggplot(custdata) +
 #   geom_histogram call how to make bins of five-year intervals (default is 
 #   datarange/30). The fill parameter specifies the color of the histogram 
 #   bars (default: black).  
+

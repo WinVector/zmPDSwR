@@ -1,5 +1,7 @@
 # informalexample:11_8.2.3 
 # informalexample:11 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: Restricting which items to mine 
+
 brules <- apriori(bookbaskets_use,
                 parameter =list(support = 0.001,    	# Note: 1 
                                 confidence=0.6),
@@ -46,3 +48,4 @@ mining info:
 #   By default, all the books can go into the 
 #   left hand side of the rules 
 #    
+

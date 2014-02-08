@@ -1,6 +1,8 @@
 # example:1_9.2.3 
 # example:1 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
             relationships : Extracting the non-linear relationships 
+# Title: Extracting a learned spline from a GAM 
+
 > sx <- predict(glin.model, type="terms")
 > summary(sx)
       s(x)
@@ -15,3 +17,4 @@
 
 > ggplot(xframe, aes(x=x)) + geom_point(aes(y=y), alpha=0.4) +
                              geom_line(aes(y=sx))
+

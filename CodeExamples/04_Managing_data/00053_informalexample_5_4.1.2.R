@@ -1,5 +1,7 @@
 # informalexample:5_4.1.2 
 # informalexample:5 : Managing data : Cleaning data : Data transformations 
+# Title: Is a 35-year-old young? 
+
 > summary(custdata$age)
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
     0.0    38.0    50.0    51.7    64.0   146.7
@@ -30,3 +32,4 @@
 #   reference point) and rescale the distance from the 
 #   mean by the standard deviation. 
 #    
+

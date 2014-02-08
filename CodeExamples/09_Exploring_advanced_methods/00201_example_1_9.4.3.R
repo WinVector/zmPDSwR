@@ -1,6 +1,8 @@
 # example:1_9.4.3 
 # example:1 : Exploring advanced methods : Using support vector machines to model complicated decision
             boundaries : Using SVMs on real data 
+# Title: Revisiting the SpamBase example with GLM 
+
 spamD <- read.table('spamD.tsv',header=T,sep='\t')
 > spamFormula <- as.formula(paste('spam=="spam"',
    paste(spamVars,collapse=' + '),sep=' ~ '))
@@ -13,3 +15,4 @@ spamD <- read.table('spamD.tsv',header=T,sep='\t')
 y          FALSE TRUE
   non-spam   264   14
   spam        22  158
+

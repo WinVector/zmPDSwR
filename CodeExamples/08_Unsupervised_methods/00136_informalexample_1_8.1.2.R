@@ -1,5 +1,7 @@
 # informalexample:1_8.1.2 
 # informalexample:1 : Unsupervised methods : Cluster analysis : Preparing the data 
+# Title: Preparing the data 
+
 > protein = read.table(“protein.txt”, sep=”\t”, header=TRUE)
 > summary(protein)
            Country      RedMeat         WhiteMeat           Eggs
@@ -25,3 +27,4 @@
  Mean   :3.072   Mean   :4.136
  3rd Qu.:4.700   3rd Qu.:4.900
  Max.   :7.800   Max.   :7.900
+

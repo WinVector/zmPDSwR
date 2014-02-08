@@ -1,0 +1,7 @@
+# informalexample:6_7.2.5 
+# informalexample:6 : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
+# Title: Separation and quasi-separation 
+
+Warning message:
+glm.fit: fitted probabilities numerically 0 or 1 occurred
+

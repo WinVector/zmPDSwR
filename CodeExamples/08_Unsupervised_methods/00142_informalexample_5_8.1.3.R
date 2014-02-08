@@ -1,5 +1,7 @@
 # informalexample:5_8.1.3 
 # informalexample:5 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
+# Title: Bootstrap evaluation of clusters 
+
 library(fpc)                                  	# Note: 1 
 kbest.p<-5                                                   	# Note: 2 
 cboot.hclust <- clusterboot(pmatrix,clustermethod=hclustCBI, 	# Note: 3 
@@ -107,3 +109,4 @@ nccl           1     -none- numeric
 #   dissolved. By default clusterboot() runs 100 
 #   bootstrap iterations. 
 #    
+

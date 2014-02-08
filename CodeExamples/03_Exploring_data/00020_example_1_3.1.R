@@ -1,5 +1,8 @@
 # example:1_3.1 
 # example:1 : Exploring data : Using summary statistics to spot problems 
+# Title: The summary()
+            command 
+
 > summary(custdata)
 custid        sex
 Min.   :   2068   F:440
@@ -73,3 +76,4 @@ Max.   :146.7   Ohio        : 51
 #   plausible, but the minimum and maximum values seem unlikely. The variable 
 #   state.of.res is a categorical variable; summary() reports how many customers are in 
 #   each state (for the first few states).  
+

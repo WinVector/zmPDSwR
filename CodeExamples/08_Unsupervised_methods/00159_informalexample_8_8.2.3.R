@@ -1,5 +1,7 @@
 # informalexample:8_8.2.3 
 # informalexample:8 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: The apriori() function 
+
 > rules <- apriori(bookbaskets_use,                                  	# Note: 1 
                 parameter =list(support = 0.002, confidence=0.75))
 
@@ -57,3 +59,4 @@ mining info:                                           	# Note: 5
 #   ...and some information on how apriori() was 
 #   called. 
 #    
+

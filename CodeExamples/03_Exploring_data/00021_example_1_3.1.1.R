@@ -1,5 +1,8 @@
 # example:1_3.1.1 
 # example:1 : Exploring data : Using summary statistics to spot problems : Typical problems revealed by data summaries 
+# Title: Will the variable
+                    is.employed be useful for modeling? 
+
  is.employed         	# Note: 1 
  Mode :logical
  FALSE:73
@@ -36,3 +39,4 @@
 #   and num.vehicles are only missing a few values. It’s probably safe to just 
 #   drop the rows that are missing values—especially if the missing values are 
 #   all the same 56 rows.  
+

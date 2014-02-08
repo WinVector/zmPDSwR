@@ -1,5 +1,7 @@
 # informalexample:1_8.2.3 
 # informalexample:1 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: Reading in the data 
+
 library(arules)  	# Note: 1 
 bookbaskets <- read.transactions("bookdata.tsv.gz", format="single",  	# Note: 2 
                                  sep="\t",                    	# Note: 3 
@@ -33,3 +35,4 @@ bookbaskets <- read.transactions("bookdata.tsv.gz", format="single",  	# Note: 2
 #   duplicate entries (for example multiple entries 
 #   for “The Hobbit” by the same user) 
 #    
+

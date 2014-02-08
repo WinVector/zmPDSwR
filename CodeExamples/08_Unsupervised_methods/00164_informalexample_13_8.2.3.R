@@ -1,5 +1,7 @@
 # informalexample:13_8.2.3 
 # informalexample:13 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: Restricting which items to mine 
+
 brulesSub <- subset(brules, subset=!(lhs %in% "Lucky : A Memoir"))  	# Note: 1 
 brulesConf <- sort(brulesSub, by="confidence")
 
@@ -23,3 +25,4 @@ brulesConf <- sort(brulesSub, by="confidence")
 #   Lucky is not in the left 
 #   side 
 #    
+

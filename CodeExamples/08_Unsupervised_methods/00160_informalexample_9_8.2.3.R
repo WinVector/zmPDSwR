@@ -1,5 +1,7 @@
 # informalexample:9_8.2.3 
 # informalexample:9 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: Inspecting and evaluating rules 
+
 > measures <- interestMeasure(rules,                            	# Note: 1 
 +                 method=c("coverage", "fishersExactTest"),    	# Note: 2 
 +                 transactions=bookbaskets_use)                	# Note: 3 
@@ -34,3 +36,4 @@
 #   that reflect all the customers, not just the ones 
 #   who showed interest in more than one book. 
 #    
+

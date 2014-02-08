@@ -1,5 +1,7 @@
 # informalexample:6_3.2.1 
 # informalexample:6 : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
+# Title: Sorting the bar chart by count makes it even easier to read. 
+
 > statesums <- table(custdata$state.of.res) 	# Note: 1 
 > statef <- as.data.frame(statesums) 	# Note: 2 
 > colnames(statef)<-c("state.of.res", "count") 	# Note: 3 
@@ -64,3 +66,4 @@ Montana     : 1    Max.   :100.00
 # Note 8: 
 #    Flip the axes and reduce the size of the 
 #   label text as before.  
+

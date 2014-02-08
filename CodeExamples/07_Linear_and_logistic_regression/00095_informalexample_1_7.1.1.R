@@ -1,3 +1,0 @@
-# informalexample:1_7.1.1 
-# informalexample:1 : Linear and logistic regression : Using linear regression : Understanding linear regression 
-pounds.lost[i] = b.cals * daily.cals[i] + b.exercise * daily.exercise[i]

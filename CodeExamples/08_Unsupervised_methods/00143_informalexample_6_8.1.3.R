@@ -1,5 +1,7 @@
 # informalexample:6_8.1.3 
 # informalexample:6 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
+# Title: Within sum of squares 
+
 sqr_edist <- function(x, y) {             	# Note: 1 
   sum((x-y)^2)
 }
@@ -46,3 +48,4 @@ wss.total <- function(dmatrix, labels) {                               	# Note: 
 #   Extract each cluster, 
 #   calculate the cluster’s WSS, and sum all the 
 #   values 
+

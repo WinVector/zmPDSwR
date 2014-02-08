@@ -1,6 +1,8 @@
 # example:2_9.4.2 
 # example:2 : Exploring advanced methods : Using support vector machines to model complicated decision
             boundaries : Trying an SVM on artificial example data 
+# Title: SVM with a poor choice of kernel 
+
 set.seed(2335246L)
 s$group <- sample.int(100,size=dim(s)[[1]],replace=T)
 sTrain <- subset(s,group>10)
@@ -30,3 +32,4 @@ ggplot() +
 #   Plot the predictions on top of 
 #   a grey copy of all the data so we can see if predictions agree with the 
 #   original markings 
+

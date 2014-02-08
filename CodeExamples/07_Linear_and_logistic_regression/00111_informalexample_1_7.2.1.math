@@ -1,0 +1,6 @@
+# informalexample:1_7.2.1 
+# informalexample:1 : Linear and logistic regression : Using logistic regression : Understanding logistic regression 
+# Title: Understanding logistic regression 
+
+P[y[i] in class] ~ f(x[i,]) = s(b[1] x[i,1] + ... b[n] x[i,n])
+

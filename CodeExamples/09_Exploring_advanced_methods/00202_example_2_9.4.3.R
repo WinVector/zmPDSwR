@@ -1,6 +1,8 @@
 # example:2_9.4.3 
 # example:2 : Exploring advanced methods : Using support vector machines to model complicated decision
             boundaries : Using SVMs on real data 
+# Title: Applying SVM to the SpamBase example 
+
 > library('kernlab')
 > spamFormulaV <- as.formula(paste('spam',
    paste(spamVars,collapse=' + '),sep=' ~ '))
@@ -44,3 +46,4 @@ y          non-spam spam
 #   trade-off between false positive and false negative errors. In this case 
 #   we say non-spam classified as spam (a false positive) should be 
 #   considered an expensive mistake. 
+

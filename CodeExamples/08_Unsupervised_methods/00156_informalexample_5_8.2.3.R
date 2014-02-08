@@ -1,5 +1,7 @@
 # informalexample:5_8.2.3 
 # informalexample:5 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: A density plot of basket sizes 
+
 > bookFreq <- itemFrequency(bookbaskets)
 summary(bookFreq)
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.
@@ -7,3 +9,4 @@ summary(bookFreq)
 
 > sum(bookFreq)
 [1] 11.09909
+

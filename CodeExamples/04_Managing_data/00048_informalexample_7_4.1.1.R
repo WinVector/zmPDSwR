@@ -1,5 +1,7 @@
 # informalexample:7_4.1.1 
 # informalexample:7 : Managing data : Cleaning data : Treating missing values (NAs) 
+# Title: When values are missing systematically 
+
 missingIncome <- is.na(custdata$Income)  	# Note: 1 
 Income.fix <- ifelse(is.na(custdata$Income), 0, custdata$Income) 	# Note: 2 
 
@@ -15,3 +17,4 @@ Income.fix <- ifelse(is.na(custdata$Income), 0, custdata$Income) 	# Note: 2
 #    
 #   Replace the NAs with zeros. 
 #    
+

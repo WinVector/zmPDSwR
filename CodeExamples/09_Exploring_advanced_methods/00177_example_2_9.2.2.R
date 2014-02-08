@@ -1,6 +1,8 @@
 # example:2_9.2.2 
 # example:2 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
             relationships : A one-dimensional regression example 
+# Title: Linear regression applied to our artificial example 
+
 > lin.model <- lm(y ~ x, data=train)
 > summary(lin.model)
 Call:
@@ -27,3 +29,4 @@ F-statistic: 38.19 on 1 and 899 DF,  p-value: 9.737e-10
 > resid.lin <- train$y-predict(lin.model)
 > sqrt(mean(resid.lin^2))
 [1] 3.481091
+

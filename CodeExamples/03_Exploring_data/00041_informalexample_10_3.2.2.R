@@ -1,5 +1,8 @@
 # informalexample:10_3.2.2 
 # informalexample:10 : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
+# Title: Distribution of marital status by housing type: faceted side-by-side bar
+                        chart 
+
 ggplot(custdata2) +                                          	# Note: 1 
    geom_bar(aes(x=housing.type, fill=marital.stat ),
       position="dodge") +
@@ -33,3 +36,4 @@ ggplot(custdata2) +                                          	# Note: 3
 #    As of this writing, 
 #   facet_wrap is incompatible with coord_flip, so we have to tilt the 
 #   x-axis labels.  
+

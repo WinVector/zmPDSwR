@@ -1,5 +1,7 @@
 # informalexample:6_4.1.1 
 # informalexample:6 : Managing data : Cleaning data : Treating missing values (NAs) 
+# Title: When values are missing systematically 
+
 > breaks <-c(0, 10000, 50000, 100000, 250000, 1000000)           	# Note: 1 
 
 > Income.groups <- cut(custdata$Income,
@@ -57,3 +59,4 @@
 #   Add the "no income" category to replace the 
 #   NAs. 
 #    
+

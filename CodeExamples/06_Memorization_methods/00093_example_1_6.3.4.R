@@ -1,5 +1,8 @@
 # example:1_6.3.4 
 # example:1 : Memorization methods : Building models using many variables : Using Naive Bayes 
+# Title: Building, applying, and evaluating a Naive Bayes
+                                        model 
+
 pPos <- sum(dTrain[,outcome]==pos)/length(dTrain[,outcome])
 nBayes <- function(pPos,pf) { 	# Note: 1 
    pNeg <- 1 - pPos
@@ -79,3 +82,4 @@ print(calcAUC(dTest$nbpredl,dTest[,outcome]))
 #   set that isn’t repeated on the calibration or test 
 #   sets. 
 #    
+

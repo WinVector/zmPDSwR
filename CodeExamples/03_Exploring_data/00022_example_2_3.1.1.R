@@ -1,5 +1,8 @@
 # example:2_3.1.1 
 # example:2 : Exploring data : Using summary statistics to spot problems : Typical problems revealed by data summaries 
+# Title: Examples of invalid
+                    values and outliers 
+
 > summary(custdata$income)
    Min. 1st Qu.  Median    Mean 3rd Qu.
   -8700   14600   35000   53500   67000   	# Note: 1 
@@ -26,3 +29,4 @@
 #   They could be special sentinel values: zero might mean “age unknown” or 
 #   “refuse to state.” And some of your customers might be especially 
 #   long-lived.  
+

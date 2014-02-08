@@ -1,5 +1,7 @@
 # example:2_10.4.1 
 # example:2 : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
+# Title: Calling the buzz http service 
+
 rowAsForm <- function(url,row) { 	# Note: 1 
    s <- paste('<HTML><HEAD></HEAD><BODY><FORM action="',url,
       '" enctype="multipart/form-data" method="POST">\n',sep='')
@@ -30,3 +32,4 @@ cat(rowAsForm(url,buzztest[7,]),file='buzztest7.html') 	# Note: 3
 #   Write the form representing 
 #   the variables for the 7th test example to a 
 #   file 
+

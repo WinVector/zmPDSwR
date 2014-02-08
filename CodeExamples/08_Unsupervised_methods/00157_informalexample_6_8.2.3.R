@@ -1,5 +1,7 @@
 # informalexample:6_8.2.3 
 # informalexample:6 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: A density plot of basket sizes 
+
 > bookCount <- (bookFreq/sum(bookFreq))*sum(basketSizes)     	# Note: 1 
 > summary(bookCount)
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
@@ -42,3 +44,4 @@ Wild Animus
 #   The most popular book 
 #   in the data set occurred in fewer than 3% of the 
 #   baskets 
+

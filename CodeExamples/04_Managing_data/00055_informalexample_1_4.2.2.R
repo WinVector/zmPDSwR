@@ -1,5 +1,7 @@
 # informalexample:1_4.2.2 
 # informalexample:1 : Managing data : Sampling for modeling and validation : Creating a sample group column 
+# Title: Creating a sample group column 
+
 > custdata$gp <- runif(dim(custdata)[1])  	# Note: 1 
 > testSet <- subset(custdata, custdata$gp <= 0.1) 	# Note: 2 
 > trainingSet <- subset(custdata, custdata$gp > 0.1) 	# Note: 3 
@@ -28,3 +30,4 @@
 #   Here we generate a training using the 
 #   remaining data.  
 #    
+

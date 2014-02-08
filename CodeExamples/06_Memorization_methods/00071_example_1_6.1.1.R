@@ -1,5 +1,7 @@
 # example:1_6.1.1 
 # example:1 : Memorization methods : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
+# Title: Preparing the KDD data for analysis 
+
 d <- read.table('orange_small_train.data.gz',  	# Note: 1 
    header=T,
    sep='\t',
@@ -111,3 +113,4 @@ dTrain <- subset(dTrainAll,!useForCal)
 #   Further split training data into training and 
 #   calibration. 
 #    
+

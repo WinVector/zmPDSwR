@@ -1,6 +1,8 @@
 # example:3_9.2.2 
 # example:3 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
             relationships : A one-dimensional regression example 
+# Title: GAM applied to our artificial example 
+
 > library(mgcv)                             	# Note: 1 
 > glin.model <- gam(y~s(x), data=train)  	# Note: 2 
 > glin.model$converged                      	# Note: 3 
@@ -67,3 +69,4 @@ GCV score =  2.144  Scale est. = 2.121     n = 901
 # Note 7: 
 #   “R-sq (adj)” is the adjusted R-squared. “Deviance explained is the raw R-squared 
 #   (0.834). 
+

@@ -1,5 +1,7 @@
 # informalexample:1_8.1.5 
 # informalexample:1 : Unsupervised methods : Cluster analysis : Assigning new points to clusters 
+# Title: Assigning new points to clusters 
+
 assign_cluster <- function(newpt, centers, xcenter=0, xscale=1) { 	# Note: 1 
    xpt <- (newpt - xcenter)/xscale                                	# Note: 2 
    dists <- apply(centers, 1, FUN=function(c0){sqr_edist(c0, xpt)})  	# Note: 3 
@@ -29,3 +31,4 @@ assign_cluster <- function(newpt, centers, xcenter=0, xscale=1) { 	# Note: 1
 # Note 4: 
 #   Return the cluster number of the 
 #   closest centroid. 
+

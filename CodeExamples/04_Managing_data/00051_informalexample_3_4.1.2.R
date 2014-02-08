@@ -1,5 +1,8 @@
 # informalexample:3_4.1.2 
 # informalexample:3 : Managing data : Cleaning data : Data transformations 
+# Title: Health insurance coverage versus income (log10
+                                                scale) 
+
 > brks <- c(0, 25, 65, Inf)  	# Note: 1 
 > custdata$age.range <- cut(custdata$age,
     breaks=brks, include.lowest=T) 	# Note: 2 
@@ -27,3 +30,4 @@
 #   The output of cut() is a factor variable. 
 #    
 #    
+

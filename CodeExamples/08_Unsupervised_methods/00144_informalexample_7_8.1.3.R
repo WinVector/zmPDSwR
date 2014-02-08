@@ -1,5 +1,7 @@
 # informalexample:7_8.1.3 
 # informalexample:7 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
+# Title: Calinski-Harabasz index 
+
 totss <- function(dmatrix) {                 	# Note: 1 
   grandmean <- apply(dmatrix, 2, FUN=mean)
   sum(apply(dmatrix, 1, FUN=function(row){sqr_edist(row, grandmean)}))
@@ -87,3 +89,4 @@ ch_criterion <- function(dmatrix, kmax, method="kmeans") {     	# Note: 2
 #   and of WSS for k from 1 to kmax. Also return total 
 #   sum of squares 
 #    
+

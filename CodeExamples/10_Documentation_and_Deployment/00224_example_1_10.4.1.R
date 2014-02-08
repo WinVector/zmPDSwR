@@ -1,5 +1,7 @@
 # example:1_10.4.1 
 # example:1 : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
+# Title: Buzz model as a R-based HTTP service 
+
 library(Rook)  	# Note: 1 
 load('thRS500.Rdata') 	# Note: 2 
 library(randomForest) 	# Note: 3 
@@ -95,3 +97,4 @@ s$start() 	# Note: 10
 # Note 11: 
 #   This is the URL where the 
 #   service is running 
+

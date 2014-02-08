@@ -1,5 +1,7 @@
 # example:1_6.3.3 
 # example:1 : Memorization methods : Building models using many variables : Using nearest neighbor methods 
+# Title: Running k-nearest neighbors 
+
 > library('class')
 > nK <- 200
 > knnTrain <- dTrain[,selVars]  	# Note: 1 
@@ -43,3 +45,4 @@
 #   “calculated probability of being a positive 
 #   example.” 
 #    
+

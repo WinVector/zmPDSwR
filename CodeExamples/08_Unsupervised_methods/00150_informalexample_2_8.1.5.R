@@ -1,5 +1,7 @@
 # informalexample:2_8.1.5 
 # informalexample:2 : Unsupervised methods : Cluster analysis : Assigning new points to clusters 
+# Title: Assigning new points to clusters 
+
 rnorm.multidim <- function(n, mean, sd, colstr="x") {    	# Note: 1 
    ndim <- length(mean)
    data <- NULL
@@ -150,3 +152,4 @@ unscale <- function(scaledpt, centervec, scalevec) {    	# Note: 8
 # Note 17: 
 #   It is assigned to cluster 
 #   2. 
+

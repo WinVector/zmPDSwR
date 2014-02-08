@@ -1,5 +1,8 @@
 # informalexample:7_3.2.2 
 # informalexample:7 : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
+# Title: Hexbin plot of income versus age, with a smoothing curve superimposed in
+                        white 
+
 library(hexbin) 	# Note: 1 
 
 ggplot(custdata2, aes(x=age, y=income)) +
@@ -17,3 +20,4 @@ ggplot(custdata2, aes(x=age, y=income)) +
 # Note 3: 
 #    Add smoothing curve in white; suppress 
 #   standard error ribbon (se=F).  
+

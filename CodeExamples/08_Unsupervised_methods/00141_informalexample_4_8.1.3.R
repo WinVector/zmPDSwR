@@ -1,5 +1,7 @@
 # informalexample:4_8.1.3 
 # informalexample:4 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
+# Title: Visualizing clusters 
+
 library(ggplot2)
 princ <- prcomp(pmatrix)    	# Note: 1 
 nComp <- 2
@@ -29,3 +31,4 @@ ggplot(project.plus, aes(x=PC1, y=PC2)) +                	# Note: 4
 
 # Note 4: 
 #   Plot it. 
+

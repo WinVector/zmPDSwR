@@ -1,5 +1,7 @@
 # informalexample:2_3.2.2 
 # informalexample:2 : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
+# Title: Scatter plots and smoothing curves 
+
 custdata2 <- subset(custdata,
    (custdata$age > 0 & custdata$age < 100
    & custdata$income > 0))                  	# Note: 1 
@@ -17,3 +19,4 @@ cor(custdata2$age, custdata2$income) 	# Note: 2
 
 # Note 3: 
 #    Resulting correlation.  
+

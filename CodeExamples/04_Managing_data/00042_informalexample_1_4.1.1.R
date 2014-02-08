@@ -1,5 +1,7 @@
 # informalexample:1_4.1.1 
 # informalexample:1 : Managing data : Cleaning data : Treating missing values (NAs) 
+# Title: To drop or not to drop? 
+
 > summary(custdata[is.na(custdata$housing.type), 	# Note: 1 
                    c("recent.move","num.vehicles")]) 	# Note: 2 
 
@@ -29,3 +31,4 @@
 #   The output: all NAs. All the missing data 
 #   comes from the same rows. 
 #    
+

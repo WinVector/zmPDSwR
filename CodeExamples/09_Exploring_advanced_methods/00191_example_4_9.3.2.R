@@ -1,5 +1,7 @@
 # example:4_9.3.2 
 # example:4 : Exploring advanced methods : Using kernel methods to increase data separation : Using an explicit kernel on a problem 
+# Title: Inspecting the results of the explicit kernel model 
+
 > print(summary(m3))
 
 Call:
@@ -36,3 +38,4 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 0.2649 on 582 degrees of freedom
 Multiple R-squared:  0.3541,    Adjusted R-squared:  0.3408
 F-statistic: 26.59 on 12 and 582 DF,  p-value: < 2.2e-16
+

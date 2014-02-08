@@ -1,5 +1,7 @@
 # informalexample:1_4.2.3 
 # informalexample:1 : Managing data : Sampling for modeling and validation : Record grouping 
+# Title: Example of dataset with customers and households 
+
 hh <- unique(hhdata$household_id) 	# Note: 1 
 households <- data.frame(household_id = hh, gp = runif(length(hh))) 	# Note: 2 
 hhdata <- merge(hhdata, households, by="household_id") 	# Note: 3 
@@ -21,3 +23,4 @@ hhdata <- merge(hhdata, households, by="household_id") 	# Note: 3
 #   Merge new random sample group column back into 
 #   original data frame.  
 #    
+

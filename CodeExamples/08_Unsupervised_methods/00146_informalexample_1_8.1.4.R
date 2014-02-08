@@ -1,5 +1,9 @@
 # informalexample:1_8.1.4 
 # informalexample:1 : Unsupervised methods : Cluster analysis : The k-means algorithm 
+# Title: The k-means procedure. The two cluster centers are
+                                                represented by the shadowed star and
+                                                diamond. 
+
 > pclusters <- kmeans(pmatrix, kbest.p, nstart=100, iter.max=100)   	# Note: 1 
 > summary(pclusters)                                               	# Note: 2 
              Length Class  Mode
@@ -106,3 +110,4 @@ size          5     -none- numeric
 #   the same clustering. This won’t always be 
 #   true. 
 #    
+

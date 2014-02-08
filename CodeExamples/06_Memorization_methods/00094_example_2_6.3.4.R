@@ -1,5 +1,7 @@
 # example:2_6.3.4 
 # example:2 : Memorization methods : Building models using many variables : Using Naive Bayes 
+# Title: Using a Naive Bayes package 
+
 > library('e1071')
 > ff <- paste('as.factor(',outcome,'>0) ~ ',
    paste(lVars,collapse=' + '),sep='')
@@ -13,3 +15,4 @@
 [1] 0.5484643
 > calcAUC(dTest$nbpred,dTest[,outcome])
 [1] 0.5462362
+

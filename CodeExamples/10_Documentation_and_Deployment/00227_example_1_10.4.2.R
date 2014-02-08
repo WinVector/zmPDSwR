@@ -1,5 +1,7 @@
 # example:1_10.4.2 
 # example:1 : Documentation and deployment : Deploying models : Deploying models by export 
+# Title: Exporting the random forest model 
+
 load('thRS500.Rdata') 	# Note: 1 
 library(randomForest) 	# Note: 2 
 
@@ -37,3 +39,4 @@ write.table(extractTrees(rFmodel), 	# Note: 4
 #   Write the table of trees as 
 #   a tab separated values table (easy for other 
 #   software to read) 
+
