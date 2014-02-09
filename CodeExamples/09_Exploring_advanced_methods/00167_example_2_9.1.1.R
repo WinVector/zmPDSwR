@@ -43,7 +43,7 @@ accuracyMeasures(predict.bag(treelist, newdata=spamTest),
 
 # Note 3: 
 #   Train the individual decision trees and return them 
-#   in a list. 
+#   in a list. Note: this step can take a few minutes. 
 
 # Note 4: 
 #   A function that scores a dataset against each tree, then averages all the prediction 

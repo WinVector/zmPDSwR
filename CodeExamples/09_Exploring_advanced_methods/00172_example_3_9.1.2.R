@@ -2,19 +2,27 @@
 # example:3 : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using random forests to further improve prediction 
 # Title: Fitting with fewer variables 
 
-ordered <- sort(varImp[,1], decreasing=T)   	# Note: 1 
+selVars <- names(sort(varImp[,1], decreasing=T))[1:25] 	# Note: 1 
 
-spamFormula2 <- as.formula(paste('spam=="spam"',  	# Note: 2 
-                                paste(names(ordered[1:25]),
-                                            collapse=' + '),
-                                             sep=' ~ '))
+fsel <- randomForest(x=spamTrain[,selVars],y=spamTrain$spam, 	# Note: 2 
+                           ntree=100,
+                           nodesize=7,
+                           importance=T)
+                           
+accuracyMeasures(predict(fsel,
+   newdata=spamTrain[,selVars],type='prob')[,'spam'],
+   spamTrain$spam=="spam",name="RF small, train")
+##             model  accuracy        f1  dev.norm
+## 1 RF small, train 0.9876901 0.9688546 0.1506817
 
-fmodel_small <- randomForest(spamFormula2,data=spamTrain,
-                             ntree=100,
-                             nodesize=7)
+accuracyMeasures(predict(fsel,
+   newdata=spamTest[,selVars],type='prob')[,'spam'],
+   spamTest$spam=="spam",name="RF small, test")
+##            model  accuracy        f1 dev.norm
+## 1 RF small, test 0.9497817 0.8738142 0.400825
 
 # Note 1: 
-#   Sort the variables by their importance, as measured by MSE 
+#   Sort the variables by their importance, as measured by accuracy change 
 
 # Note 2: 
 #   Build a random forest model using only the 25 most important variables 

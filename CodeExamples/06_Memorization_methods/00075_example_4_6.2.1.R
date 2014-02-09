@@ -1,6 +1,7 @@
 # example:4_6.2.1 
 # example:4 : Memorization methods : Building single-variable models : Using categorical features 
-# Title: Applying single categorical variable models to all of our datasets 
+# Title: Applying single-categorical variable models to all of our
+                                        datasets 
 
 for(v in catVars) {
   pi <- paste('pred',v,sep='')

@@ -10,11 +10,11 @@ sTest <- subset(s,group<=10) 	# Note: 1
 mSVMV <- ksvm(class~x+y,data=sTrain,kernel='vanilladot') 	# Note: 2 
 sTest$predSVMV <- predict(mSVMV,newdata=sTest,type='response') 	# Note: 3 
 ggplot() +
-   geom_point(data=sTest,aes(x=x,y=y,shape=predSVMV=='1'),
-      show_guide=T) +
-   geom_point(data=s,aes(x=x,y=y,shape=class=='1'),alpha=0.2,
-      show_guide=F) +
-   coord_fixed() 	# Note: 4 
+    geom_point(data=sTest,aes(x=x,y=y,shape=predSVMV,color=predSVMV),
+       show_guide=T) +
+    geom_point(data=s,aes(x=x,y=y,shape=class,color=class),alpha=0.2,
+       show_guide=F) +
+    coord_fixed() 	# Note: 4 
 
 # Note 1: 
 #   Prepare to try to learn spiral 

@@ -4,19 +4,19 @@
 # Title: Shifting decision point to perform an
                         apples-to-apples comparison 
 
-> sameCut <- sort(spamTest$pred)[length(spamTest$pred)-160] 	# Note: 1 
-> print(with(spamTest,table(y=spam,glPred=pred>sameCut))) 	# Note: 2 
-          glPred
-y          FALSE TRUE
-  non-spam   268   10
-  spam        30  150
+sameCut <- sort(spamTest$pred)[length(spamTest$pred)-162] 	# Note: 1 
+print(with(spamTest,table(y=spam,glPred=pred>sameCut))) 	# Note: 2 
+##           glPred
+## y          FALSE TRUE
+##   non-spam   267   11
+##   spam        29  151
 
 # Note 1: 
-#   Find out what GLM score threshold has 160 examples 
+#   Find out what GLM score threshold has 162 examples 
 #   above it. 
 
 # Note 2: 
 #   Ask the GLM model for its 
 #   predictions that are above the threshold. We’re essentially asking the 
-#   model for its 160 best candidate spam prediction results. 
+#   model for its 162 best candidate spam prediction results. 
 

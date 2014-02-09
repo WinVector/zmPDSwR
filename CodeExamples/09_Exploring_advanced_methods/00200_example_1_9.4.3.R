@@ -1,6 +1,7 @@
-# example:1_5.2.1 
-# example:1 : Choosing and evaluating models : Evaluating models : Evaluating classification models 
-# Title: Building and applying a logistic regression spam model 
+# example:1_9.4.3 
+# example:1 : Exploring advanced methods : Using support vector machines to model complicated decision
+            boundaries : Using SVMs on real data 
+# Title: Revisiting the SpamBase example with GLM 
 
 spamD <- read.table('spamD.tsv',header=T,sep='\t')
 spamTrain <- subset(spamD,spamD$rgroup>=10)
@@ -10,12 +11,10 @@ spamFormula <- as.formula(paste('spam=="spam"',
    paste(spamVars,collapse=' + '),sep=' ~ '))
 spamModel <- glm(spamFormula,family=binomial(link='logit'),
    data=spamTrain)
-spamTrain$pred <- predict(spamModel,newdata=spamTrain,
-   type='response')
 spamTest$pred <- predict(spamModel,newdata=spamTest,
    type='response')
-print(with(spamTest,table(y=spam,glmPred=pred>0.5)))
-##           glmPred
+print(with(spamTest,table(y=spam,glPred=pred>=0.5)))
+##           glPred
 ## y          FALSE TRUE
 ##   non-spam   264   14
 ##   spam        22  158

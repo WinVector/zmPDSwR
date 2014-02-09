@@ -3,21 +3,21 @@
             boundaries : Using SVMs on real data 
 # Title: Applying SVM to the SpamBase example 
 
-> library('kernlab')
-> spamFormulaV <- as.formula(paste('spam',
+library('kernlab')
+spamFormulaV <- as.formula(paste('spam',
    paste(spamVars,collapse=' + '),sep=' ~ '))
-> svmM <- ksvm(spamFormulaV,data=spamTrain, 	# Note: 1 
+svmM <- ksvm(spamFormulaV,data=spamTrain, 	# Note: 1 
         kernel='rbfdot', 	# Note: 2 
         C=10, 	# Note: 3 
         prob.model=T,cross=5, 	# Note: 4 
         class.weights=c('spam'=1,'non-spam'=10) 	# Note: 5 
         )
-> spamTest$svmPred <- predict(svmM,newdata=spamTest,type='response')
-> print(with(spamTest,table(y=spam,svmPred=svmPred)))
-          svmPred
-y          non-spam spam
-  non-spam      271    7
-  spam           27  153
+spamTest$svmPred <- predict(svmM,newdata=spamTest,type='response')
+print(with(spamTest,table(y=spam,svmPred=svmPred)))
+##           svmPred
+## y          non-spam spam
+##   non-spam      269    9
+##   spam           27  153
 
 # Note 1: 
 #   Build a support vector model for the Spambase 

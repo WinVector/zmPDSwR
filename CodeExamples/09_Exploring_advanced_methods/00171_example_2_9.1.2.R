@@ -5,17 +5,17 @@
 > varImp <- importance(fmodel)              	# Note: 1 
 
 > varImp[1:10, ]                           	# Note: 2 
-                     %IncMSE IncNodePurity
-word.freq.make      2.296096     2.4266521
-word.freq.address   6.019336     2.7132819
-word.freq.all       3.252322     3.2194184
-word.freq.3d        2.407552     0.9644499
-word.freq.our      13.028400    18.6669055
-word.freq.over      6.187187     4.5312607
-word.freq.remove   33.615974   122.9724112
-word.freq.internet  8.615904     8.2494350
-word.freq.order     5.905917     3.0257696
-word.freq.mail      5.893832     5.7076050
+                    non-spam       spam MeanDecreaseAccuracy
+word.freq.make      2.096811  3.7304353             4.334207
+word.freq.address   3.603167  3.9967031             4.977452
+word.freq.all       2.799456  4.9527834             4.924958
+word.freq.3d        3.000273  0.4125932             2.917972
+word.freq.our       9.037946  7.9421391            10.731509
+word.freq.over      5.879377  4.2402613             5.751371
+word.freq.remove   16.637390 13.9331691            17.753122
+word.freq.internet  7.301055  4.4458342             7.947515
+word.freq.order     3.937897  4.3587883             4.866540
+word.freq.mail      5.022432  3.4701224             6.103929
 
 varImpPlot(fmodel, type=1)                       	# Note: 3 
 
@@ -27,5 +27,5 @@ varImpPlot(fmodel, type=1)                       	# Note: 3
 #   important) 
 
 # Note 3: 
-#   Plot the variable importance as measured by MSE (type=1) 
+#   Plot the variable importance as measured by accuracy change 
 
