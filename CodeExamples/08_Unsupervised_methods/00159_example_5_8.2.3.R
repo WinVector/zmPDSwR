@@ -1,6 +1,6 @@
-# informalexample:8_8.2.3 
-# informalexample:8 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: The apriori() function 
+# example:5_8.2.3 
+# example:5 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: Finding the association rules 
 
 > rules <- apriori(bookbaskets_use,                                  	# Note: 1 
                 parameter =list(support = 0.002, confidence=0.75))
@@ -42,15 +42,16 @@ mining info:                                           	# Note: 5
 
 # Note 3: 
 #    
-#   ... the distribution of rule lengths. In 
-#   this example, most rules contain 3 items (2 on the 
-#   left side X (lhs) and one on the right side Y 
-#   (rhs))... 
+#   ...the distribution of rule 
+#   lengths. 
+#   In this example, most rules contain 3 items (2 on 
+#   the left side, X (lhs), and one on the right side, 
+#   Y (rhs))... 
 #    
 
 # Note 4: 
 #    
-#   ...A summary of rule quality measures, 
+#   ...a summary of rule quality measures, 
 #   including support and confidence... 
 #    
 

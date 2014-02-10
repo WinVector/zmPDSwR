@@ -1,6 +1,6 @@
-# informalexample:11_8.2.3 
-# informalexample:11 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Restricting which items to mine 
+# example:7_8.2.3 
+# example:7 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: Finding rules with restrictions 
 
 brules <- apriori(bookbaskets_use,
                 parameter =list(support = 0.001,    	# Note: 1 
@@ -33,19 +33,19 @@ mining info:
 # Note 1: 
 #    
 #   Relax the minimum support to 0.001 and the 
-#   minimum confidence to 0.6 
+#   minimum confidence to 0.6. 
 #    
 
 # Note 2: 
 #    
 #   Only The Lovely Bones 
 #   is allowed to appear on the right side of the 
-#   rules 
+#   rules. 
 #    
 
 # Note 3: 
 #    
 #   By default, all the books can go into the 
-#   left hand side of the rules 
+#   left side of the rules. 
 #    
 

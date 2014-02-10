@@ -1,6 +1,6 @@
-# informalexample:6_8.2.3 
-# informalexample:6 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: A density plot of basket sizes 
+# example:4_8.2.3 
+# example:4 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: Finding the ten most frequent books 
 
 > bookCount <- (bookFreq/sum(bookFreq))*sum(basketSizes)     	# Note: 1 
 > summary(bookCount)
@@ -33,15 +33,20 @@ Wild Animus
  0.02716376
 
 # Note 1: 
-#   Get the absolute 
-#   count of book occurrences 
+#    
+#   Get the absolute count of book 
+#   occurrences. 
+#    
 
 # Note 2: 
-#   Sort the count and 
-#   list the ten most popular books 
+#    
+#   Sort the count and list the 10 most popular 
+#   books. 
+#    
 
 # Note 3: 
-#   The most popular book 
-#   in the data set occurred in fewer than 3% of the 
-#   baskets 
+#    
+#   The most popular book in the dataset 
+#   occurred in fewer than 3% of the baskets. 
+#    
 

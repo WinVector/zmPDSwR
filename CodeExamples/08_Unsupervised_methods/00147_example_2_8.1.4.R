@@ -1,7 +1,6 @@
-# informalexample:2_8.1.4 
-# informalexample:2 : Unsupervised methods : Cluster analysis : The k-means algorithm 
-# Title: The kmeansruns() function for picking
-                                                k 
+# example:2_8.1.4 
+# example:2 : Unsupervised methods : Cluster analysis : The k-means algorithm 
+# Title: Plotting cluster criteria 
 
 > clustering.ch <- kmeansruns(pmatrix, krange=1:10, criterion="ch")   	# Note: 1 
 > clustering.ch$bestk                                                	# Note: 2 
@@ -25,7 +24,7 @@
 > ggplot(critframe, aes(x=k, y=score, color=measure)) +
    geom_point(aes(shape=measure)) + geom_line(aes(linetype=measure)) +
    scale_x_continuous(breaks=1:10, labels=1:10)
-   > summary(clustering.ch)                                            	# Note: 7 
+> summary(clustering.ch)                                            	# Note: 7 
              Length Class  Mode
 cluster      25     -none- numeric
 centers      18     -none- numeric
@@ -39,10 +38,10 @@ bestk         1     -none- numeric
 
 # Note 1: 
 #    
-#   Run kmeansruns() from one to ten clusters, 
-#   and the CH criterion. By default, kmeansruns() 
-#   uses 100 random starts and 100 maximum iterations 
-#   per run. 
+#   Run kmeansruns() from 1–10 clusters, and the 
+#   CH criterion. By default, kmeansruns() uses 100 
+#   random starts and 100 maximum iterations per 
+#   run. 
 #    
 
 # Note 2: 
@@ -52,8 +51,8 @@ bestk         1     -none- numeric
 
 # Note 3: 
 #    
-#   Run kmeansruns() from 1 to 10 clusters, and 
-#   the average silhouette width criterion. Average 
+#   Run kmeansruns() from 1–10 clusters, and the 
+#   average silhouette width criterion. Average 
 #   silhouette width picks 3 clusters. 
 #    
 

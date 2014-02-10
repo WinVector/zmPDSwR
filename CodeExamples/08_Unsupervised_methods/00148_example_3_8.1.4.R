@@ -1,6 +1,6 @@
-# informalexample:3_8.1.4 
-# informalexample:3 : Unsupervised methods : Cluster analysis : The k-means algorithm 
-# Title: clusterboot() revisited 
+# example:3_8.1.4 
+# example:3 : Unsupervised methods : Cluster analysis : The k-means algorithm 
+# Title: Running clusterboot() with k-means 
 
 kbest.p<-5
 cboot<-clusterboot(pmatrix, clustermethod=kmeansCBI,

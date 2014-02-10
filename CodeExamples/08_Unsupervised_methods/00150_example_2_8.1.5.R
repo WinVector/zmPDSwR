@@ -1,6 +1,6 @@
-# informalexample:2_8.1.5 
-# informalexample:2 : Unsupervised methods : Cluster analysis : Assigning new points to clusters 
-# Title: Assigning new points to clusters 
+# example:2_8.1.5 
+# example:2 : Unsupervised methods : Cluster analysis : Assigning new points to clusters 
+# Title: An example of assigning points to cluster 
 
 rnorm.multidim <- function(n, mean, sd, colstr="x") {    	# Note: 1 
    ndim <- length(mean)
@@ -87,69 +87,97 @@ unscale <- function(scaledpt, centervec, scalevec) {    	# Note: 8
 #    
 
 # Note 2: 
-#   The parameters for three 
-#   Gaussian distributions. 
+#    
+#   The parameters for three Gaussian 
+#   distributions. 
+#    
 
 # Note 3: 
-#   Create a dataset with one 
-#   hundred points each drawn from the above 
-#   distributions. 
+#    
+#   Create a dataset with 100 points each drawn 
+#   from the above distributions. 
+#    
 
 # Note 4: 
+#    
 #   Scale the dataset. 
+#    
 
 # Note 5: 
-#   Store the centering and scaling 
-#   parameters for future use. 
+#    
+#   Store the centering and scaling parameters for 
+#   future use. 
+#    
 
 # Note 6: 
-#   Cluster the dataset, using 
-#   K-means with three clusters. 
+#    
+#   Cluster the dataset, using k-means with three 
+#   clusters. 
+#    
 
 # Note 7: 
-#   The resulting clusters are about 
-#   the right size. 
+#    
+#   The resulting clusters are about the right 
+#   size. 
+#    
 
 # Note 8: 
-#   A function to “unscale” data 
-#   points (put them back in the coordinates of the 
-#   original dataset). 
+#    
+#   A function to “unscale” data points (put them 
+#   back in the coordinates of the original 
+#   dataset). 
+#    
 
 # Note 9: 
-#   Unscale the first centroid. It 
-#   corresponds to our original distribution 
-#   2. 
+#    
+#   Unscale the first centroid. It corresponds to 
+#   our original distribution 2. 
+#    
 
 # Note 10: 
-#   The second centroid corresponds 
-#   to the original distribution 3. 
+#    
+#   The second centroid corresponds to the 
+#   original distribution 3. 
+#    
 
 # Note 11: 
-#   The third centroid corresponds 
-#   to the original distribution 1. 
+#    
+#   The third centroid corresponds to the original 
+#   distribution 1. 
+#    
 
 # Note 12: 
-#   Generate a random point from 
-#   the original distribution 1 and assign it to one of 
-#   the discovered clusters. 
+#    
+#   Generate a random point from the original 
+#   distribution 1 and assign it to one of the 
+#   discovered clusters. 
+#    
 
 # Note 13: 
-#   It is assigned to cluster 3 as 
-#   we would expect. 
+#    
+#   It’s assigned to cluster 3, as we would 
+#   expect. 
+#    
 
 # Note 14: 
-#   Generate a random point from 
-#   the original distribution 2 and assign it. 
+#    
+#   Generate a random point from the original 
+#   distribution 2 and assign it. 
+#    
 
 # Note 15: 
-#   It is assigned to cluster 
-#   1. 
+#    
+#   It’s assigned to cluster 1. 
+#    
 
 # Note 16: 
-#   Generate a random point from 
-#   the original distribution 3 and assign it 
+#    
+#   Generate a random point from the original 
+#   distribution 3 and assign it. 
+#    
 
 # Note 17: 
-#   It is assigned to cluster 
-#   2. 
+#    
+#   It’s assigned to cluster 2. 
+#    
 

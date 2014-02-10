@@ -1,8 +1,6 @@
-# informalexample:1_8.1.4 
-# informalexample:1 : Unsupervised methods : Cluster analysis : The k-means algorithm 
-# Title: The k-means procedure. The two cluster centers are
-                                                represented by the shadowed star and
-                                                diamond. 
+# example:1_8.1.4 
+# example:1 : Unsupervised methods : Cluster analysis : The k-means algorithm 
+# Title: Running kmeans with k=5 
 
 > pclusters <- kmeans(pmatrix, kbest.p, nstart=100, iter.max=100)   	# Note: 1 
 > summary(pclusters)                                               	# Note: 2 
@@ -71,21 +69,23 @@ size          5     -none- numeric
 
 # Note 1: 
 #    
-#   Run kmeans() with five clusters (kbest.p=5), 100 random 
-#   starts and 100 maximum iterations per run. 
+#   Run kmeans() with five clusters (kbest.p=5), 
+#   100 random starts, and 100 maximum iterations per 
+#   run. 
 #    
 
 # Note 2: 
 #    
 #   kmeans() returns all the sum of squares 
-#   measures 
+#   measures. 
 #    
 
 # Note 3: 
 #    
 #   pclusters$centers is a matrix whose rows are 
 #   the centroids of the clusters. Note that centers 
-#   is in the scaled coordinates, not the original 
+#   is 
+#   in the scaled coordinates, not the original 
 #   protein coordinates. 
 #    
 

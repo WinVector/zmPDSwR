@@ -1,6 +1,6 @@
-# informalexample:5_8.1.3 
-# informalexample:5 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: Bootstrap evaluation of clusters 
+# example:4_8.1.3 
+# example:4 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
+# Title: Running clusterboot() on the protein data 
 
 library(fpc)                                  	# Note: 1 
 kbest.p<-5                                                   	# Note: 2 
@@ -62,13 +62,14 @@ nccl           1     -none- numeric
 # Note 1: 
 #    
 #   Load the fpc package. You may have to 
-#   install it first. We discuss installing R packages 
-#   in appendix . 
+#   install it first. We’ll discuss installing R 
+#   packages in appendix . 
 #    
 
 # Note 2: 
-#   Set the desired 
-#   number of clusters. 
+#    
+#   Set the desired number of clusters. 
+#    
 
 # Note 3: 
 #    
@@ -76,7 +77,7 @@ nccl           1     -none- numeric
 #   ('clustermethod=hclustCBI') using Ward’s method 
 #   ('method="ward"') and kbest.p clusters 
 #   ('k=kbest.p'). Return the results in an object 
-#   called cboot.hclust 
+#   called cboot.hclust. 
 #    
 
 # Note 4: 

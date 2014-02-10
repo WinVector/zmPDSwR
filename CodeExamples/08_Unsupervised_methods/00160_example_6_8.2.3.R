@@ -1,6 +1,6 @@
-# informalexample:9_8.2.3 
-# informalexample:9 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Inspecting and evaluating rules 
+# example:6_8.2.3 
+# example:6 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: Scoring rules 
 
 > measures <- interestMeasure(rules,                            	# Note: 1 
 +                 method=c("coverage", "fishersExactTest"),    	# Note: 2 
@@ -17,21 +17,21 @@
 # Note 1: 
 #    
 #   The call to interestMeasure() takes as 
-#   arguments the discovered rules... 
+#   arguments the discovered rules,... 
 #    
 
 # Note 2: 
 #    
-#   ... a list of interest measures to 
-#   apply... 
+#   ...a list of interest measures to 
+#   apply,... 
 #    
 
 # Note 3: 
 #    
-#   ... and a dataset to evaluate the interest 
+#   ...and a dataset to evaluate the interest 
 #   measures over. This is usually the same set used 
 #   to mine the rules, but it needn’t be. For 
-#   instance, we can evaluate the rules over the full 
+#   instance, you can evaluate the rules over the full 
 #   dataset, bookbaskets, to get coverage estimates 
 #   that reflect all the customers, not just the ones 
 #   who showed interest in more than one book. 

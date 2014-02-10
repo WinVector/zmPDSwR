@@ -1,6 +1,6 @@
-# informalexample:7_8.1.3 
-# informalexample:7 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: Calinski-Harabasz index 
+# example:6_8.1.3 
+# example:6 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
+# Title: The Calinski-Harabasz index 
 
 totss <- function(dmatrix) {                 	# Note: 1 
   grandmean <- apply(dmatrix, 2, FUN=mean)
@@ -37,56 +37,62 @@ ch_criterion <- function(dmatrix, kmax, method="kmeans") {     	# Note: 2
 }
 
 # Note 1: 
-#   Convenience function to 
-#   calculate the total sum of squares 
+#    
+#   Convenience function to calculate the total 
+#   sum of squares. 
+#    
 
 # Note 2: 
 #    
 #   A function to calculate the 
 #   Calinski-Harabasz index for a number of clusters 
-#   from 1 to kmax 
+#   from 1 to kmax. 
 #    
 
 # Note 3: 
-#   The total sum of squares 
-#   is independent of the clustering 
+#    
+#   The total sum of squares is independent of 
+#   the clustering. 
+#    
 
 # Note 4: 
-#   Calculate WSS for k=1 
-#   (which is really just total sum of 
-#   squares) 
+#    
+#   Calculate WSS for k=1 (which is really just 
+#   total sum of squares). 
+#    
 
 # Note 5: 
 #    
 #   Calculate WSS for k from 2 to kmax. kmeans() 
-#   returns the total WSS as one of its outputs 
+#   returns the total WSS as one of its 
+#   outputs. 
 #    
 
 # Note 6: 
 #    
 #   For hclust(), calculate total WSS by 
-#   hand 
+#   hand. 
 #    
 
 # Note 7: 
 #    
-#   Calculate BSS for k from 1 to kmax 
+#   Calculate BSS for k from 1 to kmax. 
 #    
 
 # Note 8: 
 #    
-#   Normalize BSS by k-1 
+#   Normalize BSS by k-1. 
 #    
 
 # Note 9: 
 #    
-#   Normalize WSS by npts - k 
+#   Normalize WSS by npts - k. 
 #    
 
 # Note 10: 
 #    
 #   Return a vector of Calinski-Harabasz indices 
 #   and of WSS for k from 1 to kmax. Also return total 
-#   sum of squares 
+#   sum of squares. 
 #    
 

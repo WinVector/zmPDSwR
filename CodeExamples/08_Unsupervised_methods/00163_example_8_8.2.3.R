@@ -1,6 +1,6 @@
-# informalexample:12_8.2.3 
-# informalexample:12 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Restricting which items to mine 
+# example:8_8.2.3 
+# example:8 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: Inspecting rules 
 
 brulesConf <- sort(brules, by="confidence")  	# Note: 1 
 
@@ -19,13 +19,13 @@ brulesConf <- sort(brules, by="confidence")  	# Note: 1
 
 # Note 1: 
 #    
-#   Sort the rules by confidence 
+#   Sort the rules by confidence. 
 #    
 
 # Note 2: 
 #    
 #   Use the lhs() function to get the left 
-#   itemsets of each rule, then inspect the top 
-#   five 
+#   itemsets of each rule; then inspect the top 
+#   five. 
 #    
 

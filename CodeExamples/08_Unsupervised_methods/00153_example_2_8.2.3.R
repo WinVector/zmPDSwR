@@ -1,6 +1,6 @@
-# informalexample:2_8.2.3 
-# informalexample:2 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Examining the data 
+# example:2_8.2.3 
+# example:2 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: Examining the transaction data 
 
 > class(bookbaskets)             	# Note: 1 
 [1] "transactions"
@@ -23,29 +23,29 @@ transactions in sparse format with
 
 # Note 1: 
 #    
-#   The object is of class 
-#   transactions 
+#   The object is of class transactions. 
 #    
 
 # Note 2: 
 #    
 #   Printing the object tells you its 
-#   dimensions 
+#   dimensions. 
 #    
 
 # Note 3: 
 #    
-#   You can also use dim() to see 
-#   the dimensions of the matrix 
+#   You can also use dim() to see the dimensions 
+#   of the matrix. 
 #    
 
 # Note 4: 
 #    
-#   The columns are labeled by book title 
+#   The columns are labeled by book 
+#   title. 
 #    
 
 # Note 5: 
 #    
-#   The rows are labeled by customer 
+#   The rows are labeled by customer. 
 #    
 

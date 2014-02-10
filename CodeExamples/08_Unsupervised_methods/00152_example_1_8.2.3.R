@@ -1,6 +1,6 @@
-# informalexample:1_8.2.3 
-# informalexample:1 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Reading in the data 
+# example:1_8.2.3 
+# example:1 : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# Title: Reading in the book data 
 
 library(arules)  	# Note: 1 
 bookbaskets <- read.transactions("bookdata.tsv.gz", format="single",  	# Note: 2 
@@ -10,29 +10,29 @@ bookbaskets <- read.transactions("bookdata.tsv.gz", format="single",  	# Note: 2
 
 # Note 1: 
 #    
-#   Load the arules package 
+#   Load the arules package. 
 #    
 
 # Note 2: 
 #    
-#   Specify the file and the file format 
+#   Specify the file and the file format. 
 #    
 
 # Note 3: 
 #    
-#   Specify the column separator (a tab) 
+#   Specify the column separator (a tab). 
 #    
 
 # Note 4: 
 #    
 #   Specify the column of transaction IDs and of 
-#   item IDs, respectively 
+#   item IDs, respectively. 
 #    
 
 # Note 5: 
 #    
 #   Tell the function to look for and remove 
-#   duplicate entries (for example multiple entries 
-#   for “The Hobbit” by the same user) 
+#   duplicate entries (for example, multiple entries 
+#   for “The Hobbit” by the same user). 
 #    
 

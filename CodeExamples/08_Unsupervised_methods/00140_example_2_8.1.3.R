@@ -1,7 +1,6 @@
-# informalexample:3_8.1.3 
-# informalexample:3 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: Dendrogram of countries clustered by protein
-                                        consumption 
+# example:2_8.1.3 
+# example:2 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
+# Title: Extracting the clusters found by hclust() 
 
 groups <- cutree(pfit, k=5)
 
@@ -50,10 +49,12 @@ print_clusters <- function(labels, k) {             	# Note: 1
 19    Spain     7.1  7.0    7.2
 
 # Note 1: 
-#   A convenience function for 
-#   printing out the countries in each cluster, along 
-#   with the values for red meat, fish, and 
-#   fruit/vegetable consumption. We’ll use this function 
-#   throughout this section. Note that the function is 
-#   hard-coded for the protein dataset. 
+#    
+#   A convenience function for printing out the 
+#   countries in each cluster, along with the values 
+#   for red meat, fish, and fruit/vegetable 
+#   consumption. We’ll use this function throughout 
+#   this section. Note that the function is hardcoded 
+#   for the protein dataset. 
+#    
 

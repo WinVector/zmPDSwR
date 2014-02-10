@@ -1,6 +1,6 @@
-# informalexample:8_8.1.3 
-# informalexample:8 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: Calinski-Harabasz index 
+# example:7_8.1.3 
+# example:7 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
+# Title: Evaluating clusterings with different numbers of clusters 
 
 library(reshape2)                                         	# Note: 1 
 clustcrit <- ch_criterion(pmatrix, 10, method="hclust")     	# Note: 2 
@@ -20,15 +20,19 @@ ggplot(critframe, aes(x=k, y=score, color=measure)) +     	# Note: 5
 #    
 
 # Note 2: 
-#   Calculate both 
-#   criteria for one to ten clusters. 
+#    
+#   Calculate both criteria for 1 to 10 
+#   clusters. 
+#    
 
 # Note 3: 
-#   Create a data frame 
-#   with the number of clusters, the CH criterion, and 
-#   the WSS criterion. We’ll scale both the CH and WSS 
-#   criteria to similar ranges so that we can plot 
-#   them both on the same graph. 
+#    
+#   Create a data frame with the number of 
+#   clusters, the CH criterion, and the WSS criterion. 
+#   We’ll scale both the CH and WSS criteria to 
+#   similar ranges so that we can plot them both on 
+#   the same graph. 
+#    
 
 # Note 4: 
 #    
@@ -37,5 +41,7 @@ ggplot(critframe, aes(x=k, y=score, color=measure)) +     	# Note: 5
 #    
 
 # Note 5: 
+#    
 #   Plot it. 
+#    
 
