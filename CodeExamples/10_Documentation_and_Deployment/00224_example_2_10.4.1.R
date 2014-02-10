@@ -15,7 +15,7 @@ rowAsForm <- function(url,row) { 	# Note: 1
    s
 }
 
-url <- 'http://127.0.0.1:11953/custom/modelFn' 	# Note: 2 
+url <- 'http://127.0.0.1:20714/custom/modelFn' 	# Note: 2 
 cat(rowAsForm(url,buzztest[7,]),file='buzztest7.html') 	# Note: 3 
 
 # Note 1: 
@@ -26,7 +26,9 @@ cat(rowAsForm(url,buzztest[7,]),file='buzztest7.html') 	# Note: 3
 
 # Note 2: 
 #   The URL we started the rook 
-#   HTTP server on 
+#   HTTP server on, you will have to copy the URL 
+#   address and port from what is printed when you started the 
+#   Rook service 
 
 # Note 3: 
 #   Write the form representing 

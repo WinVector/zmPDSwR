@@ -29,7 +29,7 @@ accuracyMeasures(predict(fmodel,
 
 # Note 3: 
 #   Call the randomForest() function to build the model 
-#   with explanitory variables as x and the category to be predicted as y. 
+#   with explanatory variables as x and the category to be predicted as y. 
 
 # Note 4: 
 #   Use 100 trees to be compatible with our bagging 

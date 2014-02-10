@@ -16,7 +16,7 @@ extractTrees <- function(rfModel) { 	# Note: 3
    do.call('rbind',sapply(1:nTrees,ei,simplify=F))
 }
 
-write.table(extractTrees(rFmodel), 	# Note: 4 
+write.table(extractTrees(fmodel), 	# Note: 4 
    file='rfmodel.tsv',row.names=F,sep='\t',quote=F)
 
 # Note 1: 

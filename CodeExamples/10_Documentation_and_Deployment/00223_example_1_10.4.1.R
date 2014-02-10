@@ -46,11 +46,11 @@ modelFn <- function(env) { 	# Note: 5
 s <- Rhttpd$new() 	# Note: 8 
 s$add(name="modelFn",app=modelFn) 	# Note: 9 
 s$start() 	# Note: 10 
-##starting httpd help server ... done
-##
-##Server started on host 127.0.0.1 and port 11953 . App urls are:
-##
-##      http://127.0.0.1:11953/custom/modelFn  	# Note: 11 
+print(s)
+## Server started on 127.0.0.1:20714
+## [1] modelFn http://127.0.0.1:20714/custom/modelFn 	# Note: 11 
+## 
+## Call browse() with an index number or name to run an application.
 
 # Note 1: 
 #   Load the rook HTTP server 

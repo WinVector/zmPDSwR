@@ -5,7 +5,26 @@
 <<dataprep,tidy=F,cache=T>>=
 infile <- "TomsHardware-Relative-Sigma-500.data.txt"
 paste('checked at',date())
-system(paste('shasum',infile),intern=T)  # calculate file hash
+system(paste('shasum',infile),intern=T) 	# Note: 1 
 buzzdata <- read.table(infile, header=F, sep=",")
 ...
+
+# Note 1: 
+#   The R system command 
+#   depends on a program named "shasum" being on your 
+#   execution path. You have to have a cryptographic 
+#   hash installed and you can supply a direct path  
+#   to the program if necessary. Common locations 
+#   for a cryptographic has include: 
+#   /usr/bin/shasum 
+#   /sbin/md5, and 
+#   fciv.exe. 
+#   Again this depends on your actual system configuration. 
+#   Also note we are using the cryptographic hash 
+#   to defend only against accident (using the wrong 
+#   version of a file or seeing a corrupted file) and 
+#   not to defend against true adversaries, so it is 
+#   okay to use a cryptographic hash that is convenient 
+#   even if it is becoming out of date. 
+#    
 
