@@ -1,10 +1,10 @@
 # example:5_3.2.2 
 # example:5 : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
 # Title: 
-                    Plotting distribution of healt.ins as a function of marital.stat 
+                    Specifying different styles of bar chart 
 
 
-                    Plotting distribution of healt.ins as a function of marital.stat
+                    Specifying different styles of bar chart
                     ggplot(custdata) + geom_bar(aes(x=marital.stat,
    fill=health.ins)) 	# Note: 1 
 

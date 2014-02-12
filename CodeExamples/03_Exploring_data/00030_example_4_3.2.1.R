@@ -1,10 +1,10 @@
 # example:4_3.2.1 
 # example:4 : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
 # Title: 
-                    Produce a horizontal bar chart 
+                    Producing a horizontal bar chart 
 
 
-                    Produce a horizontal bar chart
+                    Producing a horizontal bar chart
                     ggplot(custdata) +
    geom_bar(aes(x=state.of.res), fill="gray") +  	# Note: 1 
    coord_flip() + 	# Note: 2 

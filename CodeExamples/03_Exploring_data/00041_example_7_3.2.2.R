@@ -1,10 +1,10 @@
 # example:7_3.2.2 
 # example:7 : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
 # Title: 
-                    Plotting with facets 
+                    Plotting a bar chart with and without facets 
 
 
-                    Plotting with facets
+                    Plotting a bar chart with and without facets
                     ggplot(custdata2) +                                          	# Note: 1 
    geom_bar(aes(x=housing.type, fill=marital.stat ),
       position="dodge") +
