@@ -1,8 +1,11 @@
 # example:1_10.2.1 
 # example:1 : Documentation and deployment : Using knitr to produce milestone documentation : What is knitr? 
-# Title: knitr annotated Markdown 
+# Title: 
+                                        knitr annotated Markdown 
 
 
+                                        knitr annotated Markdown
+                                        
 # Simple knitr Markdown example 	# Note: 1 
 
 Two examples:

@@ -1,8 +1,11 @@
 # example:2_9.4.3 
 # example:2 : Exploring advanced methods : Using support vector machines to model complicated decision
             boundaries : Using SVMs on real data 
-# Title: Applying SVM to the SpamBase example 
+# Title: 
+                                        Applying SVM to the SpamBase example 
 
+
+                                        Applying SVM to the SpamBase example
 library('kernlab')
 spamFormulaV <- as.formula(paste('spam',
    paste(spamVars,collapse=' + '),sep=' ~ '))

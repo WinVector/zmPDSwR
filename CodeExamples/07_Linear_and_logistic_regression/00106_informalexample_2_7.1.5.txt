@@ -1,9 +1,9 @@
 # informalexample:2_7.1.5 
 # informalexample:2 : Linear and logistic regression : Using linear regression : Reading the model summary and characterizing coefficient
                                 quality 
-# Title: The residuals summary 
 
-Residuals:
+
+                                        Residuals:
      Min       1Q   Median       3Q      Max
 -1.29220 -0.14153  0.02458  0.17632  0.62532
 

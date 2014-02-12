@@ -1,8 +1,11 @@
 # example:1_A.2.2 
 # example:1 : Working with R and other tools : Starting with R : Primary R data types 
-# Title: Examples of R indexing operators 
+# Title: 
+                                        Examples of R indexing operators 
 
-> x <- list('a'=6,b='fred')
+
+                                        Examples of R indexing operators
+                                        > x <- list('a'=6,b='fred')
 > names(x)
 [1] "a" "b"
 > x$a

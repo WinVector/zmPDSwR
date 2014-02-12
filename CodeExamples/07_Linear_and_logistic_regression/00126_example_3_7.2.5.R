@@ -1,8 +1,11 @@
 # example:3_7.2.5 
 # example:3 : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
-# Title: Computing deviance 
+# Title: 
+                                                Computing deviance 
 
-loglikelihood <- function(y, py) {                                 	# Note: 1 
+
+                                                Computing deviance
+                                                loglikelihood <- function(y, py) {                                 	# Note: 1 
   sum(y * log(py) + (1-y)*log(1 - py))
 }
 

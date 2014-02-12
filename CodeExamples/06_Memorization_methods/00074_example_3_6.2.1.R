@@ -1,9 +1,13 @@
 # example:3_6.2.1 
 # example:3 : Memorization methods : Building single-variable models : Using categorical features 
-# Title: Function to build single-variable models for categorical
+# Title: 
+                                Function to build single-variable models for categorical
                                         variables 
 
-mkPredC <- function(outCol,varCol,appCol) { 	# Note: 1 
+
+                                Function to build single-variable models for categorical
+                                        variables
+                                mkPredC <- function(outCol,varCol,appCol) { 	# Note: 1 
    pPos <- sum(outCol==pos)/length(outCol) 	# Note: 2 
    naTab <- table(as.factor(outCol[is.na(varCol)]))
    pPosWna <- (naTab/sum(naTab))[pos] 	# Note: 3 

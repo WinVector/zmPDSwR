@@ -1,7 +1,10 @@
 # example:1_6.3.1 
 # example:1 : Memorization methods : Building models using many variables : Variable selection 
-# Title: Basic variable selection 
+# Title: 
+                                Basic variable selection 
 
+
+                                Basic variable selection
 logLikelyhood <- function(outCol,predCol) { 	# Note: 1 
   sum(ifelse(outCol==pos,log(predCol),log(1-predCol)))
 }

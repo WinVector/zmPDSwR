@@ -1,8 +1,11 @@
 # example:1_10.4.2 
 # example:1 : Documentation and deployment : Deploying models : Deploying models by export 
-# Title: Exporting the random forest model 
+# Title: 
+                                Exporting the random forest model 
 
-load('thRS500.Rdata') 	# Note: 1 
+
+                                Exporting the random forest model
+                                load('thRS500.Rdata') 	# Note: 1 
 library(randomForest) 	# Note: 2 
 
 extractTrees <- function(rfModel) { 	# Note: 3 

@@ -1,8 +1,11 @@
 # example:4_B.1.3 
 # example:4 : Some important statistical concepts : A few important distributions : The binomial distribution 
-# Title: Working with the binomial distribution 
+# Title: 
+                    Working with the binomial distribution 
 
-# pbinom example
+
+                    Working with the binomial distribution
+                    # pbinom example
 
 nflips = 100
 nheads = c(25, 45, 50, 60)  # number of heads

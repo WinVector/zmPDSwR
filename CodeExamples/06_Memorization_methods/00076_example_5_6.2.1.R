@@ -1,8 +1,11 @@
 # example:5_6.2.1 
 # example:5 : Memorization methods : Building single-variable models : Using categorical features 
-# Title: Scoring categorical variables by AUC 
+# Title: 
+                                Scoring categorical variables by AUC 
 
-library('ROCR')
+
+                                Scoring categorical variables by AUC
+                                library('ROCR')
 
 > calcAUC <- function(predcol,outcol) {
     perf <- performance(prediction(predcol,outcol==pos),'auc')

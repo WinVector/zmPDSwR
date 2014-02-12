@@ -1,6 +1,6 @@
 # informalexample:1_9.1.1 
 # informalexample:1 : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using bagging to improve prediction 
-# Title: Preparing SpamBase data, and evaluating the performance of decision trees 
+
 
          model  accuracy        f1  dev.norm
 tree, training 0.9104514 0.7809002 0.5618654

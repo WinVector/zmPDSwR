@@ -1,8 +1,11 @@
 # example:1_B.2.4 
 # example:1 : Some important statistical concepts : Statistical theory : Specialized statistical tests 
-# Title: Building synthetic uncorrelated income example 
+# Title: 
+                Building synthetic uncorrelated income example 
 
-set.seed(235236) 	# Note: 1 
+
+                Building synthetic uncorrelated income example
+                set.seed(235236) 	# Note: 1 
 d <- data.frame(EarnedIncome=100000*rlnorm(100),
                  CapitalGains=100000*rlnorm(100))  	# Note: 2 
 print(with(d,cor(EarnedIncome,CapitalGains)))

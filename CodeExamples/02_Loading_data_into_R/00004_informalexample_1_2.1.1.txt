@@ -1,6 +1,6 @@
 # informalexample:1_2.1.1 
 # informalexample:1 : Loading data into R : Working with data from files : Working with well-structured data from files or URLs 
-# Title: Car data viewed as a table 
+
 
 buying,maint,doors,persons,lug_boot,safety,rating 	# Note: 1 
 vhigh,vhigh,2,2,small,low,unacc 	# Note: 2 

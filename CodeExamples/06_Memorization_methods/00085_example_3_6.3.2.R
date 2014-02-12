@@ -1,8 +1,11 @@
 # example:3_6.3.2 
 # example:3 : Memorization methods : Building models using many variables : Using decision trees 
-# Title: Building yet another bad decision tree 
+# Title: 
+                                        Building yet another bad decision tree 
 
-> tmodel <- rpart(fV2,data=dTrain,
+
+                                        Building yet another bad decision tree
+                                        > tmodel <- rpart(fV2,data=dTrain,
    control=rpart.control(cp=0.001,minsplit=1000,
       minbucket=1000,maxdepth=5)
  )

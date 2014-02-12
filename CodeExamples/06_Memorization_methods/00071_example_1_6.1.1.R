@@ -1,8 +1,11 @@
 # example:1_6.1.1 
 # example:1 : Memorization methods : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
-# Title: Preparing the KDD data for analysis 
+# Title: 
+                                        Preparing the KDD data for analysis 
 
-d <- read.table('orange_small_train.data.gz',  	# Note: 1 
+
+                                        Preparing the KDD data for analysis
+                                        d <- read.table('orange_small_train.data.gz',  	# Note: 1 
    header=T,
    sep='\t',
    na.strings=c('NA','')) 	# Note: 2 

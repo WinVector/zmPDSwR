@@ -1,8 +1,11 @@
 # example:2_B.1.2 
 # example:2 : Some important statistical concepts : A few important distributions : The lognormal distribution 
-# Title: Plotting the lognormal distribution 
+# Title: 
+                    Plotting the lognormal distribution 
 
-# the 50th percentile (or median) of the lognormal with
+
+                    Plotting the lognormal distribution
+                    # the 50th percentile (or median) of the lognormal with
 # meanlog=0 and sdlog=10
 qlnorm(0.5)
 # [1] 1

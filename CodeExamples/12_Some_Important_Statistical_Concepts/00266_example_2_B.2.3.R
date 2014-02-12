@@ -3,7 +3,8 @@
 # Title: Exact binomial sample size
                 calculation 
 
-errorProb <- function(targetRate,difference,size) { 	# Note: 1 
+Exact binomial sample size
+                calculation errorProb <- function(targetRate,difference,size) { 	# Note: 1 
    pbinom(ceiling((targetRate-difference)*size),
       size=size,prob=targetRate) 
 }

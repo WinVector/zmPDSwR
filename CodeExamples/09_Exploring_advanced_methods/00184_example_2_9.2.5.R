@@ -1,8 +1,11 @@
 # example:2_9.2.5 
 # example:2 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
             relationships : Using GAM for logistic regression 
-# Title: GAM logistic regression 
+# Title: 
+                                GAM logistic regression 
 
+
+                                GAM logistic regression
 > form2 <- as.formula("DBWT<2000~s(PWGT)+s(WTGAIN)+
                                               s(MAGER)+s(UPREVIS)")
 > glogmod <- gam(form2, data=train, family=binomial(link="logit"))

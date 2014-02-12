@@ -1,8 +1,11 @@
 # example:3_A.3.4 
 # example:3 : Working with R and other tools : Using databases with R : An example SQL data transformation task 
-# Title: Using melt to restructure data 
+# Title: 
+                                        Using melt to restructure data 
 
-library('reshape2')
+
+                                        Using melt to restructure data
+                                        library('reshape2')
 bthin <- melt(bookings,id.vars=c('date'),
    variable.name='daysBefore',value.name='bookings') 	# Note: 1 
 pthin <- melt(prices,id.vars=c('date'),

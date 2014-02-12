@@ -1,8 +1,11 @@
 # example:1_9.2.4 
 # example:1 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
             relationships : Using GAM on actual data 
-# Title: Applying linear regression (with and without GAM) to health data 
+# Title: 
+                                Applying linear regression (with and without GAM) to health data 
 
+
+                                Applying linear regression (with and without GAM) to health data
 > library(mgcv)
 > library(ggplot2)
 > load("NatalBirthData.rData")

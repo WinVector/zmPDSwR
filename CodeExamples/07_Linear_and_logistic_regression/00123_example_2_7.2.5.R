@@ -1,8 +1,11 @@
 # example:2_7.2.5 
 # example:2 : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
-# Title: Calculating deviance residuals 
+# Title: 
+                                        Calculating deviance residuals 
 
-pred <- predict(model, newdata=train, type="response") 	# Note: 1 
+
+                                        Calculating deviance residuals
+                                        pred <- predict(model, newdata=train, type="response") 	# Note: 1 
 llcomponents <- function(y, py) {                      	# Note: 2 
   y*log(py) + (1-y)*log(1-py)
 }

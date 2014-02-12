@@ -1,8 +1,11 @@
 # example:4_10.2.3 
 # example:4 : Documentation and deployment : Using knitr to produce milestone documentation : Using knitr to document the buzz data 
-# Title: Conditional saving a file 
+# Title: 
+                                        Conditional saving a file 
 
-Save prepared R environment.
+
+                                        Conditional saving a file
+                                        Save prepared R environment.
 % Another way to conditionally save, check for file.
 % message=F is letting message() calls get routed to console instead
 % of the document.

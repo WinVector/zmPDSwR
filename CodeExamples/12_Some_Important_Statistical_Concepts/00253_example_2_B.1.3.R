@@ -1,8 +1,11 @@
 # example:2_B.1.3 
 # example:2 : Some important statistical concepts : A few important distributions : The binomial distribution 
-# Title: Working with the theoretical binomial distribution 
+# Title: 
+                    Working with the theoretical binomial distribution 
 
-p = 0.5 # the percentage of females in this student population
+
+                    Working with the theoretical binomial distribution
+                    p = 0.5 # the percentage of females in this student population
 class.size = 20 # size of a classroom
 numclasses = 100 # how many classrooms we observe
 

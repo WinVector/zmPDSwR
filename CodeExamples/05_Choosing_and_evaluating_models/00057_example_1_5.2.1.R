@@ -1,8 +1,11 @@
 # example:1_5.2.1 
 # example:1 : Choosing and evaluating models : Evaluating models : Evaluating classification models 
-# Title: Building and applying a logistic regression spam model 
+# Title: 
+                                Building and applying a logistic regression spam model 
 
-spamD <- read.table('spamD.tsv',header=T,sep='\t')
+
+                                Building and applying a logistic regression spam model
+                                spamD <- read.table('spamD.tsv',header=T,sep='\t')
 spamTrain <- subset(spamD,spamD$rgroup>=10)
 spamTest <- subset(spamD,spamD$rgroup<10)
 spamVars <- setdiff(colnames(spamD),list('rgroup','spam'))

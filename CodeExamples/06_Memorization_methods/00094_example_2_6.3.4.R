@@ -1,8 +1,11 @@
 # example:2_6.3.4 
 # example:2 : Memorization methods : Building models using many variables : Using Naive Bayes 
-# Title: Using a Naive Bayes package 
+# Title: 
+                                Using a Naive Bayes package 
 
-> library('e1071')
+
+                                Using a Naive Bayes package
+                                > library('e1071')
 > ff <- paste('as.factor(',outcome,'>0) ~ ',
    paste(lVars,collapse=' + '),sep='')
 > nbmodel <- naiveBayes(as.formula(ff),data=dTrain)

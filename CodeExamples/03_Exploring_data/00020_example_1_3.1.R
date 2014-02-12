@@ -1,9 +1,11 @@
 # example:1_3.1 
 # example:1 : Exploring data : Using summary statistics to spot problems 
-# Title: The summary()
+# Title:  The summary()
             command 
 
-> summary(custdata)
+ The summary()
+            command
+            > summary(custdata)
 custid        sex
 Min.   :   2068   F:440
 1st Qu.: 345667   M:560

@@ -1,8 +1,11 @@
 # example:5_7.2.5 
 # example:5 : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
-# Title: Calculating the pseudo R-squared 
+# Title: 
+                                                Calculating the pseudo R-squared 
 
-pr2 <- 1-(resid.dev/null.dev)
+
+                                                Calculating the pseudo R-squared
+                                                pr2 <- 1-(resid.dev/null.dev)
 
 > print(pr2)
 [1] 0.08734674

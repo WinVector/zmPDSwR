@@ -1,8 +1,11 @@
 # example:1_5.2.2 
 # example:1 : Choosing and evaluating models : Evaluating models : Evaluating scoring models 
-# Title: Plotting residuals 
+# Title: 
+                                Plotting residuals 
 
-d <- data.frame(y=(1:10)^2,x=1:10)
+
+                                Plotting residuals
+                                d <- data.frame(y=(1:10)^2,x=1:10)
 model <- lm(y~x,data=d)
 d$prediction <- predict(model,newdata=d)
 library('ggplot2')

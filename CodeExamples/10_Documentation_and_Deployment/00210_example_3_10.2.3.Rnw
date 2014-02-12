@@ -1,8 +1,11 @@
 # example:3_10.2.3 
 # example:3 : Documentation and deployment : Using knitr to produce milestone documentation : Using knitr to document the buzz data 
-# Title: Calculating model performance 
+# Title: 
+                                        Calculating model performance 
 
-rtest <- data.frame(truth=buzztest$buzz,
+
+                                        Calculating model performance
+                                        rtest <- data.frame(truth=buzztest$buzz,
   pred=predict(fmodel, newdata=buzztest))
 print(accuracyMeasures(rtest$pred, rtest$truth))
 ## [1] "precision= 0.809782608695652 ; recall= 0.84180790960452"

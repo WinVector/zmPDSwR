@@ -1,7 +1,10 @@
 # example:4_A.3.4 
 # example:4 : Working with R and other tools : Using databases with R : An example SQL data transformation task 
-# Title: Assembling many rows using SQL 
+# Title: 
+                                        Assembling many rows using SQL 
 
+
+                                        Assembling many rows using SQL
 options(gsubfn.engine = "R") 	# Note: 1 
 library('sqldf')
 joined <- sqldf(' 	# Note: 2 

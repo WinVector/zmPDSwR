@@ -1,8 +1,11 @@
 # example:3_2.2.1 
 # example:3 : Loading data into R : Working with relational databases : A production-size example 
-# Title: Loading data with SQL Screwdriver 
+# Title: 
+                                        Loading data with SQL Screwdriver 
 
-java -classpath SQLScrewdriver.jar:h2-1.3.170.jar \ 	# Note: 1 
+
+                                        Loading data with SQL Screwdriver
+                                        java -classpath SQLScrewdriver.jar:h2-1.3.170.jar \ 	# Note: 1 
    com.winvector.db.LoadFiles \ 	# Note: 2 
    file:dbDef.xml \ 	# Note: 3 
    , \ 	# Note: 4 

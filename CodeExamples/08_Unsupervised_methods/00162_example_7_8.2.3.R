@@ -1,8 +1,11 @@
 # example:7_8.2.3 
 # example:7 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Finding rules with restrictions 
+# Title: 
+                                    Finding rules with restrictions 
 
-brules <- apriori(bookbaskets_use,
+
+                                    Finding rules with restrictions
+                                        brules <- apriori(bookbaskets_use,
                 parameter =list(support = 0.001,    	# Note: 1 
                                 confidence=0.6),
                 appearance=list(rhs=c("The Lovely Bones: A Novel"),  	# Note: 2 

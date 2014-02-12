@@ -1,8 +1,11 @@
 # example:1_9.3.1 
 # example:1 : Exploring advanced methods : Using kernel methods to increase data separation : Understanding kernel functions 
-# Title: An artificial kernel example 
+# Title: 
+                    An artificial kernel example 
 
-> u <- c(1,2)
+
+                    An artificial kernel example
+                    > u <- c(1,2)
 > v <- c(3,4)
 > k <- function(u,v) { 	# Note: 1 
      u[1]*v[1] + u[2]*v[2] +

@@ -1,9 +1,8 @@
 # informalexample:1_10.3.3 
 # informalexample:1 : Documentation and deployment : Using comments and version control for running documentation : Using version control to explore your project 
-# Title: Using git log to find the last time a file was
-                                        around 
 
-$ git log --name-status -- README.txt
+
+                                        $ git log --name-status -- README.txt
 
 commit 2541bb0b9a2173eb1d471e11d4aca3b690a011ef
 Author: Marius Butuc <marius.butuc@gmail.com>

@@ -1,8 +1,11 @@
 # example:9_8.2.3 
 # example:9 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Inspecting rules with restrictions 
+# Title: 
+                                    Inspecting rules with restrictions 
 
-brulesSub <- subset(brules, subset=!(lhs %in% "Lucky : A Memoir"))  	# Note: 1 
+
+                                    Inspecting rules with restrictions
+                                        brulesSub <- subset(brules, subset=!(lhs %in% "Lucky : A Memoir"))  	# Note: 1 
 brulesConf <- sort(brulesSub, by="confidence")
 
 > inspect(head(lhs(brulesConf), n=5))

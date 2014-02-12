@@ -1,8 +1,11 @@
 # example:3_B.2.2 
 # example:3 : Some important statistical concepts : Statistical theory : A/B tests 
-# Title: Calculating the observed A and B rates 
+# Title: 
+                    Calculating the observed A and B rates 
 
-aConversionRate <- tab['A','1']/sum(tab['A',])
+
+                    Calculating the observed A and B rates
+                    aConversionRate <- tab['A','1']/sum(tab['A',])
 print(aConversionRate)
 ## [1] 0.05021
 bConversionRate <- tab['B','1']/sum(tab['B',])

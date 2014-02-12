@@ -1,8 +1,11 @@
 # example:2_8.1.2 
 # example:2 : Unsupervised methods : Cluster analysis : Preparing the data 
-# Title: Rescaling the dataset 
+# Title: 
+                                    Rescaling the dataset 
 
-vars.to.use <- colnames(protein)[-1]       	# Note: 1 
+
+                                    Rescaling the dataset
+                                        vars.to.use <- colnames(protein)[-1]       	# Note: 1 
 pmatrix <- scale(protein[,vars.to.use])    	# Note: 2 
 pcenter <- attr(pmatrix, "scaled:center")  	# Note: 3 
 pscale <- attr(pmatrix, "scaled:scale")

@@ -1,7 +1,7 @@
 # informalexample:2_9.4.1 
 # informalexample:2 : Exploring advanced methods : Using support vector machines to model complicated decision
             boundaries : Understanding support vector machines 
-# Title: Notional illustration of SVM. 
 
-w %*% phi(x) + b >= u
+
+                                w %*% phi(x) + b >= u
 

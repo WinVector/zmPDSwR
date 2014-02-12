@@ -1,8 +1,11 @@
 # example:4_2.1.2 
 # example:4 : Loading data into R : Working with data from files : Using R on less-structured data 
-# Title: Transforming the car data 
+# Title: 
+                                        Transforming the car data 
 
-for(i in 1:(dim(d))[2]) {             	# Note: 1 
+
+                                        Transforming the car data
+                                        for(i in 1:(dim(d))[2]) {             	# Note: 1 
    if(class(d[,i])=='character') {
       d[,i] <- as.factor(as.character(mapping[d[,i]]))  	# Note: 2 
    }

@@ -1,8 +1,11 @@
 # example:3_B.1.1 
 # example:3 : Some important statistical concepts : A few important distributions : The normal distribution 
-# Title: Working with the normal CDF 
+# Title: 
+                    Working with the normal CDF 
 
-# --- estimate probabilities (areas) under the curve ---
+
+                    Working with the normal CDF
+                    # --- estimate probabilities (areas) under the curve ---
 
 # 50% of the observations will be less than the mean
 pnorm(0)

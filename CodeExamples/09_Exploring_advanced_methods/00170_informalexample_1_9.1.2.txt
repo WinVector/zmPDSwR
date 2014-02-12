@@ -1,6 +1,6 @@
 # informalexample:1_9.1.2 
 # informalexample:1 : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using random forests to further improve prediction 
-# Title: Using random forests 
+
 
 # Performance on the training set
         model  accuracy        f1  dev.norm

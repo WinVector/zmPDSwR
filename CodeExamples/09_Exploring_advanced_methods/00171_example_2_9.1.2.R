@@ -1,7 +1,10 @@
 # example:2_9.1.2 
 # example:2 : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using random forests to further improve prediction 
-# Title: randomForest variable importances 
+# Title: 
+                                        randomForest variable importances 
 
+
+                                        randomForest variable importances
 > varImp <- importance(fmodel)              	# Note: 1 
 
 > varImp[1:10, ]                           	# Note: 2 

@@ -2,7 +2,8 @@
 # example:1 : Loading data into R : Working with relational databases : A production-size example 
 # Title: PUMS data provenance documentation 
 
-3-12-2013
+PUMS data provenance documentation
+                                        3-12-2013
 PUMS Data set from:
   http://www.census.gov/acs/www/data_documentation/pums_data/ 	# Note: 1 
   select "2011 ACS 1-year PUMS"  	# Note: 2 

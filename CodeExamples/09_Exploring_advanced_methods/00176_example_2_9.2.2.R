@@ -1,8 +1,11 @@
 # example:2_9.2.2 
 # example:2 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
             relationships : A one-dimensional regression example 
-# Title: Linear regression applied to our artificial example 
+# Title: 
+                                Linear regression applied to our artificial example 
 
+
+                                Linear regression applied to our artificial example
 > lin.model <- lm(y ~ x, data=train)
 > summary(lin.model)
 Call:

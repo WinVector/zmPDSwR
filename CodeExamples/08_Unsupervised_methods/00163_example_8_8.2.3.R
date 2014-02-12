@@ -1,8 +1,11 @@
 # example:8_8.2.3 
 # example:8 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Inspecting rules 
+# Title: 
+                                    Inspecting rules 
 
-brulesConf <- sort(brules, by="confidence")  	# Note: 1 
+
+                                    Inspecting rules
+                                        brulesConf <- sort(brules, by="confidence")  	# Note: 1 
 
 > inspect(head(lhs(brulesConf), n=5))      	# Note: 2 
   items

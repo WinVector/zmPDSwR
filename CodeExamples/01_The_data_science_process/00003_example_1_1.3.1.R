@@ -1,8 +1,11 @@
 # example:1_1.3.1 
 # example:1 : The data science process : Setting expectations : Determining lower and upper bounds on model performance 
-# Title: Plotting the relation between disposable income and loan outcome 
+# Title: 
+                                        Plotting the relation between disposable income and loan outcome 
 
-> tab1
+
+                                        Plotting the relation between disposable income and loan outcome
+                                        > tab1
                              loan.quality.pop1 	# Note: 1 
 loan.as.pct.disposable.income goodloan badloan
                      LT.15pct       50       0

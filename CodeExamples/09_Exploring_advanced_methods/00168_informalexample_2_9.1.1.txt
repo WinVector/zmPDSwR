@@ -1,6 +1,6 @@
 # informalexample:2_9.1.1 
 # informalexample:2 : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using bagging to improve prediction 
-# Title: Bagging decision trees 
+
 
             model  accuracy        f1  dev.norm
 bagging, training 0.9220372 0.8072953 0.4702707

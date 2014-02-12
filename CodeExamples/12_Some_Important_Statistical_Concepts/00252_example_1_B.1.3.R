@@ -1,8 +1,11 @@
 # example:1_B.1.3 
 # example:1 : Some important statistical concepts : A few important distributions : The binomial distribution 
-# Title: Plotting the binomial distribution 
+# Title: 
+                    Plotting the binomial distribution 
 
-library(ggplot2)
+
+                    Plotting the binomial distribution
+                    library(ggplot2)
 #
 # use dbinom to produce the theoretical curves
 #

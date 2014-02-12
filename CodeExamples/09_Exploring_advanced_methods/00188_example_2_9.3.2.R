@@ -1,8 +1,11 @@
 # example:2_9.3.2 
 # example:2 : Exploring advanced methods : Using kernel methods to increase data separation : Using an explicit kernel on a problem 
-# Title: Applying an example explicit kernel transform 
+# Title: 
+                    Applying an example explicit kernel transform 
 
-phi <- function(x) { 	# Note: 1 
+
+                    Applying an example explicit kernel transform
+                    phi <- function(x) { 	# Note: 1 
      x <- as.numeric(x)
      c(x,x*x,combn(x,2,FUN=prod))
   }

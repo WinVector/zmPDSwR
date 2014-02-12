@@ -1,8 +1,11 @@
 # example:4_5.2.5 
 # example:4 : Choosing and evaluating models : Evaluating models : Evaluating clustering models 
-# Title: Calculating the typical distance between items in every pair of clusters 
+# Title: 
+                                        Calculating the typical distance between items in every pair of clusters 
 
-> library('reshape2')
+
+                                        Calculating the typical distance between items in every pair of clusters
+                                        > library('reshape2')
 > n <- dim(d)[[1]]
 > pairs <- data.frame(
    ca = as.vector(outer(1:n,1:n,function(a,b) d[a,'cluster'])),

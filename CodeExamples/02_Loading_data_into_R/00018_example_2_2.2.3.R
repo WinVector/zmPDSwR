@@ -2,7 +2,8 @@
 # example:2 : Loading data into R : Working with relational databases : Working with the PUMS data 
 # Title: Recoding variables 
 
-psub$SEX = as.factor(ifelse(psub$SEX==1,'M','F')) 	# Note: 1 
+Recoding variables
+                                        psub$SEX = as.factor(ifelse(psub$SEX==1,'M','F')) 	# Note: 1 
 psub$SEX = relevel(psub$SEX,'M') 	# Note: 2 
 cowmap <- c("Employee of a private for-profit",
    "Private not-for-profit employee",

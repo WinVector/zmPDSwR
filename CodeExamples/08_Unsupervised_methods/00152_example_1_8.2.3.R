@@ -1,8 +1,11 @@
 # example:1_8.2.3 
 # example:1 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Reading in the book data 
+# Title: 
+                                    Reading in the book data 
 
-library(arules)  	# Note: 1 
+
+                                    Reading in the book data
+                                        library(arules)  	# Note: 1 
 bookbaskets <- read.transactions("bookdata.tsv.gz", format="single",  	# Note: 2 
                                  sep="\t",                    	# Note: 3 
                                  cols=c("userid", "title"),    	# Note: 4 

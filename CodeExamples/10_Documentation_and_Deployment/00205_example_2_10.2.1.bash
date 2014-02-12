@@ -1,7 +1,10 @@
 # example:2_10.2.1 
 # example:2 : Documentation and deployment : Using knitr to produce milestone documentation : What is knitr? 
-# Title: Running knitr 
+# Title: 
+                                        Running knitr 
 
-library(knitr)
+
+                                        Running knitr
+                                        library(knitr)
 knit('simple.Rmd')
 

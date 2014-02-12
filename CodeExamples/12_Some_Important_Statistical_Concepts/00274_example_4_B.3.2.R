@@ -1,8 +1,9 @@
 # example:4_B.3.2 
 # example:4 : Some important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
-# Title: A better model 
+# Title:  A better model 
 
-print(summary(glm(data=s,
+ A better model
+                    print(summary(glm(data=s,
    FractionHumanAbsorption~week+log(Caco2A2BPapp),
    family=binomial(link='logit'))))
 ## Warning: non-integer #successes in a binomial glm!

@@ -1,8 +1,11 @@
 # example:4_7.2.3 
 # example:4 : Linear and logistic regression : Using logistic regression : Making predictions 
-# Title: Evaluating our chosen model 
+# Title: 
+                                        Evaluating our chosen model 
 
-> ctab.test <- table(pred=test$pred>0.02, atRisk=test$atRisk) 	# Note: 1 
+
+                                        Evaluating our chosen model
+                                        > ctab.test <- table(pred=test$pred>0.02, atRisk=test$atRisk) 	# Note: 1 
 > ctab.test                                                      	# Note: 2 
        atRisk
 pred    FALSE TRUE

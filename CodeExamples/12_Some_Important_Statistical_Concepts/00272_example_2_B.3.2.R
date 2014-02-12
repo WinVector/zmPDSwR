@@ -1,8 +1,11 @@
 # example:2_B.3.2 
 # example:2 : Some important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
-# Title: Building data that improves over time 
+# Title: 
+                    Building data that improves over time 
 
-set.seed(2535251)
+
+                    Building data that improves over time
+                    set.seed(2535251)
 s <- data.frame(week=1:100)
 s$Caco2A2BPapp <- sort(sample(d$Caco2A2BPapp,100,replace=T),
    decreasing=T)

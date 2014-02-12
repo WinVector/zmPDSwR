@@ -1,8 +1,11 @@
 # example:1_8.1.5 
 # example:1 : Unsupervised methods : Cluster analysis : Assigning new points to clusters 
-# Title: A function to assign points to a cluster 
+# Title: 
+                            A function to assign points to a cluster 
 
-assign_cluster <- function(newpt, centers, xcenter=0, xscale=1) { 	# Note: 1 
+
+                            A function to assign points to a cluster
+                                assign_cluster <- function(newpt, centers, xcenter=0, xscale=1) { 	# Note: 1 
    xpt <- (newpt - xcenter)/xscale                                	# Note: 2 
    dists <- apply(centers, 1, FUN=function(c0){sqr_edist(c0, xpt)})  	# Note: 3 
    which.min(dists)                                                 	# Note: 4 

@@ -1,8 +1,11 @@
 # example:1_2.2.2 
 # example:1 : Loading data into R : Working with relational databases : Loading data from a database into R 
-# Title: Loading data into R from a relational database 
+# Title: 
+                                Loading data into R from a relational database 
 
-options( java.parameters = "-Xmx2g" )  	# Note: 1 
+
+                                Loading data into R from a relational database
+                                options( java.parameters = "-Xmx2g" )  	# Note: 1 
 library(RJDBC)
 drv <- JDBC("org.h2.Driver", 	# Note: 2 
    "h2-1.3.170.jar", 	# Note: 3 

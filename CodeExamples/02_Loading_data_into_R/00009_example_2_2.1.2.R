@@ -1,8 +1,11 @@
 # example:2_2.1.2 
 # example:2 : Loading data into R : Working with data from files : Using R on less-structured data 
-# Title: Setting column names 
+# Title: 
+                                        Setting column names 
 
-colnames(d) <- c('Status.of.existing.checking.account',
+
+                                        Setting column names
+                                        colnames(d) <- c('Status.of.existing.checking.account',
    'Duration.in.month',  'Credit.history', 'Purpose',
    'Credit.amount', 'Savings account/bonds',
    'Present.employment.since',

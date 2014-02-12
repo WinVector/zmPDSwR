@@ -1,8 +1,11 @@
 # example:3_10.2.1 
 # example:3 : Documentation and deployment : Using knitr to produce milestone documentation : What is knitr? 
-# Title: knitr Latex example 
+# Title: 
+                                        knitr Latex example 
 
-\documentclass{article} 	# Note: 1 
+
+                                        knitr Latex example
+                                        \documentclass{article} 	# Note: 1 
 \begin{document} 	# Note: 2 
 <<nameofblock>>= 	# Note: 3 
 1+2 	# Note: 4 

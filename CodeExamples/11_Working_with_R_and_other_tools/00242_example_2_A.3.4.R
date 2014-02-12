@@ -1,8 +1,11 @@
 # example:2_A.3.4 
 # example:2 : Working with R and other tools : Using databases with R : An example SQL data transformation task 
-# Title: The hotel reservation and price data 
+# Title: 
+                                        The hotel reservation and price data 
 
-> print(bookings)
+
+                                        The hotel reservation and price data
+                                        > print(bookings)
         date day.of.stay X1.before X2.before X3.before
 1 2009-06-30         105        98        95        96
 2 2009-07-01         103       100        98        95

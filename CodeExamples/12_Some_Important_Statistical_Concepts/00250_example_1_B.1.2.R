@@ -1,8 +1,11 @@
 # example:1_B.1.2 
 # example:1 : Some important statistical concepts : A few important distributions : The lognormal distribution 
-# Title: Demonstrating some properties of the lognormal distribution 
+# Title: 
+                    Demonstrating some properties of the lognormal distribution 
 
-# draw 1001 samples from a lognormal with meanlog 0, sdlog 1
+
+                    Demonstrating some properties of the lognormal distribution
+                    # draw 1001 samples from a lognormal with meanlog 0, sdlog 1
 u = rlnorm(1001)
 
 # the mean of u is higher than the median

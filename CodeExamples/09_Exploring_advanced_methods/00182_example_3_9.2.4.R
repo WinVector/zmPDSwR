@@ -1,8 +1,11 @@
 # example:3_9.2.4 
 # example:3 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
             relationships : Using GAM on actual data 
-# Title: Checking GAM model performance on hold-out data 
+# Title: 
+                                Checking GAM model performance on hold-out data 
 
+
+                                Checking GAM model performance on hold-out data
 pred.lin <- predict(linmodel, newdata=test)  	# Note: 1 
 pred.glin <- predict(glinmodel, newdata=test)
 

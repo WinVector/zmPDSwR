@@ -1,8 +1,11 @@
 # example:1_6.2.2 
 # example:1 : Memorization methods : Building single-variable models : Using numeric features 
-# Title: Scoring numeric variables by AUC 
+# Title: 
+                                Scoring numeric variables by AUC 
 
-> mkPredN <- function(outCol,varCol,appCol) {
+
+                                Scoring numeric variables by AUC
+                                > mkPredN <- function(outCol,varCol,appCol) {
    cuts <- unique(as.numeric(quantile(varCol,
       probs=seq(0, 1, 0.1),na.rm=T)))
    varC <- cut(varCol,cuts)

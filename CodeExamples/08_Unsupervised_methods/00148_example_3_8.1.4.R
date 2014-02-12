@@ -1,8 +1,11 @@
 # example:3_8.1.4 
 # example:3 : Unsupervised methods : Cluster analysis : The k-means algorithm 
-# Title: Running clusterboot() with k-means 
+# Title: 
+                                    Running clusterboot() with k-means 
 
-kbest.p<-5
+
+                                    Running clusterboot() with k-means
+                                        kbest.p<-5
 cboot<-clusterboot(pmatrix, clustermethod=kmeansCBI,
             runs=100,iter.max=100,
             krange=kbest.p, seed=15555)               	# Note: 1 

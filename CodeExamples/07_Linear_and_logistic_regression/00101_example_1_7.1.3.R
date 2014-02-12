@@ -1,8 +1,11 @@
 # example:1_7.1.3 
 # example:1 : Linear and logistic regression : Using linear regression : Making predictions 
-# Title: Plotting log income as a function of predicted log income 
+# Title: 
+                                        Plotting log income as a function of predicted log income 
 
-ggplot(data=dtest,aes(x=predLogPINCP,y=log(PINCP,base=10))) +
+
+                                        Plotting log income as a function of predicted log income
+                                        ggplot(data=dtest,aes(x=predLogPINCP,y=log(PINCP,base=10))) +
    geom_point(alpha=0.2,color="black") +
    geom_smooth(aes(x=predLogPINCP,
       y=log(PINCP,base=10)),color="black") +

@@ -1,8 +1,11 @@
 # example:4_B.2.2 
 # example:4 : Some important statistical concepts : Statistical theory : A/B tests 
-# Title: Calculating the significance of the observed difference in rates 
+# Title: 
+                        Calculating the significance of the observed difference in rates 
 
-fisher.test(tab)
+
+                        Calculating the significance of the observed difference in rates
+                        fisher.test(tab)
 
 	Fisher's Exact Test for Count Data
 

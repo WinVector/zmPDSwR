@@ -1,8 +1,11 @@
 # example:5_B.1.3 
 # example:5 : Some important statistical concepts : A few important distributions : The binomial distribution 
-# Title: Working with the binomial CDF 
+# Title: 
+                    Working with the binomial CDF 
 
-# because this is a discrete probability distribution, 
+
+                    Working with the binomial CDF
+                    # because this is a discrete probability distribution, 
 # pbinom and qbinom are not exact inverses of each other
 
 # this direction works

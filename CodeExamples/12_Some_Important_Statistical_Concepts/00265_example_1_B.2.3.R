@@ -1,8 +1,9 @@
 # example:1_B.2.3 
 # example:1 : Some important statistical concepts : Statistical theory : Power of tests 
-# Title: Sample size estimate 
+# Title:  Sample size estimate 
 
-estimate <- function(targetRate,difference,errorProb) {
+ Sample size estimate
+                estimate <- function(targetRate,difference,errorProb) {
     ceiling(-log(errorProb)*targetRate/(difference^2))
 }
 

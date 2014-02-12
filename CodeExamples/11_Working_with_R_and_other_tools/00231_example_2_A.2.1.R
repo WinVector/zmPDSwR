@@ -1,8 +1,11 @@
 # example:2_A.2.1 
 # example:2 : Working with R and other tools : Starting with R : Primary features of R 
-# Title: Demonstrating side effects 
+# Title: 
+                                        Demonstrating side effects 
 
-> x<-1
+
+                                        Demonstrating side effects
+                                        > x<-1
 > good <- function() { x <- 5}
 > good()
 > print(x)

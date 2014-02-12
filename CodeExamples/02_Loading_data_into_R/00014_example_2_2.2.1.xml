@@ -1,8 +1,11 @@
 # example:2_2.2.1 
 # example:2 : Loading data into R : Working with relational databases : A production-size example 
-# Title: SQL Screwdriver XML configuration file 
+# Title: 
+                                        SQL Screwdriver XML configuration file 
 
-<?xml version="1.0" encoding="UTF-8"?>
+
+                                        SQL Screwdriver XML configuration file
+                                        <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
    <comment>testdb</comment>

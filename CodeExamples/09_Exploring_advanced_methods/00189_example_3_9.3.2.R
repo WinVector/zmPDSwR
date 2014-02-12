@@ -1,8 +1,11 @@
 # example:3_9.3.2 
 # example:3 : Exploring advanced methods : Using kernel methods to increase data separation : Using an explicit kernel on a problem 
-# Title: Modeling using the explicit kernel transform 
+# Title: 
+                    Modeling using the explicit kernel transform 
 
-formulaStr2 <- paste('log(PINCP,base=10)',
+
+                    Modeling using the explicit kernel transform
+                    formulaStr2 <- paste('log(PINCP,base=10)',
    paste(vars,collapse=' + '),
    sep=' ~ ')
 m2 <- lm(as.formula(formulaStr2),data=pMtrain)

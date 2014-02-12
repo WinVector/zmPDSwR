@@ -1,8 +1,11 @@
 # example:4_8.2.3 
 # example:4 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Finding the ten most frequent books 
+# Title: 
+                                    Finding the ten most frequent books 
 
-> bookCount <- (bookFreq/sum(bookFreq))*sum(basketSizes)     	# Note: 1 
+
+                                    Finding the ten most frequent books
+                                        > bookCount <- (bookFreq/sum(bookFreq))*sum(basketSizes)     	# Note: 1 
 > summary(bookCount)
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
    1.000    1.000    1.000    4.637    3.000 2502.000

@@ -1,8 +1,11 @@
 # example:3_10.3.2 
 # example:3 : Documentation and deployment : Using comments and version control for running documentation : Using version control to record history 
-# Title: Checking your project history 
+# Title: 
+                                        Checking your project history 
 
-commit c02839e0b34172f54fd68201f64895295b9d7609
+
+                                        Checking your project history
+                                        commit c02839e0b34172f54fd68201f64895295b9d7609
 Author: John Mount <jmount@win-vector.com>
 Date:   Sat Nov 9 13:28:30 2013 -0800
 

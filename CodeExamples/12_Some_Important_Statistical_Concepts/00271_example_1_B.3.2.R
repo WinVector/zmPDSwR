@@ -1,8 +1,11 @@
 # example:1_B.3.2 
 # example:1 : Some important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
-# Title: Summarizing our synthetic biological data 
+# Title: 
+                    Summarizing our synthetic biological data 
 
-> load('synth.RData')
+
+                    Summarizing our synthetic biological data
+                    > load('synth.RData')
 > print(summary(s))
       week         Caco2A2BPapp       FractionHumanAbsorption
  Min.   :  1.00   Min.   :6.994e-08   Min.   :0.09347        

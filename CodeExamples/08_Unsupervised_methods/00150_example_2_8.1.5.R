@@ -1,8 +1,11 @@
 # example:2_8.1.5 
 # example:2 : Unsupervised methods : Cluster analysis : Assigning new points to clusters 
-# Title: An example of assigning points to cluster 
+# Title: 
+                            An example of assigning points to cluster 
 
-rnorm.multidim <- function(n, mean, sd, colstr="x") {    	# Note: 1 
+
+                            An example of assigning points to cluster
+                                rnorm.multidim <- function(n, mean, sd, colstr="x") {    	# Note: 1 
    ndim <- length(mean)
    data <- NULL
    for(i in 1:ndim) {

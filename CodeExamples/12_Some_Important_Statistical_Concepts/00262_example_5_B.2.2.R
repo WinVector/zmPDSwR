@@ -1,8 +1,11 @@
 # example:5_B.2.2 
 # example:5 : Some important statistical concepts : Statistical theory : A/B tests 
-# Title: Computing frequentist significance 
+# Title: 
+                        Computing frequentist significance 
 
-print(pbinom( 	# Note: 1 
+
+                        Computing frequentist significance
+                        print(pbinom( 	# Note: 1 
    lower.tail=F, 	# Note: 2 
    q=tab['B','1']-1, 	# Note: 3 
    size=sum(tab['B',]), 	# Note: 4 

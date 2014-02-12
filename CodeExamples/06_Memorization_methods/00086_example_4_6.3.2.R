@@ -1,8 +1,11 @@
 # example:4_6.3.2 
 # example:4 : Memorization methods : Building models using many variables : Using decision trees 
-# Title: Building a better decision tree 
+# Title: 
+                                        Building a better decision tree 
 
-f <- paste(outcome,'>0 ~ ',paste(selVars,collapse=' + '),sep='')
+
+                                        Building a better decision tree
+                                        f <- paste(outcome,'>0 ~ ',paste(selVars,collapse=' + '),sep='')
 > tmodel <- rpart(f,data=dTrain,
    control=rpart.control(cp=0.001,minsplit=1000,
       minbucket=1000,maxdepth=5)

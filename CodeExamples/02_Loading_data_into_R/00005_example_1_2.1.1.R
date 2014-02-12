@@ -1,8 +1,11 @@
 # example:1_2.1.1 
 # example:1 : Loading data into R : Working with data from files : Working with well-structured data from files or URLs 
-# Title: Reading the UCI car data 
+# Title: 
+                                        Reading the UCI car data 
 
-uciCar <- read.table(  	# Note: 1 
+
+                                        Reading the UCI car data
+                                        uciCar <- read.table(  	# Note: 1 
    'http://www.win-vector.com/dfiles/car.data.csv', 	# Note: 2 
    sep=',', 	# Note: 3 
    header=T 	# Note: 4 

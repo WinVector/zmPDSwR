@@ -1,8 +1,11 @@
 # example:3_5.2.1 
 # example:3 : Choosing and evaluating models : Evaluating models : Evaluating classification models 
-# Title: Spam confusion matrix 
+# Title: 
+                                        Spam confusion matrix 
 
-> cM <- table(truth=spamTest$spam,prediction=spamTest$pred>0.5)
+
+                                        Spam confusion matrix
+                                        > cM <- table(truth=spamTest$spam,prediction=spamTest$pred>0.5)
 > print(cM)
          prediction
 truth      FALSE TRUE

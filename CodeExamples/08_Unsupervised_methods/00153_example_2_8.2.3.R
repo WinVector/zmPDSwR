@@ -1,8 +1,11 @@
 # example:2_8.2.3 
 # example:2 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Examining the transaction data 
+# Title: 
+                                        Examining the transaction data 
 
-> class(bookbaskets)             	# Note: 1 
+
+                                        Examining the transaction data
+                                        > class(bookbaskets)             	# Note: 1 
 [1] "transactions"
 attr(,"package")
 [1] "arules"

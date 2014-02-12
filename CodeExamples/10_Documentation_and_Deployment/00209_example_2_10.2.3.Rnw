@@ -1,8 +1,11 @@
 # example:2_10.2.3 
 # example:2 : Documentation and deployment : Using knitr to produce milestone documentation : Using knitr to document the buzz data 
-# Title: Using the system() command to compute a file hash 
+# Title: 
+                                        Using the system() command to compute a file hash 
 
-<<dataprep,tidy=F,cache=T>>=
+
+                                        Using the system() command to compute a file hash
+                                        <<dataprep,tidy=F,cache=T>>=
 infile <- "TomsHardware-Relative-Sigma-500.data.txt"
 paste('checked at',date())
 system(paste('shasum',infile),intern=T) 	# Note: 1 

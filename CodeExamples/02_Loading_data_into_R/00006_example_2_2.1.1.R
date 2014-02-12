@@ -1,8 +1,11 @@
 # example:2_2.1.1 
 # example:2 : Loading data into R : Working with data from files : Working with well-structured data from files or URLs 
-# Title: Exploring the car data 
+# Title: 
+                                        Exploring the car data 
 
-> class(uciCar)
+
+                                        Exploring the car data
+                                        > class(uciCar)
 [1] "data.frame" 	# Note: 1 
 > summary(uciCar)
    buying      maint       doors

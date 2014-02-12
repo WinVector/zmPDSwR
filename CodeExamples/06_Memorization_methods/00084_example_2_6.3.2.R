@@ -1,8 +1,11 @@
 # example:2_6.3.2 
 # example:2 : Memorization methods : Building models using many variables : Using decision trees 
-# Title: Building another bad decision tree 
+# Title: 
+                                        Building another bad decision tree 
 
-> tVars <- paste('pred',c(catVars,numericVars),sep='')
+
+                                        Building another bad decision tree
+                                        > tVars <- paste('pred',c(catVars,numericVars),sep='')
 > fV2 <- paste(outcome,'>0 ~ ',paste(tVars,collapse=' + '),sep='')
 > tmodel <- rpart(fV2,data=dTrain)
 > print(calcAUC(predict(tmodel,newdata=dTrain),dTrain[,outcome]))

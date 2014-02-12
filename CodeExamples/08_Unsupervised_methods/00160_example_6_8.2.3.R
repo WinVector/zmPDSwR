@@ -1,8 +1,11 @@
 # example:6_8.2.3 
 # example:6 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Scoring rules 
+# Title: 
+                                    Scoring rules 
 
-> measures <- interestMeasure(rules,                            	# Note: 1 
+
+                                    Scoring rules
+                                        > measures <- interestMeasure(rules,                            	# Note: 1 
 +                 method=c("coverage", "fishersExactTest"),    	# Note: 2 
 +                 transactions=bookbaskets_use)                	# Note: 3 
 > summary(measures)

@@ -1,8 +1,11 @@
 # example:1_10.2.3 
 # example:1 : Documentation and deployment : Using knitr to produce milestone documentation : Using knitr to document the buzz data 
-# Title: Setting knitr dependency options 
+# Title: 
+                                        Setting knitr dependency options 
 
-% set up caching and knitr chunk dependency calculation
+
+                                        Setting knitr dependency options
+                                        % set up caching and knitr chunk dependency calculation
 % note: you will want to do clean re-runs once in a while to make sure
 % you are not seeing stale cache results.
 <<setup,tidy=F,cache=F,eval=T,echo=F,results='hide'>>=

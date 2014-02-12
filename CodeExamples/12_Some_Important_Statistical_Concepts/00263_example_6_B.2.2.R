@@ -1,8 +1,11 @@
 # example:6_B.2.2 
 # example:6 : Some important statistical concepts : Statistical theory : A/B tests 
-# Title: Bayesian estimate of the posterior tail mass 
+# Title: 
+                        Bayesian estimate of the posterior tail mass 
 
-print(pbeta( 	# Note: 1 
+
+                        Bayesian estimate of the posterior tail mass
+                        print(pbeta( 	# Note: 1 
    aConversionRate, 	# Note: 2 
    shape1=commonRate+tab['B','1'], 	# Note: 3 
    shape2=(1-commonRate)+tab['B','0'])) 	# Note: 4 

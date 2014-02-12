@@ -1,8 +1,11 @@
 # example:5_5.2.3 
 # example:5 : Choosing and evaluating models : Evaluating models : Evaluating probability models 
-# Title: Calculating entropy and conditional entropy 
+# Title: 
+                                        Calculating entropy and conditional entropy 
 
-> entropy <- function(x) { 	# Note: 1 
+
+                                        Calculating entropy and conditional entropy
+                                        > entropy <- function(x) { 	# Note: 1 
     xpos <- x[x>0]
     scaled <- xpos/sum(xpos)
     sum(-scaled*log(scaled,2))

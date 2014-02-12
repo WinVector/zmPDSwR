@@ -1,8 +1,11 @@
 # example:5_8.2.3 
 # example:5 : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Finding the association rules 
+# Title: 
+                                    Finding the association rules 
 
-> rules <- apriori(bookbaskets_use,                                  	# Note: 1 
+
+                                    Finding the association rules
+                                        > rules <- apriori(bookbaskets_use,                                  	# Note: 1 
                 parameter =list(support = 0.002, confidence=0.75))
 
 > summary(rules)

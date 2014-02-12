@@ -1,7 +1,10 @@
 # example:1_A.2 
 # example:1 : Working with R and other tools : Starting with R 
-# Title: Trying a few R commands 
+# Title: 
+                        Trying a few R commands 
 
+
+                        Trying a few R commands
 > 1
 [1] 1
 > 1/2

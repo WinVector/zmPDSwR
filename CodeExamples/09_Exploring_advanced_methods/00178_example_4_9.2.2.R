@@ -1,8 +1,11 @@
 # example:4_9.2.2 
 # example:4 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
             relationships : A one-dimensional regression example 
-# Title: Comparing linear regression and GAM performance 
+# Title: 
+                                Comparing linear regression and GAM performance 
 
+
+                                Comparing linear regression and GAM performance
 > actual <- test$y
 > pred.lin <- predict(lin.model, newdata=test)  	# Note: 1 
 > pred.glin <- predict(glin.model, newdata=test)

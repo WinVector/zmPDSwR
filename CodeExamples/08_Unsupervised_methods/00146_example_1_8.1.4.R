@@ -1,8 +1,11 @@
 # example:1_8.1.4 
 # example:1 : Unsupervised methods : Cluster analysis : The k-means algorithm 
-# Title: Running kmeans with k=5 
+# Title: 
+                                        Running kmeans with k=5 
 
-> pclusters <- kmeans(pmatrix, kbest.p, nstart=100, iter.max=100)   	# Note: 1 
+
+                                        Running kmeans with k=5
+                                        > pclusters <- kmeans(pmatrix, kbest.p, nstart=100, iter.max=100)   	# Note: 1 
 > summary(pclusters)                                               	# Note: 2 
              Length Class  Mode
 cluster      25     -none- numeric

@@ -1,8 +1,11 @@
 # example:1_10.4.1 
 # example:1 : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
-# Title: Buzz model as a R-based HTTP service 
+# Title: 
+                                Buzz model as a R-based HTTP service 
 
-library(Rook)  	# Note: 1 
+
+                                Buzz model as a R-based HTTP service
+                                library(Rook)  	# Note: 1 
 load('thRS500.Rdata') 	# Note: 2 
 library(randomForest) 	# Note: 3 
 numericPositions <- sapply(buzztrain[,varslist],is.numeric) 	# Note: 4 

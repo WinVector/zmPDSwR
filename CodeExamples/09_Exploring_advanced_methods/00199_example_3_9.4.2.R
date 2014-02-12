@@ -1,8 +1,11 @@
 # example:3_9.4.2 
 # example:3 : Exploring advanced methods : Using support vector machines to model complicated decision
             boundaries : Trying an SVM on artificial example data 
-# Title: SVM with a good choice of kernel 
+# Title: 
+                                        SVM with a good choice of kernel 
 
+
+                                        SVM with a good choice of kernel
 mSVMG <- ksvm(class~x+y,data=sTrain,kernel='rbfdot') 	# Note: 1 
 sTest$predSVMG <- predict(mSVMG,newdata=sTest,type='response')
 ggplot() +

@@ -1,8 +1,11 @@
 # example:3_B.1.3 
 # example:3 : Some important statistical concepts : A few important distributions : The binomial distribution 
-# Title: Simulating a binomial distribution 
+# Title: 
+                    Simulating a binomial distribution 
 
- # use rbinom to simulate flipping a coin of probability p N times
+
+                    Simulating a binomial distribution
+                     # use rbinom to simulate flipping a coin of probability p N times
 
 p75 = 0.75 # a very unfair coin (mostly heads)
 N = 1000  # flip it several times

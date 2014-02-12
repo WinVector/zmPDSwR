@@ -1,8 +1,11 @@
 # example:2_8.1.4 
 # example:2 : Unsupervised methods : Cluster analysis : The k-means algorithm 
-# Title: Plotting cluster criteria 
+# Title: 
+                                        Plotting cluster criteria 
 
-> clustering.ch <- kmeansruns(pmatrix, krange=1:10, criterion="ch")   	# Note: 1 
+
+                                        Plotting cluster criteria
+                                        > clustering.ch <- kmeansruns(pmatrix, krange=1:10, criterion="ch")   	# Note: 1 
 > clustering.ch$bestk                                                	# Note: 2 
 [1] 2
 > clustering.asw <- kmeansruns(pmatrix, krange=1:10, criterion="asw") 	# Note: 3 

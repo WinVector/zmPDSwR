@@ -1,8 +1,11 @@
 # example:3_A.2.2 
 # example:3 : Working with R and other tools : Starting with R : Primary R data types 
-# Title: Confirm lm() encodes new strings correctly 
+# Title: 
+                                        Confirm lm() encodes new strings correctly 
 
-d <- data.frame(x=factor(c('a','b','c')),
+
+                                        Confirm lm() encodes new strings correctly
+                                        d <- data.frame(x=factor(c('a','b','c')),
                    y=c(1,2,3))
 m <- lm(y~0+x,data=d) 	# Note: 1 
 print(predict(m,

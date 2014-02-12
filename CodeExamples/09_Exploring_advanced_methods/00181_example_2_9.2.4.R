@@ -1,8 +1,11 @@
 # example:2_9.2.4 
 # example:2 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
             relationships : Using GAM on actual data 
-# Title: Plotting GAM results 
+# Title: 
+                                Plotting GAM results 
 
+
+                                Plotting GAM results
 > terms <- predict(glinmodel, type="terms")       	# Note: 1 
 > tframe <- cbind(DBWT = train$DBWT, as.data.frame(terms))   	# Note: 2 
 > colnames(tframe) <- gsub('[()]', '', colnames(tframe))     	# Note: 3 

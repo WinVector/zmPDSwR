@@ -2,6 +2,7 @@
 # example:5 : Loading data into R : Working with data from files : Using R on less-structured data 
 # Title: Summary of Good.Loan and Purpose 
 
+Summary of Good.Loan and Purpose
 > table(d$Purpose,d$Good.Loan) 
                      
                       BadLoan GoodLoan

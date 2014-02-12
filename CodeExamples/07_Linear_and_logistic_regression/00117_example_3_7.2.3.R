@@ -1,8 +1,11 @@
 # example:3_7.2.3 
 # example:3 : Linear and logistic regression : Using logistic regression : Making predictions 
-# Title: Exploring modeling trade-offs 
+# Title: 
+                                        Exploring modeling trade-offs 
 
-library(ROCR)                                      	# Note: 1 
+
+                                        Exploring modeling trade-offs
+                                        library(ROCR)                                      	# Note: 1 
 library(grid)                                      	# Note: 2 
 
 predObj <- prediction(train$pred, train$atRisk)     	# Note: 3 

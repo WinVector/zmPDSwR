@@ -1,7 +1,10 @@
 # example:2_9.1.1 
 # example:2 : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using bagging to improve prediction 
-# Title: Bagging decision trees 
+# Title: 
+                                Bagging decision trees 
 
+
+                                Bagging decision trees
 ntrain <- dim(spamTrain)[1]
 n <- ntrain                  	# Note: 1 
 ntree <- 100

@@ -1,8 +1,11 @@
 # example:4_7.2.5 
 # example:4 : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
-# Title: Calculating the significance of the observed fit 
+# Title: 
+                                                Calculating the significance of the observed fit 
 
-df.null <- dim(train)[[1]] - 1                            	# Note: 1 
+
+                                                Calculating the significance of the observed fit
+                                                df.null <- dim(train)[[1]] - 1                            	# Note: 1 
 df.model <- dim(train)[[1]] - length(model$coefficients)  	# Note: 2 
 
 > df.null
