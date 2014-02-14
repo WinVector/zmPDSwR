@@ -40,22 +40,21 @@ mining info:                                           	# Note: 5
 # Note 2: 
 #    
 #   The summary of the apriori() output reports 
-#   the number of rules found... 
+#   the number of rules found;... 
 #    
 
 # Note 3: 
 #    
-#   ...the distribution of rule 
-#   lengths. 
-#   In this example, most rules contain 3 items (2 on 
-#   the left side, X (lhs), and one on the right side, 
-#   Y (rhs))... 
+#   ...the distribution of rule lengths (in this 
+#   example, most rules contain 3 items—2 on the left 
+#   side, X (lhs), and one on the right side, Y 
+#   (rhs));... 
 #    
 
 # Note 4: 
 #    
 #   ...a summary of rule quality measures, 
-#   including support and confidence... 
+#   including support and confidence;... 
 #    
 
 # Note 5: 

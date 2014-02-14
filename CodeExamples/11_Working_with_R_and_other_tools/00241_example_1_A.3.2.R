@@ -8,6 +8,7 @@
                                 > install.packages('RJDBC')  	# Note: 1 
 > library('RJDBC') 	# Note: 2 
 > drv <- JDBC("org.h2.Driver","h2-1.3.170.jar",identifier.quote="'") 	# Note: 3 
+> setwd('/Users/johnmount/Downloads')
 > conn <- dbConnect(drv,"jdbc:h2://h2demodb_h2","u","u") 	# Note: 4 
 > d <- dbGetQuery(conn,"SELECT * FROM example_table") 	# Note: 5 
 > print(d)  	# Note: 6 
@@ -29,7 +30,12 @@
 
 # Note 4: 
 #   Use the database driver to 
-#   build a database connection. 
+#   build a database connection. In our SQuirreL SQL example we 
+#   used the path /Users/johnmount/Downloads/h2demodb_h2. So 
+#   the path fragment given here (h2demodb_h2) works only if 
+#   R is working in the directory /Users/johnmount/Downloads. 
+#   You would alter all of these paths and URLs to work for your 
+#   own directories. 
 
 # Note 5: 
 #   Run a select SQL query using 

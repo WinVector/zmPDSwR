@@ -5,7 +5,9 @@
 
 
                                         Loading an Excel spreadsheet
-                                        library('xlsx')
-bookings <- read.xlsx('Workbook1.xlsx',1,startRow=3)
-prices <- read.xlsx('Workbook1.xlsx',2,startRow=3)
+                                        library(gdata)
+bookings <- read.xls('Workbook1.xlsx',sheet=1,pattern='date',
+   stringsAsFactors=F,as.is=T)
+prices <- read.xls('Workbook1.xlsx',sheet=2,pattern='date',
+   stringsAsFactors=F,as.is=T)
 

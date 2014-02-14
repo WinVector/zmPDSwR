@@ -1,10 +1,10 @@
 # example:1_8.1.4 
 # example:1 : Unsupervised methods : Cluster analysis : The k-means algorithm 
 # Title: 
-                                        Running kmeans with k=5 
+                                        Running k-means with k=5 
 
 
-                                        Running kmeans with k=5
+                                        Running k-means with k=5
                                         > pclusters <- kmeans(pmatrix, kbest.p, nstart=100, iter.max=100)   	# Note: 1 
 > summary(pclusters)                                               	# Note: 2 
              Length Class  Mode
@@ -86,10 +86,9 @@ size          5     -none- numeric
 # Note 3: 
 #    
 #   pclusters$centers is a matrix whose rows are 
-#   the centroids of the clusters. Note that centers 
-#   is 
-#   in the scaled coordinates, not the original 
-#   protein coordinates. 
+#   the centroids of the clusters. Note that 
+#   pclusters$centers is in the scaled coordinates, 
+#   not the original protein coordinates. 
 #    
 
 # Note 4: 

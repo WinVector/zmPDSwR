@@ -29,6 +29,7 @@ joined <- sqldf(' 	# Note: 2
      bCurrent.date=p.date
      and bCurrent.nDaysBefore=p.nDaysBefore 	# Note: 9 
 ')
+print(joined)
 
 # Note 1: 
 #   Prevent 

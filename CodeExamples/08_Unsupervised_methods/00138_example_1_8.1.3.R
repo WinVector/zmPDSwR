@@ -1,10 +1,10 @@
 # example:1_8.1.3 
 # example:1 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: 
-                            Hierarchical Clustering 
+                            Hierarchical clustering 
 
 
-                            Hierarchical Clustering
+                            Hierarchical clustering
                                 d <- dist(pmatrix, method="euclidean")   	# Note: 1 
 pfit <- hclust(d, method="ward")         	# Note: 2 
 plot(pfit, labels=protein$Country)      	# Note: 3 

@@ -1,10 +1,12 @@
 # example:1_4.2.3 
 # example:1 : Managing data : Sampling for modeling and validation : Record grouping 
 # Title: 
-                                Ensuring test/train split does not split inside a household 
+                                Ensuring test/train split doesn’t split inside a
+                                        household 
 
 
-                                Ensuring test/train split does not split inside a household
+                                Ensuring test/train split doesn’t split inside a
+                                        household
                                 hh <- unique(hhdata$household_id) 	# Note: 1 
 households <- data.frame(household_id = hh, gp = runif(length(hh))) 	# Note: 2 
 hhdata <- merge(hhdata, households, by="household_id") 	# Note: 3 

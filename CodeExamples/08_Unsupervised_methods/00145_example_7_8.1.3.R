@@ -24,7 +24,7 @@ ggplot(critframe, aes(x=k, y=score, color=measure)) +     	# Note: 5
 
 # Note 2: 
 #    
-#   Calculate both criteria for 1 to 10 
+#   Calculate both criteria for 1–10 
 #   clusters. 
 #    
 

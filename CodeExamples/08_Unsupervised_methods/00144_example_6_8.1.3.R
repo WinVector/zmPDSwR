@@ -47,9 +47,8 @@ ch_criterion <- function(dmatrix, kmax, method="kmeans") {     	# Note: 2
 
 # Note 2: 
 #    
-#   A function to calculate the 
-#   Calinski-Harabasz index for a number of clusters 
-#   from 1 to kmax. 
+#   A function to calculate the CH index for a 
+#   number of clusters from 1 to kmax. 
 #    
 
 # Note 3: 
@@ -94,8 +93,8 @@ ch_criterion <- function(dmatrix, kmax, method="kmeans") {     	# Note: 2
 
 # Note 10: 
 #    
-#   Return a vector of Calinski-Harabasz indices 
-#   and of WSS for k from 1 to kmax. Also return total 
-#   sum of squares. 
+#   Return a vector of CH indices and of WSS for 
+#   k from 1 to kmax. Also return total sum of 
+#   squares. 
 #    
 
