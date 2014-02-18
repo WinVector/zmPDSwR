@@ -23,7 +23,7 @@ write.table(s,'synth.csv',sep=',',
 #   Build made-up examples. 
 
 # Note 2: 
-#   Put in relation Caco2 to absorption relation 
+#   Put in Caco2 to absorption relation 
 #   learned from original dataset. Note the relation is positive: better 
 #   Caco2 always drives better absorption in our synthetic dataset. We’re 
 #   log transforming Caco2, as it has over 3 decades of range. 

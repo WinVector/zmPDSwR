@@ -8,7 +8,7 @@
                     library(ggplot2)
 
 # draw 1000 points from a normal with mean 0, sd 1
-u = rnorm(1000)
+u <- rnorm(1000)
 
 # plot the distribution of points,
 # compared to normal curve as computed by dnorm() (dashed line)

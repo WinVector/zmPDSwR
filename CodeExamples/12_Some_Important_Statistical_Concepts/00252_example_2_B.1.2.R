@@ -22,15 +22,15 @@ plnorm(10)
 # use lnormframe from previous example: the 
 # theoretical lognormal curve
 
-line = qlnorm(0.75)
-xstr = sprintf("qlnorm(0.75) = %1.3f", line)
+line <- qlnorm(0.75)
+xstr <- sprintf("qlnorm(0.75) = %1.3f", line)
 
-lnormframe75 = subset(lnormframe, lnormframe$x < line)
+lnormframe75 <- subset(lnormframe, lnormframe$x < line)
 
 # Plot it 
 # The shaded area is 75% of the area under the lognormal curve
 ggplot(lnormframe, aes(x=x,y=y)) + geom_line() +
   geom_area(data=lnormframe75, aes(x=x,y=y), fill="gray") + 
   geom_vline(aes(xintercept=line), linetype=2) +
-  geom_text(x=line, y=0, label=xstr, hjust= 0, vjust=1)                    
+  geom_text(x=line, y=0, label=xstr, hjust= 0, vjust=1)
 

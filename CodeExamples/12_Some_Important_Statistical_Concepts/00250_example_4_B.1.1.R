@@ -20,17 +20,17 @@ pnorm(0.6744898)
 # --- Illustrate the 75th percentile ---
 
 # create a graph of the normal distribution with mean 0, sd 1
-x = seq(from=-5, to=5, length.out=100)
-f = dnorm(x)
-nframe = data.frame(x=x,y=f) 
+x <- seq(from=-5, to=5, length.out=100)
+f <- dnorm(x)
+nframe <- data.frame(x=x,y=f) 
 
 # calculate the 75th percentile
-line = qnorm(0.75)
-xstr = sprintf("qnorm(0.75) = %1.3f", line)
+line <- qnorm(0.75)
+xstr <- sprintf("qnorm(0.75) = %1.3f", line)
 
 # the part of the normal distribution to the left
 # of the 75th percentile
-nframe75 = subset(nframe, nframe$x < line)
+nframe75 <- subset(nframe, nframe$x < line)
 
 # Plot it. 
 # The shaded area is 75% of the area under the normal curve

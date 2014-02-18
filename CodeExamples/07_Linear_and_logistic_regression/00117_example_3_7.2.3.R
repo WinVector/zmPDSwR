@@ -71,7 +71,7 @@ nplot(list(p1, p2))                                	# Note: 13
 
 # Note 6: 
 #    
-#   ROCR objects are what R calls S4 objects; 
+#   at ( @ ) symbol@ (at) symbolROCR objects are what R calls S4 objects; 
 #   the slots (or fields) of an S4 object are stored 
 #   as lists within the object. You extract the slots 
 #   from an S4 object using @ notation. 
