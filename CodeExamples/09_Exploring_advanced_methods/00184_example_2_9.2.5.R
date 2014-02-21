@@ -1,12 +1,8 @@
 # example:2_9.2.5 
-# example:2 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
-            relationships : Using GAM for logistic regression 
-# Title: 
-                                GAM logistic regression 
+# example:2 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM for logistic regression 
+# Title:  GAM logistic regression 
 
-
-                                GAM logistic regression
-> form2 <- as.formula("DBWT<2000~s(PWGT)+s(WTGAIN)+
+ GAM logistic regression> form2 <- as.formula("DBWT<2000~s(PWGT)+s(WTGAIN)+
                                               s(MAGER)+s(UPREVIS)")
 > glogmod <- gam(form2, data=train, family=binomial(link="logit"))
 
@@ -39,10 +35,10 @@ R-sq.(adj) =  0.0331   Deviance explained = 9.14% 	# Note: 2
 UBRE score = -0.76987  Scale est. = 1         n = 14386
 
 # Note 1: 
-#   Note that in this case, the mother’s weight (PWGT) 
-#   does not have a provably significant effect on 
-#   outcome 
+#   Note that there’s no proof that the mother’s weight (PWGT) has a significant effect on 
+#   outcome. 
 
 # Note 2: 
-#   “Deviance explained” is the pseudo-R-squared: 1 - (deviance/null.deviance). 
+#   “Deviance explained” is the pseudo R-squared: 1 - 
+#   (deviance/null.deviance). 
 

@@ -1,11 +1,12 @@
 # example:4_9.3.2 
 # example:4 : Exploring advanced methods : Using kernel methods to increase data separation : Using an explicit kernel on a problem 
-# Title: 
-                    Inspecting the results of the explicit kernel model 
+# Title: Inspecting the results of the
+                    explicit kernel
+                    model 
 
-
-                    Inspecting the results of the explicit kernel model
-                    > print(summary(m3))
+Inspecting the results of the
+                    explicit kernel
+                    model> print(summary(m3))
 
 Call:
 lm(formula = log(PINCP, base = 10) ~ AGEP + SEXM +

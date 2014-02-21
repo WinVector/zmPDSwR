@@ -1,12 +1,10 @@
 # example:3_9.4.3 
-# example:3 : Exploring advanced methods : Using support vector machines to model complicated decision
-            boundaries : Using SVMs on real data 
-# Title: 
-                                        Printing the SVM results summary 
+# example:3 : Exploring advanced methods : Using SVMs to model complicated decision boundaries : Using SVMs on real data 
+# Title: Printing the SVM results
+                    summary 
 
-
-                                        Printing the SVM results summary
-print(svmM)
+Printing the SVM results
+                    summaryprint(svmM)
 Support Vector Machine object of class "ksvm" 
 
 SV type: C-svc  (classification) 

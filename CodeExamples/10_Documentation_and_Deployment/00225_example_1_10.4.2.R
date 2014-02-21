@@ -23,23 +23,28 @@ write.table(extractTrees(fmodel), 	# Note: 4
    file='rfmodel.tsv',row.names=F,sep='\t',quote=F)
 
 # Note 1: 
-#   Load the saved buzz 
-#   workspace (includes the random forests 
-#   model) 
+#    
+#   Load the saved buzz workspace (includes the 
+#   random forest model). 
+#    
 
 # Note 2: 
-#   Load the random forests 
-#   library (loading the workspace doesn’t load the 
-#   library) 
+#    
+#   Load the random forest library (loading the 
+#   workspace doesn’t load the library). 
+#    
 
 # Note 3: 
-#   Define a function that 
-#   joins the tree-tables from the random forest 
-#   getTree() method into one large table of 
-#   trees 
+#    
+#   Define a function that joins the tree tables 
+#   from the random forest getTree() method into one 
+#   large table of trees. 
+#    
 
 # Note 4: 
-#   Write the table of trees as 
-#   a tab separated values table (easy for other 
-#   software to read) 
+#    
+#   Write the table of trees as a tab-separated 
+#   values table (easy for other software to 
+#   read). 
+#    
 

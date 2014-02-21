@@ -1,11 +1,8 @@
 # example:2_9.1.1 
 # example:2 : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using bagging to improve prediction 
-# Title: 
-                                Bagging decision trees 
+# Title: Bagging decision trees 
 
-
-                                Bagging decision trees
-ntrain <- dim(spamTrain)[1]
+Bagging decision treesntrain <- dim(spamTrain)[1]
 n <- ntrain                  	# Note: 1 
 ntree <- 100
 
@@ -36,22 +33,21 @@ accuracyMeasures(predict.bag(treelist, newdata=spamTest),
                  name="bagging, test")
 
 # Note 1: 
-#   We’ll use bootstrap samples the same size as the training set, with 100 trees. 
+#   Use bootstrap samples the same size as the training 
+#   set, with 100 trees. 
 
 # Note 2: 
 #   Build the bootstrap samples by sampling the row indices of spamTrain with replacement. Each 
-#   column of the matrix samples represents the row 
-#   indices into spamTrain that comprise the bootstrap 
-#   sample. 
+#   column of the matrix samples represents the row indices into spamTrain 
+#   that comprise the bootstrap sample. 
 
 # Note 3: 
 #   Train the individual decision trees and return them 
 #   in a list. Note: this step can take a few minutes. 
 
 # Note 4: 
-#   A function that scores a dataset against each tree, then averages all the prediction 
-#   probabilities. predict.bag is assuming the underlying classifier is 
-#   return decision probabilities, not decisions. 
+#   predict.bag assumes the underlying classifier returns decision probabilities, not 
+#   decisions. 
 
 # Note 5: 
 #   Evaluate the bagged decision trees against the 

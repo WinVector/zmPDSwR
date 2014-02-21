@@ -1,0 +1,6 @@
+# informalexample:6_9.4.1 
+# informalexample:6 : Exploring advanced methods : Using SVMs to model complicated decision boundaries : Understanding support vector machines 
+
+
+                    w ~ sum(a1*p(s1),...,am*p(sm))
+

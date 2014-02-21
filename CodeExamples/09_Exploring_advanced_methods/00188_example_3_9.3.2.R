@@ -1,11 +1,10 @@
 # example:3_9.3.2 
 # example:3 : Exploring advanced methods : Using kernel methods to increase data separation : Using an explicit kernel on a problem 
-# Title: 
-                    Modeling using the explicit kernel transform 
+# Title: Modeling using the explicit
+                    kernel transform 
 
-
-                    Modeling using the explicit kernel transform
-                    formulaStr2 <- paste('log(PINCP,base=10)',
+Modeling using the explicit
+                    kernel transformformulaStr2 <- paste('log(PINCP,base=10)',
    paste(vars,collapse=' + '),
    sep=' ~ ')
 m2 <- lm(as.formula(formulaStr2),data=pMtrain)
@@ -21,19 +20,17 @@ print(rmse(log(pMtest$PINCP,base=10),predict(m3,newdata=pMtest))) 	# Note: 3
 # [1] 0.2735955
 
 # Note 1: 
-#   Select a set of interesting variables by 
-#   building an initial model using all of the new variables and retaining 
-#   an interesting subset. This is an ad-hoc move to speed up the stepwise 
-#   regression by trying to quickly dispose of many useless derived 
-#   variables. The primal kernel method by introducing many new variables 
-#   also introduces many new degrees of freedom, which can invite 
-#   overfitting. 
+#    Select a set of interesting variables by building an initial model using all of the new 
+#   variables and retaining an interesting subset. This is an ad hoc 
+#   move to speed up the stepwise regression by trying to quickly 
+#   dispose of many useless derived variables. By introducing many new 
+#   variables, the primal kernel method also introduces many new degrees 
+#   of freedom, which can invite overfitting.  
 
 # Note 2: 
-#   Stepwise regress on subset of variables to get 
-#   new model. 
+#    Stepwise regress on subset of variables to 
+#   get new model.  
 
 # Note 3: 
-#   Calculate the root mean square error between 
-#   the prediction and the actuals. 
+#    Calculate the RMSE between the prediction and the actuals.  
 

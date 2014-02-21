@@ -1,12 +1,10 @@
 # example:4_9.2.2 
-# example:4 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
-            relationships : A one-dimensional regression example 
-# Title: 
-                                Comparing linear regression and GAM performance 
+# example:4 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
+# Title: Comparing linear regression and
+                GAM performance 
 
-
-                                Comparing linear regression and GAM performance
-> actual <- test$y
+Comparing linear regression and
+                GAM performance> actual <- test$y
 > pred.lin <- predict(lin.model, newdata=test)  	# Note: 1 
 > pred.glin <- predict(glin.model, newdata=test)
 > resid.lin <- actual-pred.lin
@@ -23,12 +21,14 @@
 [1] 0.7828869
 
 # Note 1: 
-#   Call both models on the test data 
+#   Call both models on the test 
+#   data. 
 
 # Note 2: 
-#   Compare the root mean squared error (RMSE) of the linear model and the GAM on the test 
-#   data 
+#   Compare the RMSE of the linear model and the GAM 
+#   on the test data. 
 
 # Note 3: 
-#   Compare the R-squared of the linear model and the GAM on test data 
+#   Compare the R-squared of the linear model and the 
+#   GAM on test data. 
 

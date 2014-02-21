@@ -1,12 +1,12 @@
 # example:1_9.4.3 
-# example:1 : Exploring advanced methods : Using support vector machines to model complicated decision
-            boundaries : Using SVMs on real data 
-# Title: 
-                                        Revisiting the SpamBase example with GLM 
+# example:1 : Exploring advanced methods : Using SVMs to model complicated decision boundaries : Using SVMs on real data 
+# Title: Revisiting the
+                    Spambase example with
+                    GLM 
 
-
-                                        Revisiting the SpamBase example with GLM
-spamD <- read.table('spamD.tsv',header=T,sep='\t')
+Revisiting the
+                    Spambase example with
+                    GLMspamD <- read.table('spamD.tsv',header=T,sep='\t')
 spamTrain <- subset(spamD,spamD$rgroup>=10)
 spamTest <- subset(spamD,spamD$rgroup<10)
 spamVars <- setdiff(colnames(spamD),list('rgroup','spam'))

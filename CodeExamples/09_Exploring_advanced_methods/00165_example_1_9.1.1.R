@@ -1,11 +1,10 @@
 # example:1_9.1.1 
 # example:1 : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using bagging to improve prediction 
-# Title: 
-                                Preparing SpamBase data, and evaluating the performance of decision trees 
+# Title: Preparing Spambase data and evaluating
+                the performance of decision trees 
 
-
-                                Preparing SpamBase data, and evaluating the performance of decision trees
-spamD <- read.table('spamD.tsv',header=T,sep='\t')  	# Note: 1 
+Preparing Spambase data and evaluating
+                the performance of decision treesspamD <- read.table('spamD.tsv',header=T,sep='\t')  	# Note: 1 
 spamTrain <- subset(spamD,spamD$rgroup>=10)
 spamTest <- subset(spamD,spamD$rgroup<10)
 
@@ -46,31 +45,37 @@ accuracyMeasures(predict(treemodel, newdata=spamTest),
                  name="tree, test")
 
 # Note 1: 
-#   Load the data and split into training (90% of data) and test (10% of data) sets 
+#   Load the data and split into training (90% of data) 
+#   and test (10% of data) sets. 
 
 # Note 2: 
-#   Use all the features and do binary classification, where TRUE corresponds to spam 
-#   documents 
+#   Use all the features and do binary classification, 
+#   where TRUE corresponds to spam documents. 
 
 # Note 3: 
-#   A function to calculate log likelihood (for calculating deviance) 
+#   A function to calculate log likelihood (for 
+#   calculating deviance). 
 
 # Note 4: 
-#   A function to calculate and return various measures on the model: normalized deviance, 
-#   prediction accuracy, and f1, which is the product of precision and 
-#   recall 
+#   A function to calculate and return various measures 
+#   on the model: normalized deviance, prediction accuracy, and f1, which is the 
+#   product of precision and recall. 
 
 # Note 5: 
-#   We normalize the deviance by the number of data points so that we that we can compare the 
-#   deviance across training and test sets 
+#   Normalize the deviance by the number of data points 
+#   so that we can compare the deviance across training and test 
+#   sets. 
 
 # Note 6: 
-#   We convert the class probability estimator into a classifier by labeling documents that score 
-#   greater than 0.5 as spam 
+#   Convert the class probability estimator into a 
+#   classifier by labeling documents that score greater than 0.5 as 
+#   spam. 
 
 # Note 7: 
-#   Load the rpart library and fit a decision tree model 
+#   Load the rpart library and fit a decision tree 
+#   model. 
 
 # Note 8: 
-#   Evaluate the decision tree model against the training and test sets 
+#   Evaluate the decision tree model against the 
+#   training and test sets. 
 

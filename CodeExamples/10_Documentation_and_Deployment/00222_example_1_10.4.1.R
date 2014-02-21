@@ -1,10 +1,10 @@
 # example:1_10.4.1 
 # example:1 : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
 # Title: 
-                                Buzz model as a R-based HTTP service 
+                                Buzz model as an R-based HTTP service 
 
 
-                                Buzz model as a R-based HTTP service
+                                Buzz model as an R-based HTTP service
                                 library(Rook)  	# Note: 1 
 load('thRS500.Rdata') 	# Note: 2 
 library(randomForest) 	# Note: 3 
@@ -56,48 +56,65 @@ print(s)
 ## Call browse() with an index number or name to run an application.
 
 # Note 1: 
-#   Load the rook HTTP server 
-#   library 
+#    
+#   Load the rook HTTP server library. 
+#    
 
 # Note 2: 
-#   Load the saved buzz workspace 
-#   (includes the random forests model) 
+#    
+#   Load the saved buzz workspace (includes the 
+#   random forest model). 
+#    
 
 # Note 3: 
-#   Load the random forests 
-#   library (loading the workspace doesn’t load the 
-#   library) 
+#    
+#   Load the random forest library (loading the 
+#   workspace doesn’t load the library). 
+#    
 
 # Note 4: 
-#   Determine which variables are 
-#   numeric (in the rook server, everything defaults to 
+#    
+#   Determine which variables are numeric (in the 
+#   rook server, everything defaults to 
 #   character). 
+#    
 
 # Note 5: 
-#   Declare the modeling 
-#   service 
+#    
+#   Declare the modeling service. 
+#    
 
 # Note 6: 
-#   This block does the actual 
-#   work: parse data and apply the model 
+#    
+#   This block does the actual work: parse data 
+#   and apply the model. 
+#    
 
 # Note 7: 
-#   Format results, place in a 
-#   list and return 
+#    
+#   Format results, place in a list, and 
+#   return. 
+#    
 
 # Note 8: 
-#   Start a new rook HTTP 
-#   service 
+#    
+#   Start a new rook HTTP service. 
+#    
 
 # Note 9: 
-#   Register our model function as 
-#   an HTTP service 
+#    
+#   Register our model function as an HTTP 
+#   service. 
+#    
 
 # Note 10: 
-#   Start the HTTP 
-#   server 
+#    
+#   Start the HTTP server. 
+#    
 
 # Note 11: 
-#   This is the URL where the 
-#   service is running 
+#    
+#   This is the URL where the service is 
+#   running. 
+#    
 

@@ -1,11 +1,10 @@
 # example:1_9.3.1 
 # example:1 : Exploring advanced methods : Using kernel methods to increase data separation : Understanding kernel functions 
-# Title: 
-                    An artificial kernel example 
+# Title: An artificial kernel
+                    example 
 
-
-                    An artificial kernel example
-                    > u <- c(1,2)
+An artificial kernel
+                    example> u <- c(1,2)
 > v <- c(3,4)
 > k <- function(u,v) { 	# Note: 1 
      u[1]*v[1] + u[2]*v[2] +
@@ -26,18 +25,19 @@
 [1] 108
 
 # Note 1: 
-#   Define a function of two vector variables (both 
-#   two dimensional) as the sum of various products of terms 
+#    Define a function of two vector variables 
+#   (both two dimensional) as the sum of various products of terms.  
 
 # Note 2: 
-#   Define a function of a single vector variable 
-#   that returns a vector containing the original entries plus all products 
-#   of entries 
+#    Define a function of a single vector variable 
+#   that returns a vector containing the original entries plus all products of 
+#   entries.  
 
 # Note 3: 
-#   Example evaluation of k(,) 
+#    Example evaluation of k(,).  
 
 # Note 4: 
-#   Confirm phi() agrees with k(,) (phi() is the 
-#   certificate that shows k(,) is in fact a kernel) 
+#    Confirm phi() agrees with k(,). phi() is the certificate that shows k(,) is in fact a 
+#   kernel. 
+#    
 

@@ -1,12 +1,10 @@
 # example:3_9.2.2 
-# example:3 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
-            relationships : A one-dimensional regression example 
-# Title: 
-                                GAM applied to our artificial example 
+# example:3 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
+# Title: GAM applied to our artificial
+                example 
 
-
-                                GAM applied to our artificial example
-> library(mgcv)                             	# Note: 1 
+GAM applied to our artificial
+                example> library(mgcv)                             	# Note: 1 
 > glin.model <- gam(y~s(x), data=train)  	# Note: 2 
 > glin.model$converged                      	# Note: 3 
 [1] TRUE
@@ -45,31 +43,30 @@ GCV score =  2.144  Scale est. = 2.121     n = 901
 #   Load the mgcv package. 
 
 # Note 2: 
-#   Build the model, specifying that x should be treated as a non-linear variable. 
+#   Build the model, specifying that x should be 
+#   treated as a nonlinear variable. 
 
 # Note 3: 
-#   The converged parameter tells you if the algorithm converged. You should only trust the output 
-#   if this is TRUE. 
+#   The converged parameter tells you if the algorithm 
+#   converged. You should only trust the output if this is TRUE. 
 
 # Note 4: 
-#   Family=gaussian and link=identity tell you that the model was treated with the same 
+#   Setting family=gaussian and link=identity tells you that the model was treated with the same 
 #   distributions assumptions as a standard linear regression. 
 
 # Note 5: 
-#   The parametric coefficients are the linear terms 
-#   (in this example, only the constant term). This section of the summary tells you 
-#   which linear terms were significantly different from zero. 
+#   The parametric coefficients are the linear terms (in this example, only the constant term). 
+#   This section of the summary tells you which linear terms were 
+#   significantly different from 0. 
 
 # Note 6: 
-#   The smooth terms are the non-linear terms. This section of the summary tells you which 
-#   non-linear terms were significantly different from 
-#   zero. It also tells you the effective degrees of 
-#   freedom (edf) used up to build each smooth term. 
-#   An edf near one indicates that the variable has an 
-#   approximately linear relationship to the 
-#   output. 
+#   The smooth terms are the nonlinear terms. This section of the summary tells you which 
+#   nonlinear terms were significantly different from 0. It also tells you 
+#   the effective degrees of freedom (edf) used up to build each smooth 
+#   term. An edf near 1 indicates that the variable has an approximately 
+#   linear relationship to the output. 
 
 # Note 7: 
-#   “R-sq (adj)” is the adjusted R-squared. “Deviance explained is the raw R-squared 
-#   (0.834). 
+#   “R-sq (adj)” is the adjusted R-squared. “Deviance 
+#   explained” is the raw R-squared (0.834). 
 

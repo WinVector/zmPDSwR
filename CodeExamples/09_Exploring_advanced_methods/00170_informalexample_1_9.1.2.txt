@@ -2,7 +2,7 @@
 # informalexample:1 : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using random forests to further improve prediction 
 
 
-# Performance on the training set
+                # Performance on the training set
         model  accuracy        f1  dev.norm
          Tree 0.9104514 0.7809002 0.5618654
       Bagging 0.9220372 0.8072953 0.4702707

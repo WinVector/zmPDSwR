@@ -1,12 +1,10 @@
 # example:1_9.2.4 
-# example:1 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
-            relationships : Using GAM on actual data 
-# Title: 
-                                Applying linear regression (with and without GAM) to health data 
+# example:1 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM on actual data 
+# Title: Applying linear regression (with
+                and without GAM) to health data 
 
-
-                                Applying linear regression (with and without GAM) to health data
-> library(mgcv)
+Applying linear regression (with
+                and without GAM) to health data> library(mgcv)
 > library(ggplot2)
 > load("NatalBirthData.rData")
 > train <- sdata[sdata$ORIGRANDGROUP<=5,]
@@ -33,7 +31,7 @@ UPREVIS       12.8753     1.1786  10.924  < 2e-16 ***
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 562.7 on 14381 degrees of freedom
-Multiple R-squared:  0.06596,	Adjusted R-squared:  0.0657 	# Note: 2 
+Multiple R-squared:  0.06596, Adjusted R-squared:  0.0657 	# Note: 2 
 F-statistic: 253.9 on 4 and 14381 DF,  p-value: < 2.2e-16
 
 > form.glin <- as.formula("DBWT ~ s(PWGT) + s(WTGAIN) +
@@ -69,19 +67,22 @@ GCV score = 3.0804e+05  Scale est. = 3.0752e+05  n = 14386
 
 # Note 1: 
 #   Build a linear model with four 
-#   variables 
+#   variables. 
 
 # Note 2: 
-#   The model explains about 6% of the variance; all coefficients are significantly different 
-#   from zero 
+#   The model explains about 6% of the variance; all 
+#   coefficients are significantly different from 0. 
 
 # Note 3: 
-#   Build a GAM with the same variables 
+#   Build a GAM with the same 
+#   variables. 
 
 # Note 4: 
-#   Verify that the model has converged 
+#   Verify that the model has 
+#   converged. 
 
 # Note 5: 
-#   The model explains just under 10% of the variance; all variables have a non-linear effect 
-#   significantly different from zero 
+#   The model explains just under 10% of the variance; 
+#   all variables have a nonlinear effect significantly different from 
+#   0. 
 

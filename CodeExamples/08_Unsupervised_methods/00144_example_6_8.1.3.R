@@ -1,10 +1,10 @@
 # example:6_8.1.3 
 # example:6 : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: 
-                                            The Calinski-Harabasz index 
+                                                The Calinski-Harabasz index 
 
 
-                                            The Calinski-Harabasz index
+                                                The Calinski-Harabasz index
                                                 totss <- function(dmatrix) {                 	# Note: 1 
   grandmean <- apply(dmatrix, 2, FUN=mean)
   sum(apply(dmatrix, 1, FUN=function(row){sqr_edist(row, grandmean)}))

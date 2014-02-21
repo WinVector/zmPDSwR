@@ -1,12 +1,10 @@
 # example:1_9.2.2 
-# example:1 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone
-            relationships : A one-dimensional regression example 
-# Title: 
-                                Preparing an artificial problem 
+# example:1 : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
+# Title: Preparing an artificial
+                problem 
 
-
-                                Preparing an artificial problem
-set.seed(602957)
+Preparing an artificial
+                problemset.seed(602957)
 
 x <- rnorm(1000)
 noise <- rnorm(1000, sd=1.5)

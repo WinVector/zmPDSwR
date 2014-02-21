@@ -1,11 +1,8 @@
 # example:2_9.1.2 
 # example:2 : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using random forests to further improve prediction 
-# Title: 
-                                        randomForest variable importances 
+# Title:  randomForest variable importances 
 
-
-                                        randomForest variable importances
-> varImp <- importance(fmodel)              	# Note: 1 
+ randomForest variable importances> varImp <- importance(fmodel)              	# Note: 1 
 
 > varImp[1:10, ]                           	# Note: 2 
                     non-spam       spam MeanDecreaseAccuracy
@@ -23,12 +20,14 @@ word.freq.mail      5.022432  3.4701224             6.103929
 varImpPlot(fmodel, type=1)                       	# Note: 3 
 
 # Note 1: 
-#   Call importance() on the spam model 
+#   Call importance() on the spam 
+#   model. 
 
 # Note 2: 
-#   The importance() function returns a matrix of importance measures (larger values = more 
-#   important) 
+#   The importance() function returns a matrix of 
+#   importance measures (larger values = more important). 
 
 # Note 3: 
-#   Plot the variable importance as measured by accuracy change 
+#   Plot the variable importance as measured by 
+#   accuracy change. 
 
