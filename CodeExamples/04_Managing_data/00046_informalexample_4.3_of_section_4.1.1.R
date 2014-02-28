@@ -1,8 +1,7 @@
 # informalexample 4.3 of section 4.1.1 
 # (informalexample 4.3 of section 4.1.1)  : Managing data : Cleaning data : Treating missing values (NAs) 
 
-
-                                        > meanIncome <- mean(custdata$Income, na.rm=T) 	# Note: 1 
+> meanIncome <- mean(custdata$Income, na.rm=T) 	# Note: 1 
 > Income.fix <- ifelse(is.na(custdata$Income),
                        meanIncome,
                        custdata$Income)
@@ -12,9 +11,7 @@
       0   35000   66200   66200   66200  615000
 
 # Note 1: 
-#    
 #   Don’t forget the argument "na.rm=T"! 
 #   Otherwise, the mean() function will include the 
-#   NAs by default, and meanIncome will be NA.  
-#    
+#   NAs by default, and meanIncome will be NA. 
 

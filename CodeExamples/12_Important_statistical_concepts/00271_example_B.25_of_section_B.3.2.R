@@ -1,11 +1,9 @@
 # example B.25 of section B.3.2 
 # (example B.25 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
-# Title:  Summarizing our synthetic biological
+# Title: Summarizing our synthetic biological
                     data 
 
- Summarizing our synthetic biological
-                    data
-                    > load('synth.RData')
+> load('synth.RData')
 > print(summary(s))
       week         Caco2A2BPapp       FractionHumanAbsorption
  Min.   :  1.00   Min.   :6.994e-08   Min.   :0.09347        
@@ -22,10 +20,10 @@
 4    4 6.061924e-05              0.12893540
 5    5 5.461941e-05              0.19021858
 6    6 5.370623e-05              0.14892154
-> View(s) 	# Note: 1 
+> View(s) 	# Note: 1
 
 # Note 1: 
-#    Display a date in spreadsheet like 
+#   Display a date in spreadsheet like 
 #   window. View is one of the commands that has a much better implementation in 
-#   RStudio than in basic R.  
+#   RStudio than in basic R. 
 

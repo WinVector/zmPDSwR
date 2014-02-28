@@ -1,11 +1,8 @@
 # example 5.12 of section 5.2.5 
 # (example 5.12 of section 5.2.5)  : Choosing and evaluating models : Evaluating models : Evaluating clustering models 
-# Title: 
-                                Plotting our clusters 
+# Title: Plotting our clusters 
 
-
-                                Plotting our clusters
-                                library('ggplot2'); library('grDevices')
+library('ggplot2'); library('grDevices')
 h <- do.call(rbind,
    lapply(unique(clus$cluster),
       function(c) { f <- subset(d,cluster==c); f[chull(f),]}))

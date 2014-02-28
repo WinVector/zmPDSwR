@@ -1,9 +1,8 @@
 # example B.3 of section B.1.1 
 # (example B.3 of section B.1.1)  : Important statistical concepts : Distributions : Normal distribution 
-# Title:  Working with the normal cdf 
+# Title: Working with the normal cdf 
 
- Working with the normal cdf
-                    # --- estimate probabilities (areas) under the curve ---
+# --- estimate probabilities (areas) under the curve ---
 
 # 50% of the observations will be less than the mean
 pnorm(0)

@@ -1,11 +1,8 @@
 # example 8.19 of section 8.2.3 
 # (example 8.19 of section 8.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: 
-                                    Finding the association rules 
+# Title: Finding the association rules 
 
-
-                                    Finding the association rules
-                                        > rules <- apriori(bookbaskets_use,                                  	# Note: 1 
+> rules <- apriori(bookbaskets_use,                                  	# Note: 1 
                 parameter =list(support = 0.002, confidence=0.75))
 
 > summary(rules)
@@ -32,34 +29,24 @@ mining info:                                           	# Note: 5
  bookbaskets_use         40822   0.002       0.75
 
 # Note 1: 
-#    
 #   Call apriori() with a minimum support of 
 #   0.002 and a minimum confidence of 0.75. 
-#    
 
 # Note 2: 
-#    
 #   The summary of the apriori() output reports 
 #   the number of rules found;... 
-#    
 
 # Note 3: 
-#    
 #   ...the distribution of rule lengths (in this 
 #   example, most rules contain 3 items—2 on the left 
 #   side, X (lhs), and one on the right side, Y 
 #   (rhs));... 
-#    
 
 # Note 4: 
-#    
 #   ...a summary of rule quality measures, 
 #   including support and confidence;... 
-#    
 
 # Note 5: 
-#    
 #   ...and some information on how apriori() was 
 #   called. 
-#    
 

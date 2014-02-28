@@ -1,8 +1,7 @@
 # informalexample 10.4 of section 10.3.3 
 # (informalexample 10.4 of section 10.3.3)  : Documentation and deployment : Using comments and version control for running documentation : Using version control to explore your project 
 
-
-                                        $ git log --name-status -- README.txt
+$ git log --name-status -- README.txt
 
 commit 2541bb0b9a2173eb1d471e11d4aca3b690a011ef
 Author: Marius Butuc <marius.butuc@gmail.com>

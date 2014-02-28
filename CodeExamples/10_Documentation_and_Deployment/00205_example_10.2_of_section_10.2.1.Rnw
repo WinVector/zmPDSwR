@@ -1,44 +1,29 @@
 # example 10.2 of section 10.2.1 
 # (example 10.2 of section 10.2.1)  : Documentation and deployment : Using knitr to produce milestone documentation : What is knitr? 
-# Title: 
-                                        knitr LaTeX example 
+# Title: knitr LaTeX example 
 
-
-                                        knitr LaTeX example
-                                        \documentclass{article} 	# Note: 1 
+\documentclass{article} 	# Note: 1 
 \begin{document} 	# Note: 2 
 <<nameofblock>>= 	# Note: 3 
 1+2 	# Note: 4 
 @ 	# Note: 5 
-\end{document} 	# Note: 6 
+\end{document} 	# Note: 6
 
 # Note 1: 
-#    
 #   LaTeX declarations (not knitr) 
-#    
 
 # Note 2: 
-#    
 #   LaTeX declarations (not knitr) 
-#    
 
 # Note 3: 
-#    
 #   knit start chunk marker 
-#    
 
 # Note 4: 
-#    
 #   R code 
-#    
 
 # Note 5: 
-#    
 #   knit end chunk marker 
-#    
 
 # Note 6: 
-#    
 #   LaTeX declarations (not knitr) 
-#    
 

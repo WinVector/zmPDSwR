@@ -1,11 +1,8 @@
 # example 8.22 of section 8.2.3 
 # (example 8.22 of section 8.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: 
-                                    Inspecting rules 
+# Title: Inspecting rules 
 
-
-                                    Inspecting rules
-                                        brulesConf <- sort(brules, by="confidence")  	# Note: 1 
+brulesConf <- sort(brules, by="confidence")  	# Note: 1 
 
 > inspect(head(lhs(brulesConf), n=5))      	# Note: 2 
   items
@@ -21,14 +18,10 @@
    Summer Sisters}
 
 # Note 1: 
-#    
 #   Sort the rules by confidence. 
-#    
 
 # Note 2: 
-#    
 #   Use the lhs() function to get the left 
 #   itemsets of each rule; then inspect the top 
 #   five. 
-#    
 

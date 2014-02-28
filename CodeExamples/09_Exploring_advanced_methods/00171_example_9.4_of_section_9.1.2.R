@@ -1,8 +1,8 @@
 # example 9.4 of section 9.1.2 
 # (example 9.4 of section 9.1.2)  : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using random forests to further improve prediction 
-# Title:  randomForest variable importances 
+# Title: randomForest variable importances 
 
- randomForest variable importances> varImp <- importance(fmodel)              	# Note: 1 
+> varImp <- importance(fmodel)              	# Note: 1 
 
 > varImp[1:10, ]                           	# Note: 2 
                     non-spam       spam MeanDecreaseAccuracy
@@ -17,7 +17,7 @@ word.freq.internet  7.301055  4.4458342             7.947515
 word.freq.order     3.937897  4.3587883             4.866540
 word.freq.mail      5.022432  3.4701224             6.103929
 
-varImpPlot(fmodel, type=1)                       	# Note: 3 
+varImpPlot(fmodel, type=1)                       	# Note: 3
 
 # Note 1: 
 #   Call importance() on the spam 

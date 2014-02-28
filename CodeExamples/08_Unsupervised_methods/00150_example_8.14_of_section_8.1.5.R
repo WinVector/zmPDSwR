@@ -1,11 +1,8 @@
 # example 8.14 of section 8.1.5 
 # (example 8.14 of section 8.1.5)  : Unsupervised methods : Cluster analysis : Assigning new points to clusters 
-# Title: 
-                            An example of assigning points to cluster 
+# Title: An example of assigning points to cluster 
 
-
-                            An example of assigning points to cluster
-                                rnorm.multidim <- function(n, mean, sd, colstr="x") {    	# Note: 1 
+rnorm.multidim <- function(n, mean, sd, colstr="x") {    	# Note: 1 
    ndim <- length(mean)
    data <- NULL
    for(i in 1:ndim) {
@@ -81,106 +78,72 @@ unscale <- function(scaledpt, centervec, scalevec) {    	# Note: 8
 2
 
 # Note 1: 
-#    
 #   A function to generate n points drawn from a 
 #   multidimensional Gaussian distribution with 
 #   centroid mean and standard deviation sd. The 
 #   dimension of the distribution is given by the 
 #   length of the vector mean. 
-#    
 
 # Note 2: 
-#    
 #   The parameters for three Gaussian 
 #   distributions. 
-#    
 
 # Note 3: 
-#    
 #   Create a dataset with 100 points each drawn 
 #   from the above distributions. 
-#    
 
 # Note 4: 
-#    
 #   Scale the dataset. 
-#    
 
 # Note 5: 
-#    
 #   Store the centering and scaling parameters for 
 #   future use. 
-#    
 
 # Note 6: 
-#    
 #   Cluster the dataset, using k-means with three 
 #   clusters. 
-#    
 
 # Note 7: 
-#    
 #   The resulting clusters are about the right 
 #   size. 
-#    
 
 # Note 8: 
-#    
 #   A function to “unscale” data points (put them 
 #   back in the coordinates of the original 
 #   dataset). 
-#    
 
 # Note 9: 
-#    
 #   Unscale the first centroid. It corresponds to 
 #   our original distribution 2. 
-#    
 
 # Note 10: 
-#    
 #   The second centroid corresponds to the 
 #   original distribution 3. 
-#    
 
 # Note 11: 
-#    
 #   The third centroid corresponds to the original 
 #   distribution 1. 
-#    
 
 # Note 12: 
-#    
 #   Generate a random point from the original 
 #   distribution 1 and assign it to one of the 
 #   discovered clusters. 
-#    
 
 # Note 13: 
-#    
 #   It’s assigned to cluster 3, as we would 
 #   expect. 
-#    
 
 # Note 14: 
-#    
 #   Generate a random point from the original 
 #   distribution 2 and assign it. 
-#    
 
 # Note 15: 
-#    
 #   It’s assigned to cluster 1. 
-#    
 
 # Note 16: 
-#    
 #   Generate a random point from the original 
 #   distribution 3 and assign it. 
-#    
 
 # Note 17: 
-#    
 #   It’s assigned to cluster 2. 
-#    
 

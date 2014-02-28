@@ -1,11 +1,8 @@
 # example 8.12 of section 8.1.4 
 # (example 8.12 of section 8.1.4)  : Unsupervised methods : Cluster analysis : The k-means algorithm 
-# Title: 
-                                    Running clusterboot() with k-means 
+# Title: Running clusterboot() with k-means 
 
-
-                                    Running clusterboot() with k-means
-                                        kbest.p<-5
+kbest.p<-5
 cboot<-clusterboot(pmatrix, clustermethod=kmeansCBI,
             runs=100,iter.max=100,
             krange=kbest.p, seed=15555)               	# Note: 1 
@@ -53,8 +50,6 @@ cboot<-clusterboot(pmatrix, clustermethod=kmeansCBI,
 [1] 15 20 49 17 32
 
 # Note 1: 
-#    
 #   We’ve set the seed for the random generator 
 #   so the results are reproducible. 
-#    
 

@@ -1,11 +1,9 @@
 # example B.27 of section B.3.2 
 # (example B.27 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
-# Title:  A bad model (due to omitted variable
+# Title: A bad model (due to omitted variable
                     bias) 
 
- A bad model (due to omitted variable
-                    bias)
-                    print(summary(glm(data=s,
+print(summary(glm(data=s,
    FractionHumanAbsorption~log(Caco2A2BPapp),
    family=binomial(link='logit'))))
 ## Warning: non-integer #successes in a binomial glm!

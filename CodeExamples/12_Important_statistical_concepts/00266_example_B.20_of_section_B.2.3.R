@@ -3,8 +3,7 @@
 # Title: Exact binomial sample size
                 calculation 
 
-Exact binomial sample size
-                calculation errorProb <- function(targetRate,difference,size) { 	# Note: 1 
+errorProb <- function(targetRate,difference,size) { 	# Note: 1 
    pbinom(ceiling((targetRate-difference)*size),
       size=size,prob=targetRate) 
 }
@@ -41,24 +40,24 @@ print(errorProb(0.045,0.004,size))
 ## [1] 0.04983659
 
 # Note 1: 
-#    Define a function that calculates the 
+#   Define a function that calculates the 
 #   probability of seeing a low number of conversions, assuming the actual 
 #   conversion rate is targetRate and the size of the experiment is size. Low is 
 #   considered be a count that’s at least difference*size below the expected value 
-#   targetRate*size.  
+#   targetRate*size. 
 
 # Note 2: 
-#    Calculate probability of a bad experiment using 
+#   Calculate probability of a bad experiment using 
 #   estimated experiment size. The failure odds are around 4% (under the 5% we’re 
-#   designing for), which means the estimate size was slightly high.  
+#   designing for), which means the estimate size was slightly high. 
 
 # Note 3: 
-#    Define a binary search that finds a non-positive 
+#   Define a binary search that finds a non-positive 
 #   value of a function that’s guaranteed to be eventually negative. This search 
 #   works around the minor non-monotonicity in errorProb() (due to rounding 
-#   issues).  
+#   issues). 
 
 # Note 4: 
-#    Calculate the required sample size for our B 
-#   experiment.  
+#   Calculate the required sample size for our B 
+#   experiment. 
 

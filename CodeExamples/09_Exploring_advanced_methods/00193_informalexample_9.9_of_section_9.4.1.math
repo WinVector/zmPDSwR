@@ -1,6 +1,5 @@
 # informalexample 9.9 of section 9.4.1 
 # (informalexample 9.9 of section 9.4.1)  : Exploring advanced methods : Using SVMs to model complicated decision boundaries : Understanding support vector machines 
 
-
-                    w = sum(a1*phi(s1),...,am*phi(sm))
+w = sum(a1*phi(s1),...,am*phi(sm))
 

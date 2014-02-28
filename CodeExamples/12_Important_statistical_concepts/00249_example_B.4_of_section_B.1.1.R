@@ -1,11 +1,9 @@
 # example B.4 of section B.1.1 
 # (example B.4 of section B.1.1)  : Important statistical concepts : Distributions : Normal distribution 
-# Title:  Plotting x <
+# Title: Plotting x <
                     qnorm(0.75) 
 
- Plotting x <
-                    qnorm(0.75)
-                    # --- return the quantiles corresponding to specific probabilities ---
+# --- return the quantiles corresponding to specific probabilities ---
 
 # the median (50th percentile) of a normal is also the mean
 qnorm(0.5)

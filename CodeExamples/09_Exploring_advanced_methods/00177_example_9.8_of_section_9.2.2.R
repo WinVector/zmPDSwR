@@ -3,8 +3,7 @@
 # Title: GAM applied to our artificial
                 example 
 
-GAM applied to our artificial
-                example> library(mgcv)                             	# Note: 1 
+> library(mgcv)                             	# Note: 1 
 > glin.model <- gam(y~s(x), data=train)  	# Note: 2 
 > glin.model$converged                      	# Note: 3 
 [1] TRUE

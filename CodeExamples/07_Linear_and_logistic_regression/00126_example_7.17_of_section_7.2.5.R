@@ -1,11 +1,8 @@
 # example 7.17 of section 7.2.5 
 # (example 7.17 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
-# Title: 
-                                                Computing deviance 
+# Title: Computing deviance 
 
-
-                                                Computing deviance
-                                                loglikelihood <- function(y, py) {                                 	# Note: 1 
+loglikelihood <- function(y, py) {                                 	# Note: 1 
   sum(y * log(py) + (1-y)*log(1 - py))
 }
 
@@ -42,53 +39,37 @@ resid.dev.test <- -2*loglikelihood(testy, testpred)
 [1] 1947.094
 
 # Note 1: 
-#    
 #   Function to calculate the log likelihood of 
 #   a dataset. Variable y is the outcome 
 #   in numeric form (1 for positive examples, 0 for 
 #   negative). Variable py is the 
 #   predicted probability that 
 #   y==1. 
-#    
 
 # Note 2: 
-#    
 #   Calculate rate of positive examples in 
 #   dataset. 
-#    
 
 # Note 3: 
-#    
 #   Calculate null deviance. 
-#    
 
 # Note 4: 
-#    
 #   For training data, the null deviance is 
 #   stored in the slot model$null.deviance. 
-#    
 
 # Note 5: 
-#    
 #   Predict probabilities for training 
 #   data. 
-#    
 
 # Note 6: 
-#    
 #   Calculate deviance of model for training 
 #   data. 
-#    
 
 # Note 7: 
-#    
 #   For training data, model deviance is stored 
 #   in the slot model$deviance. 
-#    
 
 # Note 8: 
-#    
 #   Calculate null deviance and residual 
 #   deviance for test data. 
-#    
 

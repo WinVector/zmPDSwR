@@ -3,8 +3,7 @@
 # Title: Linear regression applied to our artificial
                 example 
 
-Linear regression applied to our artificial
-                example> lin.model <- lm(y ~ x, data=train)
+> lin.model <- lm(y ~ x, data=train)
 > summary(lin.model)
 Call:
 lm(formula = y ~ x, data = train)

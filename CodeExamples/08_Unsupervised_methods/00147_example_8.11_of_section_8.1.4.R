@@ -1,11 +1,8 @@
 # example 8.11 of section 8.1.4 
 # (example 8.11 of section 8.1.4)  : Unsupervised methods : Cluster analysis : The k-means algorithm 
-# Title: 
-                                        Plotting cluster criteria 
+# Title: Plotting cluster criteria 
 
-
-                                        Plotting cluster criteria
-                                        > clustering.ch <- kmeansruns(pmatrix, krange=1:10, criterion="ch")   	# Note: 1 
+> clustering.ch <- kmeansruns(pmatrix, krange=1:10, criterion="ch")   	# Note: 1 
 > clustering.ch$bestk                                                	# Note: 2 
 [1] 2
 > clustering.asw <- kmeansruns(pmatrix, krange=1:10, criterion="asw") 	# Note: 3 
@@ -40,47 +37,33 @@ crit         10     -none- numeric
 bestk         1     -none- numeric
 
 # Note 1: 
-#    
 #   Run kmeansruns() from 1–10 clusters, and the 
 #   CH criterion. By default, kmeansruns() uses 100 
 #   random starts and 100 maximum iterations per 
 #   run. 
-#    
 
 # Note 2: 
-#    
 #   The CH criterion picks two clusters. 
-#    
 
 # Note 3: 
-#    
 #   Run kmeansruns() from 1–10 clusters, and the 
 #   average silhouette width criterion. Average 
 #   silhouette width picks 3 clusters. 
-#    
 
 # Note 4: 
-#    
 #   The vector of criterion values is called 
 #   crit. 
-#    
 
 # Note 5: 
-#    
 #   Compare the CH values for kmeans() and 
 #   hclust(). They’re not quite the same, because the 
 #   two algorithms didn’t pick the same 
 #   clusters. 
-#    
 
 # Note 6: 
-#    
 #   Plot the values for the two criteria. 
-#    
 
 # Note 7: 
-#    
 #   kmeansruns() also returns the output of 
 #   kmeans for k=bestk. 
-#    
 

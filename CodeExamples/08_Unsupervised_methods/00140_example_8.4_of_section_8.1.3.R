@@ -1,13 +1,9 @@
 # example 8.4 of section 8.1.3 
 # (example 8.4 of section 8.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: 
-                                Extracting the clusters found by
+# Title: Extracting the clusters found by
                                         hclust() 
 
-
-                                Extracting the clusters found by
-                                        hclust()
-                                groups <- cutree(pfit, k=5)
+groups <- cutree(pfit, k=5)
 
 print_clusters <- function(labels, k) {             	# Note: 1 
   for(i in 1:k) {
@@ -54,12 +50,10 @@ print_clusters <- function(labels, k) {             	# Note: 1
 19    Spain     7.1  7.0    7.2
 
 # Note 1: 
-#    
 #   A convenience function for printing out the 
 #   countries in each cluster, along with the values 
 #   for red meat, fish, and fruit/vegetable 
 #   consumption. We’ll use this function throughout 
 #   this section. Note that the function is hardcoded 
 #   for the protein dataset. 
-#    
 

@@ -1,11 +1,8 @@
 # example 5.2 of section 5.2.1 
 # (example 5.2 of section 5.2.1)  : Choosing and evaluating models : Evaluating models : Evaluating classification models 
-# Title: 
-                                Spam classifications 
+# Title: Spam classifications 
 
-
-                                Spam classifications
-                                > sample <- spamTest[c(7,35,224,327),c('spam','pred')]
+> sample <- spamTest[c(7,35,224,327),c('spam','pred')]
 > print(sample)
          spam         pred
 115      spam 0.9903246227

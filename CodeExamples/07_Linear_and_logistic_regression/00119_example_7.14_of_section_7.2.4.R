@@ -1,11 +1,8 @@
 # example 7.14 of section 7.2.4 
 # (example 7.14 of section 7.2.4)  : Linear and logistic regression : Using logistic regression : Finding relations and extracting advice from logistic models 
-# Title: 
-                                The model coefficients 
+# Title: The model coefficients 
 
-
-                                The model coefficients
-                                > coefficients(model)
+> coefficients(model)
              (Intercept)                     PWGT
              -4.41218940               0.00376166
                  UPREVIS              CIG_RECTRUE

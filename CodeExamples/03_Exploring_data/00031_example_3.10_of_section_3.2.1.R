@@ -1,11 +1,8 @@
 # example 3.10 of section 3.2.1 
 # (example 3.10 of section 3.2.1)  : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
-# Title: 
-                    Producing a bar chart with sorted categories 
+# Title: Producing a bar chart with sorted categories 
 
-
-                    Producing a bar chart with sorted categories
-                    > statesums <- table(custdata$state.of.res) 	# Note: 1 
+> statesums <- table(custdata$state.of.res) 	# Note: 1 
 > statef <- as.data.frame(statesums) 	# Note: 2 
 > colnames(statef)<-c("state.of.res", "count") 	# Note: 3 
 > summary(statef)  	# Note: 4 
@@ -35,38 +32,36 @@ Montana     : 1    Max.   :100.00
    theme(axis.text.y=element_text(size=rel(0.8)))
 
 # Note 1: 
-#    The table() command aggregates the data by state of residence—exactly the information the bar 
-#   chart plots.  
+#   The table() command aggregates the data by state of residence—exactly the information the bar 
+#   chart plots. 
 
 # Note 2: 
-#    Convert the table object to a data frame 
+#   Convert the table object to a data frame 
 #   using as.data.frame(). The default column names are Var1 and Freq. 
-#    
 
 # Note 3: 
-#    Rename the columns for readability. 
-#    
+#   Rename the columns for readability. 
 
 # Note 4: 
-#    Notice that the default ordering for the 
-#   state.of.res variable is alphabetical.  
+#   Notice that the default ordering for the 
+#   state.of.res variable is alphabetical. 
 
 # Note 5: 
-#    Use the reorder() function to set the 
+#   Use the reorder() function to set the 
 #   state.of.res variable to be count ordered. Use the transform() function 
-#   to apply the transformation to the state.of.res data frame.  
+#   to apply the transformation to the state.of.res data frame. 
 
 # Note 6: 
-#    The state.of.res variable is now count 
-#   ordered.  
+#   The state.of.res variable is now count 
+#   ordered. 
 
 # Note 7: 
-#    Since the data is being passed to 
+#   Since the data is being passed to 
 #   geom_bar pre-aggregated, specify both the x and 
 #   y variables, and use stat="identity" to plot the 
-#   data exactly as given.  
+#   data exactly as given. 
 
 # Note 8: 
-#    Flip the axes and reduce the size of the 
-#   label text as before.  
+#   Flip the axes and reduce the size of the 
+#   label text as before. 
 

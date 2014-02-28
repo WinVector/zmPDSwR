@@ -1,9 +1,8 @@
 # example B.22 of section B.2.4 
 # (example B.22 of section B.2.4)  : Important statistical concepts : Statistical theory : Specialized statistical tests 
-# Title:  Calculating the (non)significance of the observed correlation 
+# Title: Calculating the (non)significance of the observed correlation 
 
- Calculating the (non)significance of the observed correlation
-                with(d,cor(EarnedIncome,CapitalGains,method='spearman'))
+with(d,cor(EarnedIncome,CapitalGains,method='spearman'))
 # [1] 0.03083108
 with(d,cor.test(EarnedIncome,CapitalGains,method='spearman'))
 #

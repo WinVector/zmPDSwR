@@ -3,8 +3,7 @@
 # Title: Preparing an artificial
                 problem 
 
-Preparing an artificial
-                problemset.seed(602957)
+set.seed(602957)
 
 x <- rnorm(1000)
 noise <- rnorm(1000, sd=1.5)

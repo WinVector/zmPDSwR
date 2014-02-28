@@ -3,8 +3,7 @@
 # Title: SVM with a poor choice of
                     kernel 
 
-SVM with a poor choice of
-                    kernelset.seed(2335246L)
+set.seed(2335246L)
 s$group <- sample.int(100,size=dim(s)[[1]],replace=T)
 sTrain <- subset(s,group>10)
 sTest <- subset(s,group<=10) 	# Note: 1 
@@ -15,22 +14,22 @@ ggplot() +
        show_guide=T) +
     geom_point(data=s,aes(x=x,y=y,shape=class,color=class),alpha=0.2,
        show_guide=F) +
-    coord_fixed() 	# Note: 4 
+    coord_fixed() 	# Note: 4
 
 # Note 1: 
-#    Prepare to try to learn spiral class label 
-#   from coordinates using a support vector machine.  
+#   Prepare to try to learn spiral class label 
+#   from coordinates using a support vector machine. 
 
 # Note 2: 
-#    Build the support vector model using a 
-#   vanilladot kernel (not a very good kernel).  
+#   Build the support vector model using a 
+#   vanilladot kernel (not a very good kernel). 
 
 # Note 3: 
-#    Use the model to predict class on held-out 
-#   data.  
+#   Use the model to predict class on held-out 
+#   data. 
 
 # Note 4: 
-#    Plot the predictions on top of a grey copy 
+#   Plot the predictions on top of a grey copy 
 #   of all the data so we can see if predictions agree with the original 
-#   markings.  
+#   markings. 
 

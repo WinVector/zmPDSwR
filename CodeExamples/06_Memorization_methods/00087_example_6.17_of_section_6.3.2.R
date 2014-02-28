@@ -1,10 +1,8 @@
 # example 6.17 of section 6.3.2 
 # (example 6.17 of section 6.3.2)  : Memorization methods : Building models using many variables : Using decision trees 
-# Title: 
-                                        Printing the decision tree 
+# Title: Printing the decision tree 
 
-
-                                        Printing the decision tree> print(tmodel)
+> print(tmodel)
 n= 40518 
 
 node), split, n, deviance, yval

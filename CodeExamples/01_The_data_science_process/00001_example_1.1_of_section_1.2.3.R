@@ -1,10 +1,7 @@
 # example 1.1 of section 1.2.3 
-# (example 1.1 of section 1.2.3)  : The data science process : Stages of a data science project : Modeling  
-# Title: 
-                                Building a decision tree 
+# (example 1.1 of section 1.2.3)  : The data science process : Stages of a data science project : Modeling 
+# Title: Building a decision tree 
 
-
-                                Building a decision tree
 library('rpart')
 load('GCDData.RData')
 model <- rpart(Good.Loan ~

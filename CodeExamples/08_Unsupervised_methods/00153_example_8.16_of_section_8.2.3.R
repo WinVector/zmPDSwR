@@ -1,11 +1,8 @@
 # example 8.16 of section 8.2.3 
 # (example 8.16 of section 8.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: 
-                                        Examining the transaction data 
+# Title: Examining the transaction data 
 
-
-                                        Examining the transaction data
-                                        > class(bookbaskets)             	# Note: 1 
+> class(bookbaskets)             	# Note: 1 
 [1] "transactions"
 attr(,"package")
 [1] "arules"
@@ -25,30 +22,20 @@ transactions in sparse format with
 [1] "10"     "1000"   "100001" "100002" "100004"
 
 # Note 1: 
-#    
 #   The object is of class transactions. 
-#    
 
 # Note 2: 
-#    
 #   Printing the object tells you its 
 #   dimensions. 
-#    
 
 # Note 3: 
-#    
 #   You can also use dim() to see the dimensions 
 #   of the matrix. 
-#    
 
 # Note 4: 
-#    
 #   The columns are labeled by book 
 #   title. 
-#    
 
 # Note 5: 
-#    
 #   The rows are labeled by customer. 
-#    
 

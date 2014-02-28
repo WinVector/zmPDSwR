@@ -1,11 +1,9 @@
 # example 3.1 of section 3.1 
 # (example 3.1 of section 3.1)  : Exploring data : Using summary statistics to spot problems 
-# Title:  The summary()
+# Title: The summary()
             command 
 
- The summary()
-            command
-            > summary(custdata)
+> summary(custdata)
 custid        sex
 Min.   :   2068   F:440
 1st Qu.: 345667   M:560
@@ -59,23 +57,22 @@ Mean   : 51.7   Texas       : 56
 Max.   :146.7   Ohio        : 51
                 (Other)     :600
 
-
 # Note 1: 
-#    The variable is.employed is missing for 
+#   The variable is.employed is missing for 
 #   about a third of the data. The variable income has negative values, which are 
-#   potentially invalid.  
+#   potentially invalid. 
 
 # Note 2: 
-#    About 84% of the customers have health 
-#   insurance.  
+#   About 84% of the customers have health 
+#   insurance. 
 
 # Note 3: 
-#    The variables housing.type, recent.move, and 
-#   num.vehicles are each missing 56 values.  
+#   The variables housing.type, recent.move, and 
+#   num.vehicles are each missing 56 values. 
 
 # Note 4: 
-#    The average value of the variable age seems 
+#   The average value of the variable age seems 
 #   plausible, but the minimum and maximum values seem unlikely. The variable 
 #   state.of.res is a categorical variable; summary() reports how many customers are in 
-#   each state (for the first few states).  
+#   each state (for the first few states). 
 

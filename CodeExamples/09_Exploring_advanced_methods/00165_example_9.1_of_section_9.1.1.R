@@ -3,8 +3,7 @@
 # Title: Preparing Spambase data and evaluating
                 the performance of decision trees 
 
-Preparing Spambase data and evaluating
-                the performance of decision treesspamD <- read.table('spamD.tsv',header=T,sep='\t')  	# Note: 1 
+spamD <- read.table('spamD.tsv',header=T,sep='\t')  	# Note: 1 
 spamTrain <- subset(spamD,spamD$rgroup>=10)
 spamTest <- subset(spamD,spamD$rgroup<10)
 

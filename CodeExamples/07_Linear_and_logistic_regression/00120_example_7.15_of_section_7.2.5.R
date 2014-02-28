@@ -1,11 +1,8 @@
 # example 7.15 of section 7.2.5 
 # (example 7.15 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
-# Title: 
-                                The model summary 
+# Title: The model summary 
 
-
-                                The model summary
-                                > summary(model)
+> summary(model)
 
 Call:
 glm(formula = fmla, family = binomial(link = "logit"), data = train)

@@ -1,6 +1,5 @@
 # informalexample 9.8 of section 9.4.1 
 # (informalexample 9.8 of section 9.4.1)  : Exploring advanced methods : Using SVMs to model complicated decision boundaries : Understanding support vector machines 
 
-
-                w %*% phi(x) + b <= v
+w %*% phi(x) + b <= v
 

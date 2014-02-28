@@ -1,11 +1,8 @@
 # example 8.8 of section 8.1.3 
 # (example 8.8 of section 8.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: 
-                                                The Calinski-Harabasz index 
+# Title: The Calinski-Harabasz index 
 
-
-                                                The Calinski-Harabasz index
-                                                totss <- function(dmatrix) {                 	# Note: 1 
+totss <- function(dmatrix) {                 	# Note: 1 
   grandmean <- apply(dmatrix, 2, FUN=mean)
   sum(apply(dmatrix, 1, FUN=function(row){sqr_edist(row, grandmean)}))
 }
@@ -40,61 +37,41 @@ ch_criterion <- function(dmatrix, kmax, method="kmeans") {     	# Note: 2
 }
 
 # Note 1: 
-#    
 #   Convenience function to calculate the total 
 #   sum of squares. 
-#    
 
 # Note 2: 
-#    
 #   A function to calculate the CH index for a 
 #   number of clusters from 1 to kmax. 
-#    
 
 # Note 3: 
-#    
 #   The total sum of squares is independent of 
 #   the clustering. 
-#    
 
 # Note 4: 
-#    
 #   Calculate WSS for k=1 (which is really just 
 #   total sum of squares). 
-#    
 
 # Note 5: 
-#    
 #   Calculate WSS for k from 2 to kmax. kmeans() 
 #   returns the total WSS as one of its 
 #   outputs. 
-#    
 
 # Note 6: 
-#    
 #   For hclust(), calculate total WSS by 
 #   hand. 
-#    
 
 # Note 7: 
-#    
 #   Calculate BSS for k from 1 to kmax. 
-#    
 
 # Note 8: 
-#    
 #   Normalize BSS by k-1. 
-#    
 
 # Note 9: 
-#    
 #   Normalize WSS by npts - k. 
-#    
 
 # Note 10: 
-#    
 #   Return a vector of CH indices and of WSS for 
 #   k from 1 to kmax. Also return total sum of 
 #   squares. 
-#    
 

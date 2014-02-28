@@ -1,10 +1,7 @@
 # example A.1 of section A.2 
 # (example A.1 of section A.2)  : Working with R and other tools : Starting with R 
-# Title: 
-                        Trying a few R commands 
+# Title: Trying a few R commands 
 
-
-                        Trying a few R commands
 > 1
 [1] 1
 > 1/2

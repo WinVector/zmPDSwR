@@ -1,11 +1,8 @@
 # example 8.10 of section 8.1.4 
 # (example 8.10 of section 8.1.4)  : Unsupervised methods : Cluster analysis : The k-means algorithm 
-# Title: 
-                                        Running k-means with k=5 
+# Title: Running k-means with k=5 
 
-
-                                        Running k-means with k=5
-                                        > pclusters <- kmeans(pmatrix, kbest.p, nstart=100, iter.max=100)   	# Note: 1 
+> pclusters <- kmeans(pmatrix, kbest.p, nstart=100, iter.max=100)   	# Note: 1 
 > summary(pclusters)                                               	# Note: 2 
              Length Class  Mode
 cluster      25     -none- numeric
@@ -71,45 +68,33 @@ size          5     -none- numeric
 19    Spain     7.1  7.0    7.2
 
 # Note 1: 
-#    
 #   Run kmeans() with five clusters (kbest.p=5), 
 #   100 random starts, and 100 maximum iterations per 
 #   run. 
-#    
 
 # Note 2: 
-#    
 #   kmeans() returns all the sum of squares 
 #   measures. 
-#    
 
 # Note 3: 
-#    
 #   pclusters$centers is a matrix whose rows are 
 #   the centroids of the clusters. Note that 
 #   pclusters$centers is in the scaled coordinates, 
 #   not the original protein coordinates. 
-#    
 
 # Note 4: 
-#    
 #   pclusters$size returns the number of points 
 #   in each cluster. Generally (though not always) a 
 #   good clustering will be fairly well balanced: no 
 #   extremely small clusters and no extremely large 
 #   ones. 
-#    
 
 # Note 5: 
-#    
 #   pclusters$cluster is a vector of cluster 
 #   labels. 
-#    
 
 # Note 6: 
-#    
 #   In this case, kmeans() and hclust() returned 
 #   the same clustering. This won’t always be 
 #   true. 
-#    
 

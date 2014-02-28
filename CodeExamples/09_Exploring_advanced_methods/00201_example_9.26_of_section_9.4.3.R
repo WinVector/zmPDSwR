@@ -3,8 +3,7 @@
 # Title: Printing the SVM results
                     summary 
 
-Printing the SVM results
-                    summaryprint(svmM)
+print(svmM)
 Support Vector Machine object of class "ksvm" 
 
 SV type: C-svc  (classification) 

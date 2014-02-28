@@ -1,9 +1,8 @@
 # example B.9 of section B.1.4 
 # (example B.9 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
-# Title:  Simulating a binomial distribution 
+# Title: Simulating a binomial distribution 
 
- Simulating a binomial distribution
-                     # use rbinom to simulate flipping a coin of probability p N times
+# use rbinom to simulate flipping a coin of probability p N times
 
 p75 <- 0.75 # a very unfair coin (mostly heads)
 N <- 1000  # flip it several times

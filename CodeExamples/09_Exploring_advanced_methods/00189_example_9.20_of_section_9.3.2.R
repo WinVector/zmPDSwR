@@ -4,9 +4,7 @@
                     explicit kernel
                     model 
 
-Inspecting the results of the
-                    explicit kernel
-                    model> print(summary(m3))
+> print(summary(m3))
 
 Call:
 lm(formula = log(PINCP, base = 10) ~ AGEP + SEXM +

@@ -1,9 +1,8 @@
 # example B.11 of section B.1.4 
 # (example B.11 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
-# Title:  Working with the binomial cdf 
+# Title: Working with the binomial cdf 
 
- Working with the binomial cdf
-                    # because this is a discrete probability distribution, 
+# because this is a discrete probability distribution, 
 # pbinom and qbinom are not exact inverses of each other
 
 # this direction works

@@ -4,9 +4,7 @@
                 a
                 GAM 
 
-Extracting a learned spline from
-                a
-                GAM> sx <- predict(glin.model, type="terms")
+> sx <- predict(glin.model, type="terms")
 > summary(sx)
       s(x)
  Min.   :-17.527035

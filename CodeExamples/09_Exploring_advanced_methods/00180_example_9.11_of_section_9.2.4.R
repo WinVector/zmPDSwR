@@ -3,8 +3,7 @@
 # Title: Applying linear regression (with
                 and without GAM) to health data 
 
-Applying linear regression (with
-                and without GAM) to health data> library(mgcv)
+> library(mgcv)
 > library(ggplot2)
 > load("NatalBirthData.rData")
 > train <- sdata[sdata$ORIGRANDGROUP<=5,]

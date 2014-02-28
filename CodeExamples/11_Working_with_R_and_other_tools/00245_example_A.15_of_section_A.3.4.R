@@ -1,11 +1,8 @@
 # example A.15 of section A.3.4 
 # (example A.15 of section A.3.4)  : Working with R and other tools : Using databases with R : An example SQL data transformation task 
-# Title: 
-                                        Showing our hotel model results 
+# Title: Showing our hotel model results 
 
-
-                                        Showing our hotel model results
-                                        library('ggplot2')
+library('ggplot2')
 ggplot(data=joined,aes(x=price,y=pickup)) +
   geom_point() + geom_jitter() + geom_smooth(method='lm')
 print(summary(lm(pickup~price,data=joined)))

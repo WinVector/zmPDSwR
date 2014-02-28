@@ -3,8 +3,7 @@
 # Title: Applying an example explicit
                     kernel transform 
 
-Applying an example explicit
-                    kernel transformphi <- function(x) { 	# Note: 1 
+phi <- function(x) { 	# Note: 1 
      x <- as.numeric(x)
      c(x,x*x,combn(x,2,FUN=prod))
   }
@@ -23,35 +22,35 @@ pM <- as.data.frame(pM)
 pM$PINCP <- psub$PINCP
 pM$ORIGRANDGROUP <- psub$ORIGRANDGROUP
 pMtrain <- subset(pM,ORIGRANDGROUP >= 500)
-pMtest <- subset(pM,ORIGRANDGROUP < 500) 	# Note: 7 
+pMtest <- subset(pM,ORIGRANDGROUP < 500) 	# Note: 7
 
 # Note 1: 
-#    Define our primal kernel function: map a 
+#   Define our primal kernel function: map a 
 #   vector to a copy of itself plus all square terms and cross-multiplied 
-#   terms.  
+#   terms. 
 
 # Note 2: 
-#    Define a function similar to our primal 
-#   kernel, but working on variable names instead of values.  
+#   Define a function similar to our primal 
+#   kernel, but working on variable names instead of values. 
 
 # Note 3: 
-#    Convert data to a matrix where all 
-#   categorical variables are encoded as multiple numeric indicators.  
+#   Convert data to a matrix where all 
+#   categorical variables are encoded as multiple numeric indicators. 
 
 # Note 4: 
-#    Remove problematic characters from matrix 
-#   column names.  
+#   Remove problematic characters from matrix 
+#   column names. 
 
 # Note 5: 
-#    Apply the primal kernel function to every 
+#   Apply the primal kernel function to every 
 #   row of the matrix and transpose results so they’re written as rows (not as a 
-#   list as returned by apply()).  
+#   list as returned by apply()). 
 
 # Note 6: 
-#    Extend names from original matrix to 
-#   names for compound variables in new matrix.  
+#   Extend names from original matrix to 
+#   names for compound variables in new matrix. 
 
 # Note 7: 
-#    Add in outcomes, test/train split 
-#   columns, and prepare new data for modeling.  
+#   Add in outcomes, test/train split 
+#   columns, and prepare new data for modeling. 
 

@@ -1,9 +1,8 @@
 # example B.18 of section B.2.2 
 # (example B.18 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
-# Title:  Plotting the posterior distribution of the B group 
+# Title: Plotting the posterior distribution of the B group 
 
- Plotting the posterior distribution of the B group
-                        library('ggplot2')
+library('ggplot2')
 plt <- data.frame(x=seq(from=0.04,to=0.07,length.out=301))
 plt$density <- dbeta(plt$x,
    shape1=commonRate+tab['B','1'],

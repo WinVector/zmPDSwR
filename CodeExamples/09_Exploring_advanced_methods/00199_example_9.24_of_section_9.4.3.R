@@ -4,9 +4,7 @@
                     Spambase example with
                     GLM 
 
-Revisiting the
-                    Spambase example with
-                    GLMspamD <- read.table('spamD.tsv',header=T,sep='\t')
+spamD <- read.table('spamD.tsv',header=T,sep='\t')
 spamTrain <- subset(spamD,spamD$rgroup>=10)
 spamTest <- subset(spamD,spamD$rgroup<10)
 spamVars <- setdiff(colnames(spamD),list('rgroup','spam'))

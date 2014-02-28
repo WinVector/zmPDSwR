@@ -1,11 +1,8 @@
 # example 10.7 of section 10.3.1 
 # (example 10.7 of section 10.3.1)  : Documentation and deployment : Using comments and version control for running documentation : Writing effective comments 
-# Title: 
-                                Example code comment 
+# Title: Example code comment 
 
-
-                                Example code comment
-                                #    Return the pseudo logarithm of x, which is close to
+#    Return the pseudo logarithm of x, which is close to
 # sign(x)*log10(abs(x)) for x such that abs(x) is large
 # and doesn't "blow up" near zero.  Useful
 # for transforming wide-range variables that may be negative

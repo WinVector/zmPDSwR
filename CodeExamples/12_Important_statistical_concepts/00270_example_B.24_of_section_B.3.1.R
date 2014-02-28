@@ -1,11 +1,9 @@
 # example B.24 of section B.3.1 
 # (example B.24 of section B.3.1)  : Important statistical concepts : Examples of the statistical view of data : Sampling bias 
-# Title:  Plotting biased view of income and
+# Title: Plotting biased view of income and
                 capital gains 
 
- Plotting biased view of income and
-                capital gains
-                library(ggplot2)
+library(ggplot2)
 ggplot(data=d,aes(x=EarnedIncome,y=CapitalGains)) +
    geom_point() + geom_smooth(method='lm') +
    coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d))) 	# Note: 1 
@@ -29,16 +27,15 @@ print(with(subset(d,EarnedIncome+CapitalGains<500000),
 #        rho
 #-0.05202267
 
-
 # Note 1: 
-#    Plot all of the income data with linear 
-#   trend line (and uncertainty band).  
+#   Plot all of the income data with linear 
+#   trend line (and uncertainty band). 
 
 # Note 2: 
-#    Plot the very high income data and linear 
-#   trend line (also include cut-off and portrayal of suppressed data).  
+#   Plot the very high income data and linear 
+#   trend line (also include cut-off and portrayal of suppressed data). 
 
 # Note 3: 
-#    Compute correlation of suppressed 
-#   data.  
+#   Compute correlation of suppressed 
+#   data. 
 

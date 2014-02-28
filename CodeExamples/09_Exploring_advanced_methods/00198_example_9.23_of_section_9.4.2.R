@@ -3,8 +3,7 @@
 # Title: SVM with a good choice of
                     kernel 
 
-SVM with a good choice of
-                    kernelmSVMG <- ksvm(class~x+y,data=sTrain,kernel='rbfdot') 	# Note: 1 
+mSVMG <- ksvm(class~x+y,data=sTrain,kernel='rbfdot') 	# Note: 1 
 sTest$predSVMG <- predict(mSVMG,newdata=sTest,type='response')
 ggplot() +
     geom_point(data=sTest,aes(x=x,y=y,shape=predSVMG,color=predSVMG),
@@ -14,7 +13,6 @@ ggplot() +
     coord_fixed()
 
 # Note 1: 
-#    This time use the "radial" or 
+#   This time use the "radial" or 
 #   Gaussian kernel, which is a nice geometric similarity measure. 
-#    
 

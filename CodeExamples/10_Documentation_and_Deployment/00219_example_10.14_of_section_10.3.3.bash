@@ -1,13 +1,9 @@
 # example 10.14 of section 10.3.3 
 # (example 10.14 of section 10.3.3)  : Documentation and deployment : Using comments and version control for running documentation : Using version control to explore your project 
-# Title: 
-                                        Finding line-based differences between two committed
-                                                versions  
-
-
-                                        Finding line-based differences between two committed
+# Title: Finding line-based differences between two committed
                                                 versions 
-                                        diff --git a/CDC/NatalBirthData.rData b/CDC/NatalBirthData.rData
+
+diff --git a/CDC/NatalBirthData.rData b/CDC/NatalBirthData.rData
 ...
 +++ b/CDC/prepBirthWeightData.R
 @@ -0,0 +1,83 @@

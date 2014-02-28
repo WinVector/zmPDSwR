@@ -1,11 +1,8 @@
 # example 8.1 of section 8.1.2 
 # (example 8.1 of section 8.1.2)  : Unsupervised methods : Cluster analysis : Preparing the data 
-# Title: 
-                                Reading the protein data 
+# Title: Reading the protein data 
 
-
-                                Reading the protein data
-                                protein <- read.table(“protein.txt”, sep=”\t”, header=TRUE)
+protein <- read.table(“protein.txt”, sep=”\t”, header=TRUE)
 summary(protein)
            Country      RedMeat         WhiteMeat           Eggs
  Albania       : 1   Min.   : 4.400   Min.   : 1.400   Min.   :0.500

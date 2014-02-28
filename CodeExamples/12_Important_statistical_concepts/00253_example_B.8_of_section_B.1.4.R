@@ -1,11 +1,9 @@
 # example B.8 of section B.1.4 
 # (example B.8 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
-# Title:  Working with the theoretical binomial
+# Title: Working with the theoretical binomial
                     distribution 
 
- Working with the theoretical binomial
-                    distribution
-                    p = 0.5 # the percentage of females in this student population
+p = 0.5 # the percentage of females in this student population
 class.size <- 20 # size of a classroom
 numclasses <- 100 # how many classrooms we observe
 
@@ -33,12 +31,12 @@ ggplot(data.frame(number.of.girls=numFemales, dummy=1),
   scale_y_continuous("number of classrooms")
 
 # Note 1: 
-#    Because we didn’t call set.seed, we 
-#   expect different results each time we run this line.  
+#   Because we didn’t call set.seed, we 
+#   expect different results each time we run this line. 
 
 # Note 2: 
-#    stat_summary is one of the ways to 
+#   stat_summary is one of the ways to 
 #   control data aggregation during plotting. In this case, we’re using it to 
 #   place the dot and bar measured from the empirical data in with the 
-#   theoretical density curve.  
+#   theoretical density curve. 
 

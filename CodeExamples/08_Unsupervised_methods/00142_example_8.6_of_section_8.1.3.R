@@ -1,13 +1,9 @@
 # example 8.6 of section 8.1.3 
 # (example 8.6 of section 8.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: 
-                                        Running clusterboot() on the protein
+# Title: Running clusterboot() on the protein
                                                 data 
 
-
-                                        Running clusterboot() on the protein
-                                                data
-                                        library(fpc)                                  	# Note: 1 
+library(fpc)                                  	# Note: 1 
 kbest.p<-5                                                   	# Note: 2 
 cboot.hclust <- clusterboot(pmatrix,clustermethod=hclustCBI, 	# Note: 3 
                            method="ward", k=kbest.p)
@@ -65,54 +61,38 @@ nccl           1     -none- numeric
 [1] 25 11 47  8 35
 
 # Note 1: 
-#    
 #   Load the fpc package. You may have to 
 #   install it first. We’ll discuss installing R 
 #   packages in appendix . 
-#    
 
 # Note 2: 
-#    
 #   Set the desired number of clusters. 
-#    
 
 # Note 3: 
-#    
 #   Run clusterboot() with hclust 
 #   ('clustermethod=hclustCBI') using Ward’s method 
 #   ('method="ward"') and kbest.p clusters 
 #   ('k=kbest.p'). Return the results in an object 
 #   called cboot.hclust. 
-#    
 
 # Note 4: 
-#    
 #   The results of the clustering are in 
 #   cboot.hclust$result. The output of the hclust() 
 #   function is in cboot.hclust$result$result. 
-#    
 
 # Note 5: 
-#    
 #   cboot.hclust$result$partition returns a 
 #   vector of clusterlabels. 
-#    
 
 # Note 6: 
-#    
 #   The clusters are the same as those produced 
 #   by a direct call to hclust(). 
-#    
 
 # Note 7: 
-#    
 #   The vector of cluster stabilities. 
-#    
 
 # Note 8: 
-#    
 #   The count of how many times each cluster was 
 #   dissolved. By default clusterboot() runs 100 
 #   bootstrap iterations. 
-#    
 

@@ -1,7 +1,6 @@
 # informalexample 7.17 of section 7.2.5 
 # (informalexample 7.17 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 
-
-                                                Warning message:
+Warning message:
 glm.fit: fitted probabilities numerically 0 or 1 occurred
 

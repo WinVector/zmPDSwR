@@ -1,11 +1,8 @@
 # example 2.2 of section 2.1.1 
 # (example 2.2 of section 2.1.1)  : Loading data into R : Working with data from files : Working with well-structured data from files or URLs 
-# Title: 
-                                        Exploring the car data 
+# Title: Exploring the car data 
 
-
-                                        Exploring the car data
-                                        > class(uciCar)
+> class(uciCar)
 [1] "data.frame" 	# Note: 1 
 > summary(uciCar)
    buying      maint       doors
@@ -26,15 +23,12 @@
  vgood:  65
 
 > dim(uciCar)
-[1] 1728    7   	# Note: 2 
+[1] 1728    7   	# Note: 2
 
 # Note 1: 
-#    
 #   The loaded object uciCar is of type data.frame. 
-#    
 
 # Note 2: 
-#    
 #   The [1] is just an output sequence 
 #   marker. The actual information is this: uciCar has 
 #   1728 rows and 7 columns. Always try to confirm you 
@@ -43,5 +37,4 @@
 #   number of lines of text in the original file. The 
 #   difference of one is because the column header 
 #   counts as a line, but not as a data row. 
-#    
 

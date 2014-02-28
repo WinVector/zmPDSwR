@@ -1,11 +1,8 @@
 # example 10.13 of section 10.3.3 
 # (example 10.13 of section 10.3.3)  : Documentation and deployment : Using comments and version control for running documentation : Using version control to explore your project 
-# Title: 
-                                        Viewing detailed project history 
+# Title: Viewing detailed project history 
 
-
-                                        Viewing detailed project history
-                                        git log --graph --name-status
+git log --graph --name-status
 * commit c49c853cbcbb1e5a923d6e1127aa54ec7335d1b3
 | Author: John Mount <jmount@win-vector.com>
 | Date:   Sat Oct 26 09:22:02 2013 -0700

@@ -1,9 +1,8 @@
 # example B.6 of section B.1.3 
 # (example B.6 of section B.1.3)  : Important statistical concepts : Distributions : Lognormal distribution 
-# Title:  Plotting the lognormal distribution 
+# Title: Plotting the lognormal distribution 
 
- Plotting the lognormal distribution
-                    # the 50th percentile (or median) of the lognormal with
+# the 50th percentile (or median) of the lognormal with
 # meanlog=0 and sdlog=10
 qlnorm(0.5)
 # [1] 1

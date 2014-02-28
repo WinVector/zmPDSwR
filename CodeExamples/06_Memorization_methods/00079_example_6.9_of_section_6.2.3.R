@@ -1,11 +1,8 @@
 # example 6.9 of section 6.2.3 
 # (example 6.9 of section 6.2.3)  : Memorization methods : Building single-variable models : Using cross-validation to estimate effects of overfitting 
-# Title: 
-                                Running a repeated cross-validation experiment 
+# Title: Running a repeated cross-validation experiment 
 
-
-                                Running a repeated cross-validation experiment
-                                > var <- 'Var217'
+> var <- 'Var217'
 > aucs <- rep(0,100)
 > for(rep in 1:length(aucs)) {   	# Note: 1 
    useForCalRep <- rbinom(n=dim(dTrainAll)[[1]],size=1,prob=0.1)>0  	# Note: 2 

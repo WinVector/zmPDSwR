@@ -1,8 +1,7 @@
 # informalexample 7.14 of section 7.2.5 
 # (informalexample 7.14 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 
-
-                                        Coefficients:
+Coefficients:
                           Estimate Std. Error z value Pr(>|z|)
 (Intercept)              -4.412189   0.289352 -15.249  < 2e-16 ***
 PWGT                      0.003762   0.001487   2.530 0.011417 *

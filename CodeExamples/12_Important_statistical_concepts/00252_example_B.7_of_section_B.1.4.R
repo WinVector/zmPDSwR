@@ -1,9 +1,8 @@
 # example B.7 of section B.1.4 
 # (example B.7 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
-# Title:  Plotting the binomial distribution 
+# Title: Plotting the binomial distribution 
 
- Plotting the binomial distribution
-                    library(ggplot2)
+library(ggplot2)
 #
 # use dbinom to produce the theoretical curves
 #
@@ -35,5 +34,5 @@ for(i in 1:length(p)) {
 # this is the plot that leads this section
 ggplot(flips, aes(x=number.of.heads, y=probability)) +
   geom_point(aes(color=coin.type, shape=coin.type)) +
-  geom_line(aes(color=coin.type)) 
+  geom_line(aes(color=coin.type))
 

@@ -1,11 +1,8 @@
 # example 7.13 of section 7.2.3 
 # (example 7.13 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
-# Title: 
-                                        Evaluating our chosen model 
+# Title: Evaluating our chosen model 
 
-
-                                        Evaluating our chosen model
-                                        > ctab.test <- table(pred=test$pred>0.02, atRisk=test$atRisk) 	# Note: 1 
+> ctab.test <- table(pred=test$pred>0.02, atRisk=test$atRisk) 	# Note: 1 
 > ctab.test                                                      	# Note: 2 
        atRisk
 pred    FALSE TRUE
@@ -22,14 +19,10 @@ pred    FALSE TRUE
 [1] 2.664159
 
 # Note 1: 
-#    
 #   Build confusion matrix. 
-#    
 
 # Note 2: 
-#    
 #   Rows contain predicted negatives and 
 #   positives; columns contain actual negatives and 
 #   positives. 
-#    
 

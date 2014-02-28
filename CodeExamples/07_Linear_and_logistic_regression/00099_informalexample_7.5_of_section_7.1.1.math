@@ -1,6 +1,5 @@
 # informalexample 7.5 of section 7.1.1 
 # (informalexample 7.5 of section 7.1.1)  : Linear and logistic regression : Using linear regression : Understanding linear regression 
 
-
-                                x[i]^2 nearly equals -22 + 11 x[i]
+x[i]^2 nearly equals -22 + 11 x[i]
 

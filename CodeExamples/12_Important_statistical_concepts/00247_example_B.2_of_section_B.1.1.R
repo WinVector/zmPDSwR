@@ -1,9 +1,8 @@
 # example B.2 of section B.1.1 
 # (example B.2 of section B.1.1)  : Important statistical concepts : Distributions : Normal distribution 
-# Title:  Plotting an empirical normal density 
+# Title: Plotting an empirical normal density 
 
- Plotting an empirical normal density
-                    library(ggplot2)
+library(ggplot2)
 
 # draw 1000 points from a normal with mean 0, sd 1
 u <- rnorm(1000)

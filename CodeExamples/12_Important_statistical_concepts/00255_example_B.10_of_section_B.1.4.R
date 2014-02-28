@@ -1,11 +1,9 @@
 # example B.10 of section B.1.4 
 # (example B.10 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
-# Title:  Working with the binomial
+# Title: Working with the binomial
                     distribution 
 
- Working with the binomial
-                    distribution
-                    # pbinom example
+# pbinom example
 
 nflips <- 100
 nheads <- c(25, 45, 50, 60)  # number of heads

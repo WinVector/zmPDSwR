@@ -1,9 +1,8 @@
 # example B.19 of section B.2.3 
 # (example B.19 of section B.2.3)  : Important statistical concepts : Statistical theory : Power of tests 
-# Title:  Sample size estimate 
+# Title: Sample size estimate 
 
- Sample size estimate
-                estimate <- function(targetRate,difference,errorProb) {
+estimate <- function(targetRate,difference,errorProb) {
     ceiling(-log(errorProb)*targetRate/(difference^2))
 }
 

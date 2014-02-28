@@ -1,10 +1,7 @@
 # example 6.12 of section 6.3.1 
 # (example 6.12 of section 6.3.1)  : Memorization methods : Building models using many variables : Variable selection 
-# Title: 
-                                Selected categorical and numeric variables 
+# Title: Selected categorical and numeric variables 
 
-
-                                Selected categorical and numeric variables
 ## [1] "predVar194, calibrationScore: 5.25759"
 ## [1] "predVar201, calibrationScore: 5.25521"
 ## [1] "predVar204, calibrationScore: 5.37414"

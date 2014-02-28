@@ -1,11 +1,8 @@
 # example 6.13 of section 6.3.2 
 # (example 6.13 of section 6.3.2)  : Memorization methods : Building models using many variables : Using decision trees 
-# Title: 
-                                        Building a bad decision tree 
+# Title: Building a bad decision tree 
 
-
-                                        Building a bad decision tree
-                                        > library('rpart')
+> library('rpart')
 > fV <- paste(outcome,'>0 ~ ',
    paste(c(catVars,numericVars),collapse=' + '),sep='')
 > tmodel <- rpart(fV,data=dTrain)
