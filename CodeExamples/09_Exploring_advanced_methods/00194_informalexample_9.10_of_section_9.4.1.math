@@ -1,0 +1,6 @@
+# informalexample 9.10 of section 9.4.1 
+# (informalexample 9.10 of section 9.4.1)  : Exploring advanced methods : Using SVMs to model complicated decision boundaries : Understanding support vector machines 
+
+
+                    w %*% phi(x) + b = sum(a1*k(s1,x),...,am*k(sm,x)) + b
+

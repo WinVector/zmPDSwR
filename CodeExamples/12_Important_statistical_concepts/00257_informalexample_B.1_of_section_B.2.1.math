@@ -1,0 +1,6 @@
+# informalexample B.1 of section B.2.1 
+# (informalexample B.1 of section B.2.1)  : Important statistical concepts : Statistical theory : Statistical philosophy 
+
+
+                    E[(y[i]-f(x[i,]))^2] = bias^2 + variance + irreducibleError
+

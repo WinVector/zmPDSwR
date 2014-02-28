@@ -1,0 +1,7 @@
+# informalexample 7.12 of section 7.2.5 
+# (informalexample 7.12 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
+
+
+                                        Call:
+glm(formula = fmla, family = binomial(link = "logit"), data = train)
+

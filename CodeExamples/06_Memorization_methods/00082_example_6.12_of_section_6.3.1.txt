@@ -1,0 +1,36 @@
+# example 6.12 of section 6.3.1 
+# (example 6.12 of section 6.3.1)  : Memorization methods : Building models using many variables : Variable selection 
+# Title: 
+                                Selected categorical and numeric variables 
+
+
+                                Selected categorical and numeric variables
+## [1] "predVar194, calibrationScore: 5.25759"
+## [1] "predVar201, calibrationScore: 5.25521"
+## [1] "predVar204, calibrationScore: 5.37414"
+## [1] "predVar205, calibrationScore: 24.2323"
+## [1] "predVar206, calibrationScore: 34.4434"
+## [1] "predVar210, calibrationScore: 10.6681"
+## [1] "predVar212, calibrationScore: 6.23409"
+## [1] "predVar218, calibrationScore: 13.2455"
+## [1] "predVar221, calibrationScore: 12.4098"
+## [1] "predVar225, calibrationScore: 22.9074"
+## [1] "predVar226, calibrationScore: 6.68931"
+## [1] "predVar228, calibrationScore: 15.9644"
+## [1] "predVar229, calibrationScore: 24.4946"
+
+## [1] "predVar6, calibrationScore: 11.2431"
+## [1] "predVar7, calibrationScore: 16.685"
+## [1] "predVar13, calibrationScore: 8.06318"
+## [1] "predVar28, calibrationScore: 9.38643"
+## [1] "predVar65, calibrationScore: 7.96938"
+## [1] "predVar72, calibrationScore: 10.5353"
+## [1] "predVar73, calibrationScore: 46.2524"
+## [1] "predVar74, calibrationScore: 17.6324"
+## [1] "predVar81, calibrationScore: 6.8741"
+## [1] "predVar113, calibrationScore: 21.136"
+## [1] "predVar126, calibrationScore: 72.9556"
+## [1] "predVar140, calibrationScore: 14.1816"
+## [1] "predVar144, calibrationScore: 13.9858"
+## [1] "predVar189, calibrationScore: 40.3059"
+

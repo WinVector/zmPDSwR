@@ -1,0 +1,26 @@
+# informalexample 9.3 of section 9.1.2 
+# (informalexample 9.3 of section 9.1.2)  : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using random forests to further improve prediction 
+
+
+                # Performance on the training set
+        model  accuracy        f1  dev.norm
+         Tree 0.9104514 0.7809002 0.5618654
+      Bagging 0.9220372 0.8072953 0.4702707
+Random Forest 0.9884142 0.9706611 0.1428786
+
+# Performance on the test set
+        model  accuracy        f1  dev.norm
+         Tree 0.8799127 0.7091151 0.6702857
+      Bagging 0.9061135 0.7646497 0.5282290
+Random Forest 0.9541485 0.8845029 0.3972416
+
+# Performance change between training and test:
+# The decrease in accuracy and f1 in the test set
+# from training, and the increase in dev.norm
+# in the test set from training.
+# (So in every case, smaller is better)
+        model   accuracy         f1   dev.norm
+         Tree 0.03053870 0.07178505 -0.10842030
+      Bagging 0.01592363 0.04264557 -0.05795832
+Random Forest 0.03426572 0.08615813 -0.254363
+

@@ -1,0 +1,9 @@
+# informalexample 7.6 of section 7.1.5 
+# (informalexample 7.6 of section 7.1.5)  : Linear and logistic regression : Using linear regression : Reading the model summary and characterizing coefficient
+                                quality 
+
+
+                                        Call:
+lm(formula = log(PINCP, base = 10) ~ AGEP + SEX + COW + SCHL,
+    data = dtrain)
+

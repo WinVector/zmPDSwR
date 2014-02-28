@@ -1,6 +1,0 @@
-# informalexample:2_7.1.1 
-# informalexample:2 : Linear and logistic regression : Using linear regression : Understanding linear regression 
-
-
-                                y[i] ~ f(x[i,]) = b[1] x[i,1] + ... b[n] x[i,n]
-

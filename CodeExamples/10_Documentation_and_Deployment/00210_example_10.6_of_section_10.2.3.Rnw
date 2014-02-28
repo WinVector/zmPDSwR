@@ -1,0 +1,25 @@
+# example 10.6 of section 10.2.3 
+# (example 10.6 of section 10.2.3)  : Documentation and deployment : Using knitr to produce milestone documentation : Using knitr to document the buzz data 
+# Title: 
+                                        Conditionally saving a file 
+
+
+                                        Conditionally saving a file
+                                        Save prepared R environment.
+% Another way to conditionally save, check for file.
+% message=F is letting message() calls get routed to console instead
+% of the document.
+<<save,tidy=F,cache=F,message=F,eval=T>>=
+fname <- 'thRS500.Rdata'
+if(!file.exists(fname)) {
+   save(list=ls(),file=fname)
+   message(paste('saved',fname))  # message to running R console
+   print(paste('saved',fname))    # print to document
+} else {
+   message(paste('skipped saving',fname)) # message to running R console
+   print(paste('skipped saving',fname))   # print to document
+}
+paste('checked at',date())
+system(paste('shasum',fname),intern=T)  # write down file hash
+@
+
