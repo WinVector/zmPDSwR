@@ -8,7 +8,7 @@ p75 <- 0.75 # a very unfair coin (mostly heads)
 N <- 1000  # flip it several times
 flips_v1 <- rbinom(N, 1, p75)
 
-# Another way to generated unfair flips is to use runif:
+# Another way to generate unfair flips is to use runif:
 # the probability that a uniform random number from [0 1)
 # is less than p is exactly p. So "less than p" is "heads".
 flips_v2 <- as.numeric(runif(N) < p75) 

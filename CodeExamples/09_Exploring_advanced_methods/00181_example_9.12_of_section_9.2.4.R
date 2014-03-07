@@ -10,7 +10,7 @@
 
 > p1 <- ggplot(pframe, aes(x=PWGT)) +
    geom_point(aes(y=scale(sPWGT, scale=F))) +  	# Note: 5 
-   geom_smooth(aes(y=scale(DBWT, scale=F)))    	# Note: 6 
+   geom_smooth(aes(y=scale(DBWT, scale=F))) +   	# Note: 6 
 [...]  	# Note: 7
 
 # Note 1: 
