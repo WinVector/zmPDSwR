@@ -1,7 +1,6 @@
 # example B.5 of section B.1.3 
 # (example B.5 of section B.1.3)  : Important statistical concepts : Distributions : Lognormal distribution 
-# Title: Demonstrating some properties of the lognormal
-                    distribution 
+# Title: Demonstrating some properties of the lognormal distribution 
 
 # draw 1001 samples from a lognormal with meanlog 0, sdlog 1
 u <- rlnorm(1001)

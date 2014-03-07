@@ -1,7 +1,6 @@
 # example B.17 of section B.2.2 
 # (example B.17 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
-# Title: Bayesian estimate of
-                        the posterior tail mass 
+# Title: Bayesian estimate of the posterior tail mass 
 
 print(pbeta( 	# Note: 1 
    aConversionRate, 	# Note: 2 
@@ -10,7 +9,7 @@ print(pbeta( 	# Note: 1
 ## [1] 4.731817e-06
 
 # Note 1: 
-#   Use pbeta() to estimate how likely 
+#   pbeta() functionUse pbeta() to estimate how likely 
 #   different observed conversion rates are. 
 
 # Note 2: 

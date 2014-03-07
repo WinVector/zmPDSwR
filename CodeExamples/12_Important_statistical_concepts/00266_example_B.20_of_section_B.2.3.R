@@ -1,7 +1,6 @@
 # example B.20 of section B.2.3 
 # (example B.20 of section B.2.3)  : Important statistical concepts : Statistical theory : Power of tests 
-# Title: Exact binomial sample size
-                calculation 
+# Title: Exact binomial sample size calculation 
 
 errorProb <- function(targetRate,difference,size) { 	# Note: 1 
    pbinom(ceiling((targetRate-difference)*size),

@@ -1,7 +1,6 @@
 # example B.24 of section B.3.1 
 # (example B.24 of section B.3.1)  : Important statistical concepts : Examples of the statistical view of data : Sampling bias 
-# Title: Plotting biased view of income and
-                capital gains 
+# Title: Plotting biased view of income and capital gains 
 
 library(ggplot2)
 ggplot(data=d,aes(x=EarnedIncome,y=CapitalGains)) +

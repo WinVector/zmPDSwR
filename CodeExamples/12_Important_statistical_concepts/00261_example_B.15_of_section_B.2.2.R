@@ -1,7 +1,6 @@
 # example B.15 of section B.2.2 
 # (example B.15 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
-# Title: Calculating the significance of the observed difference in
-                        rates 
+# Title: Calculating the significance of the observed difference in rates 
 
 fisher.test(tab)
 

@@ -1,7 +1,6 @@
 # example B.26 of section B.3.2 
 # (example B.26 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
-# Title: Building data that
-                    improves over time 
+# Title: Building data that improves over time 
 
 set.seed(2535251)
 s <- data.frame(week=1:100)

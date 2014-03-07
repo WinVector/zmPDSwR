@@ -1,7 +1,6 @@
 # example 9.25 of section 9.4.3 
 # (example 9.25 of section 9.4.3)  : Exploring advanced methods : Using SVMs to model complicated decision boundaries : Using SVMs on real data 
-# Title: Applying an SVM to the
-                    Spambase example 
+# Title: Applying an SVM to the Spambase example 
 
 library('kernlab')
 spamFormulaV <- as.formula(paste('spam',
@@ -37,7 +36,7 @@ print(with(spamTest,table(y=spam,svmPred=svmPred)))
 #   Ask that, in addition to a predictive model, an estimate of a model estimating class 
 #   probabilities also be built. Not all SVM libraries support this 
 #   operation, and the probabilities are essentially built after the 
-#   model (through a cross-validation procedure) and may as high-quality 
+#   model (through a cross-validation procedure) and may not be as high-quality 
 #   as the model itself. 
 
 # Note 5: 

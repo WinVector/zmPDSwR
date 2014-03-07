@@ -1,7 +1,6 @@
 # example 6.4 of section 6.2.1 
 # (example 6.4 of section 6.2.1)  : Memorization methods : Building single-variable models : Using categorical features 
-# Title: Function to build single-variable models for categorical
-                                        variables 
+# Title: Function to build single-variable models for categorical variables 
 
 mkPredC <- function(outCol,varCol,appCol) { 	# Note: 1 
    pPos <- sum(outCol==pos)/length(outCol) 	# Note: 2 

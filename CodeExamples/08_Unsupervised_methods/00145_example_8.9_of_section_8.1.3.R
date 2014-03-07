@@ -1,7 +1,6 @@
 # example 8.9 of section 8.1.3 
 # (example 8.9 of section 8.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: Evaluating clusterings with different numbers
-                                                  of clusters 
+# Title: Evaluating clusterings with different numbers of clusters 
 
 library(reshape2)                                         	# Note: 1 
 clustcrit <- ch_criterion(pmatrix, 10, method="hclust")     	# Note: 2 

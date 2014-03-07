@@ -1,7 +1,6 @@
 # example B.4 of section B.1.1 
 # (example B.4 of section B.1.1)  : Important statistical concepts : Distributions : Normal distribution 
-# Title: Plotting x <
-                    qnorm(0.75) 
+# Title: Plotting x < qnorm(0.75) 
 
 # --- return the quantiles corresponding to specific probabilities ---
 

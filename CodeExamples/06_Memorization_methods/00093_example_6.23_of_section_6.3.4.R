@@ -1,7 +1,6 @@
 # example 6.23 of section 6.3.4 
 # (example 6.23 of section 6.3.4)  : Memorization methods : Building models using many variables : Using Naive Bayes 
-# Title: Building, applying, and evaluating a Naive Bayes
-                                        model 
+# Title: Building, applying, and evaluating a Naive Bayes model 
 
 pPos <- sum(dTrain[,outcome]==pos)/length(dTrain[,outcome])
 nBayes <- function(pPos,pf) { 	# Note: 1 

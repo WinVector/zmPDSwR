@@ -1,7 +1,6 @@
 # example 3.5 of section 3.1.1 
 # (example 3.5 of section 3.1.1)  : Exploring data : Using summary statistics to spot problems : Typical problems revealed by data summaries 
-# Title: Checking units sounds silly, but mistakes can lead to spectacular errors if not
-                        caught 
+# Title: Checking units sounds silly, but mistakes can lead to spectacular errors if not caught 
 
 > summary(Income)                                	# Note: 1 
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.

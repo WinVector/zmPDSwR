@@ -1,7 +1,6 @@
 # example 8.7 of section 8.1.3 
 # (example 8.7 of section 8.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: Calculating total within sum of
-                                                  squares 
+# Title: Calculating total within sum of squares 
 
 sqr_edist <- function(x, y) {             	# Note: 1 
   sum((x-y)^2)

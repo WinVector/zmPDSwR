@@ -1,7 +1,6 @@
 # example B.25 of section B.3.2 
 # (example B.25 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
-# Title: Summarizing our synthetic biological
-                    data 
+# Title: Summarizing our synthetic biological data 
 
 > load('synth.RData')
 > print(summary(s))

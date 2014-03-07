@@ -1,7 +1,6 @@
 # example 9.26 of section 9.4.3 
 # (example 9.26 of section 9.4.3)  : Exploring advanced methods : Using SVMs to model complicated decision boundaries : Using SVMs on real data 
-# Title: Printing the SVM results
-                    summary 
+# Title: Printing the SVM results summary 
 
 print(svmM)
 Support Vector Machine object of class "ksvm" 

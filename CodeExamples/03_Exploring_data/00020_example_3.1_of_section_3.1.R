@@ -1,7 +1,6 @@
 # example 3.1 of section 3.1 
 # (example 3.1 of section 3.1)  : Exploring data : Using summary statistics to spot problems 
-# Title: The summary()
-            command 
+# Title: The summary() command 
 
 > summary(custdata)
 custid        sex

@@ -1,7 +1,6 @@
 # example 9.27 of section 9.4.3 
 # (example 9.27 of section 9.4.3)  : Exploring advanced methods : Using SVMs to model complicated decision boundaries : Using SVMs on real data 
-# Title: Shifting decision point to
-                    perform an apples-to-apples comparison 
+# Title: Shifting decision point to perform an apples-to-apples comparison 
 
 sameCut <- sort(spamTest$pred)[length(spamTest$pred)-162] 	# Note: 1 
 print(with(spamTest,table(y=spam,glPred=pred>sameCut))) 	# Note: 2 

@@ -1,7 +1,6 @@
 # example 9.1 of section 9.1.1 
 # (example 9.1 of section 9.1.1)  : Exploring advanced methods : Using bagging and random forests to reduce training variance : Using bagging to improve prediction 
-# Title: Preparing Spambase data and evaluating
-                the performance of decision trees 
+# Title: Preparing Spambase data and evaluating the performance of decision trees 
 
 spamD <- read.table('spamD.tsv',header=T,sep='\t')  	# Note: 1 
 spamTrain <- subset(spamD,spamD$rgroup>=10)

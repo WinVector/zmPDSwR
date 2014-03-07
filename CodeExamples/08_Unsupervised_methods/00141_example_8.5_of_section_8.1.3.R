@@ -1,7 +1,6 @@
 # example 8.5 of section 8.1.3 
 # (example 8.5 of section 8.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: Projecting the clusters on the first two principal
-                                                components 
+# Title: Projecting the clusters on the first two principal components 
 
 library(ggplot2)
 princ <- prcomp(pmatrix)    	# Note: 1 

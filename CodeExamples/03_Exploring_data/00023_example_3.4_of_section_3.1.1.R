@@ -1,7 +1,6 @@
 # example 3.4 of section 3.1.1 
 # (example 3.4 of section 3.1.1)  : Exploring data : Using summary statistics to spot problems : Typical problems revealed by data summaries 
-# Title: Looking at the data
-                    range of a variable 
+# Title: Looking at the data range of a variable 
 
 > summary(custdata$income)
    Min. 1st Qu.  Median    Mean 3rd Qu.

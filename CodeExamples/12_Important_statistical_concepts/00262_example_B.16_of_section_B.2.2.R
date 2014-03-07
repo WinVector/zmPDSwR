@@ -1,7 +1,6 @@
 # example B.16 of section B.2.2 
 # (example B.16 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
-# Title: Computing frequentist
-                        significance 
+# Title: Computing frequentist significance 
 
 print(pbinom( 	# Note: 1 
    lower.tail=F, 	# Note: 2 

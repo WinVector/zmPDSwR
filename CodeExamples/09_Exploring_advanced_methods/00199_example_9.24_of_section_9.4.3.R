@@ -1,8 +1,6 @@
 # example 9.24 of section 9.4.3 
 # (example 9.24 of section 9.4.3)  : Exploring advanced methods : Using SVMs to model complicated decision boundaries : Using SVMs on real data 
-# Title: Revisiting the
-                    Spambase example with
-                    GLM 
+# Title: Revisiting the Spambase example with GLM 
 
 spamD <- read.table('spamD.tsv',header=T,sep='\t')
 spamTrain <- subset(spamD,spamD$rgroup>=10)

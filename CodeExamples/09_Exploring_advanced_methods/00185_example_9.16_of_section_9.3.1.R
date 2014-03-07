@@ -1,7 +1,6 @@
 # example 9.16 of section 9.3.1 
 # (example 9.16 of section 9.3.1)  : Exploring advanced methods : Using kernel methods to increase data separation : Understanding kernel functions 
-# Title: An artificial kernel
-                    example 
+# Title: An artificial kernel example 
 
 > u <- c(1,2)
 > v <- c(3,4)

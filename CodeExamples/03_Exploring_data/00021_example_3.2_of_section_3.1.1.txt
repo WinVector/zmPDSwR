@@ -1,7 +1,6 @@
 # example 3.2 of section 3.1.1 
 # (example 3.2 of section 3.1.1)  : Exploring data : Using summary statistics to spot problems : Typical problems revealed by data summaries 
-# Title: Will the variable
-                    is.employed be useful for modeling? 
+# Title: Will the variable is.employed be useful for modeling? 
 
 is.employed         	# Note: 1 
  Mode :logical

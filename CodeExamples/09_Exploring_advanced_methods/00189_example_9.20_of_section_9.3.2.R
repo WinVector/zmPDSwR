@@ -1,8 +1,6 @@
 # example 9.20 of section 9.3.2 
 # (example 9.20 of section 9.3.2)  : Exploring advanced methods : Using kernel methods to increase data separation : Using an explicit kernel on a problem 
-# Title: Inspecting the results of the
-                    explicit kernel
-                    model 
+# Title: Inspecting the results of the explicit kernel model 
 
 > print(summary(m3))
 

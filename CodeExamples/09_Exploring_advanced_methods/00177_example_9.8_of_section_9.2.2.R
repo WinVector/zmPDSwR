@@ -1,7 +1,6 @@
 # example 9.8 of section 9.2.2 
 # (example 9.8 of section 9.2.2)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
-# Title: GAM applied to our artificial
-                example 
+# Title: GAM applied to our artificial example 
 
 > library(mgcv)                             	# Note: 1 
 > glin.model <- gam(y~s(x), data=train)  	# Note: 2 

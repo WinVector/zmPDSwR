@@ -1,7 +1,6 @@
 # example B.8 of section B.1.4 
 # (example B.8 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
-# Title: Working with the theoretical binomial
-                    distribution 
+# Title: Working with the theoretical binomial distribution 
 
 p = 0.5 # the percentage of females in this student population
 class.size <- 20 # size of a classroom

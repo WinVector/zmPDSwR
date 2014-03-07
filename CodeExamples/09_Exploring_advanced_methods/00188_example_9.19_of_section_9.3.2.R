@@ -1,7 +1,6 @@
 # example 9.19 of section 9.3.2 
 # (example 9.19 of section 9.3.2)  : Exploring advanced methods : Using kernel methods to increase data separation : Using an explicit kernel on a problem 
-# Title: Modeling using the explicit
-                    kernel transform 
+# Title: Modeling using the explicit kernel transform 
 
 formulaStr2 <- paste('log(PINCP,base=10)',
    paste(vars,collapse=' + '),

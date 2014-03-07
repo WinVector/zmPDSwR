@@ -1,7 +1,6 @@
 # example B.21 of section B.2.4 
 # (example B.21 of section B.2.4)  : Important statistical concepts : Statistical theory : Specialized statistical tests 
-# Title: Building synthetic uncorrelated income
-                example 
+# Title: Building synthetic uncorrelated income example 
 
 set.seed(235236) 	# Note: 1 
 d <- data.frame(EarnedIncome=100000*rlnorm(100),

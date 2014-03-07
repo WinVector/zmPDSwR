@@ -9,9 +9,10 @@ s <- data.frame(x=spirals[,1],y=spirals[,2],
    class=as.factor(sc)) 	# Note: 3 
 library('ggplot2')
 ggplot(data=s) +
-   geom_point(aes(x=x,y=y,
-      shape=class,color=class)) +
-   coord_fixed() 	# Note: 4
+   geom_text(aes(x=x,y=y,
+      label=class,color=class)) +
+   coord_fixed() + 
+   theme_bw() + theme(legend.position='none') 	# Note: 4
 
 # Note 1: 
 #   Load the kernlab kernel and support vector 

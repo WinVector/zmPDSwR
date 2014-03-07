@@ -1,7 +1,6 @@
 # example 8.4 of section 8.1.3 
 # (example 8.4 of section 8.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: Extracting the clusters found by
-                                        hclust() 
+# Title: Extracting the clusters found by hclust() 
 
 groups <- cutree(pfit, k=5)
 

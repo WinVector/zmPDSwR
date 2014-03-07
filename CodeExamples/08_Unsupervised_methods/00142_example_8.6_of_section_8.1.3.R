@@ -1,7 +1,6 @@
 # example 8.6 of section 8.1.3 
 # (example 8.6 of section 8.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-# Title: Running clusterboot() on the protein
-                                                data 
+# Title: Running clusterboot() on the protein data 
 
 library(fpc)                                  	# Note: 1 
 kbest.p<-5                                                   	# Note: 2 

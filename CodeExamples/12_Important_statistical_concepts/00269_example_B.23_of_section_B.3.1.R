@@ -1,7 +1,6 @@
 # example B.23 of section B.3.1 
 # (example B.23 of section B.3.1)  : Important statistical concepts : Examples of the statistical view of data : Sampling bias 
-# Title: Significance test of the observed nonrelation between
-                income and capital gains 
+# Title: Misleading significance result from biased observations 
 
 veryHighIncome <- subset(d, EarnedIncome+CapitalGains>=500000)
 print(with(veryHighIncome,cor.test(EarnedIncome,CapitalGains,

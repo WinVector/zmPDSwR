@@ -36,8 +36,7 @@ Montana     : 1    Max.   :100.00
 #   chart plots. 
 
 # Note 2: 
-#   Convert the table object to a data frame 
-#   using as.data.frame(). The default column names are Var1 and Freq. 
+#   Convert the table to a data frame. The default column names are Var1 and Freq. 
 
 # Note 3: 
 #   Rename the columns for readability. 
