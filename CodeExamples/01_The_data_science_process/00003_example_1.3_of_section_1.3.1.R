@@ -7,7 +7,7 @@
 loan.as.pct.disposable.income goodloan badloan
                      LT.15pct       50       0
                      GT.15pct        6      44
-> sum(diag(tab))/sum(tab)                      	# Note: 2 
+> sum(diag(tab1))/sum(tab1)                  	# Note: 2 
 [1] 0.94
 >
 > tab2
@@ -15,7 +15,7 @@ loan.as.pct.disposable.income goodloan badloan
 loan.as.pct.disposable.income goodloan badloan
                      LT.15pct       34      16
                      GT.15pct       18      32
-> sum(diag(tab))/sum(tab)
+> sum(diag(tab2))/sum(tab2)
 [1] 0.66                                                        	# Note: 4
 
 # Note 1: 
