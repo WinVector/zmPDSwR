@@ -4,7 +4,7 @@
 
 > library('e1071')
 > ff <- paste('as.factor(',outcome,'>0) ~ ',
-   paste(lVars,collapse=' + '),sep='')
+   paste(selVars,collapse=' + '),sep='')
 > nbmodel <- naiveBayes(as.formula(ff),data=dTrain)
 > dTrain$nbpred <- predict(nbmodel,newdata=dTrain,type='raw')[,'TRUE']
 > dCal$nbpred <- predict(nbmodel,newdata=dCal,type='raw')[,'TRUE']

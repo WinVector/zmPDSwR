@@ -14,7 +14,7 @@ Var218    -1     1
   <NA>   410   148
 
 # Note 1: 
-#   Tabulate levels of Var28. 
+#   Tabulate levels of Var218. 
 
 # Note 2: 
 #   Tabulate levels of churn outcome. 
