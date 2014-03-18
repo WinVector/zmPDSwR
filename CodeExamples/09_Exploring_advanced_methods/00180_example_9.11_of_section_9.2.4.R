@@ -68,7 +68,7 @@ GCV score = 3.0804e+05  Scale est. = 3.0752e+05  n = 14386
 #   variables. 
 
 # Note 2: 
-#   The model explains about 6% of the variance; all 
+#   The model explains about 7% of the variance; all 
 #   coefficients are significantly different from 0. 
 
 # Note 3: 
