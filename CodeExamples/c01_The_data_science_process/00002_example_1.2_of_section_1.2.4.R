@@ -3,7 +3,7 @@
 # Title: Plotting the confusion matrix 
 
 > creditdata <- d
-                                        > resultframe <- data.frame(Good.Loan=creditdata$Good.Loan,
+> resultframe <- data.frame(Good.Loan=creditdata$Good.Loan,
                            pred=predict(model, type="class"))
 > rtab <- table(resultframe) 	# Note: 1 
 > rtab
