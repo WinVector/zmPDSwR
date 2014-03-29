@@ -2,6 +2,16 @@
 # (example 1.3 of section 1.3.1)  : The data science process : Setting expectations : Determining lower and upper bounds on model performance 
 # Title: Plotting the relation between disposable income and loan outcome 
 
+tab1 <- as.table(matrix(data=c(50,6,0,44),nrow=2,ncol=2))
+dimnames(tab1) <- list('loan.as.pct.disposable.income'=
+      c('LT.15pct','GT.15pct'),
+   'loan.quality.pop1'=
+      c('goodloan','badloan'))
+tab2 <- as.table(matrix(data=c(34,18,16,32),nrow=2,ncol=2))
+dimnames(tab2) <- list('loan.as.pct.disposable.income'=
+      c('LT.15pct','GT.15pct'),
+   'loan.quality.pop2'=
+      c('goodloan','badloan'))
 > tab1
                              loan.quality.pop1 	# Note: 1 
 loan.as.pct.disposable.income goodloan badloan
