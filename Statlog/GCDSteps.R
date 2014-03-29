@@ -75,4 +75,11 @@ for(i in 1:(dim(d))[2]) {
 d$Good.Loan <- as.factor(ifelse(d$Good.Loan==1,'GoodLoan','BadLoan'))
 vars <- setdiff(colnames(d),'Good.Loan')
 creditdata <- d
+
+# not part of GCD data- notional example for listing 1.3
+tab1 <- as.table(matrix(data=c(50,6,0,44),nrow=2,ncol=2))
+dimnames(tab1) <- list('loan.as.pct.disposable.income'=c('LT.15pct','GT.15pct'),'loan.quality.pop1'=c('goodloan','badloan'))
+tab2 <- as.table(matrix(data=c(34,18,16,32),nrow=2,ncol=2))
+dimnames(tab2) <- list('loan.as.pct.disposable.income'=c('LT.15pct','GT.15pct'),'loan.quality.pop2'=c('goodloan','badloan'))
+
 #save(list=ls(),file='GCDData.RData')
