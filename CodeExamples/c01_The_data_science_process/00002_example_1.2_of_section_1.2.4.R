@@ -2,7 +2,8 @@
 # (example 1.2 of section 1.2.4)  : The data science process : Stages of a data science project : Model evaluation and critique 
 # Title: Plotting the confusion matrix 
 
-> resultframe <- data.frame(Good.Loan=creditdata$Good.Loan,
+> creditdata <- d
+                                        > resultframe <- data.frame(Good.Loan=creditdata$Good.Loan,
                            pred=predict(model, type="class"))
 > rtab <- table(resultframe) 	# Note: 1 
 > rtab

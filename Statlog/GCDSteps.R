@@ -74,5 +74,5 @@ for(i in 1:(dim(d))[2]) {
 }
 d$Good.Loan <- as.factor(ifelse(d$Good.Loan==1,'GoodLoan','BadLoan'))
 vars <- setdiff(colnames(d),'Good.Loan')
-creditdata=d
+creditdata <- d
 #save(list=ls(),file='GCDData.RData')
