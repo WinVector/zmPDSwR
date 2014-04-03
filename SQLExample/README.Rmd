@@ -3,7 +3,7 @@
 # Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
 
 
- * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://affiliate.manning.com/idevaffiliate.php?id=1273_360)  (book copyright Manning Publications Co., all rights reserved)
+ * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://www.manning.com/zumel/)  (book copyright Manning Publications Co., all rights reserved)
  * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
 
 
@@ -13,7 +13,7 @@
 # SQL example in knitr Markdown
 
 Material from [Practical Data Science with R examples GitHub archive](https://github.com/WinVector/zmPDSwR/)
-In support of the Hotel/SQL example in Appendix A of [Practical Data Science with R](http://affiliate.manning.com/idevaffiliate.php?id=1273_360) by Nina Zumel and John Mount.
+In support of the Hotel/SQL example in Appendix A of [Practical Data Science with R](http://www.manning.com/zumel/) by Nina Zumel and John Mount.
 
 
  * start with README.Rmd and Workbook1.xlsx
