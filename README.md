@@ -1,14 +1,24 @@
 # Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
 
+## The book:
+
  * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://www.manning.com/zumel/) (book copyright Manning Publications Co., all rights reserved)
  * The support site (code and data): [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
- * The dicsusson boards: [Forum: Practical Data Science with R](http://www.manning-sandbox.com/forum.jspa?forumID=863)
+ * The discussion boards: [Forum: Practical Data Science with R](http://www.manning-sandbox.com/forum.jspa?forumID=863)
  
 
 ## Zip file of code excerpts from the book:
 
  * [CodeExamples.zip](CodeExamples.zip)
  * [CodeExamples directory](CodeExamples)
+
+## More from the authors:
+
+ * [Win-Vector blog](http://www.win-vector.com/blog/)
+ * [WinVectorLLC on Twitter](https://twitter.com/WinVectorLLC)
+ * [ Nina Zumel homepage](http://ninazumel.com/)
+ * [ John Mount homepage](http://johnmount.com/)
+ * [Win-Vector data science consulting services](http://www.win-vector.com/index.html)
 
 ## Example data sets:
 
