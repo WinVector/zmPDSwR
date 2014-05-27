@@ -5,7 +5,7 @@
  * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://www.manning.com/zumel/) (book copyright Manning Publications Co., all rights reserved)
  * The support site (code and data): [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
  * The discussion boards: [Forum: Practical Data Science with R](http://www.manning-sandbox.com/forum.jspa?forumID=863)
- 
+ * [Errata](http://htmlpreview.github.io/?https://github.com/WinVector/zmPDSwR/blob/master/PracticalDataScienceWithRErrata.html) 
 
 ## Zip file of code excerpts from the book:
 
