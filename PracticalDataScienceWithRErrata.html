@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>Practical Data Science with R Errata</title>
+    <style>
+      body {
+        font-size: 10pt;
+        margin: 1.5em;
+        background-color: lightblue;
+        color: darkblue;
+        font-family: Verdana,sans-serif;
+      }
+      h1 {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-top: 2em;
+      }
+      h2 {
+        font-size: 1.1em;
+        font-weight: bold;
+      }
+      fieldset {
+        width: 740px;
+        margin-bottom: 12px;
+        border-color: #00457b;
+        background-color: #cfeace;
+      }
+
+      fieldset div {
+        margin-bottom: 6px;
+        font-weight: normal;
+      }
+
+      legend {
+        border: 2px ridge #00457b;
+        font-size: 1.2em;
+        font-weight: bold;
+        background-color: #e36a51;
+        color: white;
+        padding: 8px 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <fieldset>
+      <legend>Practical Data Science with R Errata</legend>
+
+      <p>
+      Your authors (<a href="http://ninazumel.com/" target="_blank">Nina Zumel</a> and <a href="http://johnmount.com/">John Mount</a>) 
+      and <a href="http://www.manning.com" target="_blank">Manning Publications, Co.</a> have all worked very hard to make
+      <a target="_blank" href="http://manning.com/PracticalDataSciencewithR"><b><i>Practical Data Science with R</i></b></a> an excellent
+      and instructive book that is well worth your investment of time and money.
+      However, errors do creep in and we do feel bad about that.
+      To help we are maintaining a public errata list here at:
+      <a href="http://www.manning.com/zumel/PracticalDataScienceWithRErrata.html">http://www.manning.com/zumel/PracticalDataScienceWithRErrata.html</a>.
+      </p>
+      <p>
+        If you find any any errors in <a target="_blank" href="http://manning.com/PracticalDataSciencewithR"><b><i>Practical Data Science with R</i></b></a> 
+        not listed below, or
+        just find something that you think is not well explained:
+        please post in the book's
+        <a href="http://www.manning-sandbox.com/forum.jspa?forumID=863" target="_blank">Author Online Forum</a>
+        so that they may be collected here for everyone's benefit. Thanks!
+      </p>
+
+      <h1>Errata</h1>
+      <ul>
+        <li>
+          <h2>Page 86, Table 5.1, second row, second column</h2>
+          <p>
+           The random forests cross-reference should be to section 9.1.2.
+          </p>
+        </li>
+
+        <li>
+          <h2>Page 12, Listing 1.2</h2>
+          <p>
+           Start the listing with the line <code>creditdata &lt;- d</code>.
+          </p>
+        </li>
+
+
+        <li>
+          <h2>Page 148, "Are there systematic errors?"</h2>
+          <h2>Page 224, Footnote 5</h2>
+          <p>
+           Our description of "heteroscedasticity" is wrong and
+           (unintentionally) conflates a number of different negative issues.
+           Our intent was to expand on a simple definition such as "In
+           statistics, a collection of random variables is
+           heteroscedastic if there are sub-populations that have
+           different variabilities from others" (taken
+           from <a target="_blank"
+           href="http://en.wikipedia.org/wiki/Heteroscedasticity">Wikipedia:
+           Heteroscedasticity</a>).  Unfortunately we pushed this too
+           far (roughly saying "it is bad if errors correlate with y's"
+           when we
+           meant to say "it was bad if errors correlate with unobserved
+           ideal y's which don't already have the error term added in").</p>
+           <p>The correct thing to do is: state that regression
+           (and in particular the diagnostics of a regression) depend
+           on a number of model generative assumptions about the data
+           (which can be loosened or tightened depending on the
+           analysis techniques you are using).  Important assumptions
+           to worry about include (paraphrased from Gelman, Carlin,
+           Stern, Dunson, Vehtari, and Rubin "Bayesian
+           Data Analysis" 3rd edition pp. 369-376): model
+           structure, linearity of expected value of y as a function
+           of the x's, bias of error terms, normality of error terms,
+           independence of observations and constancy of variance.
+           Ways to address these problems include: better experimental
+           design, introducing more conditioning variables, and 
+           data transformations.
+           For more see:
+           <a target="_blank" href="http://andrewgelman.com/2013/08/04/19470/">What are the key assumptions of linear regression?</a>.
+          </p>
+          <p>We will correct later editions of the book, and hope
+          our error does not overly distract from the important 
+          lesson that you must be aware of modeling assumptions.
+          We do note with some amusement how rarely "Bayesain
+          Data Analysis" 3rd edition pp. 369-376 uses the
+          term "heteroscedasticity" even though these are
+          the pages tagged with this term in the index (these authors
+          rightly emphasizing concepts over naming).
+          </p>
+        </li>
+
+      </ul>
+
+    </fieldset>
+
+
+  </body>
+</html>
