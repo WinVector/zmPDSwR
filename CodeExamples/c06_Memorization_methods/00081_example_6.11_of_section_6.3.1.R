@@ -44,6 +44,6 @@ for(v in numericVars) { 	# Note: 3
 #   3). 
 
 # Note 3: 
-#   Run through categorical variables and pick 
+#   Run through numeric variables and pick 
 #   based on a deviance improvement. 
 
