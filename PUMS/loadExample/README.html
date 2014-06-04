@@ -1,0 +1,52 @@
+<h1 id="data-from-2011-acs-1-year-pums-fields-american-community-survey">Data from 2011 ACS 1-year PUMS fields American Community Survey</h1>
+<p>This is an example how to load the Census data used in the book. We have the data pre-prepared <a href="https://github.com/WinVector/zmPDSwR/blob/master/PUMS/phsample.RData">here</a> so you do not need to perform any of these steps unless you want to learn about SQLscrewdriver (not a requirement for later exercises in the book).</p>
+<p>Original data is not included here for reasons of license and size.</p>
+<p>To download data:</p>
+<ul>
+<li>Go to original Census link <a href="http://www.census.gov/acs/www/data_documentation/pums_data/">http://www.census.gov/acs/www/data_documentation/pums_data/</a></li>
+<li>Navigate to <a href="http://factfinder2.census.gov/bkmk/navigation/1.0/en/d_dataset:ACS_11_1YR/d_product_type:PUMS">2011 ACS 1-year PUMS</a></li>
+<li>Dowload <a href="http://factfinder2.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_pums_csv_2011&amp;prodType=document">2011 ACS 1-year Public Use Microdata Samples (PUMS) - CSV format</a></li>
+<li>Download <a href="http://www2.census.gov/acs2011_1yr/pums/csv_pus.zip">United States Population Records</a> as csv_pus.zip and <a href="http://www2.census.gov/acs2011_1yr/pums/csv_hus.zip">United States Housing Unit Records</a> as csv_hus.zip.</li>
+<li>Unzip csv_pus.zip and csv_hus.zip. The data you want is:
+<ul>
+<li>csv_hus/ss11husa.csv</li>
+<li>csv_hus/ss11husb.csv</li>
+<li>csv_pus/ss11pusa.csv</li>
+<li>csv_pus/ss11pusb.csv</li>
+</ul></li>
+</ul>
+<p>Leave data in these directories and one directory above csv_hus and csv_pus run the following at the command line:</p>
+<pre><code>java -classpath SQLScrewdriver.jar:h2-1.3.170.jar \
+   com.winvector.db.LoadFiles \
+   file:dbDef.xml , hus \
+   file:csv_hus/ss11husa.csv file:csv_hus/ss11husb.csv
+java -classpath SQLScrewdriver.jar:h2-1.3.170.jar \
+   com.winvector.db.LoadFiles \
+   file:dbDef.xml , pus \
+   file:csv_pus/ss11pusa.csv file:csv_pus/ss11pusb.csv</code></pre>
+<p>The jars SQLScrewdriver.jar h2-1.3.170.jar are available <a href="https://github.com/WinVector/zmPDSwR/tree/master/PUMS/loadExample">here</a>.</p>
+<p>Where the XML file dbDef.xml is:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+&lt;properties&gt;
+ &lt;comment&gt;testdb&lt;/comment&gt;
+ &lt;entry key=&quot;user&quot;&gt;u&lt;/entry&gt;
+ &lt;entry key=&quot;password&quot;&gt;u&lt;/entry&gt;
+ &lt;entry key=&quot;driver&quot;&gt;org.h2.Driver&lt;/entry&gt;
+ &lt;entry key=&quot;url&quot;&gt;jdbc:h2:H2DB \
+  ;LOG=0;CACHE_SIZE=65536;LOCK_MODE=0;UNDO_LOG=0&lt;/entry&gt;
+&lt;/properties&gt;</code></pre>
+<p>And the follow-up R commands are:</p>
+<pre><code>options( java.parameters = &quot;-Xmx2g&quot; )
+library(RJDBC)
+drv = JDBC(&quot;org.h2.Driver&quot;,&quot;h2-1.3.170.jar&quot;,identifier.quote=&quot;&#39;&quot;)
+options=&quot;;LOG=0;CACHE_SIZE=65536;LOCK_MODE=0;UNDO_LOG=0&quot;
+conn = dbConnect(drv,paste(&quot;jdbc:h2:H2DB&quot;,options,sep=&#39;&#39;),&quot;u&quot;,&quot;u&quot;)
+dhus = dbGetQuery(conn,&quot;SELECT * FROM hus WHERE ORIGRANDGROUP&lt;=1&quot;)
+dpus = dbGetQuery(conn,&quot;SELECT pus.* FROM pus WHERE pus.SERIALNO IN \
+(SELECT DISTINCT hus.SERIALNO FROM hus WHERE hus.ORIGRANDGROUP&lt;=1)&quot;)
+dbDisconnect(conn)
+save(dhus,dpus,file=&#39;phsample.RData&#39;)</code></pre>
+<p>This produces phsample.RData (a already prepared copy of which is available <a href="https://github.com/WinVector/zmPDSwR/tree/master/PUMS">here</a>, so you can skip all of the above steps). Data can then be loaded with:</p>
+<pre><code>load(&#39;phsample.RData&#39;)</code></pre>
+<p>This loads dhus (2982 random households) and dpus (6279 personal records joined with the households from dhus).</p>

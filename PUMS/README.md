@@ -12,26 +12,20 @@
  * Appendix A: Working with R And Other Tools
 
 
-### Works of others (no claim of license here):
+### This data is derived from the 2001 US Census
 
- * ACS2011_PUMS_README.pdf : orignal Census documentation
+Original link: [http://www.census.gov/acs/www/data_documentation/pums_data/](http://www.census.gov/acs/www/data_documentation/pums_data/)
 
-### Derived works (no claim of license here):
+File in this directory
 
-<dl>
-  <dt>phsample.RData</dt>
-    <dd>uniform sample of PUMS households and join of people with matching SERIALNO.</dd>
-</dl>
+ * [README.md](README.md) : this document
+ * [README.html](README.html) : this document
+ * [ACS2011_PUMS_README.pdf](ACS2011_PUMS_README.pdf) : orignal Census documentation
+ * [PUMSDataDict11.pdf](PUMSDataDict11.pdf) : orignal Census documentation
+ * [phsample.RData](phsample.RData) : ready to load data sample in R data format
+ * [psub.RData](psub.RData) : (another) ready to load data sample in R data format
+ * [loadExample](loadExample) : directory of example code showing how the .Rdata samples were produced
 
-
-### Our works:
-
-<dl>
-  <dt>PUMS1.R </dt>
-    <dd>used to work with <br />
-    <a href="http://www.census.gov/acs/www/data_documentation/pums_data/">http://www.census.gov/acs/www/data_documentation/pums_data/</a> <br />
-    ( <a href="http://www2.census.gov/acs2011_1yr/pums/csv_pus.zip">http://www2.census.gov/acs2011_1yr/pums/csv_pus.zip</a> )</dd>
-</dl>
 
 ## License for additional documentation, notes, code, and example data: 
 
