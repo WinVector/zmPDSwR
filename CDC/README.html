@@ -11,12 +11,24 @@
 </ul>
 <h3 id="our-works">Our works</h3>
 <p>Procedures for getting data. Note you do not need to perform any of these steps as we have saved the prepared data as &quot;.Rdata&quot; files in this directory. The steps to download and load the data are not needed later in the book.</p>
-<p>Data originally downloaded 4-25-2013 from http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm * ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/DVS/natality/UserGuide2010.pdf * Shasum: 12520b8384defc63a93fad957936fd7ee9a42ef3 UserGuide2010.pdf * ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/natality/Nat2010us.zip * Shasum: dad8b9fc9e8b4a4d250b7febf10d4b97350e2651 Nat2010us.zip</p>
+<p>Data originally downloaded 4-25-2013 from <a href="http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm">http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm</a></p>
+<ul>
+<li><a href="ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/DVS/natality/UserGuide2010.pdf">ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/DVS/natality/UserGuide2010.pdf</a></li>
+<li>Shasum: 12520b8384defc63a93fad957936fd7ee9a42ef3 UserGuide2010.pdf</li>
+<li><a href="ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/natality/Nat2010us.zip">ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/natality/Nat2010us.zip</a></li>
+<li>Shasum: dad8b9fc9e8b4a4d250b7febf10d4b97350e2651 Nat2010us.zip</li>
+</ul>
 <p>get at data</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">  <span class="kw">unzip</span> Nat2010us.zip
   <span class="kw">gzip</span> -9 VS2010NATL.DETAILUS.DAT </code></pre>
-<p>Extract fixed field defs from UserGuide2010.pdf (still need to be checked and editted): * fieldRanges.tsv</p>
-<p>Define H2 database credentials: * dbDef.xml</p>
+<p>Extract fixed field defs from UserGuide2010.pdf (still need to be checked and editted):</p>
+<ul>
+<li>fieldRanges.tsv</li>
+</ul>
+<p>Define H2 database credentials:</p>
+<ul>
+<li>dbDef.xml</li>
+</ul>
 <p>Use SQLScrewdriver to load fixed field data into a H2 database:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">  <span class="kw">java</span> -cp SQLScrewdriver.jar:h2-1.3.170.jar -Xmx1G com.winvector.db.LoadFFF file:dbDef.xml file:fieldRanges.tsv natal file:VS2010NATL.DETAILUS.DAT.gz</code></pre>
 <p>Get at a sample of the data from R:</p>

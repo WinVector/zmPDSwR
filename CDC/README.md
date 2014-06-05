@@ -18,11 +18,12 @@
 
 Procedures for getting data.  Note you do not need to perform any of these steps as we have saved the prepared data as ".Rdata" files in this directory.  The steps to download and load the data are not needed later in the book.
 
-Data originally downloaded 4-25-2013 from http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm
-* ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/DVS/natality/UserGuide2010.pdf
-* Shasum: 12520b8384defc63a93fad957936fd7ee9a42ef3  UserGuide2010.pdf
-* ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/natality/Nat2010us.zip
-* Shasum: dad8b9fc9e8b4a4d250b7febf10d4b97350e2651  Nat2010us.zip
+Data originally downloaded 4-25-2013 from [http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm](http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm)
+
+ * [ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/DVS/natality/UserGuide2010.pdf](ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/DVS/natality/UserGuide2010.pdf)
+ * Shasum: 12520b8384defc63a93fad957936fd7ee9a42ef3  UserGuide2010.pdf
+ * [ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/natality/Nat2010us.zip](ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/natality/Nat2010us.zip)
+ * Shasum: dad8b9fc9e8b4a4d250b7febf10d4b97350e2651  Nat2010us.zip
 
 get at data
 ```bash
@@ -31,10 +32,12 @@ get at data
 ```
 
 Extract fixed field defs from UserGuide2010.pdf (still need to be checked and editted):
-*  fieldRanges.tsv
+
+ *  fieldRanges.tsv
 
 Define H2 database credentials:
-*  dbDef.xml
+
+ *  dbDef.xml
 
 Use SQLScrewdriver to load fixed field data into a H2 database:
 ```bash
@@ -88,13 +91,13 @@ table(pred=dplot$pred>=2*ambientProb,atRisk=dplot$atRisk)
 
 ### Works by others (no claim of license here):
 
-* UserGuide2010.pdf : ( CDC supplied data user guide )
+ * UserGuide2010.pdf : ( CDC supplied data user guide )
 
 
 ### Derived works (no claim of license here):
 
-* fieldRanges.tsv : (derived from CDC documentation, needs editing).
-* natal2010Sample.tsv.gz : uniform sample of CDC 2010 natality data (work in progress).
+ * fieldRanges.tsv : (derived from CDC documentation, needs editing).
+ * natal2010Sample.tsv.gz : uniform sample of CDC 2010 natality data (work in progress).
 
 
 
