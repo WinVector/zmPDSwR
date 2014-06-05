@@ -16,7 +16,7 @@
 ### Our works
 
 
-Procedures for getting data (still in progress).
+Procedures for getting data.  Note you do not need to perform any of these steps as we have saved the prepared data as ".Rdata" files in this directory.  The steps to download and load the data are not needed later in the book.
 
 Data originally downloaded 4-25-2013 from http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm
 * ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/DVS/natality/UserGuide2010.pdf
