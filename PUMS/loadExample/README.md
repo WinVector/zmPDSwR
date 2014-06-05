@@ -31,7 +31,7 @@ java -classpath SQLScrewdriver.jar:h2-1.3.170.jar \
    file:csv_pus/ss11pusa.csv file:csv_pus/ss11pusb.csv
 ```
 
-The jars SQLScrewdriver.jar h2-1.3.170.jar are available [here](https://github.com/WinVector/zmPDSwR/tree/master/PUMS/loadExample).
+The jars SQLScrewdriver.jar h2-1.3.170.jar are available [here](https://github.com/WinVector/zmPDSwR/tree/master/PUMS/loadExample).  Note: Windows users should use ";" to sparate jars instead of ":".
 
 Where the XML file dbDef.xml is:
 
@@ -72,3 +72,17 @@ load('phsample.RData')
 
 This loads dhus (2982 random households) and dpus (6279 personal records
 joined with the households from dhus).
+
+# Note on downloading files
+
+A remote source could update files at any time (and even worse they may change links).  The data we used in this book had the following cryptographic hashses (downloaded in March and February and 2013, and also matching on a June 4 2014 download):
+
+ * csv_hus.zip  shasum: cdfdfb326956e202fdb560ee34471339ac8abd6c
+ * csv_pus.zip  shasum: aa0f4add21e327b96d9898b850e618aeca10f6d0
+ * csv_hus/ss11husa.csv  shasum: 72a0212e8313af83354460af1daeb54a7321f429
+ * csv_hus/ss11husb.csv  shasum: 1edaedb79f7766a9712fc0a8a7b674e427e5ba56
+ * csv_pus/ss11pusa.csv  shasum: 574d657d2094087722a054e3c16c277ece34f01c
+ * csv_pus/ss11pusb.csv  shasum: 89a6401524e2f25e02633849828462fa1204ea91
+
+
+

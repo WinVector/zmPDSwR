@@ -24,7 +24,7 @@ java -classpath SQLScrewdriver.jar:h2-1.3.170.jar \
    com.winvector.db.LoadFiles \
    file:dbDef.xml , pus \
    file:csv_pus/ss11pusa.csv file:csv_pus/ss11pusb.csv</code></pre>
-<p>The jars SQLScrewdriver.jar h2-1.3.170.jar are available <a href="https://github.com/WinVector/zmPDSwR/tree/master/PUMS/loadExample">here</a>.</p>
+<p>The jars SQLScrewdriver.jar h2-1.3.170.jar are available <a href="https://github.com/WinVector/zmPDSwR/tree/master/PUMS/loadExample">here</a>. Note: Windows users should use &quot;;&quot; to sparate jars instead of &quot;:&quot;.</p>
 <p>Where the XML file dbDef.xml is:</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
@@ -50,3 +50,13 @@ save(dhus,dpus,file=&#39;phsample.RData&#39;)</code></pre>
 <p>This produces phsample.RData (a already prepared copy of which is available <a href="https://github.com/WinVector/zmPDSwR/tree/master/PUMS">here</a>, so you can skip all of the above steps). Data can then be loaded with:</p>
 <pre><code>load(&#39;phsample.RData&#39;)</code></pre>
 <p>This loads dhus (2982 random households) and dpus (6279 personal records joined with the households from dhus).</p>
+<h1 id="note-on-downloading-files">Note on downloading files</h1>
+<p>A remote source could update files at any time (and even worse they may change links). The data we used in this book had the following cryptographic hashses (downloaded in March and February and 2013, and also matching on a June 4 2014 download):</p>
+<ul>
+<li>csv_hus.zip shasum: cdfdfb326956e202fdb560ee34471339ac8abd6c</li>
+<li>csv_pus.zip shasum: aa0f4add21e327b96d9898b850e618aeca10f6d0</li>
+<li>csv_hus/ss11husa.csv shasum: 72a0212e8313af83354460af1daeb54a7321f429</li>
+<li>csv_hus/ss11husb.csv shasum: 1edaedb79f7766a9712fc0a8a7b674e427e5ba56</li>
+<li>csv_pus/ss11pusa.csv shasum: 574d657d2094087722a054e3c16c277ece34f01c</li>
+<li>csv_pus/ss11pusb.csv shasum: 89a6401524e2f25e02633849828462fa1204ea91</li>
+</ul>
