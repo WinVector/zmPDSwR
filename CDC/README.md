@@ -13,10 +13,8 @@
  * Chapter 10: Documentation and Deployment
 
 
-### Our works
+### Data
 
-
-Procedures for getting data.  Note you do not need to perform any of these steps as we have saved the prepared data as ".Rdata" files in this directory.  The steps to download and load the data are not needed later in the book.
 
 Data originally downloaded 4-25-2013 from [http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm](http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm)
 
@@ -25,80 +23,18 @@ Data originally downloaded 4-25-2013 from [http://www.cdc.gov/nchs/data_access/V
  * [ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/natality/Nat2010us.zip](ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/natality/Nat2010us.zip)
  * Shasum: dad8b9fc9e8b4a4d250b7febf10d4b97350e2651  Nat2010us.zip
 
-get at data
-```bash
-  unzip Nat2010us.zip
-  gzip -9 VS2010NATL.DETAILUS.DAT 
-```
+Files:
 
-Extract fixed field defs from UserGuide2010.pdf (still need to be checked and editted):
-
- *  fieldRanges.tsv
-
-Define H2 database credentials:
-
- *  dbDef.xml
-
-Use SQLScrewdriver to load fixed field data into a H2 database:
-```bash
-  java -cp SQLScrewdriver.jar:h2-1.3.170.jar -Xmx1G com.winvector.db.LoadFFF file:dbDef.xml file:fieldRanges.tsv natal file:VS2010NATL.DETAILUS.DAT.gz
-```
-
-Get at a sample of the data from R:
-```R
-options( java.parameters = "-Xmx2g" )
-library(RJDBC)
-drv <- JDBC("org.h2.Driver","h2-1.3.170.jar",identifier.quote="'")
-options <- ";LOG=0;CACHE_SIZE=65536;LOCK_MODE=0;UNDO_LOG=0"
-conn <- dbConnect(drv,paste("jdbc:h2:NATAL",options,sep=''),"u","u")
-d <- dbGetQuery(conn,"SELECT * FROM natal WHERE ORIGRANDGROUP<=10")
-dbDisconnect(conn)
-write.table(d,'natal2010Sample.tsv',quote=F,sep='\t',col.names=T,row.names=F)
-# gzip -9 natal2010Sample.tsv
-# recode 99 as unknown in APGAR5 column
-d <- read.table('natal2010Sample.tsv.gz',sep='\t',header=T,stringsAsFactors=F)
-# combine rare 4-and above births with 3
-d$DPLURAL = pmin(d$DPLURAL,3)
-# recode unknown in outcome column
-d$APGAR5[d$APGAR5==99] <- NA
-# recode U as unknown in risk columns
-#factorCols <- c('RF_DIAB','RF_GEST','RF_PHYP','RF_GHYP','RF_ECLAM','RF_PPTERM','RF_PPOUTC', 'CIG_REC', 'DPLURAL', 'GESTREC3', 'PRECARE_REC')
-factorCols <- c('CIG_REC', 'DPLURAL', 'GESTREC3', 'PRECARE_REC')
-lapply(subset(d,,select=factorCols),
-   function(col) summary(as.factor(col)))
-for(colName in factorCols) {
-  d[,colName] <- factor(ifelse(d[,colName] %in% list('','U'),NA,d[,colName]))
-}
-numCols <- c('DWGT')
-for(colName in numCols) {
-  d[,colName] <- ifelse(d[,colName] >=999,NA,d[,colName])
-}
-#d$atRisk <- d$BWTR4<2 | d$APGAR5<7
-d$atRisk <- d$APGAR5<7
-riskCols <- c(factorCols,numCols)
-library(reshape2)
-dTrain <- subset(d,ORIGRANDGROUP<=5)
-dTest <- subset(d,ORIGRANDGROUP>5)
-model <- glm(as.formula(paste('atRisk',paste(riskCols,collapse=' + '),sep=' ~ ')),
-  data=dTrain,family=binomial(link='logit'))   
-print(summary(model))
-dTest$pred <- predict(model,newdata=dTest,type='response')
-dplot <- subset(dTest,(!is.na(pred) & (!is.na(atRisk))))
-ambientProb <- mean(dplot$atRisk)
-table(pred=dplot$pred>=2*ambientProb,atRisk=dplot$atRisk)
-```
-
-
-### Works by others (no claim of license here):
-
- * UserGuide2010.pdf : ( CDC supplied data user guide )
-
-
-### Derived works (no claim of license here):
-
- * fieldRanges.tsv : (derived from CDC documentation, needs editing).
- * natal2010Sample.tsv.gz : uniform sample of CDC 2010 natality data (work in progress).
-
+ * README.html : this docuemnt
+ * README.md : this docuemnt
+ * UserGuide2010.pdf : original CDC user guide
+ * NatalBirthData.rData : prepared saved data in R format (produced by prepBirthWeightData.R)
+ * NatalRiskData.rData : prepared saved data in R format (produced by PrepNatalRiskData.R)
+ * prepBirthWeightData.R : R steps to prepare birth weight data from natal2010Sample.tsv.gz
+ * PrepNatalRiskData.R : R steps to prepare natality risk data from natal2010Sample.tsv.gz
+ * gamSplinePlots.R : some plotting examples
+ * natal2010Sample.tsv.gz : a uniform sample of the Natality risk data in gzipped TSV format (produced by procedures in loadExample directory)
+ * loadExample : detailed procedures used to prepare the data
 
 
 ## License for our additional documentation, notes, code, and example data: 

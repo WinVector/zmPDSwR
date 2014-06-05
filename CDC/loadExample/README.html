@@ -1,0 +1,80 @@
+<h1 id="example-code-and-data-for-practical-data-science-with-r-by-nina-zumel-and-john-mount-manning-2014.">Example code and data for &quot;Practical Data Science with R&quot; by Nina Zumel and John Mount, Manning 2014.</h1>
+<ul>
+<li>The book: <a href="http://www.manning.com/zumel/">&quot;Practical Data Science with R&quot; by Nina Zumel and John Mount, Manning 2014</a> (book copyright Manning Publications Co., all rights reserved)</li>
+<li>The support site: <a href="https://github.com/WinVector/zmPDSwR">GitHub WinVector/zmPDSwR</a></li>
+</ul>
+<h2 id="the-code-and-data-in-this-directory-supports-examples-from">The code and data in this directory supports examples from:</h2>
+<ul>
+<li>Chapter 7: Using Linear and Logistic Regression</li>
+<li>Chapter 9: Exploring Advanced Methods</li>
+<li>Chapter 10: Documentation and Deployment</li>
+</ul>
+<h3 id="our-works">Our works</h3>
+<p>Procedures for preparing data. Note: you do not need to perform any of these steps as we have saved the prepared data as &quot;.Rdata&quot; files in this directory. The steps to download and load the data are not needed later in the book.</p>
+<p>Data originally downloaded 4-25-2013 from <a href="http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm">http://www.cdc.gov/nchs/data_access/Vitalstatsonline.htm</a></p>
+<ul>
+<li><a href="ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/DVS/natality/UserGuide2010.pdf">ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/DVS/natality/UserGuide2010.pdf</a></li>
+<li>Shasum: 12520b8384defc63a93fad957936fd7ee9a42ef3 UserGuide2010.pdf</li>
+<li><a href="ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/natality/Nat2010us.zip">ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/natality/Nat2010us.zip</a></li>
+<li>Shasum: dad8b9fc9e8b4a4d250b7febf10d4b97350e2651 Nat2010us.zip</li>
+</ul>
+<p>First uzip the data and gzip compress the DAT file that is unpacked (R is good at reading gzipped files):</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">  <span class="kw">unzip</span> Nat2010us.zip
+  <span class="kw">gzip</span> -9 VS2010NATL.DETAILUS.DAT </code></pre>
+<p>Define where you are taking data from (VS2010NATL.DETAILUS.DAT is a &quot;fixed field&quot; file where data is at specific column positions, fieldRanges.tsv is our current defintion produced by editing extractions from the data defintion PDF).</p>
+<ul>
+<li>fieldRanges.tsv</li>
+</ul>
+<p>Define H2 database credentials:</p>
+<ul>
+<li>dbDef.xml</li>
+</ul>
+<p>Use SQLScrewdriver to load fixed field data into a H2 database:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">  <span class="kw">java</span> -cp SQLScrewdriver.jar:h2-1.3.170.jar -Xmx1G com.winvector.db.LoadFFF file:dbDef.xml file:fieldRanges.tsv natal file:VS2010NATL.DETAILUS.DAT.gz</code></pre>
+<p>(Note: Windows users will need to use &quot;;&quot; to separate classpath elements insteadl of &quot;:&quot;.) This produces the H2 datbase NATAL.db which we work with in R as follows:</p>
+<p>Get at a sample of the data from R to produce natal2010Sample.tsv (which all other steps are based on).</p>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="kw">options</span>( <span class="dt">java.parameters =</span> <span class="st">&quot;-Xmx2g&quot;</span> )
+<span class="kw">library</span>(RJDBC)
+drv &lt;-<span class="st"> </span><span class="kw">JDBC</span>(<span class="st">&quot;org.h2.Driver&quot;</span>,<span class="st">&quot;h2-1.3.170.jar&quot;</span>,<span class="dt">identifier.quote=</span><span class="st">&quot;&#39;&quot;</span>)
+options &lt;-<span class="st"> &quot;;LOG=0;CACHE_SIZE=65536;LOCK_MODE=0;UNDO_LOG=0&quot;</span>
+conn &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(drv,<span class="kw">paste</span>(<span class="st">&quot;jdbc:h2:NATAL&quot;</span>,options,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>),<span class="st">&quot;u&quot;</span>,<span class="st">&quot;u&quot;</span>)
+d &lt;-<span class="st"> </span><span class="kw">dbGetQuery</span>(conn,<span class="st">&quot;SELECT * FROM natal WHERE ORIGRANDGROUP&lt;=10&quot;</span>)
+<span class="kw">dbDisconnect</span>(conn)
+<span class="kw">write.table</span>(d,<span class="st">&#39;natal2010Sample.tsv&#39;</span>,<span class="dt">quote=</span>F,<span class="dt">sep=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>,<span class="dt">col.names=</span>T,<span class="dt">row.names=</span>F)
+<span class="co"># gzip -9 natal2010Sample.tsv</span>
+<span class="co"># recode 99 as unknown in APGAR5 column</span></code></pre>
+<p>Once we have the data sample natal2010Sample.tsv we can prepare the data for further analysis (for more up to date steps see PrepNatalRiskData.R and prepBirthWeightData.R in the parent directory).</p>
+<pre class="sourceCode R"><code class="sourceCode r">d &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;natal2010Sample.tsv.gz&#39;</span>,<span class="dt">sep=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>,<span class="dt">header=</span>T,<span class="dt">stringsAsFactors=</span>F)
+<span class="co"># combine rare 4-and above births with 3</span>
+d$DPLURAL =<span class="st"> </span><span class="kw">pmin</span>(d$DPLURAL,<span class="dv">3</span>)
+<span class="co"># recode unknown in outcome column</span>
+d$APGAR5[d$APGAR5==<span class="dv">99</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
+<span class="co"># recode U as unknown in risk columns</span>
+<span class="co">#factorCols &lt;- c(&#39;RF_DIAB&#39;,&#39;RF_GEST&#39;,&#39;RF_PHYP&#39;,&#39;RF_GHYP&#39;,&#39;RF_ECLAM&#39;,&#39;RF_PPTERM&#39;,&#39;RF_PPOUTC&#39;, &#39;CIG_REC&#39;, &#39;DPLURAL&#39;, &#39;GESTREC3&#39;, &#39;PRECARE_REC&#39;)</span>
+factorCols &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;CIG_REC&#39;</span>, <span class="st">&#39;DPLURAL&#39;</span>, <span class="st">&#39;GESTREC3&#39;</span>, <span class="st">&#39;PRECARE_REC&#39;</span>)
+<span class="kw">lapply</span>(<span class="kw">subset</span>(d,,<span class="dt">select=</span>factorCols),
+   function(col) <span class="kw">summary</span>(<span class="kw">as.factor</span>(col)))
+for(colName in factorCols) {
+  d[,colName] &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">ifelse</span>(d[,colName] %in%<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;&#39;</span>,<span class="st">&#39;U&#39;</span>),<span class="ot">NA</span>,d[,colName]))
+}
+numCols &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;DWGT&#39;</span>)
+for(colName in numCols) {
+  d[,colName] &lt;-<span class="st"> </span><span class="kw">ifelse</span>(d[,colName] &gt;=<span class="dv">999</span>,<span class="ot">NA</span>,d[,colName])
+}
+<span class="co">#d$atRisk &lt;- d$BWTR4&lt;2 | d$APGAR5&lt;7</span>
+d$atRisk &lt;-<span class="st"> </span>d$APGAR5&lt;<span class="dv">7</span>
+riskCols &lt;-<span class="st"> </span><span class="kw">c</span>(factorCols,numCols)
+<span class="kw">library</span>(reshape2)
+dTrain &lt;-<span class="st"> </span><span class="kw">subset</span>(d,ORIGRANDGROUP&lt;=<span class="dv">5</span>)
+dTest &lt;-<span class="st"> </span><span class="kw">subset</span>(d,ORIGRANDGROUP&gt;<span class="dv">5</span>)
+model &lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&#39;atRisk&#39;</span>,<span class="kw">paste</span>(riskCols,<span class="dt">collapse=</span><span class="st">&#39; + &#39;</span>),<span class="dt">sep=</span><span class="st">&#39; ~ &#39;</span>)),
+  <span class="dt">data=</span>dTrain,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&#39;logit&#39;</span>))   
+<span class="kw">print</span>(<span class="kw">summary</span>(model))
+dTest$pred &lt;-<span class="st"> </span><span class="kw">predict</span>(model,<span class="dt">newdata=</span>dTest,<span class="dt">type=</span><span class="st">&#39;response&#39;</span>)
+dplot &lt;-<span class="st"> </span><span class="kw">subset</span>(dTest,(!<span class="kw">is.na</span>(pred) &amp;<span class="st"> </span>(!<span class="kw">is.na</span>(atRisk))))
+ambientProb &lt;-<span class="st"> </span><span class="kw">mean</span>(dplot$atRisk)
+<span class="kw">table</span>(<span class="dt">pred=</span>dplot$pred&gt;=<span class="dv">2</span>*ambientProb,<span class="dt">atRisk=</span>dplot$atRisk)</code></pre>
+<h2 id="license-for-our-additional-documentation-notes-code-and-example-data">License for our additional documentation, notes, code, and example data:</h2>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+<p>No guarantee, indemnification or claim of fitness is made regarding any of these items.</p>
+<p>No claim of license on works of others or derived data.</p>
