@@ -90,8 +90,36 @@
           </p>
         </li>
 
+
         <li>
-          <h2>Page 130. Listing 6.11 Basic variable selection</h2>
+          <h2>Page 126. Text and Listing 6.11 Basic variable selection</h2>
+          <p>
+          We emphasize: the "2 times" in listing 6.11 is because statistical deviance is
+          traditionally written as -2*(log(p|model) - log(p|saturatedModel)).
+          We are using a "delta deviance" or improvement of deviance of
+          (-2*(log(p|model) - log(p|saturatedModel))_-(-2*(log(p|nullModel) -
+          log(p|saturatedModel))) written as 2*log(p|model)-baseRateCheck).  So
+          we are just trying to stay near that form.
+          <p>
+          </p>
+          The "subtract 1" on the numeric test in listing 6.11 unnecessary bit
+          that should be deleted (it serves no purpose, other than making it
+          harder to compare utility of numeric and categorical variables).  The
+          text above on page 126 claims we are going to use an AIC like metric
+          by subtracting an entropy off each variable's score.  The original
+          implementation of listing 6.11 did this by subtracting an entropy
+          estimate from each liCheck in the the catVars list and subtracted 1
+          from each numeric variable (treating numeric variables as equivalent
+          to categorical variables with 2 levels).  This turned out to not be
+          useful for the data set at hand (this is the sort of thing you do want to try variations of), 
+          and evidently we removed it without
+          completely updating the text.  So we are using deviance as the variable
+          utility metric, not (as incorrectly claimed) the AIC.
+          </p>
+        </li>
+
+        <li>
+          <h2>Page 130. HOW DECISION TREE MODELS WORK</h2>
           <p>In the text explaining the decision tree
           "predVar126 &lt; -0.002810871" should read 
           "predVar126 &lt; 0.07366888".
