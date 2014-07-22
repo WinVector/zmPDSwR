@@ -94,28 +94,26 @@
         <li>
           <h2>Page 126. Text and Listing 6.11 Basic variable selection</h2>
           <p>
-          We emphasize: the "2 times" in listing 6.11 is because statistical deviance is
+          The "2 times" in listing 6.11 is because statistical deviance is
           traditionally written as -2*(log(p|model) - log(p|saturatedModel)).
-          We are using a "delta deviance" or improvement of deviance of
+          We are using a "delta deviance" or improvement of deviance given by
           (-2*(log(p|model) - log(p|saturatedModel))_-(-2*(log(p|nullModel) -
-          log(p|saturatedModel))) written as 2*log(p|model)-baseRateCheck).  So
-          we are just trying to stay near that form.
+          log(p|saturatedModel))).  We wrote this as 2*log(p|model)-baseRateCheck)
+          and it is a deviance style metric (not an AIC style metric as claimed in the text,
+          which got behind by one revision).
           <p>
-          </p>
-          The "subtract 1" on the numeric test in listing 6.11 unnecessary bit
-          that should be deleted (it serves no purpose, other than making it
-          harder to compare utility of numeric and categorical variables).  The
-          text above on page 126 claims we are going to use an AIC like metric
-          by subtracting an entropy off each variable's score.  The original
-          implementation of listing 6.11 did this by subtracting an entropy
+          </p>The
+          text above listing 6.11 on page 126 claims we are going to use an AIC-like metric.  The original
+          implementation did this by subtracting a variable entropy
           estimate from each liCheck in the the catVars list and subtracted 1
-          from each numeric variable (treating numeric variables as equivalent
-          to categorical variables with 2 levels).  This turned out to not be
+          from each numeric variable (a placeholder).  This turned out to not be
           useful for the data set at hand (this is the sort of thing you do want to try variations of), 
           and evidently we removed it without
-          completely updating the text.  So we are using deviance as the variable
-          utility metric, not (as incorrectly claimed) the AIC.
+          completely updating the text.
           </p>
+          <p>Corrected text, listins, and results now 
+          <a href="https://github.com/WinVector/zmPDSwR/blob/master/CodeExamples/c06_Memorization_methods/00081_example_6.11_of_section_6.3.1.R" target="_blank">here</a> 
+          and <a href="https://github.com/WinVector/zmPDSwR/blob/master/CodeExamples/c06_Memorization_methods/00082_example_6.12_of_section_6.3.1.txt" target="_blank">here</a> .</p>
         </li>
 
         <li>
