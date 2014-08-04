@@ -9,7 +9,7 @@
    <entry key="user">u</entry>  	# Note: 1 
    <entry key="password">u</entry> 	# Note: 2 
    <entry key="driver">org.h2.Driver</entry>  	# Note: 3 
-   <entry key="url">jdbc:h2:H2DB \
+   <entry key="url">jdbc:h2:./H2DB \
       ;LOG=0;CACHE_SIZE=65536;LOCK_MODE=0;UNDO_LOG=0</entry> 	# Note: 4 
 </properties>
 
