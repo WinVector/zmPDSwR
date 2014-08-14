@@ -126,7 +126,7 @@
           and evidently we removed it without
           completely updating the text.
           </p>
-          <p>Corrected text, listins, and results now 
+          <p>Corrected text, listings, and results now 
           <a href="https://github.com/WinVector/zmPDSwR/blob/master/CodeExamples/c06_Memorization_methods/00081_example_6.11_of_section_6.3.1.R" target="_blank">here</a> 
           and <a href="https://github.com/WinVector/zmPDSwR/blob/master/CodeExamples/c06_Memorization_methods/00082_example_6.12_of_section_6.3.1.txt" target="_blank">here</a> .</p>
         </li>
@@ -155,23 +155,27 @@
            far (roughly saying "it is bad if errors correlate with y's"
            when we
            meant to say "it was bad if errors correlate with unobserved
-           ideal y's which don't already have the error term added in").</p>
+           ideal y's which don't already have the error term added in", i.e. with functions of the x's).
+           </p>
            <p>The correct thing to do is: state that regression
-           (and in particular the diagnostics of a regression) depend
-           on a number of model generative assumptions about the data
-           (which can be loosened or tightened depending on the
-           analysis techniques you are using).  Important assumptions
-           to worry about include (paraphrased from Gelman, Carlin,
+           (and in particular the diagnostics of a regression) depends
+           on a number of assumptions about the data.  Important properties
+           include (paraphrased from Gelman, Carlin,
            Stern, Dunson, Vehtari, and Rubin "Bayesian
            Data Analysis" 3rd edition pp. 369-376): model
            structure, linearity of expected value of y as a function
            of the x's, bias of error terms, normality of error terms,
-           independence of observations and constancy of variance.
-           Ways to address these problems include: better experimental
-           design, introducing more conditioning variables, and 
-           data transformations.
+           independence of observations, and constancy of variance.
            For more see:
            <a target="_blank" href="http://andrewgelman.com/2013/08/04/19470/">What are the key assumptions of linear regression?</a>.
+          </p>
+           <p>
+           Also: the frequenstist version of regression is said to make no assumptions
+           on the distribution of data or parameters (only on distribution of errors).
+           This is not quite true as even the frequentist analysis depends on independence
+           of observations (which is a fact about x's in addition to y's and errors).
+           And a Bayesian treatment may need to assume some form of priors on one
+           or more of these to get well behaved detailed posterior estimates.
           </p>
           <p>We will correct later editions of the book, and hope
           our error does not overly distract from the important 
