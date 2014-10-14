@@ -7,11 +7,13 @@ table218 <- table(
    churn=dTrain[,outcome], 	# Note: 2 
    useNA='ifany') 	# Note: 3 
 print(table218)
-      churn
-Var218    -1     1
-  cJvF 19101  1218
-  UYBR 17599  1577
-  <NA>   410   148
+##       churn
+## Var218    -1     1
+##   cJvF 19245  1220
+##   UYBR 17860  1618
+##   <NA>   423   152
+# Note this listing was updated: 10-14-2014 as some of results in the book were
+# accidentally from older code.  Will update later listings as we go forward.
 
 # Note 1: 
 #   Tabulate levels of Var218. 
