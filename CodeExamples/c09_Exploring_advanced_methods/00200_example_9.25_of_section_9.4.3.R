@@ -5,6 +5,7 @@
 library('kernlab')
 spamFormulaV <- as.formula(paste('spam',
    paste(spamVars,collapse=' + '),sep=' ~ '))
+# may want to switch to library('e1071') svm() as had some state holding problems in some examles
 svmM <- ksvm(spamFormulaV,data=spamTrain, 	# Note: 1 
         kernel='rbfdot', 	# Note: 2 
         C=10, 	# Note: 3 
