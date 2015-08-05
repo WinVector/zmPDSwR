@@ -1,0 +1,272 @@
+
+
+Practical data science with R built chapter 6 built a number of single variable models.
+In Listing 6.11 it used an ad-hoc entropy based out of sample effect size estimate
+for variable selection.  This likely (though it isn't completely rigorous) picked 
+variables conservatively.
+We show here how to repeat this work on the KDD2009 dataset using more standard
+techniques more quickly.
+For vtreat details see: 
+   http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/
+and Chapter 6 of Practical Data Science with R: 
+    http://www.amazon.com/Practical-Data-Science/dp/1617291560
+For details on data see: 
+    https://github.com/WinVector/zmPDSwR/tree/master/KDD2009
+There is an issue that any data row used to build the single variable models isn't
+exchangable with future unseen rows for the purposes of scoring and training.  So
+the most hygienic way to work is to use one subset of data to build the single variable models,
+and then another to built the composite model, and a third for scoring.  In particular
+models trained using rows used to build sub-models think the sub-models have large effects
+that the sub-models will in the future, and under-estimate degrees of freedom of complicated
+sub-models.
+
+```{r kddexlibs, tidy=FALSE}
+#load some libraries
+# http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/
+# devtools::install_github("WinVector/vtreat")
+library('vtreat')
+# devtools::install_github("WinVector/vtreat")
+library('WVPlots')
+
+library('parallel')
+library('gbm')
+library('class')
+
+
+# load the data as in the book
+# change this path to match your directory structure
+dir = '~/Documents/work/PracticalDataScienceWithR/zmPDSwR/KDD2009/' 
+
+d = read.table(paste(dir,'orange_small_train.data.gz',sep=''),
+                header=T,sep='\t',na.strings=c('NA',''), 
+               stringsAsFactors=FALSE)
+churn = read.table(paste(dir,'orange_small_train_churn.labels.txt',sep=''),
+                    header=F,sep='\t')
+d$churn = churn$V1
+appetency = read.table(paste(dir,'orange_small_train_appetency.labels.txt',sep=''),
+                        header=F,sep='\t')
+d$appetency = appetency$V1
+upselling = read.table(paste(dir,'orange_small_train_upselling.labels.txt',sep=''),
+                        header=F,sep='\t')
+d$upselling = upselling$V1
+set.seed(729375)
+d$rgroup = runif(dim(d)[[1]])
+dTrainM = subset(d,rgroup<=0.5)  # set for building models
+dTrainC = subset(d,(rgroup>0.5) & (rgroup<=0.9)) # set for impact coding
+dTest = subset(d,rgroup>0.9) # set for evaluation
+rm(list=c('d','churn','appetency','upselling','dir'))
+outcomes = c('churn','appetency','upselling')
+vars = setdiff(colnames(dTrainM),
+                c(outcomes,'rgroup'))
+yName = 'churn'
+yTarget = 1
+```
+
+
+
+```{r kdddesign, tidy=FALSE}
+# build data treatments
+
+set.seed(239525)
+
+cl = parallel::makeCluster(4)
+
+# build treatments on all training data (coding and modeling)
+treatmentsA = designTreatmentsC(rbind(dTrainC,dTrainM),
+    vars,yName,yTarget,
+    smFactor=2.0, 
+    parallelCluster=cl,
+    scoreVars=TRUE)
+
+# build treatments on just the coding data
+treatmentsC = designTreatmentsC(dTrainC,
+    vars,yName,yTarget,
+    smFactor=2.0, 
+    parallelCluster=cl,
+    scoreVars=TRUE)
+
+if(!is.null(cl)) {
+    parallel::stopCluster(cl)
+    cl = NULL
+}
+```
+
+```{r kddknnorig, tidy=FALSE}
+# Repeat something similar to the
+# work of Section 6.3.3 of Practical Data Science with R
+# http://www.practicaldatascience.com/
+# We (deliberately) repeat the error of using the same
+# data to build the initial single variable models
+# (here called treated variables).  This example seems to
+# suffer more than the book did, likely due to the books use
+# of an entropy based out of sample effect size based variable
+# selection (different than vtreat's current variable scoring function).
+# Likely the book KNN model was shielded a bit by the smaller number
+# of variables, and simpler variables the book criterion (listing 6.11)
+# picked.
+# We see test AUC 0.59 here, versus the book's test AUC 0.72 for KNN.
+kddPrune=0.9999
+nK = 200
+project = FALSE
+knnTrain = prepare(treatmentsA,
+                   rbind(dTrainC,dTrainM),
+                   scale=TRUE,
+                   pruneLevel=kddPrune)
+selvars = setdiff(colnames(knnTrain),yName)
+knnCl = knnTrain[[yName]]==yTarget
+
+knnTest = prepare(treatmentsA,
+                  dTest,
+                  scale=TRUE,
+                  pruneLevel=kddPrune)
+if(project) {
+  # project may help with duplicated variables.
+  # with scale=TRUE we are in y-units, so this is a y-aware reduction
+  pcomp = prcomp(knnTrain[,selvars])
+  goodP = (pcomp$sdev>=1.0e-2) & (seq_len(length(pcomp$sdev))<=10)
+  projection = pcomp$rotation[,goodP]
+  pvars = colnames(projection)
+  knnTrainP = as.data.frame(as.matrix(knnTrain[,selvars]) %*% projection)
+  knnTestP = as.data.frame(as.matrix(knnTest[,selvars]) %*% projection)
+  selvars <- pvars[goodP]
+} else {
+  knnTrainP = knnTrain
+  knnTestP = knnTest
+}
+
+knnPred = function(df) {
+    knnDecision = knn(knnTrainP[,selvars],df[,selvars],knnCl,k=nK,prob=T)
+    ifelse(knnDecision==TRUE,
+       attributes(knnDecision)$prob,
+       1-(attributes(knnDecision)$prob))
+}
+knnTestP$predKNN = knnPred(knnTestP)
+knnTestP[[yName]] = knnTest[[yName]]==yTarget
+ti = paste('KNN code and nn on all data, project=',project,sep='')
+print(DoubleDensityPlot(knnTestP, 'predKNN', yName, 
+                               title=ti))
+print(ROCPlot(knnTestP, 'predKNN', yName, 
+                     title=ti))
+# see on AUC of 0.59, not as good as the book's 0.72
+```
+
+```{r kddknnnew, tidy=FALSE}
+# As we said: one flaw in both the original 
+# the older book code: we are using the same data rows
+# to both impact code (see:
+# http://www.win-vector.com/blog/2012/07/modeling-trick-impact-coding-of-categorical-variables-with-many-levels/ )
+# categorical variables and to model.
+#
+# We now strongly recommend splitting your training set into two pieces,
+# and using one piece for the vtreat::prepare() step, and only the other
+# disjoint portion of the training data for model construction. The
+# issue is any row of data examined during vtreat::prepare() is no
+# longer exchangeable with even test data (let alone future data),
+# especially for impact codes for very large categorical
+# variables. Models trained on rows used to build the variable encodings
+# tend to over-estimate effect sizes of the sub-models (or treated
+# variables), under-estimate degrees of freedom, and get significances
+# wrong.
+#
+# Fix: separate coding and training, as shown here
+# Brings test score immediately up to 0.68.
+
+kddPrune=0.999
+nK = 200
+knnTrain = prepare(treatmentsC,
+                   dTrainM,
+                   scale=TRUE,
+                   pruneLevel=kddPrune)
+selvars = setdiff(colnames(knnTrain),yName)
+knnCl = knnTrain[[yName]]==yTarget
+
+knnTest = prepare(treatmentsC,
+                  dTest,
+                  scale=TRUE,
+                  pruneLevel=kddPrune)
+
+knnPred = function(df) {
+    knnDecision = knn(knnTrain[,selvars],df[,selvars],knnCl,k=nK,prob=T)
+    ifelse(knnDecision==TRUE,
+       attributes(knnDecision)$prob,
+       1-(attributes(knnDecision)$prob))
+}
+knnTest$predKNN = knnPred(knnTest)
+knnTest[[yName]] = knnTest[[yName]]==yTarget
+ti = 'KNN code on C nn on M'
+print(DoubleDensityPlot(knnTest, 'predKNN', yName, 
+                               title=ti))
+print(ROCPlot(knnTest, 'predKNN', yName, 
+                     title=ti))
+
+```
+
+
+
+
+```{r kddmodels, tidy=FALSE}
+# Run other models (with proper coding/training separation).
+#
+# This gets us back to AUC 0.72
+
+kddPrune = 0.999
+
+treatedTrainM = prepare(treatmentsC,
+                   dTrainM,
+                   pruneLevel=kddPrune)
+selvars = setdiff(colnames(knnTrain),yName)
+treatedTrainM[[yName]] = treatedTrainM[[yName]]==yTarget
+
+treatedTest = prepare(treatmentsC,
+                  dTest,
+                  pruneLevel=kddPrune)
+treatedTest[[yName]] = treatedTest[[yName]]==yTarget
+
+# prepare plotting frames
+treatedTrainP = treatedTrainM[, yName, drop=FALSE]
+treatedTestP = treatedTest[, yName, drop=FALSE]
+
+
+formulaS = paste(yName,paste(selvars,collapse=' + '),sep=' ~ ')
+for(mname in c('gbmPred','glmPred')) {
+  print("*****************************")
+  print(date())
+  print(paste(mname,length(selvars)))
+  if(mname=='gbmPred') {
+    modelGBMs = gbm(as.formula(formulaS),
+                    data=treatedTrainM,
+                    distribution='bernoulli',
+                    n.trees=500,
+                    interaction.depth=3,
+                    keep.data=FALSE,
+                    cv.folds=5)
+    nTrees = gbm.perf(modelGBMs)
+    treatedTrainP[[mname]] = predict(modelGBMs,newdata=treatedTrainM,type='response',
+                                     n.trees=nTrees) 
+    treatedTestP[[mname]] = predict(modelGBMs,newdata=treatedTest,type='response',
+                                    n.trees=nTrees)
+  } else {
+    modelglms = glm(as.formula(formulaS),
+                    data=treatedTrainM,
+                    family=binomial(link='logit')
+    )
+    treatedTrainP[[mname]] = predict(modelglms,newdata=treatedTrainM,type='response')
+    treatedTestP[[mname]] = predict(modelglms,newdata=treatedTest,type='response')
+  }
+  
+  t1 = paste(mname,'trainingM data')
+  print(DoubleDensityPlot(treatedTrainP, mname, yName, 
+                          title=t1))
+  print(ROCPlot(treatedTrainP, mname, yName, 
+                title=t1))
+  
+  t2 = paste(mname,'test data')
+  print(DoubleDensityPlot(treatedTestP, mname, yName, 
+                          title=t2))
+  print(ROCPlot(treatedTestP, mname, yName, 
+                title=t2))
+  print(date())
+  print("*****************************")
+}
+
+```

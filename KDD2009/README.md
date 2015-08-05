@@ -35,4 +35,4 @@ Load data:
   gzip -9 orange_small_train.data
 ```
 
-See [KDDmodels.html](KDDmodels.html) for examples and details.
+See [KDDmodels.html](KDDmodels.html) for examples and details and [KDD2009vtreat.html](KDD2009vtreat.html) for a newer [vtreat](http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/) based demonstration.
