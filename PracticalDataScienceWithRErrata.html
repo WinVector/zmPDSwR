@@ -96,6 +96,24 @@
           </p>
         </li>
 
+        <li>
+          <h2>Pages 125-138. Section 6.3 Building models using many variables</h2>
+<p>We now strongly recommend splitting your training set into two pieces,
+and using one piece for the construction of single variable models,
+and only the other disjoint portion of the training data for model
+construction. The issue is any row of data examined during single
+variable model construction is no longer exchangeable with even test
+data (let alone future data). Models trained on rows used to build the
+variable encodings tend to over-estimate effect sizes of the
+sub-models (or treated variables), under-estimate degrees of freedom,
+and get significances wrong.  We think the KNN model in this section
+happened to perform okay due to the aggressive variable pruning
+heuristic in listing 6.11.</p>
+<p>Also many of the steps in this section are now automated in
+an R library we are now sharing:
+<a target="_blank" href="http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/">vtreat</a>.</p>
+        </li>
+
 
         <li>
           <h2>Page 126. Section 6.2.3 Using cross-validation ...</h2>
