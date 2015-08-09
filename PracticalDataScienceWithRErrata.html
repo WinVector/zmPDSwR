@@ -46,26 +46,26 @@
 
     <fieldset>
       <legend>Practical Data Science with R Errata</legend>
-
+<div id="intro">
+  <a href="booklink"><img id="cover" src="zumel_cover150.jpg" alt="booktitle"></a>
       <p>
-      Your authors (<a href="http://ninazumel.com/" target="_blank">Nina Zumel</a> and <a href="http://johnmount.com/">John Mount</a>) 
-      and <a href="http://www.manning.com" target="_blank">Manning Publications, Co.</a> have all worked very hard to make
+      Your authors (<a href="http://ninazumel.com/" target="_blank">Nina Zumel</a> and <a href="http://johnmount.com/" target="_blank">John Mount</a>) 
+      and <a href="http://www.manning.com" target="_blank">Manning Publications Co.</a> have all worked very hard to make
       <a target="_blank" href="http://manning.com/PracticalDataSciencewithR"><b><i>Practical Data Science with R</i></b></a> an excellent
       and instructive book that is well worth your investment of time and money.
       However, errors do creep in and we do feel bad about that.
-      To help we are maintaining a public errata list 
-      <a href="http://winvector.github.io/PDSwR/PracticalDataScienceWithRErrata.html">here</a> (and <a target="_blank" href="https://github.com/WinVector/zmPDSwR/blob/master/PracticalDataScienceWithRErrata.html">source</a>).
+      To help, we are maintaining a public errata list 
+      <a href="http://winvector.github.io/PDSwR/PracticalDataScienceWithRErrata.html"target="_blank">here</a> (and <a target="_blank" href="https://github.com/WinVector/zmPDSwR/blob/master/PracticalDataScienceWithRErrata.html">source</a>).
       </p>
       <p>
         If you find any any errors in <a target="_blank" href="http://manning.com/PracticalDataSciencewithR"><b><i>Practical Data Science with R</i></b></a> 
         not listed below, or
-        just find something that you think is not well explained:
+        just find something that you think is not well explained, 
         please post in the book's
         <a href="http://www.manning-sandbox.com/forum.jspa?forumID=863" target="_blank">Author Online Forum</a>
         so that they may be collected here for everyone's benefit. Thanks!
       </p>
-
-      <h1>Errata</h1>
+<i>Last updated August 8, 2015</i>
       <ul>
         <li>
           <h2>Page 12, Listing 1.2</h2>
@@ -75,7 +75,7 @@
         </li>
 
         <li>
-          <h2>Page 27 listing 2.8, page 30 listing 2.11 and any other use of H2DB</h2>
+          <h2>Page 27 Listing 2.8, page 30 Listing 2.11 and any other use of H2DB</h2>
           <p>
            Starting with version 1.4 the H2DB database enforces that the
            path specified for the database files must be absolute
@@ -97,38 +97,38 @@
         </li>
 
         <li>
-          <h2>Pages 125-138. Section 6.3 Building models using many variables</h2>
+          <h2>Pages 125-138, Section 6.3 Building models using many variables</h2>
           <p>We strongly recommend splitting your training set into
 two pieces, and using one piece for the construction of single
 variable models, and only the other disjoint portion of the training
 data for model construction. The issue is any row of data examined
 during single variable model construction is no longer exchangeable
 with even test data (let alone future data). Models trained on rows
-used to build the variable encodings tend to over-estimate effect
-sizes of the sub-models (or treated variables), under-estimate degrees
+used to build the variable encodings tend to overestimate effect
+sizes of the sub-models (or treated variables), underestimate degrees
 of freedom, and get significances wrong.  We think the KNN model in
 this section happened to perform okay due to the aggressive variable
 pruning heuristic in listing 6.11.</p>
-          <p>A re-run of chapter 6 with the stricter data separation
+          <p>A rerun of chapter 6 with the stricter data separation
             can be found
             <a target="_blank" href="https://github.com/WinVector/zmPDSwR/tree/master/KDD2009">here</a>
             (including a newer run automating a lot of the steps using
             the
             <a target="_blank" href="http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/">vtreat</a>
-            library is here; files, of course, also in the course
+            library; files, of course, are in the course
             downloads).</p>
         </li>
 
 
         <li>
-          <h2>Page 126. Section 6.2.3 Using cross-validation ...</h2>
+          <h2>Page 126, Section 6.2.3 Using cross-validation</h2>
           <p>
             First paragraph: "cross-reference" should be "cross-validation."
           </p>
         </li>
 
         <li>
-          <h2>Page 126. Listing 6.11 Basic variable selection</h2>
+          <h2>Page 126, Listing 6.11 Basic variable selection</h2>
           <p>
             Second "Run through categorical variables and pick based
             on a deviance improvement" should read "Run through numerical
@@ -138,7 +138,7 @@ pruning heuristic in listing 6.11.</p>
 
 
         <li>
-          <h2>Page 126. Text and Listing 6.11 Basic variable selection</h2>
+          <h2>Page 126, Text and Listing 6.11 Basic variable selection</h2>
           <p>
           The "2 times" in listing 6.11 is because statistical deviance is
           traditionally written as -2*(log(p|model) - log(p|saturatedModel)).
@@ -163,7 +163,7 @@ pruning heuristic in listing 6.11.</p>
         </li>
 
         <li>
-          <h2>Page 130. HOW DECISION TREE MODELS WORK</h2>
+          <h2>Page 130, How decision tree models work</h2>
           <p>In the text explaining the decision tree
           "predVar126 &lt; -0.002810871" should read 
           "predVar126 &lt; 0.07366888".
@@ -171,7 +171,7 @@ pruning heuristic in listing 6.11.</p>
         </li>
 
         <li>
-          <h2>Page 148, "Are there systematic errors?"</h2>
+          <h2>Page 148, Are there systematic errors?</h2>
           <h2>Page 224, Footnote 5</h2>
           <p>
            Our description of "heteroscedasticity" is wrong and
@@ -188,20 +188,20 @@ pruning heuristic in listing 6.11.</p>
            meant to say "it was bad if errors correlate with unobserved
            ideal y's which don't already have the error term added in", i.e. with functions of the x's).
            </p>
-           <p>The correct thing to do is: state that regression
+           <p>The correct thing to do is state that regression
            (and in particular the diagnostics of a regression) depends
            on a number of assumptions about the data.  Important properties
            include (paraphrased from Gelman, Carlin,
            Stern, Dunson, Vehtari, and Rubin "Bayesian
-           Data Analysis" 3rd edition pp. 369-376): model
+           Data Analysis" 3rd edition pp. 369-376) model
            structure, linearity of expected value of y as a function
            of the x's, bias of error terms, normality of error terms,
            independence of observations, and constancy of variance.
-           For more see:
+           For more see 
            <a target="_blank" href="http://andrewgelman.com/2013/08/04/19470/">What are the key assumptions of linear regression?</a>.
           </p>
            <p>
-           Also: the frequenstist version of regression is commonly said to make no assumptions
+           Also, the frequenstist version of regression is commonly said to make no assumptions
            on the distribution of data or parameters (only on distribution of errors).
            This is not quite true as even the frequentist analysis depends on independence
            of observations (which is a fact about x's in addition to y's and errors).
@@ -220,25 +220,26 @@ pruning heuristic in listing 6.11.</p>
         </li>
 
         <li>
-          <h2>Page 156 Section 7.1.5 "Reading the model summary and characterizing coefficient quality"</h2>
+          <h2>Page 156, Section 7.1.5 Reading the model summary and characterizing coefficient quality</h2>
           <p>Normality of errors is desirable, but not necessary for linear regression (see
              <a target="_blank" href="https://en.wikipedia.org/wiki/Linear_regression#Assumptions">Wikipedia</a>
              and <a target="_blank" href="http://andrewgelman.com/2013/08/04/19470/">What are the key assumptions of linear regression?</a>). We had previously said the errors must be normally distributed (and we certainly did not mean to imply the <code>y</code> or <code>x</code> need to be normally distributed).</p>
           <p>Replace "<bold>INTERPRETING MODEL SIGNIFICANCES</bold>" with:</p>
           <p>
-            <bold>INTERPRETING MODEL SIGNIFICANCES</bold> Many of the tests of linear regression, including the tests for coefficient and model significance, are sensitive to model assumptions.  It’s important to examine graphically or using quantile analysis to determine if the regression model is behaving as expected.</p>
+           <p> <bold>INTERPRETING MODEL SIGNIFICANCES</bold> </p>
+Many of the tests of linear regression, including the tests for coefficient and model significance, are sensitive to model assumptions.  It's important to examine graphically or using quantile analysis to determine if the regression model is behaving as expected.</p>
         </li>
 
 
         <li>
-          <h2>Page 157 Section 7.2.1 "Understanding logistic regression"</h2>
+          <h2>Page 157, Section 7.2.1 Understanding logistic regression</h2>
           <p>Unfortunate typo: the sigmoid function is <code>s(z) = 1/(1+exp(-z))</code>
           (not <code>1/(1+exp(z))</code>).
           </p>
         </li>
 
         <li>
-          <h2>Page 387 sqldf index entry</h2>
+          <h2>Page 387, sqldf index entry</h2>
           <p>(Not an error) Another important cross-reference for sqldf
           is page 327, where we show an option that prevents an R-crash
           on OSX.
