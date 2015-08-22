@@ -75,15 +75,13 @@ cl = parallel::makeCluster(4)
 treatmentsA = designTreatmentsC(rbind(dTrainC,dTrainM),
     vars,yName,yTarget,
     smFactor=2.0, 
-    parallelCluster=cl,
-    scoreVars=TRUE)
+    parallelCluster=cl)
 
 # build treatments on just the coding data
 treatmentsC = designTreatmentsC(dTrainC,
     vars,yName,yTarget,
     smFactor=2.0, 
-    parallelCluster=cl,
-    scoreVars=TRUE)
+    parallelCluster=cl)
 
 if(!is.null(cl)) {
     parallel::stopCluster(cl)
@@ -105,20 +103,20 @@ if(!is.null(cl)) {
 # of variables, and simpler variables the book criterion (listing 6.11)
 # picked.
 # We see test AUC 0.59 here, versus the book's test AUC 0.72 for KNN.
-kddPrune=0.9999
+kddPrune=0.05
 nK = 200
 project = FALSE
 knnTrain = prepare(treatmentsA,
                    rbind(dTrainC,dTrainM),
                    scale=TRUE,
-                   pruneLevel=kddPrune)
+                   pruneSig=kddPrune)
 selvars = setdiff(colnames(knnTrain),yName)
 knnCl = knnTrain[[yName]]==yTarget
 
 knnTest = prepare(treatmentsA,
                   dTest,
                   scale=TRUE,
-                  pruneLevel=kddPrune)
+                  pruneSig=kddPrune)
 if(project) {
   # project may help with duplicated variables.
   # with scale=TRUE we are in y-units, so this is a y-aware reduction
@@ -171,19 +169,19 @@ print(ROCPlot(knnTestP, 'predKNN', yName,
 # Fix: separate coding and training, as shown here
 # Brings test score immediately up to 0.68.
 
-kddPrune=0.999
+kddPrune=0.05
 nK = 200
 knnTrain = prepare(treatmentsC,
                    dTrainM,
                    scale=TRUE,
-                   pruneLevel=kddPrune)
+                   pruneSig=kddPrune)
 selvars = setdiff(colnames(knnTrain),yName)
 knnCl = knnTrain[[yName]]==yTarget
 
 knnTest = prepare(treatmentsC,
                   dTest,
                   scale=TRUE,
-                  pruneLevel=kddPrune)
+                  pruneSig=kddPrune)
 
 knnPred = function(df) {
     knnDecision = knn(knnTrain[,selvars],df[,selvars],knnCl,k=nK,prob=T)
@@ -209,17 +207,17 @@ print(ROCPlot(knnTest, 'predKNN', yName,
 #
 # This gets us back to AUC 0.72
 
-kddPrune = 0.999
+kddPrune = 0.05
 
 treatedTrainM = prepare(treatmentsC,
                    dTrainM,
-                   pruneLevel=kddPrune)
+                   pruneSig=kddPrune)
 selvars = setdiff(colnames(knnTrain),yName)
 treatedTrainM[[yName]] = treatedTrainM[[yName]]==yTarget
 
 treatedTest = prepare(treatmentsC,
                   dTest,
-                  pruneLevel=kddPrune)
+                  pruneSig=kddPrune)
 treatedTest[[yName]] = treatedTest[[yName]]==yTarget
 
 # prepare plotting frames
