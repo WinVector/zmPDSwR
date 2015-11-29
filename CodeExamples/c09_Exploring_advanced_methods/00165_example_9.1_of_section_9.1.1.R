@@ -25,7 +25,7 @@ accuracyMeasures <- function(pred, truth, name="model") {  	# Note: 4
   accuracy <- sum(diag(ctable))/sum(ctable)
   precision <- ctable[2,2]/sum(ctable[,2])
   recall <- ctable[2,2]/sum(ctable[2,])
-  f1 <- precision*recall
+  f1 <- 2*precision*recall/(precision+recall)
   data.frame(model=name, accuracy=accuracy, f1=f1, dev.norm)
 }
 
@@ -57,7 +57,7 @@ accuracyMeasures(predict(treemodel, newdata=spamTest),
 # Note 4: 
 #   A function to calculate and return various measures 
 #   on the model: normalized deviance, prediction accuracy, and f1, which is the 
-#   product of precision and recall. 
+#   harmonic mean of precision and recall. 
 
 # Note 5: 
 #   Normalize the deviance by the number of data points 
