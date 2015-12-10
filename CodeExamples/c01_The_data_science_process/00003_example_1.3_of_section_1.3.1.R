@@ -12,21 +12,21 @@ dimnames(tab2) <- list('loan.as.pct.disposable.income'=
       c('LT.15pct','GT.15pct'),
    'loan.quality.pop2'=
       c('goodloan','badloan'))
-> tab1
-                             loan.quality.pop1 	# Note: 1 
-loan.as.pct.disposable.income goodloan badloan
-                     LT.15pct       50       0
-                     GT.15pct        6      44
-> sum(diag(tab1))/sum(tab1)                  	# Note: 2 
-[1] 0.94
->
-> tab2
-                             loan.quality.pop2  	# Note: 3 
-loan.as.pct.disposable.income goodloan badloan
-                     LT.15pct       34      16
-                     GT.15pct       18      32
-> sum(diag(tab2))/sum(tab2)
-[1] 0.66                                                        	# Note: 4
+tab1
+##                              loan.quality.pop1 	# Note: 1 
+## loan.as.pct.disposable.income goodloan badloan
+##                      LT.15pct       50       0
+##                      GT.15pct        6      44
+sum(diag(tab1))/sum(tab1)                  	# Note: 2 
+## [1] 0.94
+
+tab2
+##                              loan.quality.pop2  	# Note: 3 
+## loan.as.pct.disposable.income goodloan badloan
+##                      LT.15pct       34      16
+##                      GT.15pct       18      32
+sum(diag(tab2))/sum(tab2)
+## [1] 0.66                                                        	# Note: 4
 
 # Note 1: 
 #   The count of correct predictions is on the 
