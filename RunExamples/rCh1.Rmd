@@ -1,6 +1,6 @@
 ---
 title: "rCh1"
-output: html_document
+output: md_document
 ---
 
 ```{r tidy=FALSE,comment='',prompt=FALSE}
