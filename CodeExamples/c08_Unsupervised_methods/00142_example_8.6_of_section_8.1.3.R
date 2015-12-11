@@ -5,7 +5,7 @@
 library(fpc)                                  	# Note: 1 
 kbest.p<-5                                                   	# Note: 2 
 cboot.hclust <- clusterboot(pmatrix,clustermethod=hclustCBI, 	# Note: 3 
-                           method="ward", k=kbest.p)
+                           method="ward.D", k=kbest.p)
 
 summary(cboot.hclust$result)                              	# Note: 4 
 ##               Length Class  Mode
@@ -70,7 +70,7 @@ cboot.hclust$bootbrd                                    	# Note: 8
 # Note 3: 
 #   Run clusterboot() with hclust 
 #   ('clustermethod=hclustCBI') using Ward’s method 
-#   ('method="ward"') and kbest.p clusters 
+#   ('method="ward.D"') and kbest.p clusters 
 #   ('k=kbest.p'). Return the results in an object 
 #   called cboot.hclust. 
 

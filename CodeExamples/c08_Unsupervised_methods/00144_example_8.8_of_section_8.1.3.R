@@ -25,7 +25,7 @@ ch_criterion <- function(dmatrix, kmax, method="kmeans") {     	# Note: 2
       wss[k] <- clustering$tot.withinss
     }else {  # hclust                                          	# Note: 6 
       d <- dist(dmatrix, method="euclidean")
-      pfit <- hclust(d, method="ward")
+      pfit <- hclust(d, method="ward.D")
       labels <- cutree(pfit, k=k)
       wss[k] <- wss.total(dmatrix, labels)
     }

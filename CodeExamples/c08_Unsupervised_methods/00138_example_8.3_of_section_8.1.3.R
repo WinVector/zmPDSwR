@@ -3,7 +3,7 @@
 # Title: Hierarchical clustering 
 
 d <- dist(pmatrix, method="euclidean")   	# Note: 1 
-pfit <- hclust(d, method="ward")         	# Note: 2 
+pfit <- hclust(d, method="ward.D")         	# Note: 2 
 plot(pfit, labels=protein$Country)      	# Note: 3
 
 # Note 1: 
