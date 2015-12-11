@@ -4,8 +4,8 @@
 
 tab <- table(d)
 print(tab)
-     converted
-group     0     1
-    A 94979  5021
-    B  9398   602
+##      converted
+## group     0     1
+##     A 94979  5021
+##     B  9398   602
 

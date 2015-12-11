@@ -1,0 +1,15 @@
+---
+title: "rXA"
+author: "Win-Vector LLC"
+date: "December 11, 2015"
+output: html_document
+---
+
+```{r sourceFns}
+source('runDir.R')
+```
+
+```{r xA1, tidy=FALSE,comment='',prompt=FALSE}
+runDir('../CodeExamples/x0A_Working_with_R_and_other_tools',
+       '.')
+```

@@ -11,14 +11,14 @@ daysCodes <- c('day.of.stay', 'X1.before', 'X2.before', 'X3.before')
 bthin$nDaysBefore <- match(bthin$daysBefore,daysCodes)-1 	# Note: 3 
 pthin$nDaysBefore <- match(pthin$daysBefore,daysCodes)-1 	# Note: 4 
 pthin$price <- as.numeric(gsub('\\$','',pthin$price)) 	# Note: 5 
-> print(head(pthin))
-        date  daysBefore price nDaysBefore
-1 2013-07-01 day.of.stay   250           0
-2 2013-07-02 day.of.stay   200           0
-3 2013-07-03 day.of.stay   200           0
-4 2013-07-04 day.of.stay   250           0
-5 2013-07-01   X1.before   200           1
-6 2013-07-02   X1.before   250           1
+print(head(pthin))
+##         date  daysBefore price nDaysBefore
+## 1 2013-07-01 day.of.stay   250           0
+## 2 2013-07-02 day.of.stay   200           0
+## 3 2013-07-03 day.of.stay   200           0
+## 4 2013-07-04 day.of.stay   250           0
+## 5 2013-07-01   X1.before   200           1
+## 6 2013-07-02   X1.before   250           1
 
 # Note 1: 
 #   Use melt to change columns that are not date 
