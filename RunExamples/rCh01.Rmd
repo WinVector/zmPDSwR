@@ -1,6 +1,8 @@
 ---
 title: "rCh01"
-output: md_document
+author: "Win-Vector LLC"
+date: "December 10, 2015"
+output: html_document
 ---
 
 ```{r sourceFns}

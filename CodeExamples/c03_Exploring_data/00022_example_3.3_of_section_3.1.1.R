@@ -2,17 +2,17 @@
 # (example 3.3 of section 3.1.1)  : Exploring data : Using summary statistics to spot problems : Typical problems revealed by data summaries 
 # Title: Examples of invalid values and outliers 
 
-> summary(custdata$income)
-   Min. 1st Qu.  Median    Mean 3rd Qu.
-  -8700   14600   35000   53500   67000   	# Note: 1 
-   Max.
- 615000
+summary(custdata$income)
+##    Min. 1st Qu.  Median    Mean 3rd Qu.
+##   -8700   14600   35000   53500   67000   	# Note: 1 
+##    Max.
+##  615000
 
-> summary(custdata$age)
-   Min. 1st Qu.  Median    Mean 3rd Qu.
-    0.0    38.0    50.0    51.7    64.0   	# Note: 2 
-   Max.
-  146.7
+summary(custdata$age)
+##    Min. 1st Qu.  Median    Mean 3rd Qu.
+##     0.0    38.0    50.0    51.7    64.0   	# Note: 2 
+##    Max.
+##   146.7
 
 # Note 1: 
 #   Negative values for income could indicate 

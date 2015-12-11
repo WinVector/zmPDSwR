@@ -8,7 +8,7 @@ custdata2 <- subset(custdata,
 
 cor(custdata2$age, custdata2$income) 	# Note: 2 
 
-[1] -0.02240845 	# Note: 3
+## [1] -0.02240845 	# Note: 3
 
 # Note 1: 
 #   Only consider a subset of data with 

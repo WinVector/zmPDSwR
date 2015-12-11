@@ -2,30 +2,30 @@
 # (example 3.10 of section 3.2.1)  : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
 # Title: Producing a bar chart with sorted categories 
 
-> statesums <- table(custdata$state.of.res) 	# Note: 1 
-> statef <- as.data.frame(statesums) 	# Note: 2 
-> colnames(statef)<-c("state.of.res", "count") 	# Note: 3 
-> summary(statef)  	# Note: 4 
-state.of.res     count
-Alabama   : 1    Min.   :  1.00
-Alaska    : 1    1st Qu.:  5.00
-Arizona   : 1    Median : 12.00
-Arkansas  : 1    Mean   : 20.00
-California: 1    3rd Qu.: 26.25
-Colorado  : 1    Max.   :100.00
-(Other)   :44
-> statef <- transform(statef,
+statesums <- table(custdata$state.of.res) 	# Note: 1 
+statef <- as.data.frame(statesums) 	# Note: 2 
+colnames(statef)<-c("state.of.res", "count") 	# Note: 3 
+summary(statef)  	# Note: 4 
+## state.of.res     count
+## Alabama   : 1    Min.   :  1.00
+## Alaska    : 1    1st Qu.:  5.00
+## Arizona   : 1    Median : 12.00
+## Arkansas  : 1    Mean   : 20.00
+## California: 1    3rd Qu.: 26.25
+## Colorado  : 1    Max.   :100.00
+## (Other)   :44
+statef <- transform(statef,
    state.of.res=reorder(state.of.res, count)) 	# Note: 5 
-> summary(statef)                       	# Note: 6 
-state.of.res     count
-Delaware    : 1    Min.   :  1.00
-North Dakota: 1    1st Qu.:  5.00
-Wyoming     : 1    Median : 12.00
-Rhode Island: 1    Mean   : 20.00
-Alaska      : 1    3rd Qu.: 26.25
-Montana     : 1    Max.   :100.00
-(Other)     :44
-> ggplot(statef)+ geom_bar(aes(x=state.of.res,y=count),
+summary(statef)                       	# Note: 6 
+## state.of.res     count
+## Delaware    : 1    Min.   :  1.00
+## North Dakota: 1    1st Qu.:  5.00
+## Wyoming     : 1    Median : 12.00
+## Rhode Island: 1    Mean   : 20.00
+## Alaska      : 1    3rd Qu.: 26.25
+## Montana     : 1    Max.   :100.00
+## (Other)     :44
+ggplot(statef)+ geom_bar(aes(x=state.of.res,y=count),
    stat="identity",              	# Note: 7 
    fill="gray") +
    coord_flip() +                                       	# Note: 8 

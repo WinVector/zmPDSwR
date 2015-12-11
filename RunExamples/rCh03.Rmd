@@ -1,0 +1,17 @@
+---
+title: "rCh03.Rmd"
+author: "Win-Vector LLC"
+date: "December 10, 2015"
+output: html_document
+---
+
+```{r sourceFns}
+source('runDir.R')
+```
+
+```{r ch3ex, tidy=FALSE,comment='',prompt=FALSE}
+custdata <- read.table('../Custdata/custdata.tsv',
+                       header=TRUE,sep='\t')
+runDir('../CodeExamples/c03_Exploring_data',
+       '../Custdata/')
+```
