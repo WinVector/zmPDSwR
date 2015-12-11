@@ -1,0 +1,15 @@
+---
+title: "rCh06"
+author: "Win-Vector LLC"
+date: "December 10, 2015"
+output: html_document
+---
+
+```{r sourceFns}
+source('runDir.R')
+```
+
+```{r ch6ex, tidy=FALSE,comment='',prompt=FALSE}
+runDir('../CodeExamples/c06_Memorization_methods',
+      '../KDD2009')
+```
