@@ -5,7 +5,7 @@
 options( java.parameters = "-Xmx2g" )  	# Note: 1 
 library(RJDBC)
 drv <- JDBC("org.h2.Driver", 	# Note: 2 
-   "h2-1.3.170.jar", 	# Note: 3 
+   "h2-1.3.176.jar", 	# Note: 3 
    identifier.quote="'") 	# Note: 4 
 options<-";LOG=0;CACHE_SIZE=65536;LOCK_MODE=0;UNDO_LOG=0"
 conn <- dbConnect(drv,paste("jdbc:h2:./H2DB",options,sep=''),"u","u")

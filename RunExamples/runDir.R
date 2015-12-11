@@ -6,7 +6,12 @@ runDir <- function(sourcedir,datadir,first=0,last=1000000000) {
                                pattern='.*.R'))) {
     exampleNumber <- as.integer(gsub('_.*$','',sfile))
     if((exampleNumber>=first)&&(exampleNumber<=last)) {
-      spath <- paste(sourcedir,sfile,sep='/')
+      replaceSource <- paste(origCurDir,'replacements',sfile,sep='/')
+      if(file.exists(replaceSource)) {
+        spath <- replaceSource
+      } else {
+        spath <- paste(sourcedir,sfile,sep='/')
+      }
       print(paste('############################### start ',
                   exampleNumber,
                   date()))

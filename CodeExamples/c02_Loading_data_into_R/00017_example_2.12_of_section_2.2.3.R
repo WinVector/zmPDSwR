@@ -2,6 +2,7 @@
 # (example 2.12 of section 2.2.3)  : Loading data into R : Working with relational databases : Working with the PUMS data 
 # Title: Selecting a subset of the Census data 
 
+load('phsample.RData')
 psub = subset(dpus,with(dpus,(PINCP>1000)&(ESR==1)&
    (PINCP<=250000)&(PERNP>1000)&(PERNP<=250000)&
    (WKHP>=40)&(AGEP>=20)&(AGEP<=50)&

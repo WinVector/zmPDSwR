@@ -2,28 +2,28 @@
 # (example 2.2 of section 2.1.1)  : Loading data into R : Working with data from files : Working with well-structured data from files or URLs 
 # Title: Exploring the car data 
 
-> class(uciCar)
-[1] "data.frame" 	# Note: 1 
-> summary(uciCar)
-   buying      maint       doors
- high :432   high :432   2    :432
- low  :432   low  :432   3    :432
- med  :432   med  :432   4    :432
- vhigh:432   vhigh:432   5more:432
+class(uciCar)
+## [1] "data.frame" 	# Note: 1 
+summary(uciCar)
+##    buying      maint       doors
+##  high :432   high :432   2    :432
+##  low  :432   low  :432   3    :432
+##  med  :432   med  :432   4    :432
+##  vhigh:432   vhigh:432   5more:432
+##
+##  persons     lug_boot    safety
+##  2   :576   big  :576   high:576
+##  4   :576   med  :576   low :576
+##  more:576   small:576   med :576
+##
+##    rating
+##  acc  : 384
+##  good :  69
+##  unacc:1210
+##  vgood:  65
 
- persons     lug_boot    safety
- 2   :576   big  :576   high:576
- 4   :576   med  :576   low :576
- more:576   small:576   med :576
-
-   rating
- acc  : 384
- good :  69
- unacc:1210
- vgood:  65
-
-> dim(uciCar)
-[1] 1728    7   	# Note: 2
+dim(uciCar)
+## [1] 1728    7   	# Note: 2
 
 # Note 1: 
 #   The loaded object uciCar is of type data.frame. 
