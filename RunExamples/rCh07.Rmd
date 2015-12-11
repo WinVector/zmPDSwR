@@ -1,0 +1,27 @@
+---
+title: "rCh07"
+author: "Win-Vector LLC"
+date: "December 10, 2015"
+output: html_document
+---
+
+```{r sourceFns1}
+rm(list=ls())
+source('runDir.R')
+```
+
+```{r ch7ex1, tidy=FALSE,comment='',prompt=FALSE}
+library('ggplot2')
+runDir('../CodeExamples/c07_Linear_and_logistic_regression',
+      '../PUMS',last=111)
+```
+
+```{r sourceFns2}
+rm(list=ls())
+source('runDir.R')
+```
+
+```{r ch7ex2, tidy=FALSE,comment='',prompt=FALSE}
+runDir('../CodeExamples/c07_Linear_and_logistic_regression',
+      '../CDC',first=112)
+```

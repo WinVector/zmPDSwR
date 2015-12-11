@@ -10,9 +10,9 @@ llcomponents <- function(y, py) {                      	# Note: 2
 edev <- sign(as.numeric(train$atRisk) - pred) *        	# Note: 3 
   sqrt(-2*llcomponents(as.numeric(train$atRisk), pred))
 
-> summary(edev)
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
--0.9732 -0.1818 -0.1511 -0.1244 -0.1358  3.2640
+summary(edev)
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+## -0.9732 -0.1818 -0.1511 -0.1244 -0.1358  3.2640
 
 # Note 1: 
 #   Create vector of predictions for training 

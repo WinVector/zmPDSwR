@@ -5,21 +5,21 @@
 df.null <- dim(train)[[1]] - 1                            	# Note: 1 
 df.model <- dim(train)[[1]] - length(model$coefficients)  	# Note: 2 
 
-> df.null
-[1] 14211
-> df.model
-[1] 14198
+df.null
+## [1] 14211
+df.model
+## [1] 14198
 
 delDev <- null.dev - resid.dev                            	# Note: 3 
 deldf <- df.null - df.model
 p <- pchisq(delDev, deldf, lower.tail=F)                  	# Note: 4 
 
-> delDev
-[1] 235.724
-> deldf
-[1] 13
-> p
-[1] 5.84896e-43
+delDev
+## [1] 235.724
+deldf
+## [1] 13
+p
+## [1] 5.84896e-43
 
 # Note 1: 
 #   Null model has (number of data points - 1) 

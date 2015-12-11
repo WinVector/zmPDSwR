@@ -4,6 +4,6 @@
 
 aic <- 2*(length(model$coefficients) -
          loglikelihood(as.numeric(train$atRisk), pred))
-> aic
-[1] 2490.992
+aic
+## [1] 2490.992
 
