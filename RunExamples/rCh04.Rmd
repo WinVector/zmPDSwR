@@ -9,14 +9,14 @@ output: html_document
 source('runDir.R')
 ```
 
-```{r ch3ex, tidy=FALSE,comment='',prompt=FALSE}
+```{r ch4ex, tidy=FALSE,comment='',prompt=FALSE}
 custdata <- read.table('../Custdata/custdata.tsv',
                        header=TRUE,sep='\t')
 runDir('../CodeExamples/c04_Managing_data',
        '../Custdata',last=55)
 ```
 
-```{r ch3ex2, tidy=FALSE,comment='',prompt=FALSE}
+```{r ch4ex2, tidy=FALSE,comment='',prompt=FALSE}
 rm(list=ls())
 source('runDir.R')
 load('../NotionalData/exampleData.rData')
