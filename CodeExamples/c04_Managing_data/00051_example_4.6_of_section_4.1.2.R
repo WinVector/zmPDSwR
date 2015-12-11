@@ -2,12 +2,13 @@
 # (example 4.6 of section 4.1.2)  : Managing data : Cleaning data : Data transformations 
 # Title: Converting age into ranges 
 
-> brks <- c(0, 25, 65, Inf)  	# Note: 1 
-> custdata$age.range <- cut(custdata$age,
+brks <- c(0, 25, 65, Inf)  	# Note: 1 
+custdata$age.range <- cut(custdata$age,
     breaks=brks, include.lowest=T) 	# Note: 2 
-> summary(custdata$age.range) 	# Note: 3 
-  [0,25]  (25,65] (65,Inf]
-      56      732      212
+summary(custdata$age.range) 	# Note: 3 
+        
+##   [0,25]  (25,65] (65,Inf]
+##       56      732      212
 
 # Note 1: 
 #   Select the age ranges of interest. The upper 

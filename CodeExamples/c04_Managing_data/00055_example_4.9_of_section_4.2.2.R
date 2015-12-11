@@ -2,13 +2,13 @@
 # (example 4.9 of section 4.2.2)  : Managing data : Sampling for modeling and validation : Creating a sample group column 
 # Title: Splitting into test and training using a random group mark 
 
-> custdata$gp <- runif(dim(custdata)[1])  	# Note: 1 
-> testSet <- subset(custdata, custdata$gp <= 0.1) 	# Note: 2 
-> trainingSet <- subset(custdata, custdata$gp > 0.1) 	# Note: 3 
-> dim(testSet)[1]
-[1] 93
-> dim(trainingSet)[1]
-[1] 907
+custdata$gp <- runif(dim(custdata)[1])  	# Note: 1 
+testSet <- subset(custdata, custdata$gp <= 0.1) 	# Note: 2 
+trainingSet <- subset(custdata, custdata$gp > 0.1) 	# Note: 3 
+dim(testSet)[1]
+## [1] 93
+dim(trainingSet)[1]
+## [1] 907
 
 # Note 1: 
 #   dim(custdata) returns the number of rows and 

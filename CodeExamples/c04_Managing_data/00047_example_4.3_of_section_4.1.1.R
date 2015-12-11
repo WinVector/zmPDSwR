@@ -2,29 +2,29 @@
 # (example 4.3 of section 4.1.1)  : Managing data : Cleaning data : Treating missing values (NAs) 
 # Title: Converting missing numeric data to a level 
 
-> breaks <-c(0, 10000, 50000, 100000, 250000, 1000000)           	# Note: 1 
+breaks <-c(0, 10000, 50000, 100000, 250000, 1000000)           	# Note: 1 
 
-> Income.groups <- cut(custdata$Income,
+Income.groups <- cut(custdata$income,
                       breaks=breaks, include.lowest=T)  	# Note: 2 
 
-> summary(Income.groups)                                        	# Note: 3 
+summary(Income.groups)                                        	# Note: 3 
 
- [0,1e+04] (1e+04,5e+04] (5e+04,1e+05] (1e+05,2.5e+05] (2.5e+05,1e+06]
-        63           312           178              98              21
-      NA's
-       328
+##  [0,1e+04] (1e+04,5e+04] (5e+04,1e+05] (1e+05,2.5e+05] (2.5e+05,1e+06]
+##         63           312           178              98              21
+##       NA's
+##        328
 
-> Income.groups <- as.character(Income.groups)                   	# Note: 4 
+Income.groups <- as.character(Income.groups)                   	# Note: 4 
 
-> Income.groups <- ifelse(is.na(Income.groups),                  	# Note: 5 
+Income.groups <- ifelse(is.na(Income.groups),                  	# Note: 5 
                       "no income", Income.groups)
 
-> summary(as.factor(Income.groups))
+summary(as.factor(Income.groups))
 
- (1e+04,5e+04] (1e+05,2.5e+05] (2.5e+05,1e+06]  (5e+04,1e+05]  [0,1e+04]
-           312              98              21            178         63
-     no income
-           328
+##  (1e+04,5e+04] (1e+05,2.5e+05] (2.5e+05,1e+06]  (5e+04,1e+05]  [0,1e+04]
+##            312              98              21            178         63
+##      no income
+##            328
 
 # Note 1: 
 #   Select some income ranges of interest. To 

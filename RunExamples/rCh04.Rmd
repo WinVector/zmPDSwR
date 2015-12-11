@@ -1,0 +1,25 @@
+---
+title: "rCh04"
+author: "Win-Vector LLC"
+date: "December 10, 2015"
+output: html_document
+---
+
+```{r sourceFns}
+source('runDir.R')
+```
+
+```{r ch3ex, tidy=FALSE,comment='',prompt=FALSE}
+custdata <- read.table('../Custdata/custdata.tsv',
+                       header=TRUE,sep='\t')
+runDir('../CodeExamples/c04_Managing_data',
+       '../Custdata',last=55)
+```
+
+```{r ch3ex2, tidy=FALSE,comment='',prompt=FALSE}
+rm(list=ls())
+source('runDir.R')
+load('../NotionalData/exampleData.rData')
+runDir('../CodeExamples/c04_Managing_data',
+       '../NotionalData',first=56)
+```
