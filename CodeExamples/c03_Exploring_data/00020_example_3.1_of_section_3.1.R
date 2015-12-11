@@ -2,6 +2,8 @@
 # (example 3.1 of section 3.1)  : Exploring data : Using summary statistics to spot problems 
 # Title: The summary() command 
 
+custdata <- read.table('custdata.tsv',
+   header=TRUE,sep='\t')
 summary(custdata)
 ## custid        sex
 ## Min.   :   2068   F:440

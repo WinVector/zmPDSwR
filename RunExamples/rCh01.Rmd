@@ -11,6 +11,6 @@ source('runDir.R')
 
 ```{r ch1, tidy=FALSE,comment='',prompt=FALSE}
 runDir('../CodeExamples/c01_The_data_science_process',
-       '../Statlog/')
+       '../Statlog')
 ```
 

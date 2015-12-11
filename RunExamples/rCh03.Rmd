@@ -13,5 +13,5 @@ source('runDir.R')
 custdata <- read.table('../Custdata/custdata.tsv',
                        header=TRUE,sep='\t')
 runDir('../CodeExamples/c03_Exploring_data',
-       '../Custdata/')
+       '../Custdata')
 ```
