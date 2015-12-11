@@ -11,7 +11,7 @@ runDir <- function(sourcedir,datadir,first=0,last=1000000000) {
   origCurDir <- getwd()
   setwd(datadir)
   for(sfile in sort(list.files(sourcedir,
-                               pattern='.*.R'))) {
+                               pattern='.*.R$'))) {
     exampleNumber <- as.integer(gsub('_.*$','',sfile))
     if((exampleNumber>=first)&&(exampleNumber<=last)) {
       replaceSource <- paste(origCurDir,'replacements',sfile,sep='/')

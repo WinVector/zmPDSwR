@@ -1,0 +1,28 @@
+---
+title: "rCh10"
+author: "Win-Vector LLC"
+date: "December 11, 2015"
+output: html_document
+---
+
+```{r sourceFns1}
+rm(list=ls())
+source('runDir.R')
+```
+
+```{r ch10ex1, tidy=FALSE,comment='',prompt=FALSE}
+library('ggplot2')
+runDir('../CodeExamples/c10_Documentation_and_deployment',
+      '../Buzz',last=221)
+```
+
+```{r sourceFns2}
+rm(list=ls())
+source('runDir.R')
+```
+
+```{r ch10ex2, tidy=FALSE,comment='',prompt=FALSE}
+library('ggplot2')
+runDir('../CodeExamples/c10_Documentation_and_deployment',
+      '../Buzz',first=225)
+```
