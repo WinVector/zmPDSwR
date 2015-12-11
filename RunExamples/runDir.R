@@ -1,4 +1,12 @@
 
+#' Run examples from Practical Data Science in R in a given data directory.
+#' 
+#' runDir changes directory to datadir, runs the R examples number between
+#' first and last (inclusive) found in sourcedir.
+#' @parm sourcedir character path to take R examples from
+#' @param datadir character path to run in (and take data from)
+#' @param first integer optional first numbered example eligible to run
+#' @param last integer optional last numbered example eligible to run
 runDir <- function(sourcedir,datadir,first=0,last=1000000000) {
   origCurDir <- getwd()
   setwd(datadir)

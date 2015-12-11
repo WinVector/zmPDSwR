@@ -2,16 +2,16 @@
 # (example 9.12 of section 9.2.4)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM on actual data 
 # Title: Plotting GAM results 
 
-> terms <- predict(glinmodel, type="terms")       	# Note: 1 
-> tframe <- cbind(DBWT = train$DBWT, as.data.frame(terms))   	# Note: 2 
-> colnames(tframe) <- gsub('[()]', '', colnames(tframe))     	# Note: 3 
-> pframe <- cbind(tframe, train[,c("PWGT", "WTGAIN",
+terms <- predict(glinmodel, type="terms")       	# Note: 1 
+tframe <- cbind(DBWT = train$DBWT, as.data.frame(terms))   	# Note: 2 
+colnames(tframe) <- gsub('[()]', '', colnames(tframe))     	# Note: 3 
+pframe <- cbind(tframe, train[,c("PWGT", "WTGAIN",
                                        "MAGER", "UPREVIS")])        	# Note: 4 
 
-> p1 <- ggplot(pframe, aes(x=PWGT)) +
+p1 <- ggplot(pframe, aes(x=PWGT)) +
    geom_point(aes(y=scale(sPWGT, scale=F))) +  	# Note: 5 
-   geom_smooth(aes(y=scale(DBWT, scale=F))) +   	# Note: 6 
-[...]  	# Note: 7
+   geom_smooth(aes(y=scale(DBWT, scale=F))) # +   	# Note: 6 
+# [...]  	# Note: 7
 
 # Note 1: 
 #   Get the matrix of s() 

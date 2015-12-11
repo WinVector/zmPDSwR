@@ -1,0 +1,51 @@
+---
+title: "rCh09"
+author: "Win-Vector LLC"
+date: "December 11, 2015"
+output: html_document
+---
+
+```{r sourceFns1}
+rm(list=ls())
+source('runDir.R')
+```
+
+```{r ch9ex1, tidy=FALSE,comment='',prompt=FALSE}
+library('ggplot2')
+runDir('../CodeExamples/c09_Exploring_advanced_methods',
+      '../Spambase',last=179)
+```
+
+```{r sourceFns2}
+rm(list=ls())
+source('runDir.R')
+```
+
+```{r ch9ex2, tidy=FALSE,comment='',prompt=FALSE}
+library('ggplot2')
+runDir('../CodeExamples/c09_Exploring_advanced_methods',
+      '../CDC',first=180,last=184)
+```
+
+```{r sourceFns3}
+rm(list=ls())
+source('runDir.R')
+```
+
+```{r ch9ex3, tidy=FALSE,comment='',prompt=FALSE}
+library('ggplot2')
+load('../PUMS/psub.RData')
+runDir('../CodeExamples/c09_Exploring_advanced_methods',
+      '../PUMS',first=185,last=195)
+```
+
+```{r sourceFns4}
+rm(list=ls())
+source('runDir.R')
+```
+
+```{r ch9ex4, tidy=FALSE,comment='',prompt=FALSE}
+library('ggplot2')
+runDir('../CodeExamples/c09_Exploring_advanced_methods',
+      '../Spambase',first=196)
+```
