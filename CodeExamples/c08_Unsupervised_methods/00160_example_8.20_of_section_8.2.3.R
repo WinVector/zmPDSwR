@@ -2,17 +2,17 @@
 # (example 8.20 of section 8.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
 # Title: Scoring rules 
 
-> measures <- interestMeasure(rules,                            	# Note: 1 
-+                 method=c("coverage", "fishersExactTest"),    	# Note: 2 
-+                 transactions=bookbaskets_use)                	# Note: 3 
-> summary(measures)
-    coverage        fishersExactTest
- Min.   :0.002082   Min.   : 0.000e+00
- 1st Qu.:0.002511   1st Qu.: 0.000e+00
- Median :0.002719   Median : 0.000e+00
- Mean   :0.003039   Mean   :5.080e-138
- 3rd Qu.:0.003160   3rd Qu.: 0.000e+00
- Max.   :0.006982   Max.   :9.702e-136
+measures <- interestMeasure(rules,                            	# Note: 1 
+                 measure=c("coverage", "fishersExactTest"),    	# Note: 2 
+                 transactions=bookbaskets_use)                	# Note: 3 
+summary(measures)
+##     coverage        fishersExactTest
+##  Min.   :0.002082   Min.   : 0.000e+00
+##  1st Qu.:0.002511   1st Qu.: 0.000e+00
+##  Median :0.002719   Median : 0.000e+00
+##  Mean   :0.003039   Mean   :5.080e-138
+##  3rd Qu.:0.003160   3rd Qu.: 0.000e+00
+##  Max.   :0.006982   Max.   :9.702e-136
 
 # Note 1: 
 #   The call to interestMeasure() takes as 

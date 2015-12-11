@@ -4,18 +4,18 @@
 
 brulesConf <- sort(brules, by="confidence")  	# Note: 1 
 
-> inspect(head(lhs(brulesConf), n=5))      	# Note: 2 
-  items
-1 {Divine Secrets of the Ya-Ya Sisterhood: A Novel,
-   Lucky : A Memoir}
-2 {Lucky : A Memoir,
-   The Notebook}
-3 {Lucky : A Memoir,
-   Wild Animus}
-4 {Midwives: A Novel,
-   Wicked: The Life and Times of the Wicked Witch of the West}
-5 {Lucky : A Memoir,
-   Summer Sisters}
+inspect(head(lhs(brulesConf), n=5))      	# Note: 2 
+##   items
+## 1 {Divine Secrets of the Ya-Ya Sisterhood: A Novel,
+##    Lucky : A Memoir}
+## 2 {Lucky : A Memoir,
+##    The Notebook}
+## 3 {Lucky : A Memoir,
+##    Wild Animus}
+## 4 {Midwives: A Novel,
+##    Wicked: The Life and Times of the Wicked Witch of the West}
+## 5 {Lucky : A Memoir,
+##    Summer Sisters}
 
 # Note 1: 
 #   Sort the rules by confidence. 

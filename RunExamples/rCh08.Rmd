@@ -1,0 +1,28 @@
+---
+title: "rCh08"
+author: "Win-Vector LLC"
+date: "December 10, 2015"
+output: html_document
+---
+
+```{r sourceFns1}
+rm(list=ls())
+source('runDir.R')
+```
+
+```{r ch8ex1, tidy=FALSE,comment='',prompt=FALSE}
+library('ggplot2')
+runDir('../CodeExamples/c08_Unsupervised_methods',
+      '../Protein',last=151)
+```
+
+```{r sourceFns2}
+rm(list=ls())
+source('runDir.R')
+```
+
+```{r ch8ex2, tidy=FALSE,comment='',prompt=FALSE}
+library('ggplot2')
+runDir('../CodeExamples/c08_Unsupervised_methods',
+      '../Bookdata',first=152)
+```

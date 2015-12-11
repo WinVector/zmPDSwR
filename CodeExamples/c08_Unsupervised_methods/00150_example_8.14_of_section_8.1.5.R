@@ -35,47 +35,47 @@ kbest.t <- 3
 tclusters <- kmeans(tmatrix, kbest.t, nstart=100, iter.max=100)   	# Note: 6 
 
 tclusters$size              	# Note: 7 
-[1] 100 101  99
+## [1] 100 101  99
 
 unscale <- function(scaledpt, centervec, scalevec) {    	# Note: 8 
    scaledpt*scalevec + centervec
 }
 
-> unscale(tclusters$centers[1,], tcenter, tscale)   	# Note: 9 
-       x1        x2        x3
- 9.978961 -3.097584  4.864689
-> mean2
-[1] 10 -3  5
+unscale(tclusters$centers[1,], tcenter, tscale)   	# Note: 9 
+##        x1        x2        x3
+##  9.978961 -3.097584  4.864689
+mean2
+## [1] 10 -3  5
 
-> unscale(tclusters$centers[2,], tcenter, tscale)   	# Note: 10 
-       x1        x2        x3
--4.979523 -4.927404 -4.908949
-> mean3
-[1] -5 -5 -5
+unscale(tclusters$centers[2,], tcenter, tscale)   	# Note: 10 
+##        x1        x2        x3
+## -4.979523 -4.927404 -4.908949
+mean3
+## [1] -5 -5 -5
 
-> unscale(tclusters$centers[3,], tcenter, tscale)    	# Note: 11 
-       x1        x2        x3
-1.0003356 1.3037825 0.9571058
-> mean1
-[1] 1 1 1
+unscale(tclusters$centers[3,], tcenter, tscale)    	# Note: 11 
+##        x1        x2        x3
+## 1.0003356 1.3037825 0.9571058
+mean1
+## [1] 1 1 1
 
-> assign_cluster(rnorm.multidim(1, mean1, sd1),  	# Note: 12 
+assign_cluster(rnorm.multidim(1, mean1, sd1),  	# Note: 12 
                 tclusters$centers,
                 tcenter, tscale)
-3                                                 	# Note: 13 
-3
+## 3                                                 	# Note: 13 
+## 3
 
-> assign_cluster(rnorm.multidim(1, mean2, sd1),   	# Note: 14 
+assign_cluster(rnorm.multidim(1, mean2, sd1),   	# Note: 14 
                 tclusters$centers,
                 tcenter, tscale)
-1                                                	# Note: 15 
-1
+## 1                                                	# Note: 15 
+## 1
 
-> assign_cluster(rnorm.multidim(1, mean3, sd1),     	# Note: 16 
+assign_cluster(rnorm.multidim(1, mean3, sd1),     	# Note: 16 
                 tclusters$centers,
                 tcenter, tscale)
-2                                          	# Note: 17 
-2
+## 2                                          	# Note: 17 
+## 2
 
 # Note 1: 
 #   A function to generate n points drawn from a 
