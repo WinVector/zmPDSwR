@@ -16,6 +16,7 @@
 
  * [CodeExamples.zip](CodeExamples.zip)
  * [CodeExamples directory](CodeExamples)
+ * [Notebooks running all examples](RunExamples)
 
 ## More from the authors:
 
