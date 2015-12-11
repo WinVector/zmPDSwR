@@ -1,0 +1,17 @@
+12-11 08:59:34 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+create table example_table (statusId int, name varchar(125)) [90002-170]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.command.Prepared.query(Prepared.java:211)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:86)
+	at org.h2.command.Command.executeQuery(Command.java:191)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:76)
+12-11 09:00:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXAMPLE_TABLE" not found; SQL statement:
+SELECT * FROM example_table [42102-170]
+12-11 09:00:41 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXAMPLE_TABLE" not found; SQL statement:
+SELECT * FROM example_table [42102-170]
