@@ -3,7 +3,7 @@
     runDir('../CodeExamples/c02_Loading_data_into_R',
            '../Statlog/',last=12)
 
-    [1] "############################### start  5 Thu Dec 10 16:58:00 2015"
+    [1] "############################### start  5 Thu Dec 10 17:00:55 2015"
     [1] "#####  running  ../CodeExamples/c02_Loading_data_into_R/00005_example_2.1_of_section_2.1.1.R"
     [1] "#####   in directory ../Statlog/"
 
@@ -33,8 +33,8 @@
     > #   Tell R to expect a header line that defines 
     > #   the data column names. 
     > 
-    [1] "############################### end  5 Thu Dec 10 16:58:00 2015"
-    [1] "############################### start  6 Thu Dec 10 16:58:00 2015"
+    [1] "############################### end  5 Thu Dec 10 17:00:55 2015"
+    [1] "############################### start  6 Thu Dec 10 17:00:55 2015"
     [1] "#####  running  ../CodeExamples/c02_Loading_data_into_R/00006_example_2.2_of_section_2.1.1.R"
     [1] "#####   in directory ../Statlog/"
 
@@ -93,8 +93,8 @@
     > #   difference of one is because the column header 
     > #   counts as a line, but not as a data row. 
     > 
-    [1] "############################### end  6 Thu Dec 10 16:58:00 2015"
-    [1] "############################### start  8 Thu Dec 10 16:58:00 2015"
+    [1] "############################### end  6 Thu Dec 10 17:00:55 2015"
+    [1] "############################### start  8 Thu Dec 10 17:00:55 2015"
     [1] "#####  running  ../CodeExamples/c02_Loading_data_into_R/00008_example_2.3_of_section_2.1.2.R"
     [1] "#####   in directory ../Statlog/"
 
@@ -115,8 +115,8 @@
     1   1 A192 A201   1
     2   1 A191 A201   2
     3   2 A191 A201   1
-    [1] "############################### end  8 Thu Dec 10 16:58:00 2015"
-    [1] "############################### start  9 Thu Dec 10 16:58:00 2015"
+    [1] "############################### end  8 Thu Dec 10 17:00:56 2015"
+    [1] "############################### start  9 Thu Dec 10 17:00:56 2015"
     [1] "#####  running  ../CodeExamples/c02_Loading_data_into_R/00009_example_2.4_of_section_2.1.2.R"
     [1] "#####   in directory ../Statlog/"
 
@@ -171,8 +171,8 @@
     1           A201  GoodLoan
     2           A201   BadLoan
     3           A201  GoodLoan
-    [1] "############################### end  9 Thu Dec 10 16:58:00 2015"
-    [1] "############################### start  10 Thu Dec 10 16:58:00 2015"
+    [1] "############################### end  9 Thu Dec 10 17:00:56 2015"
+    [1] "############################### start  10 Thu Dec 10 17:00:56 2015"
     [1] "#####  running  /Users/johnmount/Documents/work/PracticalDataScienceWithR/zmPDSwR/RunExamples/replacements/00010_example_2.5_of_section_2.1.2.R"
     [1] "#####   in directory ../Statlog/"
 
@@ -234,8 +234,8 @@
       'A192'='yes, registered under the customers name',
       'A201'='yes',
       'A202'='no')
-    [1] "############################### end  10 Thu Dec 10 16:58:00 2015"
-    [1] "############################### start  11 Thu Dec 10 16:58:00 2015"
+    [1] "############################### end  10 Thu Dec 10 17:00:56 2015"
+    [1] "############################### start  11 Thu Dec 10 17:00:56 2015"
     [1] "#####  running  ../CodeExamples/c02_Loading_data_into_R/00011_example_2.6_of_section_2.1.2.R"
     [1] "#####   in directory ../Statlog/"
 
@@ -257,8 +257,8 @@
     > #   Note that the indexing operator [] is vectorized. Each step in the for loop remaps an 
     > #   entire column of data through our list. 
     > 
-    [1] "############################### end  11 Thu Dec 10 16:58:00 2015"
-    [1] "############################### start  12 Thu Dec 10 16:58:00 2015"
+    [1] "############################### end  11 Thu Dec 10 17:00:56 2015"
+    [1] "############################### start  12 Thu Dec 10 17:00:56 2015"
     [1] "#####  running  ../CodeExamples/c02_Loading_data_into_R/00012_example_2.7_of_section_2.1.2.R"
     [1] "#####   in directory ../Statlog/"
 
@@ -292,7 +292,7 @@
     > ##   repairs                   8       14
     > ##   retraining                1        8
     > 
-    [1] "############################### end  12 Thu Dec 10 16:58:00 2015"
+    [1] "############################### end  12 Thu Dec 10 17:00:56 2015"
 
 Step 00016\_example\_2.11\_of\_section\_2.2.2.R requires large files
 that we don't have the rights to redistributed in their entirety. So we
@@ -301,7 +301,7 @@ are skipping that step and working from saved data.
     runDir('../CodeExamples/c02_Loading_data_into_R',
            '../PUMS/',first=13)
 
-    [1] "############################### start  16 Thu Dec 10 16:58:00 2015"
+    [1] "############################### start  16 Thu Dec 10 17:00:56 2015"
     [1] "#####  running  /Users/johnmount/Documents/work/PracticalDataScienceWithR/zmPDSwR/RunExamples/replacements/00016_example_2.11_of_section_2.2.2.R"
     [1] "#####   in directory ../PUMS/"
 
@@ -310,8 +310,8 @@ are skipping that step and working from saved data.
     > # are skipping that step and working from saved data.
     > 
     > load('phsample.RData')
-    [1] "############################### end  16 Thu Dec 10 16:58:00 2015"
-    [1] "############################### start  17 Thu Dec 10 16:58:00 2015"
+    [1] "############################### end  16 Thu Dec 10 17:00:56 2015"
+    [1] "############################### start  17 Thu Dec 10 17:00:56 2015"
     [1] "#####  running  ../CodeExamples/c02_Loading_data_into_R/00017_example_2.12_of_section_2.2.3.R"
     [1] "#####   in directory ../PUMS/"
 
@@ -330,8 +330,8 @@ are skipping that step and working from saved data.
     > #   Subset of data rows matching detailed 
     > #   employment conditions 
     > 
-    [1] "############################### end  17 Thu Dec 10 16:58:00 2015"
-    [1] "############################### start  18 Thu Dec 10 16:58:00 2015"
+    [1] "############################### end  17 Thu Dec 10 17:00:56 2015"
+    [1] "############################### start  18 Thu Dec 10 17:00:56 2015"
     [1] "#####  running  ../CodeExamples/c02_Loading_data_into_R/00018_example_2.13_of_section_2.2.3.R"
     [1] "#####   in directory ../PUMS/"
 
@@ -399,8 +399,8 @@ are skipping that step and working from saved data.
     > #   Subset of data rows used for model 
     > #   testing. 
     > 
-    [1] "############################### end  18 Thu Dec 10 16:58:00 2015"
-    [1] "############################### start  19 Thu Dec 10 16:58:00 2015"
+    [1] "############################### end  18 Thu Dec 10 17:00:56 2015"
+    [1] "############################### start  19 Thu Dec 10 17:00:56 2015"
     [1] "#####  running  ../CodeExamples/c02_Loading_data_into_R/00019_example_2.14_of_section_2.2.3.R"
     [1] "#####   in directory ../PUMS/"
 
@@ -427,4 +427,4 @@ are skipping that step and working from saved data.
     > ##        State government employee
     > ##                               24
     > 
-    [1] "############################### end  19 Thu Dec 10 16:58:00 2015"
+    [1] "############################### end  19 Thu Dec 10 17:00:56 2015"

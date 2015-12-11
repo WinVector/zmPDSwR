@@ -11,10 +11,10 @@ Install all of the packages needed for Practical Data Science with R
     ## 
     ## 
     ## The downloaded binary packages are in
-    ##  /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//RtmpDxVUxc/downloaded_packages
+    ##  /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//RtmpKLN1YQ/downloaded_packages
 
     ## installing the source package 'knitr'
 
     ## 
     ## The downloaded source packages are in
-    ##  '/private/var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T/RtmpDxVUxc/downloaded_packages'
+    ##  '/private/var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T/RtmpKLN1YQ/downloaded_packages'

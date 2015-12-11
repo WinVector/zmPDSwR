@@ -3,7 +3,7 @@
     runDir('../CodeExamples/c01_The_data_science_process',
            '../Statlog/')
 
-    [1] "############################### start  1 Thu Dec 10 16:57:39 2015"
+    [1] "############################### start  1 Thu Dec 10 17:00:51 2015"
     [1] "#####  running  ../CodeExamples/c01_The_data_science_process/00001_example_1.1_of_section_1.2.3.R"
     [1] "#####   in directory ../Statlog/"
 
@@ -23,8 +23,8 @@
         data=d,
         control=rpart.control(maxdepth=4),
         method="class")
-    [1] "############################### end  1 Thu Dec 10 16:57:39 2015"
-    [1] "############################### start  2 Thu Dec 10 16:57:39 2015"
+    [1] "############################### end  1 Thu Dec 10 17:00:51 2015"
+    [1] "############################### start  2 Thu Dec 10 17:00:51 2015"
     [1] "#####  running  ../CodeExamples/c01_The_data_science_process/00002_example_1.2_of_section_1.2.4.R"
     [1] "#####   in directory ../Statlog/"
 
@@ -89,8 +89,8 @@
     > #   false positive rateconfusion matrixFalse positive rate: 2% of the good applicants 
     > #   were mistakenly identified as bad. 
     > 
-    [1] "############################### end  2 Thu Dec 10 16:57:39 2015"
-    [1] "############################### start  3 Thu Dec 10 16:57:39 2015"
+    [1] "############################### end  2 Thu Dec 10 17:00:51 2015"
+    [1] "############################### start  3 Thu Dec 10 17:00:51 2015"
     [1] "#####  running  ../CodeExamples/c01_The_data_science_process/00003_example_1.3_of_section_1.3.1.R"
     [1] "#####   in directory ../Statlog/"
 
@@ -170,4 +170,4 @@
     > #   The rule of thumb is only 66% 
     > #   accurate. 
     > 
-    [1] "############################### end  3 Thu Dec 10 16:57:39 2015"
+    [1] "############################### end  3 Thu Dec 10 17:00:51 2015"
