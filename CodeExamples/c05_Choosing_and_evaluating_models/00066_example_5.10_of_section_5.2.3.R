@@ -2,21 +2,21 @@
 # (example 5.10 of section 5.2.3)  : Choosing and evaluating models : Evaluating models : Evaluating probability models 
 # Title: Calculating entropy and conditional entropy 
 
-> entropy <- function(x) { 	# Note: 1 
+entropy <- function(x) { 	# Note: 1 
     xpos <- x[x>0]
     scaled <- xpos/sum(xpos)
     sum(-scaled*log(scaled,2))
   }
 
-> print(entropy(table(spamTest$spam))) 	# Note: 2 
-[1] 0.9667165
+print(entropy(table(spamTest$spam))) 	# Note: 2 
+## [1] 0.9667165
 
-> conditionalEntropy <- function(t) { 	# Note: 3 
+conditionalEntropy <- function(t) { 	# Note: 3 
     (sum(t[,1])*entropy(t[,1]) + sum(t[,2])*entropy(t[,2]))/sum(t)
   }
 
-> print(conditionalEntropy(cM)) 	# Note: 4 
-[1] 0.3971897
+print(conditionalEntropy(cM)) 	# Note: 4 
+## [1] 0.3971897
 
 # Note 1: 
 #   Define function that computes the entropy 

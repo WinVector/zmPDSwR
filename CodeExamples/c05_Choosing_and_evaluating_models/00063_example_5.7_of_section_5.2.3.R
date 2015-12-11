@@ -6,5 +6,5 @@ library('ROCR')
 eval <- prediction(spamTest$pred,spamTest$spam)
 plot(performance(eval,"tpr","fpr"))
 print(attributes(performance(eval,'auc'))$y.values[[1]])
-[1] 0.9660072
+## [1] 0.9660072
 
