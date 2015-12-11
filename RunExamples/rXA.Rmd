@@ -11,5 +11,5 @@ source('runDir.R')
 
 ```{r xA1, tidy=FALSE,comment='',prompt=FALSE}
 runDir('../CodeExamples/x0A_Working_with_R_and_other_tools',
-       '.')
+       '../SQLExample')
 ```

@@ -4,11 +4,11 @@
 
 require(RCurl) 	# Note: 1 
 urlBase <- 
-  'https://raw.github.com/WinVector/zmPDSwR/master/' 	# Note: 2 
+  'https://raw.githubusercontent.com/WinVector/zmPDSwR/master/' 	# Note: 2 
 mkCon <- function(nm) { 	# Note: 3 
-   textConnection(getURL(paste(urlBase,nm,sep='')))
+   textConnection(getURL(paste(urlBase,nm,sep='/')))
 }
-cars <- read.table(mkCon('UCICar/car.data.csv'), 	# Note: 4 
+cars <- read.table(mkCon('car.data.csv'), 	# Note: 4 
     sep=',',header=T,comment.char='')
 
 # Note 1: 

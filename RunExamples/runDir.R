@@ -3,7 +3,7 @@
 #' 
 #' runDir changes directory to datadir, runs the R examples number between
 #' first and last (inclusive) found in sourcedir.
-#' @parm sourcedir character path to take R examples from
+#' @parm sourcedir character path to take R examples from PATH RELATIVE to datadir
 #' @param datadir character path to run in (and take data from)
 #' @param first integer optional first numbered example eligible to run
 #' @param last integer optional last numbered example eligible to run
