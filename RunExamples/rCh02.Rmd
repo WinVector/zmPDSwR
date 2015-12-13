@@ -18,8 +18,13 @@ Step 00016_example_2.11_of_section_2.2.2.R requires large files that we don't ha
 skipping that step and working from saved data.
 
 ```{r ch2Census, tidy=FALSE,comment='',prompt=FALSE}
-load('../PUMS/phsample.RData')
+runDir('../../CodeExamples/c02_Loading_data_into_R',
+       '../PUMS/loadExample',first=13,last=16)
+```
+
+```{r ch2Census2, tidy=FALSE,comment='',prompt=FALSE}
+# load('../PUMS/phsample.RData')
 runDir('../CodeExamples/c02_Loading_data_into_R',
-       '../PUMS',first=13)
+       '../PUMS',first=17)
 ```
 
