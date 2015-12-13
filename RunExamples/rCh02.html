@@ -77,7 +77,7 @@ img {
 <pre class="r"><code>source('runDir.R')</code></pre>
 <pre class="r"><code>runDir('../CodeExamples/c02_Loading_data_into_R',
        '../Statlog',last=12)</code></pre>
-<pre><code>[1] &quot;############################### start  5 Thu Dec 10 18:15:58 2015&quot;
+<pre><code>[1] &quot;############################### start  5 Sat Dec 12 17:26:20 2015&quot;
 [1] &quot;#####  running  ../CodeExamples/c02_Loading_data_into_R/00005_example_2.1_of_section_2.1.1.R&quot;
 [1] &quot;#####   in directory ../Statlog&quot;
 
@@ -107,8 +107,8 @@ img {
 &gt; #   Tell R to expect a header line that defines 
 &gt; #   the data column names. 
 &gt; 
-[1] &quot;############################### end  5 Thu Dec 10 18:15:59 2015&quot;
-[1] &quot;############################### start  6 Thu Dec 10 18:15:59 2015&quot;
+[1] &quot;############################### end  5 Sat Dec 12 17:26:21 2015&quot;
+[1] &quot;############################### start  6 Sat Dec 12 17:26:21 2015&quot;
 [1] &quot;#####  running  ../CodeExamples/c02_Loading_data_into_R/00006_example_2.2_of_section_2.1.1.R&quot;
 [1] &quot;#####   in directory ../Statlog&quot;
 
@@ -167,8 +167,8 @@ img {
 &gt; #   difference of one is because the column header 
 &gt; #   counts as a line, but not as a data row. 
 &gt; 
-[1] &quot;############################### end  6 Thu Dec 10 18:15:59 2015&quot;
-[1] &quot;############################### start  8 Thu Dec 10 18:15:59 2015&quot;
+[1] &quot;############################### end  6 Sat Dec 12 17:26:21 2015&quot;
+[1] &quot;############################### start  8 Sat Dec 12 17:26:21 2015&quot;
 [1] &quot;#####  running  ../CodeExamples/c02_Loading_data_into_R/00008_example_2.3_of_section_2.1.2.R&quot;
 [1] &quot;#####   in directory ../Statlog&quot;
 
@@ -189,8 +189,8 @@ img {
 1   1 A192 A201   1
 2   1 A191 A201   2
 3   2 A191 A201   1
-[1] &quot;############################### end  8 Thu Dec 10 18:15:59 2015&quot;
-[1] &quot;############################### start  9 Thu Dec 10 18:15:59 2015&quot;
+[1] &quot;############################### end  8 Sat Dec 12 17:26:21 2015&quot;
+[1] &quot;############################### start  9 Sat Dec 12 17:26:21 2015&quot;
 [1] &quot;#####  running  ../CodeExamples/c02_Loading_data_into_R/00009_example_2.4_of_section_2.1.2.R&quot;
 [1] &quot;#####   in directory ../Statlog&quot;
 
@@ -245,8 +245,8 @@ img {
 1           A201  GoodLoan
 2           A201   BadLoan
 3           A201  GoodLoan
-[1] &quot;############################### end  9 Thu Dec 10 18:15:59 2015&quot;
-[1] &quot;############################### start  10 Thu Dec 10 18:15:59 2015&quot;
+[1] &quot;############################### end  9 Sat Dec 12 17:26:21 2015&quot;
+[1] &quot;############################### start  10 Sat Dec 12 17:26:21 2015&quot;
 [1] &quot;#####  running  /Users/johnmount/Documents/work/PracticalDataScienceWithR/zmPDSwR/RunExamples/replacements/00010_example_2.5_of_section_2.1.2.R&quot;
 [1] &quot;#####   in directory ../Statlog&quot;
 
@@ -308,8 +308,8 @@ img {
   'A192'='yes, registered under the customers name',
   'A201'='yes',
   'A202'='no')
-[1] &quot;############################### end  10 Thu Dec 10 18:15:59 2015&quot;
-[1] &quot;############################### start  11 Thu Dec 10 18:15:59 2015&quot;
+[1] &quot;############################### end  10 Sat Dec 12 17:26:21 2015&quot;
+[1] &quot;############################### start  11 Sat Dec 12 17:26:21 2015&quot;
 [1] &quot;#####  running  ../CodeExamples/c02_Loading_data_into_R/00011_example_2.6_of_section_2.1.2.R&quot;
 [1] &quot;#####   in directory ../Statlog&quot;
 
@@ -331,8 +331,8 @@ img {
 &gt; #   Note that the indexing operator [] is vectorized. Each step in the for loop remaps an 
 &gt; #   entire column of data through our list. 
 &gt; 
-[1] &quot;############################### end  11 Thu Dec 10 18:15:59 2015&quot;
-[1] &quot;############################### start  12 Thu Dec 10 18:15:59 2015&quot;
+[1] &quot;############################### end  11 Sat Dec 12 17:26:21 2015&quot;
+[1] &quot;############################### start  12 Sat Dec 12 17:26:21 2015&quot;
 [1] &quot;#####  running  ../CodeExamples/c02_Loading_data_into_R/00012_example_2.7_of_section_2.1.2.R&quot;
 [1] &quot;#####   in directory ../Statlog&quot;
 
@@ -366,22 +366,93 @@ img {
 &gt; ##   repairs                   8       14
 &gt; ##   retraining                1        8
 &gt; 
-[1] &quot;############################### end  12 Thu Dec 10 18:15:59 2015&quot;</code></pre>
-<p>Step 00016_example_2.11_of_section_2.2.2.R requires large files that we don’t have the rights to redistributed in their entirety. So we are skipping that step and working from saved data.</p>
-<pre class="r"><code>load('../PUMS/phsample.RData')
-runDir('../CodeExamples/c02_Loading_data_into_R',
-       '../PUMS',first=13)</code></pre>
-<pre><code>[1] &quot;############################### start  16 Thu Dec 10 18:15:59 2015&quot;
-[1] &quot;#####  running  /Users/johnmount/Documents/work/PracticalDataScienceWithR/zmPDSwR/RunExamples/replacements/00016_example_2.11_of_section_2.2.2.R&quot;
-[1] &quot;#####   in directory ../PUMS&quot;
+[1] &quot;############################### end  12 Sat Dec 12 17:26:21 2015&quot;</code></pre>
+<p>Step 00016_example_2.11_of_section_2.2.2.R requires large files that we don’t have the rights to redistributed in their entirety. So we are either running that step, or skipping it and just loading phsample.RDdata .</p>
+<pre class="r"><code>runDir('../../CodeExamples/c02_Loading_data_into_R',
+       '../PUMS/loadExample',first=13,last=16)</code></pre>
+<pre><code>[1] &quot;############################### start  16 Sat Dec 12 17:26:21 2015&quot;
+[1] &quot;#####  running  ../../CodeExamples/c02_Loading_data_into_R/00016_example_2.11_of_section_2.2.2.R&quot;
+[1] &quot;#####   in directory ../PUMS/loadExample&quot;
 
-&gt; # Step 00016_example_2.11_of_section_2.2.2.R requires large files that
-&gt; # we don't have the rights to redistributed in their entirety.  So we
-&gt; # are skipping that step and working from saved data.
+&gt; # example 2.11 of section 2.2.2 
+&gt; # (example 2.11 of section 2.2.2)  : Loading data into R : Working with relational databases : Loading data from a database into R 
+&gt; # Title: Loading data into R from a relational database 
 &gt; 
-&gt; load('phsample.RData')
-[1] &quot;############################### end  16 Thu Dec 10 18:15:59 2015&quot;
-[1] &quot;############################### start  17 Thu Dec 10 18:15:59 2015&quot;
+&gt; options( java.parameters = &quot;-Xmx2g&quot; )     # Note: 1 
+
+&gt; library(RJDBC)</code></pre>
+<pre><code>Loading required package: DBI
+Loading required package: rJava</code></pre>
+<pre><code>
+&gt; drv &lt;- JDBC(&quot;org.h2.Driver&quot;,  # Note: 2 
+    &quot;h2-1.3.176.jar&quot;,   # Note: 3 
+    identifier.quote=&quot;'&quot;)   # Note: 4 
+
+&gt; options&lt;-&quot;;LOG=0;CACHE_SIZE=65536;LOCK_MODE=0;UNDO_LOG=0&quot;
+
+&gt; conn &lt;- dbConnect(drv,paste(&quot;jdbc:h2:./H2DB&quot;,options,sep=''),&quot;u&quot;,&quot;u&quot;)
+
+&gt; dhus &lt;- dbGetQuery(conn,&quot;SELECT * FROM hus WHERE ORIGRANDGROUP&lt;=1&quot;)   # Note: 5 
+
+&gt; dpus &lt;- dbGetQuery(conn,&quot;SELECT pus.* FROM pus WHERE pus.SERIALNO IN \
+    (SELECT DISTINCT hus.SERIALNO FROM hus \
+    WHERE hus.ORIGRANDGROUP&lt;=1)&quot;)   # Note: 6 
+
+&gt; dbDisconnect(conn)    # Note: 7 
+[1] TRUE
+
+&gt; save(dhus,dpus,file='phsample.RData')     # Note: 8
+
+&gt; # Note 1: 
+&gt; #   Set Java option for extra memory before DB 
+&gt; #   drivers are loaded. 
+&gt; 
+&gt; # Note 2: 
+&gt; #   Specify the name of the database driver, same 
+&gt; #   as in our XML database configuration. 
+&gt; 
+&gt; # Note 3: 
+&gt; #   Specify where to find the implementation of 
+&gt; #   the database driver. 
+&gt; 
+&gt; # Note 4: 
+&gt; #   SQL column names with mixed-case 
+&gt; #   capitalization, special characters, or that 
+&gt; #   collide with reserved words must be quoted. We 
+&gt; #   specify single-quote as the quote we’ll use when 
+&gt; #   quoting column names, which may different than the 
+&gt; #   quote we use for SQL literals. 
+&gt; 
+&gt; # Note 5: 
+&gt; #   Create a data frame called dhus from * 
+&gt; #   (everything) from the database table hus, taking 
+&gt; #   only rows where ORGINRANGGROUP &lt;= 1. The 
+&gt; #   ORGINRANDGROUP column is a random integer from 0 
+&gt; #   through 999 that SQL Screwdriver adds to the rows 
+&gt; #   during data load to facilitate sampling. In this 
+&gt; #   case, we’re taking 2/1000 of the data rows to get 
+&gt; #   a small sample. 
+&gt; 
+&gt; # Note 6: 
+&gt; #   Create a data frame called dpus from the 
+&gt; #   database table pus, taking only records that have 
+&gt; #   a household ID in the set of household IDs we 
+&gt; #   selected from households table hus. 
+&gt; 
+&gt; # Note 7: 
+&gt; #   Disconnect for the database. 
+&gt; 
+&gt; # Note 8: 
+&gt; #   Save the two data frames into a file named 
+&gt; #   phsample.RData, which can be read in with load(). 
+&gt; #   Try help(&quot;save&quot;) or help(&quot;load&quot;) for more 
+&gt; #   details. 
+&gt; 
+[1] &quot;############################### end  16 Sat Dec 12 17:26:24 2015&quot;</code></pre>
+<pre class="r"><code># load('../PUMS/phsample.RData')
+runDir('../CodeExamples/c02_Loading_data_into_R',
+       '../PUMS',first=17)</code></pre>
+<pre><code>[1] &quot;############################### start  17 Sat Dec 12 17:26:24 2015&quot;
 [1] &quot;#####  running  ../CodeExamples/c02_Loading_data_into_R/00017_example_2.12_of_section_2.2.3.R&quot;
 [1] &quot;#####   in directory ../PUMS&quot;
 
@@ -400,8 +471,8 @@ runDir('../CodeExamples/c02_Loading_data_into_R',
 &gt; #   Subset of data rows matching detailed 
 &gt; #   employment conditions 
 &gt; 
-[1] &quot;############################### end  17 Thu Dec 10 18:15:59 2015&quot;
-[1] &quot;############################### start  18 Thu Dec 10 18:15:59 2015&quot;
+[1] &quot;############################### end  17 Sat Dec 12 17:26:24 2015&quot;
+[1] &quot;############################### start  18 Sat Dec 12 17:26:24 2015&quot;
 [1] &quot;#####  running  ../CodeExamples/c02_Loading_data_into_R/00018_example_2.13_of_section_2.2.3.R&quot;
 [1] &quot;#####   in directory ../PUMS&quot;
 
@@ -469,8 +540,8 @@ runDir('../CodeExamples/c02_Loading_data_into_R',
 &gt; #   Subset of data rows used for model 
 &gt; #   testing. 
 &gt; 
-[1] &quot;############################### end  18 Thu Dec 10 18:15:59 2015&quot;
-[1] &quot;############################### start  19 Thu Dec 10 18:15:59 2015&quot;
+[1] &quot;############################### end  18 Sat Dec 12 17:26:24 2015&quot;
+[1] &quot;############################### start  19 Sat Dec 12 17:26:24 2015&quot;
 [1] &quot;#####  running  ../CodeExamples/c02_Loading_data_into_R/00019_example_2.14_of_section_2.2.3.R&quot;
 [1] &quot;#####   in directory ../PUMS&quot;
 
@@ -497,7 +568,7 @@ Employee of a private for-profit      Federal government employee
 &gt; ##        State government employee
 &gt; ##                               24
 &gt; 
-[1] &quot;############################### end  19 Thu Dec 10 18:15:59 2015&quot;</code></pre>
+[1] &quot;############################### end  19 Sat Dec 12 17:26:24 2015&quot;</code></pre>
 
 
 </div>
