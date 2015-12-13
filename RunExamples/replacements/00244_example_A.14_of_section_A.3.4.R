@@ -2,6 +2,8 @@
 # (example A.14 of section A.3.4)  : Working with R and other tools : Using databases with R : An example SQL data transformation task 
 # Title: Assembling many rows using SQL 
 
+# Book annotation hooks inside the SQL cause problems.
+
 options(gsubfn.engine = "R")
 library('sqldf')
 joined <- sqldf(' 
