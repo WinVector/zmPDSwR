@@ -143,10 +143,10 @@ pruning heuristic in listing 6.11.</p>
           The "2 times" in listing 6.11 is because statistical deviance is
           traditionally written as -2*(log(p|model) - log(p|saturatedModel)).
           We are using a "delta deviance" or improvement of deviance given by
-          (-2*(log(p|model) - log(p|saturatedModel))_-(-2*(log(p|nullModel) -
-          log(p|saturatedModel))).  We wrote this as 2*log(p|model)-baseRateCheck)
+          <code>-2*(log(p|model) - log(p|saturatedModel)) - (-2*(log(p|nullModel) -
+          log(p|saturatedModel)))</code>.  We wrote this as <code>2*log(p|model)-baseRateCheck</code>
           and it is a deviance style metric (not an AIC style metric as claimed in the text,
-          which got behind by one revision).
+          which got behind the code zip file by one revision).
           <p>
           </p>The
           text above listing 6.11 on page 126 claims we are going to use an AIC-like metric.  The original
@@ -239,7 +239,7 @@ Many of the tests of linear regression, including the tests for coefficient and 
         </li>
 
         <li>
-          <h2>Page 206, Section_8.2.3 Mining associations with the arules package, Listing _8.20</h2>
+          <h2>Page 206, Section 8.2.3 Mining associations with the arules package, Listing 8.20</h2>
           <p><code>intersetMeasure</code> now uses the argument <code>measure=</code> instead of <code>method=</code> (which now crashes).  Switching the argument name brings the code up to date.</p>
         </li>
 
