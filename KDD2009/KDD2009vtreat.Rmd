@@ -4,6 +4,7 @@ Practical data science with R built chapter 6 built a number of single variable 
 In Listing 6.11 it used an ad-hoc entropy based out of sample effect size estimate
 for variable selection.  This likely (though it isn't completely rigorous) picked 
 variables conservatively.
+
 We show here how to repeat this work on the KDD2009 dataset using more standard
 techniques more quickly.
 For vtreat details see: 
@@ -60,143 +61,10 @@ vars = setdiff(colnames(dTrainM),
                 c(outcomes,'rgroup'))
 yName = 'churn'
 yTarget = 1
-```
-
-
-
-```{r kdddesign, tidy=FALSE}
-# build data treatments
 
 set.seed(239525)
 
 cl = parallel::makeCluster(4)
-
-# build treatments on all training data (coding and modeling)
-treatmentsA = designTreatmentsC(rbind(dTrainC,dTrainM),
-    vars,yName,yTarget,
-    smFactor=2.0, 
-    parallelCluster=cl)
-
-# build treatments on just the coding data
-treatmentsC = designTreatmentsC(dTrainC,
-    vars,yName,yTarget,
-    smFactor=2.0, 
-    parallelCluster=cl)
-
-if(!is.null(cl)) {
-    parallel::stopCluster(cl)
-    cl = NULL
-}
-```
-
-```{r kddknnorig, tidy=FALSE}
-# Repeat something similar to the
-# work of Section 6.3.3 of Practical Data Science with R
-# http://www.practicaldatascience.com/
-# We (deliberately) repeat the error of using the same
-# data to build the initial single variable models
-# (here called treated variables).  This example seems to
-# suffer more than the book did, likely due to the books use
-# of an entropy based out of sample effect size based variable
-# selection (different than vtreat's current variable scoring function).
-# Likely the book KNN model was shielded a bit by the smaller number
-# of variables, and simpler variables the book criterion (listing 6.11)
-# picked.
-# We see test AUC 0.59 here, versus the book's test AUC 0.72 for KNN.
-kddPrune=0.05
-nK = 200
-project = FALSE
-knnTrain = prepare(treatmentsA,
-                   rbind(dTrainC,dTrainM),
-                   scale=TRUE,
-                   pruneSig=kddPrune)
-selvars = setdiff(colnames(knnTrain),yName)
-knnCl = knnTrain[[yName]]==yTarget
-
-knnTest = prepare(treatmentsA,
-                  dTest,
-                  scale=TRUE,
-                  pruneSig=kddPrune)
-if(project) {
-  # project may help with duplicated variables.
-  # with scale=TRUE we are in y-units, so this is a y-aware reduction
-  pcomp = prcomp(knnTrain[,selvars])
-  goodP = (pcomp$sdev>=1.0e-2) & (seq_len(length(pcomp$sdev))<=10)
-  projection = pcomp$rotation[,goodP]
-  pvars = colnames(projection)
-  knnTrainP = as.data.frame(as.matrix(knnTrain[,selvars]) %*% projection)
-  knnTestP = as.data.frame(as.matrix(knnTest[,selvars]) %*% projection)
-  selvars <- pvars[goodP]
-} else {
-  knnTrainP = knnTrain
-  knnTestP = knnTest
-}
-
-knnPred = function(df) {
-    knnDecision = knn(knnTrainP[,selvars],df[,selvars],knnCl,k=nK,prob=T)
-    ifelse(knnDecision==TRUE,
-       attributes(knnDecision)$prob,
-       1-(attributes(knnDecision)$prob))
-}
-knnTestP$predKNN = knnPred(knnTestP)
-knnTestP[[yName]] = knnTest[[yName]]==yTarget
-ti = paste('KNN code and nn on all data, project=',project,sep='')
-print(DoubleDensityPlot(knnTestP, 'predKNN', yName, 
-                               title=ti))
-print(ROCPlot(knnTestP, 'predKNN', yName, 
-                     title=ti))
-# see on AUC of 0.59, not as good as the book's 0.72
-```
-
-```{r kddknnnew, tidy=FALSE}
-# As we said: one flaw in both the original 
-# the older book code: we are using the same data rows
-# to both impact code (see:
-# http://www.win-vector.com/blog/2012/07/modeling-trick-impact-coding-of-categorical-variables-with-many-levels/ )
-# categorical variables and to model.
-#
-# We now strongly recommend splitting your training set into two pieces,
-# and using one piece for the vtreat::prepare() step, and only the other
-# disjoint portion of the training data for model construction. The
-# issue is any row of data examined during vtreat::prepare() is no
-# longer exchangeable with even test data (let alone future data),
-# especially for impact codes for very large categorical
-# variables. Models trained on rows used to build the variable encodings
-# tend to over-estimate effect sizes of the sub-models (or treated
-# variables), under-estimate degrees of freedom, and get significances
-# wrong.
-#
-# Fix: separate coding and training, as shown here
-# Brings test score immediately up to 0.68.
-
-kddPrune=0.05
-nK = 200
-knnTrain = prepare(treatmentsC,
-                   dTrainM,
-                   scale=TRUE,
-                   pruneSig=kddPrune)
-selvars = setdiff(colnames(knnTrain),yName)
-knnCl = knnTrain[[yName]]==yTarget
-
-knnTest = prepare(treatmentsC,
-                  dTest,
-                  scale=TRUE,
-                  pruneSig=kddPrune)
-
-knnPred = function(df) {
-    knnDecision = knn(knnTrain[,selvars],df[,selvars],knnCl,k=nK,prob=T)
-    ifelse(knnDecision==TRUE,
-       attributes(knnDecision)$prob,
-       1-(attributes(knnDecision)$prob))
-}
-knnTest$predKNN = knnPred(knnTest)
-knnTest[[yName]] = knnTest[[yName]]==yTarget
-ti = 'KNN code on C nn on M'
-print(DoubleDensityPlot(knnTest, 'predKNN', yName, 
-                               title=ti))
-print(ROCPlot(knnTest, 'predKNN', yName, 
-                     title=ti))
-
 ```
 
 
@@ -205,19 +73,26 @@ print(ROCPlot(knnTest, 'predKNN', yName,
 ```{r kddmodels, tidy=FALSE}
 # Run other models (with proper coding/training separation).
 #
-# This gets us back to AUC 0.72
+# This gets us back to AUC 0.72 range
 
 kddPrune = 0.05
 
+treatmentsC = designTreatmentsC(dTrainC,
+    vars,yName,yTarget,
+    smFactor=2.0, 
+    parallelCluster=cl)
+
 treatedTrainM = prepare(treatmentsC,
-                   dTrainM,
-                   pruneSig=kddPrune)
-selvars = setdiff(colnames(knnTrain),yName)
+                        dTrainM,
+                        pruneSig=kddPrune, 
+                        parallelCluster=cl)
+selvars = setdiff(colnames(treatedTrainM),yName)
 treatedTrainM[[yName]] = treatedTrainM[[yName]]==yTarget
 
 treatedTest = prepare(treatmentsC,
-                  dTest,
-                  pruneSig=kddPrune)
+                      dTest,
+                      pruneSig=kddPrune, 
+                      parallelCluster=cl)
 treatedTest[[yName]] = treatedTest[[yName]]==yTarget
 
 # prepare plotting frames
@@ -266,5 +141,12 @@ for(mname in c('gbmPred','glmPred')) {
   print(date())
   print("*****************************")
 }
-
 ```
+
+```{r shutdown, tidy=FALSE}
+if(!is.null(cl)) {
+    parallel::stopCluster(cl)
+    cl = NULL
+}
+```
+
