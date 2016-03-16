@@ -142,6 +142,7 @@ for(mname in c('gbmPred','glmPred')) {
   print("*****************************")
 }
 saveRDS(treatedTestP,'treatedTestP.rds')
+write.table(treatedTestP,row.names = FALSE,col.names = TRUE,sep='\t',file='treatedTestP.tsv')
 ```
 
 ```{r shutdown, tidy=FALSE}
