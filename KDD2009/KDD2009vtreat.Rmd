@@ -141,6 +141,7 @@ for(mname in c('gbmPred','glmPred')) {
   print(date())
   print("*****************************")
 }
+saveRDS(treatedTestP,'treatedTestP.rds')
 ```
 
 ```{r shutdown, tidy=FALSE}
