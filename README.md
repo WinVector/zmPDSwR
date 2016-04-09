@@ -8,7 +8,7 @@
 ## Additional materials
 
  * The support site (code and data): [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
- * [Code examples](https://github.com/WinVector/zmPDSwR/tree/master/CodeExamples)
+ * [Code examples](https://github.com/WinVector/zmPDSwR/tree/master/CodeExamples) (also as R Markdown notebooks: [Notebooks running all examples](RunExamples) )
  * The discussion boards: [Forum: Practical Data Science with R](http://www.manning-sandbox.com/forum.jspa?forumID=863)
  * [Errata](http://winvector.github.io/PDSwR/PracticalDataScienceWithRErrata.html)
 
