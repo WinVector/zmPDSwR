@@ -7,7 +7,7 @@ quantile(basketSizes, probs=seq(0,1,0.1))     	# Note: 1
 ##     1     1     1     1     1     1     2     3     5    13 10253
 library(ggplot2)                              	# Note: 2 
 ggplot(data.frame(count=basketSizes)) +
-  geom_density(aes(x=count), binwidth=1) +
+  geom_density(aes(x=count)) +
   scale_x_log10()
 
 # Note 1: 

@@ -1,20 +1,17 @@
-Install all of the packages needed for Practical Data Science with R
+Install all of the packages needed for [Practical Data Science with R](http://http://www.practicaldatascience.com/).
 
-    ## Installing packages into '/Users/johnmount/Library/R/3.2/library'
-    ## (as 'lib' is unspecified)
+``` r
+install.packages(   c('RJDBC', 'ROCR', 'Rook', 'arules', 'class', 'ctv', 'e1071',
+     'fpc', 'gdata', 'ggplot2', 'gridExtra', 'hexbin', 'kernlab',
+     'knitr', 'mgcv', 'randomForest', 'reshape2', 'rpart', 'scales',
+     'sqldf'),
+    repos="https://cran.r-project.org")
+```
 
-    ## 
-    ##   There is a binary version available but the source version is
-    ##   later:
-    ##       binary source needs_compilation
-    ## knitr 1.10.5   1.11             FALSE
-    ## 
     ## 
     ## The downloaded binary packages are in
-    ##  /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//RtmpKLN1YQ/downloaded_packages
+    ##  /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//Rtmpei8FMt/downloaded_packages
 
-    ## installing the source package 'knitr'
-
-    ## 
-    ## The downloaded source packages are in
-    ##  '/private/var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T/RtmpKLN1YQ/downloaded_packages'
+``` r
+# 'grDevices', 'grid' # included with R
+```

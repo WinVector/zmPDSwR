@@ -2,7 +2,9 @@
 title: "rCh09"
 author: "Win-Vector LLC"
 date: "December 11, 2015"
-output: html_document
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 ```{r sourceFns1}

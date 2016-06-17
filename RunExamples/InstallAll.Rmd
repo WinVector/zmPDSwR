@@ -2,18 +2,19 @@
 title: "InstallAll"
 author: "Win-Vector LLC"
 date: "December 10, 2015"
-output: md_document
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 
-Install all of the packages needed for Practical Data Science with R
+Install all of the packages needed for [Practical Data Science with R](http://http://www.practicaldatascience.com/).
 
-```{r, echo=FALSE}
-install.packages(c('RJDBC', 'ROCR', 'Rook', 'arules', 'class', 'ctv',
-    'e1071', 'fpc', 'gdata', 'ggplot2', 'gridExtra',
-    'hexbin',
-    'kernlab', 'knitr', 'mgcv', 'randomForest', 'reshape2', 'rpart',
-    'scales'),
+```{r}
+install.packages(   c('RJDBC', 'ROCR', 'Rook', 'arules', 'class', 'ctv', 'e1071',
+     'fpc', 'gdata', 'ggplot2', 'gridExtra', 'hexbin', 'kernlab',
+     'knitr', 'mgcv', 'randomForest', 'reshape2', 'rpart', 'scales',
+     'sqldf'),
     repos="https://cran.r-project.org")
 # 'grDevices', 'grid' # included with R
 ```
