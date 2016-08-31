@@ -7,7 +7,7 @@ runDir('../CodeExamples/c06_Memorization_methods',
       '../KDD2009')
 ```
 
-    [1] "############################### start  71 Fri Jun 17 10:33:01 2016"
+    [1] "############################### start  71 Wed Aug 31 09:19:02 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00071_example_6.1_of_section_6.1.1.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -118,8 +118,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
     > #   Further split training data into training and 
     > #   calibration. 
     > 
-    [1] "############################### end  71 Fri Jun 17 10:33:06 2016"
-    [1] "############################### start  72 Fri Jun 17 10:33:06 2016"
+    [1] "############################### end  71 Wed Aug 31 09:19:08 2016"
+    [1] "############################### start  72 Wed Aug 31 09:19:08 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00072_example_6.2_of_section_6.2.1.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -156,8 +156,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
     > # Note 3: 
     > #   Include NA values in tabulation. 
     > 
-    [1] "############################### end  72 Fri Jun 17 10:33:06 2016"
-    [1] "############################### start  73 Fri Jun 17 10:33:06 2016"
+    [1] "############################### end  72 Wed Aug 31 09:19:08 2016"
+    [1] "############################### start  73 Wed Aug 31 09:19:08 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00073_example_6.3_of_section_6.2.1.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -172,8 +172,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
     > ##       cJvF       UYBR       <NA>
     > ## 0.05994389 0.08223821 0.26523297
     > 
-    [1] "############################### end  73 Fri Jun 17 10:33:06 2016"
-    [1] "############################### start  74 Fri Jun 17 10:33:06 2016"
+    [1] "############################### end  73 Wed Aug 31 09:19:08 2016"
+    [1] "############################### start  74 Wed Aug 31 09:19:08 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00074_example_6.4_of_section_6.2.1.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -186,7 +186,7 @@ runDir('../CodeExamples/c06_Memorization_methods',
         naTab <- table(as.factor(outCol[is.na(varCol)]))
         pPosWna <- (naTab/sum(naTab))[pos]  # Note: 3 
         vTab <- table(as.factor(outCol),varCol)
-        pPosWv <- (vTab[pos,]+1.0e-3*pPos)/(colSums(vTab)+1.0e-3)   # Note: 4 
+        pPosWv <- (vTab[as.character(pos),]+1.0e-3*pPos)/(colSums(vTab)+1.0e-3)     # Note: 4 
         pred <- pPosWv[appCol]  # Note: 5 
         pred[is.na(appCol)] <- pPosWna  # Note: 6 
         pred[is.na(pred)] <- pPos   # Note: 7 
@@ -228,8 +228,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
     > # Note 8: 
     > #   Return vector of predictions. 
     > 
-    [1] "############################### end  74 Fri Jun 17 10:33:06 2016"
-    [1] "############################### start  75 Fri Jun 17 10:33:06 2016"
+    [1] "############################### end  74 Wed Aug 31 09:19:08 2016"
+    [1] "############################### start  75 Wed Aug 31 09:19:08 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00075_example_6.5_of_section_6.2.1.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -243,8 +243,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
        dCal[,pi] <- mkPredC(dTrain[,outcome],dTrain[,v],dCal[,v])
        dTest[,pi] <- mkPredC(dTrain[,outcome],dTrain[,v],dTest[,v])
      }
-    [1] "############################### end  75 Fri Jun 17 10:33:08 2016"
-    [1] "############################### start  76 Fri Jun 17 10:33:08 2016"
+    [1] "############################### end  75 Wed Aug 31 09:19:10 2016"
+    [1] "############################### start  76 Wed Aug 31 09:19:10 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00076_example_6.6_of_section_6.2.1.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -288,8 +288,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
     > ## [1] "predVar214, trainAUC: 0.828 calibrationAUC: 0.527"
     > ## [1] "predVar217, trainAUC: 0.898 calibrationAUC: 0.553"
     > 
-    [1] "############################### end  76 Fri Jun 17 10:33:10 2016"
-    [1] "############################### start  77 Fri Jun 17 10:33:10 2016"
+    [1] "############################### end  76 Wed Aug 31 09:19:11 2016"
+    [1] "############################### start  77 Wed Aug 31 09:19:11 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00077_example_6.7_of_section_6.2.2.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -339,8 +339,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
     > ## [1] "predVar140, trainAUC: 0.561 calibrationAUC: 0.560"
     > ## [1] "predVar189, trainAUC: 0.574 calibrationAUC: 0.599"
     > 
-    [1] "############################### end  77 Fri Jun 17 10:33:28 2016"
-    [1] "############################### start  78 Fri Jun 17 10:33:28 2016"
+    [1] "############################### end  77 Wed Aug 31 09:19:28 2016"
+    [1] "############################### start  78 Wed Aug 31 09:19:28 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00078_example_6.8_of_section_6.2.2.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -355,8 +355,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
 
 ![](rCh06_files/figure-markdown_github/ch6ex-1.png)
 
-    [1] "############################### end  78 Fri Jun 17 10:33:28 2016"
-    [1] "############################### start  79 Fri Jun 17 10:33:28 2016"
+    [1] "############################### end  78 Wed Aug 31 09:19:29 2016"
+    [1] "############################### start  79 Wed Aug 31 09:19:29 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00079_example_6.9_of_section_6.2.3.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -398,8 +398,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
     > # Note 4: 
     > #   ...calculate resulting model’s AUC using hold-out set; store that value and repeat. 
     > 
-    [1] "############################### end  79 Fri Jun 17 10:33:31 2016"
-    [1] "############################### start  80 Fri Jun 17 10:33:31 2016"
+    [1] "############################### end  79 Wed Aug 31 09:19:32 2016"
+    [1] "############################### start  80 Wed Aug 31 09:19:32 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00080_example_6.10_of_section_6.2.3.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -416,8 +416,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
      }
 
     > aucs <- replicate(100,fCross())
-    [1] "############################### end  80 Fri Jun 17 10:33:35 2016"
-    [1] "############################### start  81 Fri Jun 17 10:33:35 2016"
+    [1] "############################### end  80 Wed Aug 31 09:19:35 2016"
+    [1] "############################### start  81 Wed Aug 31 09:19:35 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00081_example_6.11_of_section_6.3.1.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -523,8 +523,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
     > #   Run through numeric variables and pick 
     > #   based on a deviance improvement. 
     > 
-    [1] "############################### end  81 Fri Jun 17 10:33:35 2016"
-    [1] "############################### start  83 Fri Jun 17 10:33:35 2016"
+    [1] "############################### end  81 Wed Aug 31 09:19:35 2016"
+    [1] "############################### start  83 Wed Aug 31 09:19:35 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00083_example_6.13_of_section_6.3.2.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -552,8 +552,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
 
     > ## [1] 0.5126917
     > 
-    [1] "############################### end  83 Fri Jun 17 10:34:06 2016"
-    [1] "############################### start  84 Fri Jun 17 10:34:06 2016"
+    [1] "############################### end  83 Wed Aug 31 09:20:04 2016"
+    [1] "############################### start  84 Wed Aug 31 09:20:04 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00084_example_6.14_of_section_6.3.2.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -580,8 +580,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
 
     > ## [1] 0.5384152
     > 
-    [1] "############################### end  84 Fri Jun 17 10:34:20 2016"
-    [1] "############################### start  85 Fri Jun 17 10:34:20 2016"
+    [1] "############################### end  84 Wed Aug 31 09:20:18 2016"
+    [1] "############################### start  85 Wed Aug 31 09:20:18 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00085_example_6.15_of_section_6.3.2.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -607,8 +607,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
 
     > ## [1] 0.547967
     > 
-    [1] "############################### end  85 Fri Jun 17 10:34:29 2016"
-    [1] "############################### start  86 Fri Jun 17 10:34:29 2016"
+    [1] "############################### end  85 Wed Aug 31 09:20:28 2016"
+    [1] "############################### start  86 Wed Aug 31 09:20:28 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00086_example_6.16_of_section_6.3.2.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -636,8 +636,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
 
     > ## [1] 0.6669301
     > 
-    [1] "############################### end  86 Fri Jun 17 10:34:32 2016"
-    [1] "############################### start  87 Fri Jun 17 10:34:32 2016"
+    [1] "############################### end  86 Wed Aug 31 09:20:31 2016"
+    [1] "############################### start  87 Wed Aug 31 09:20:31 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00087_example_6.17_of_section_6.3.2.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -700,8 +700,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
     > ##           62) predVar189< 0.06775545 1031  102.9486 0.11251210 *
     > ##           63) predVar189>=0.06775545 3606  558.5871 0.19162510 *
     > 
-    [1] "############################### end  87 Fri Jun 17 10:34:32 2016"
-    [1] "############################### start  88 Fri Jun 17 10:34:32 2016"
+    [1] "############################### end  87 Wed Aug 31 09:20:31 2016"
+    [1] "############################### start  88 Wed Aug 31 09:20:31 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00088_example_6.18_of_section_6.3.2.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -717,8 +717,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
 
 
     > text(tmodel)
-    [1] "############################### end  88 Fri Jun 17 10:34:32 2016"
-    [1] "############################### start  89 Fri Jun 17 10:34:32 2016"
+    [1] "############################### end  88 Wed Aug 31 09:20:31 2016"
+    [1] "############################### start  89 Wed Aug 31 09:20:31 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00089_example_6.19_of_section_6.3.3.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -773,8 +773,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
     > #   “calculated probability of being a positive 
     > #   example.” 
     > 
-    [1] "############################### end  89 Fri Jun 17 10:36:12 2016"
-    [1] "############################### start  90 Fri Jun 17 10:36:12 2016"
+    [1] "############################### end  89 Wed Aug 31 09:22:17 2016"
+    [1] "############################### start  90 Wed Aug 31 09:22:17 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00090_example_6.20_of_section_6.3.3.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -790,8 +790,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
 
 ![](rCh06_files/figure-markdown_github/ch6ex-3.png)
 
-    [1] "############################### end  90 Fri Jun 17 10:36:23 2016"
-    [1] "############################### start  91 Fri Jun 17 10:36:23 2016"
+    [1] "############################### end  90 Wed Aug 31 09:22:25 2016"
+    [1] "############################### start  91 Wed Aug 31 09:22:25 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00091_example_6.21_of_section_6.3.3.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -813,8 +813,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
 
 ![](rCh06_files/figure-markdown_github/ch6ex-4.png)
 
-    [1] "############################### end  91 Fri Jun 17 10:36:33 2016"
-    [1] "############################### start  92 Fri Jun 17 10:36:33 2016"
+    [1] "############################### end  91 Wed Aug 31 09:22:35 2016"
+    [1] "############################### start  92 Wed Aug 31 09:22:35 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00092_example_6.22_of_section_6.3.3.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -837,8 +837,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
 
     > ## [1] 0.7170824
     > 
-    [1] "############################### end  92 Fri Jun 17 10:36:34 2016"
-    [1] "############################### start  93 Fri Jun 17 10:36:34 2016"
+    [1] "############################### end  92 Wed Aug 31 09:22:36 2016"
+    [1] "############################### start  93 Wed Aug 31 09:22:36 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00093_example_6.23_of_section_6.3.4.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -923,8 +923,8 @@ runDir('../CodeExamples/c06_Memorization_methods',
     > #   set that isn’t repeated on the calibration or test 
     > #   sets. 
     > 
-    [1] "############################### end  93 Fri Jun 17 10:36:35 2016"
-    [1] "############################### start  94 Fri Jun 17 10:36:35 2016"
+    [1] "############################### end  93 Wed Aug 31 09:22:37 2016"
+    [1] "############################### start  94 Wed Aug 31 09:22:37 2016"
     [1] "#####  running  ../CodeExamples/c06_Memorization_methods/00094_example_6.24_of_section_6.3.4.R"
     [1] "#####   in directory ../KDD2009"
 
@@ -960,4 +960,4 @@ runDir('../CodeExamples/c06_Memorization_methods',
 
     > ## [1] 0.5679519
     > 
-    [1] "############################### end  94 Fri Jun 17 10:38:34 2016"
+    [1] "############################### end  94 Wed Aug 31 09:24:44 2016"
