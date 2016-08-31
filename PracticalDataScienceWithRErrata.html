@@ -121,6 +121,15 @@ pruning heuristic in listing 6.11.</p>
 
 
         <li>
+          <h2>Page 120, Section 6.2.1 Using categorical features</h2>
+          <p>
+            It is a good idea to harden the look-up <code>vTab[pos,]</code> to <code>vTab[as.character(pos),]</code>
+            to defend against the irregular nature of <code>R</code>'s indexing operator (which would fail in this
+            case if we were to have <code>pos</code> as a logical instead of a string).
+          </p>
+        </li>
+
+        <li>
           <h2>Page 126, Section 6.2.3 Using cross-validation</h2>
           <p>
             First paragraph: "cross-reference" should be "cross-validation."
