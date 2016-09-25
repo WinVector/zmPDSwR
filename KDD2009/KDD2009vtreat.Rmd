@@ -21,6 +21,7 @@ models trained using rows used to build sub-models think the sub-models have lar
 that the sub-models will in the future, and under-estimate degrees of freedom of complicated
 sub-models.
 
+
 ```{r kddexlibs, tidy=FALSE}
 #load some libraries
 # http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/
@@ -101,11 +102,12 @@ treatedTestP = treatedTest[, yName, drop=FALSE]
 
 
 formulaS = paste(yName,paste(selvars,collapse=' + '),sep=' ~ ')
-for(mname in c('gbmPred','glmPred')) {
+mname = 'gbmPred'
+
+
   print("*****************************")
   print(date())
   print(paste(mname,length(selvars)))
-  if(mname=='gbmPred') {
     modelGBMs = gbm(as.formula(formulaS),
                     data=treatedTrainM,
                     distribution='bernoulli',
@@ -118,31 +120,21 @@ for(mname in c('gbmPred','glmPred')) {
                                      n.trees=nTrees) 
     treatedTestP[[mname]] = predict(modelGBMs,newdata=treatedTest,type='response',
                                     n.trees=nTrees)
-  } else {
-    modelglms = glm(as.formula(formulaS),
-                    data=treatedTrainM,
-                    family=binomial(link='logit')
-    )
-    treatedTrainP[[mname]] = predict(modelglms,newdata=treatedTrainM,type='response')
-    treatedTestP[[mname]] = predict(modelglms,newdata=treatedTest,type='response')
-  }
   
   t1 = paste(mname,'trainingM data')
   print(DoubleDensityPlot(treatedTrainP, mname, yName, 
                           title=t1))
-  print(ROCPlot(treatedTrainP, mname, yName, 
+  print(ROCPlot(treatedTrainP, mname, yName, yTarget,
                 title=t1))
   
   t2 = paste(mname,'test data')
   print(DoubleDensityPlot(treatedTestP, mname, yName, 
                           title=t2))
-  print(ROCPlot(treatedTestP, mname, yName, 
+  print(ROCPlot(treatedTestP, mname, yName, yTarget,
                 title=t2))
   print(date())
   print("*****************************")
-}
-saveRDS(treatedTestP,'treatedTestP.rds')
-write.table(treatedTestP,row.names = FALSE,col.names = TRUE,sep='\t',file='treatedTestP.tsv')
+
 ```
 
 ```{r shutdown, tidy=FALSE}
