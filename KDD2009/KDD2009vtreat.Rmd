@@ -23,12 +23,10 @@ sub-models.
 
 
 ```{r kddexlibs, tidy=FALSE}
+date()
 #load some libraries
-# http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/
-# devtools::install_github("WinVector/vtreat")
 library('vtreat')
-# devtools::install_github("WinVector/vtreat")
-library('WVPlots')
+library('WVPlots') # https://github.com/WinVector/WVPlots
 
 library('parallel')
 library('gbm')
@@ -53,12 +51,11 @@ upselling = read.table(paste(dir,'orange_small_train_upselling.labels.txt',sep='
 d$upselling = upselling$V1
 set.seed(729375)
 d$rgroup = runif(dim(d)[[1]])
-dTrainM = subset(d,rgroup<=0.5)  # set for building models
-dTrainC = subset(d,(rgroup>0.5) & (rgroup<=0.9)) # set for impact coding
+dTrain = subset(d,rgroup<=0.9)  # set for building models and impact coding
 dTest = subset(d,rgroup>0.9) # set for evaluation
 rm(list=c('d','churn','appetency','upselling','dir'))
 outcomes = c('churn','appetency','upselling')
-vars = setdiff(colnames(dTrainM),
+vars = setdiff(colnames(dTrain),
                 c(outcomes,'rgroup'))
 yName = 'churn'
 yTarget = 1
@@ -66,75 +63,80 @@ yTarget = 1
 set.seed(239525)
 
 cl = parallel::makeCluster(4)
+date()
 ```
 
 
 
 
-```{r kddmodels, tidy=FALSE}
+```{r kddtreat, tidy=FALSE}
+date()
 # Run other models (with proper coding/training separation).
 #
 # This gets us back to AUC 0.72 range
 
 kddPrune = 0.05
 
-treatmentsC = designTreatmentsC(dTrainC,
+cfe = mkCrossFrameCExperiment(dTrain,
     vars,yName,yTarget,
     smFactor=2.0, 
     parallelCluster=cl)
-
-treatedTrainM = prepare(treatmentsC,
-                        dTrainM,
-                        pruneSig=kddPrune, 
-                        parallelCluster=cl)
-selvars = setdiff(colnames(treatedTrainM),yName)
+treatmentsC = cfe$treatments
+scoreFrame = treatmentsC$scoreFrame
+selvars <- scoreFrame$varName[scoreFrame$sig<=kddPrune]
+treatedTrainM <- cfe$crossFrame[,c(yName,selvars),drop=FALSE]
 treatedTrainM[[yName]] = treatedTrainM[[yName]]==yTarget
 
 treatedTest = prepare(treatmentsC,
                       dTest,
-                      pruneSig=kddPrune, 
+                      pruneSig=NULL, 
+                      varRestriction = selvars,
                       parallelCluster=cl)
 treatedTest[[yName]] = treatedTest[[yName]]==yTarget
 
 # prepare plotting frames
 treatedTrainP = treatedTrainM[, yName, drop=FALSE]
 treatedTestP = treatedTest[, yName, drop=FALSE]
+date()
+```
 
-
+```{r kddmodels, tidy=FALSE}
+date()
 formulaS = paste(yName,paste(selvars,collapse=' + '),sep=' ~ ')
 mname = 'gbmPred'
+print(paste(mname,length(selvars)))
+modelGBMs = gbm(as.formula(formulaS),
+                data=treatedTrainM,
+                distribution='bernoulli',
+                n.trees=2000,
+                interaction.depth=3,
+                keep.data=FALSE,
+                cv.folds=5)
+nTrees = gbm.perf(modelGBMs)
+print(nTrees)
+treatedTrainP[[mname]] = predict(modelGBMs,newdata=treatedTrainM,type='response',
+                                 n.trees=nTrees) 
+treatedTestP[[mname]] = predict(modelGBMs,newdata=treatedTest,type='response',
+                                n.trees=nTrees)
+date()
+```
 
+```{r kddplot, tidy=FALSE}
+date()
+t1 = paste(mname,'trainingM data')
+print(DoubleDensityPlot(treatedTrainP, mname, yName, 
+                        title=t1))
+print(ROCPlot(treatedTrainP, mname, yName, yTarget,
+              title=t1))
 
-  print("*****************************")
-  print(date())
-  print(paste(mname,length(selvars)))
-    modelGBMs = gbm(as.formula(formulaS),
-                    data=treatedTrainM,
-                    distribution='bernoulli',
-                    n.trees=500,
-                    interaction.depth=3,
-                    keep.data=FALSE,
-                    cv.folds=5)
-    nTrees = gbm.perf(modelGBMs)
-    treatedTrainP[[mname]] = predict(modelGBMs,newdata=treatedTrainM,type='response',
-                                     n.trees=nTrees) 
-    treatedTestP[[mname]] = predict(modelGBMs,newdata=treatedTest,type='response',
-                                    n.trees=nTrees)
-  
-  t1 = paste(mname,'trainingM data')
-  print(DoubleDensityPlot(treatedTrainP, mname, yName, 
-                          title=t1))
-  print(ROCPlot(treatedTrainP, mname, yName, yTarget,
-                title=t1))
-  
-  t2 = paste(mname,'test data')
-  print(DoubleDensityPlot(treatedTestP, mname, yName, 
-                          title=t2))
-  print(ROCPlot(treatedTestP, mname, yName, yTarget,
-                title=t2))
-  print(date())
-  print("*****************************")
-
+t2 = paste(mname,'test data')
+print(DoubleDensityPlot(treatedTestP, mname, yName, 
+                        title=t2))
+print(ROCPlot(treatedTestP, mname, yName, yTarget,
+              title=t2))
+print(date())
+print("*****************************")
+date()
 ```
 
 ```{r shutdown, tidy=FALSE}
