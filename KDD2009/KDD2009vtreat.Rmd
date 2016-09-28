@@ -108,7 +108,7 @@ print(paste(mname,length(selvars)))
 modelGBMs = gbm(as.formula(formulaS),
                 data=treatedTrainM,
                 distribution='bernoulli',
-                n.trees=2000,
+                n.trees=4000,
                 interaction.depth=3,
                 keep.data=FALSE,
                 cv.folds=5)
@@ -128,12 +128,17 @@ print(DoubleDensityPlot(treatedTrainP, mname, yName,
                         title=t1))
 print(ROCPlot(treatedTrainP, mname, yName, yTarget,
               title=t1))
+print(WVPlots::PRPlot(treatedTrainP, mname, yName, yTarget,
+              title=t1))
 
 t2 = paste(mname,'test data')
 print(DoubleDensityPlot(treatedTestP, mname, yName, 
                         title=t2))
 print(ROCPlot(treatedTestP, mname, yName, yTarget,
               title=t2))
+print(WVPlots::PRPlot(treatedTestP, mname, yName, yTarget,
+              title=t2))
+
 print(date())
 print("*****************************")
 date()
