@@ -1,7 +1,7 @@
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&#39;runDir.R&#39;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">runDir</span>(<span class="st">&#39;../CodeExamples/c06_Memorization_methods&#39;</span>,
       <span class="st">&#39;../KDD2009&#39;</span>)</code></pre></div>
-<pre><code>[1] &quot;############################### start  71 Fri Jun 17 10:33:01 2016&quot;
+<pre><code>[1] &quot;############################### start  71 Mon Nov  7 20:19:12 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00071_example_6.1_of_section_6.1.1.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -112,8 +112,8 @@
 &gt; #   Further split training data into training and 
 &gt; #   calibration. 
 &gt; 
-[1] &quot;############################### end  71 Fri Jun 17 10:33:06 2016&quot;
-[1] &quot;############################### start  72 Fri Jun 17 10:33:06 2016&quot;
+[1] &quot;############################### end  71 Mon Nov  7 20:19:18 2016&quot;
+[1] &quot;############################### start  72 Mon Nov  7 20:19:18 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00072_example_6.2_of_section_6.2.1.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -150,8 +150,8 @@ Var218    -1     1
 &gt; # Note 3: 
 &gt; #   Include NA values in tabulation. 
 &gt; 
-[1] &quot;############################### end  72 Fri Jun 17 10:33:06 2016&quot;
-[1] &quot;############################### start  73 Fri Jun 17 10:33:06 2016&quot;
+[1] &quot;############################### end  72 Mon Nov  7 20:19:18 2016&quot;
+[1] &quot;############################### start  73 Mon Nov  7 20:19:18 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00073_example_6.3_of_section_6.2.1.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -166,8 +166,8 @@ Var218    -1     1
 &gt; ##       cJvF       UYBR       &lt;NA&gt;
 &gt; ## 0.05994389 0.08223821 0.26523297
 &gt; 
-[1] &quot;############################### end  73 Fri Jun 17 10:33:06 2016&quot;
-[1] &quot;############################### start  74 Fri Jun 17 10:33:06 2016&quot;
+[1] &quot;############################### end  73 Mon Nov  7 20:19:18 2016&quot;
+[1] &quot;############################### start  74 Mon Nov  7 20:19:18 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00074_example_6.4_of_section_6.2.1.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -178,9 +178,9 @@ Var218    -1     1
 &gt; mkPredC &lt;- function(outCol,varCol,appCol) {   # Note: 1 
     pPos &lt;- sum(outCol==pos)/length(outCol)     # Note: 2 
     naTab &lt;- table(as.factor(outCol[is.na(varCol)]))
-    pPosWna &lt;- (naTab/sum(naTab))[pos]  # Note: 3 
+    pPosWna &lt;- (naTab/sum(naTab))[as.character(pos)]    # Note: 3 
     vTab &lt;- table(as.factor(outCol),varCol)
-    pPosWv &lt;- (vTab[pos,]+1.0e-3*pPos)/(colSums(vTab)+1.0e-3)   # Note: 4 
+    pPosWv &lt;- (vTab[as.character(pos),]+1.0e-3*pPos)/(colSums(vTab)+1.0e-3)     # Note: 4 
     pred &lt;- pPosWv[appCol]  # Note: 5 
     pred[is.na(appCol)] &lt;- pPosWna  # Note: 6 
     pred[is.na(pred)] &lt;- pPos   # Note: 7 
@@ -222,8 +222,8 @@ Var218    -1     1
 &gt; # Note 8: 
 &gt; #   Return vector of predictions. 
 &gt; 
-[1] &quot;############################### end  74 Fri Jun 17 10:33:06 2016&quot;
-[1] &quot;############################### start  75 Fri Jun 17 10:33:06 2016&quot;
+[1] &quot;############################### end  74 Mon Nov  7 20:19:18 2016&quot;
+[1] &quot;############################### start  75 Mon Nov  7 20:19:18 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00075_example_6.5_of_section_6.2.1.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -237,8 +237,8 @@ Var218    -1     1
    dCal[,pi] &lt;- mkPredC(dTrain[,outcome],dTrain[,v],dCal[,v])
    dTest[,pi] &lt;- mkPredC(dTrain[,outcome],dTrain[,v],dTest[,v])
  }
-[1] &quot;############################### end  75 Fri Jun 17 10:33:08 2016&quot;
-[1] &quot;############################### start  76 Fri Jun 17 10:33:08 2016&quot;
+[1] &quot;############################### end  75 Mon Nov  7 20:19:20 2016&quot;
+[1] &quot;############################### start  76 Mon Nov  7 20:19:20 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00076_example_6.6_of_section_6.2.1.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -282,8 +282,8 @@ The following object is masked from &#39;package:stats&#39;:
 &gt; ## [1] &quot;predVar214, trainAUC: 0.828 calibrationAUC: 0.527&quot;
 &gt; ## [1] &quot;predVar217, trainAUC: 0.898 calibrationAUC: 0.553&quot;
 &gt; 
-[1] &quot;############################### end  76 Fri Jun 17 10:33:10 2016&quot;
-[1] &quot;############################### start  77 Fri Jun 17 10:33:10 2016&quot;
+[1] &quot;############################### end  76 Mon Nov  7 20:19:21 2016&quot;
+[1] &quot;############################### start  77 Mon Nov  7 20:19:21 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00077_example_6.7_of_section_6.2.2.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -333,8 +333,8 @@ The following object is masked from &#39;package:stats&#39;:
 &gt; ## [1] &quot;predVar140, trainAUC: 0.561 calibrationAUC: 0.560&quot;
 &gt; ## [1] &quot;predVar189, trainAUC: 0.574 calibrationAUC: 0.599&quot;
 &gt; 
-[1] &quot;############################### end  77 Fri Jun 17 10:33:28 2016&quot;
-[1] &quot;############################### start  78 Fri Jun 17 10:33:28 2016&quot;
+[1] &quot;############################### end  77 Mon Nov  7 20:19:39 2016&quot;
+[1] &quot;############################### start  78 Mon Nov  7 20:19:39 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00078_example_6.8_of_section_6.2.2.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -350,8 +350,8 @@ The following object is masked from &#39;package:stats&#39;:
 <img src="rCh06_files/figure-markdown_github/ch6ex-1.png" alt="" />
 
 </div>
-<pre><code>[1] &quot;############################### end  78 Fri Jun 17 10:33:28 2016&quot;
-[1] &quot;############################### start  79 Fri Jun 17 10:33:28 2016&quot;
+<pre><code>[1] &quot;############################### end  78 Mon Nov  7 20:19:40 2016&quot;
+[1] &quot;############################### start  79 Mon Nov  7 20:19:40 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00079_example_6.9_of_section_6.2.3.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -393,8 +393,8 @@ The following object is masked from &#39;package:stats&#39;:
 &gt; # Note 4: 
 &gt; #   ...calculate resulting model’s AUC using hold-out set; store that value and repeat. 
 &gt; 
-[1] &quot;############################### end  79 Fri Jun 17 10:33:31 2016&quot;
-[1] &quot;############################### start  80 Fri Jun 17 10:33:31 2016&quot;
+[1] &quot;############################### end  79 Mon Nov  7 20:19:43 2016&quot;
+[1] &quot;############################### start  80 Mon Nov  7 20:19:43 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00080_example_6.10_of_section_6.2.3.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -411,8 +411,8 @@ The following object is masked from &#39;package:stats&#39;:
  }
 
 &gt; aucs &lt;- replicate(100,fCross())
-[1] &quot;############################### end  80 Fri Jun 17 10:33:35 2016&quot;
-[1] &quot;############################### start  81 Fri Jun 17 10:33:35 2016&quot;
+[1] &quot;############################### end  80 Mon Nov  7 20:19:46 2016&quot;
+[1] &quot;############################### start  81 Mon Nov  7 20:19:46 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00081_example_6.11_of_section_6.3.1.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -518,8 +518,8 @@ The following object is masked from &#39;package:stats&#39;:
 &gt; #   Run through numeric variables and pick 
 &gt; #   based on a deviance improvement. 
 &gt; 
-[1] &quot;############################### end  81 Fri Jun 17 10:33:35 2016&quot;
-[1] &quot;############################### start  83 Fri Jun 17 10:33:35 2016&quot;
+[1] &quot;############################### end  81 Mon Nov  7 20:19:46 2016&quot;
+[1] &quot;############################### start  83 Mon Nov  7 20:19:46 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00083_example_6.13_of_section_6.3.2.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -547,8 +547,8 @@ The following object is masked from &#39;package:stats&#39;:
 
 &gt; ## [1] 0.5126917
 &gt; 
-[1] &quot;############################### end  83 Fri Jun 17 10:34:06 2016&quot;
-[1] &quot;############################### start  84 Fri Jun 17 10:34:06 2016&quot;
+[1] &quot;############################### end  83 Mon Nov  7 20:20:14 2016&quot;
+[1] &quot;############################### start  84 Mon Nov  7 20:20:14 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00084_example_6.14_of_section_6.3.2.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -575,8 +575,8 @@ The following object is masked from &#39;package:stats&#39;:
 
 &gt; ## [1] 0.5384152
 &gt; 
-[1] &quot;############################### end  84 Fri Jun 17 10:34:20 2016&quot;
-[1] &quot;############################### start  85 Fri Jun 17 10:34:20 2016&quot;
+[1] &quot;############################### end  84 Mon Nov  7 20:20:29 2016&quot;
+[1] &quot;############################### start  85 Mon Nov  7 20:20:29 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00085_example_6.15_of_section_6.3.2.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -602,8 +602,8 @@ The following object is masked from &#39;package:stats&#39;:
 
 &gt; ## [1] 0.547967
 &gt; 
-[1] &quot;############################### end  85 Fri Jun 17 10:34:29 2016&quot;
-[1] &quot;############################### start  86 Fri Jun 17 10:34:29 2016&quot;
+[1] &quot;############################### end  85 Mon Nov  7 20:20:39 2016&quot;
+[1] &quot;############################### start  86 Mon Nov  7 20:20:39 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00086_example_6.16_of_section_6.3.2.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -631,8 +631,8 @@ The following object is masked from &#39;package:stats&#39;:
 
 &gt; ## [1] 0.6669301
 &gt; 
-[1] &quot;############################### end  86 Fri Jun 17 10:34:32 2016&quot;
-[1] &quot;############################### start  87 Fri Jun 17 10:34:32 2016&quot;
+[1] &quot;############################### end  86 Mon Nov  7 20:20:41 2016&quot;
+[1] &quot;############################### start  87 Mon Nov  7 20:20:41 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00087_example_6.17_of_section_6.3.2.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -695,8 +695,8 @@ node), split, n, deviance, yval
 &gt; ##           62) predVar189&lt; 0.06775545 1031  102.9486 0.11251210 *
 &gt; ##           63) predVar189&gt;=0.06775545 3606  558.5871 0.19162510 *
 &gt; 
-[1] &quot;############################### end  87 Fri Jun 17 10:34:32 2016&quot;
-[1] &quot;############################### start  88 Fri Jun 17 10:34:32 2016&quot;
+[1] &quot;############################### end  87 Mon Nov  7 20:20:41 2016&quot;
+[1] &quot;############################### start  88 Mon Nov  7 20:20:41 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00088_example_6.18_of_section_6.3.2.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -712,8 +712,8 @@ node), split, n, deviance, yval
 
 </div>
 <pre><code>&gt; text(tmodel)
-[1] &quot;############################### end  88 Fri Jun 17 10:34:32 2016&quot;
-[1] &quot;############################### start  89 Fri Jun 17 10:34:32 2016&quot;
+[1] &quot;############################### end  88 Mon Nov  7 20:20:42 2016&quot;
+[1] &quot;############################### start  89 Mon Nov  7 20:20:42 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00089_example_6.19_of_section_6.3.3.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -768,8 +768,8 @@ node), split, n, deviance, yval
 &gt; #   “calculated probability of being a positive 
 &gt; #   example.” 
 &gt; 
-[1] &quot;############################### end  89 Fri Jun 17 10:36:12 2016&quot;
-[1] &quot;############################### start  90 Fri Jun 17 10:36:12 2016&quot;
+[1] &quot;############################### end  89 Mon Nov  7 20:22:15 2016&quot;
+[1] &quot;############################### start  90 Mon Nov  7 20:22:15 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00090_example_6.20_of_section_6.3.3.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -786,8 +786,8 @@ node), split, n, deviance, yval
 <img src="rCh06_files/figure-markdown_github/ch6ex-3.png" alt="" />
 
 </div>
-<pre><code>[1] &quot;############################### end  90 Fri Jun 17 10:36:23 2016&quot;
-[1] &quot;############################### start  91 Fri Jun 17 10:36:23 2016&quot;
+<pre><code>[1] &quot;############################### end  90 Mon Nov  7 20:22:24 2016&quot;
+[1] &quot;############################### start  91 Mon Nov  7 20:22:24 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00091_example_6.21_of_section_6.3.3.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -810,8 +810,8 @@ node), split, n, deviance, yval
 <img src="rCh06_files/figure-markdown_github/ch6ex-4.png" alt="" />
 
 </div>
-<pre><code>[1] &quot;############################### end  91 Fri Jun 17 10:36:33 2016&quot;
-[1] &quot;############################### start  92 Fri Jun 17 10:36:33 2016&quot;
+<pre><code>[1] &quot;############################### end  91 Mon Nov  7 20:22:33 2016&quot;
+[1] &quot;############################### start  92 Mon Nov  7 20:22:33 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00092_example_6.22_of_section_6.3.3.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -834,8 +834,8 @@ node), split, n, deviance, yval
 
 &gt; ## [1] 0.7170824
 &gt; 
-[1] &quot;############################### end  92 Fri Jun 17 10:36:34 2016&quot;
-[1] &quot;############################### start  93 Fri Jun 17 10:36:34 2016&quot;
+[1] &quot;############################### end  92 Mon Nov  7 20:22:34 2016&quot;
+[1] &quot;############################### start  93 Mon Nov  7 20:22:34 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00093_example_6.23_of_section_6.3.4.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -920,8 +920,8 @@ node), split, n, deviance, yval
 &gt; #   set that isn’t repeated on the calibration or test 
 &gt; #   sets. 
 &gt; 
-[1] &quot;############################### end  93 Fri Jun 17 10:36:35 2016&quot;
-[1] &quot;############################### start  94 Fri Jun 17 10:36:35 2016&quot;
+[1] &quot;############################### end  93 Mon Nov  7 20:22:35 2016&quot;
+[1] &quot;############################### start  94 Mon Nov  7 20:22:35 2016&quot;
 [1] &quot;#####  running  ../CodeExamples/c06_Memorization_methods/00094_example_6.24_of_section_6.3.4.R&quot;
 [1] &quot;#####   in directory ../KDD2009&quot;
 
@@ -957,4 +957,4 @@ node), split, n, deviance, yval
 
 &gt; ## [1] 0.5679519
 &gt; 
-[1] &quot;############################### end  94 Fri Jun 17 10:38:34 2016&quot;</code></pre>
+[1] &quot;############################### end  94 Mon Nov  7 20:24:28 2016&quot;</code></pre>

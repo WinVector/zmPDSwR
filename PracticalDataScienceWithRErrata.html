@@ -180,6 +180,14 @@ pruning heuristic in listing 6.11.</p>
         </li>
 
         <li>
+          <h2>Page 146, Using categorical features, Listing 6.4</h2>
+          <p>Replace "pPosWna <- (naTab/sum(naTab))[pos]" with
+            "pPosWna <- (naTab/sum(naTab))[as.character(pos)]" to get around
+            bad indexing issues due to R's treatment of logical types and expansion of vector lengths.
+          </p>
+        </li>
+
+        <li>
           <h2>Page 148, Are there systematic errors?</h2>
           <h2>Page 224, Footnote 5</h2>
           <p>
