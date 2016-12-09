@@ -40,7 +40,7 @@ for(v in catVars) {  	# Note: 2
   if(liCheck>minStep) {
      print(sprintf("%s, calibrationScore: %g",
         pi,liCheck))
-     selVars <- c(selVars,pi)
+     selVars <- c(selVars,v)
   }
 }
 
@@ -51,7 +51,7 @@ for(v in numericVars) { 	# Note: 3
   if(liCheck>=minStep) {
      print(sprintf("%s, calibrationScore: %g",
         pi,liCheck))
-     selVars <- c(selVars,pi)
+     selVars <- c(selVars,v)
   }
 }
 
