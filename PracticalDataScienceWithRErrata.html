@@ -74,8 +74,9 @@
           </p>
         </li>
 
+
         <li>
-          <h2>Page 27 Listing 2.8, page 30 Listing 2.11 and any other use of H2DB</h2>
+          <h2>Page 25 Listing 2.8, page 30 Listing 2.11 and any other use of H2DB</h2>
           <p>
            Starting with version 1.4 the H2DB database enforces that the
            path specified for the database files must be absolute
@@ -88,6 +89,14 @@
            and not: <code>jdbc:h2:H2DB;...</code>.
           </p>
         </li>
+
+        <li>
+          <h2>Pages 25 through 29 section 2.2.1 A production-sized example</h2>
+          <p>
+            We no longer recommend using H2DB, Java, and SquirreL SQL to load data.  Instead we recommend using R, read.table, and dbWriteTable using either PostgreSQL (for a lot of data) or RSQlite (for in-memory practice).  Nina has a write-up of the replacement screwdriver concept <a src="http://www.win-vector.com/blog/2016/02/using-postgresql-in-r/">here</a>.
+          </p>
+        </li>
+
 
         <li>
           <h2>Page 86, Table 5.1, second row, second column</h2>
