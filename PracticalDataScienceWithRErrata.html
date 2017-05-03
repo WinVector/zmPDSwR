@@ -265,6 +265,12 @@ Many of the tests of linear regression, including the tests for coefficient and 
         </li>
 
         <li>
+          <h2>Page 180, Section 8.1.2, Preparing the data</h2>
+          <p>After calling <code>scale()</code> always clear attributes from result with <code>attr(., "scaled:center") = NULL; attr(., "scaled:scale") = NULL</code> otherwise <code>prcomp</code> <code>predict(princ, .)</code> does not always equal the desired projection <code>. %*% princ$rotation</code>.
+          </p>
+        </li>
+
+        <li>
           <h2>Page 187, Section 8.1.3, Total with sum of squares</h2>
           <p>Typo should read "The within sum of squares for a single cluster is the total squared distance ..." (not average).  Code is correct.
           </p>
