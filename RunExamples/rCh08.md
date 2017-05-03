@@ -9,7 +9,7 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
       '../Protein',last=151)
 ```
 
-    [1] "############################### start  136 Fri Jun 17 10:51:15 2016"
+    [1] "############################### start  136 Tue May  2 20:40:45 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00136_example_8.1_of_section_8.1.2.R"
     [1] "#####   in directory ../Protein"
 
@@ -69,8 +69,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > ##  3rd Qu.:4.700   3rd Qu.:4.900
     > ##  Max.   :7.800   Max.   :7.900
     > 
-    [1] "############################### end  136 Fri Jun 17 10:51:15 2016"
-    [1] "############################### start  137 Fri Jun 17 10:51:15 2016"
+    [1] "############################### end  136 Tue May  2 20:40:45 2017"
+    [1] "############################### start  137 Tue May  2 20:40:45 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00137_example_8.2_of_section_8.1.2.R"
     [1] "#####   in directory ../Protein"
 
@@ -85,6 +85,10 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > pcenter <- attr(pmatrix, "scaled:center")     # Note: 3 
 
     > pscale <- attr(pmatrix, "scaled:scale")
+
+    > attr(pmatrix, "scaled:center") <- NULL
+
+    > attr(pmatrix, "scaled:scale") <- NULL
 
     > # Note 1: 
     > #   Use all the columns except the first 
@@ -104,8 +108,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   these away so you can “unscale” the data 
     > #   later. 
     > 
-    [1] "############################### end  137 Fri Jun 17 10:51:15 2016"
-    [1] "############################### start  138 Fri Jun 17 10:51:15 2016"
+    [1] "############################### end  137 Tue May  2 20:40:45 2017"
+    [1] "############################### start  138 Tue May  2 20:40:45 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00138_example_8.3_of_section_8.1.3.R"
     [1] "#####   in directory ../Protein"
 
@@ -131,8 +135,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > # Note 3: 
     > #   Plot the dendrogram. 
     > 
-    [1] "############################### end  138 Fri Jun 17 10:51:15 2016"
-    [1] "############################### start  139 Fri Jun 17 10:51:15 2016"
+    [1] "############################### end  138 Tue May  2 20:40:45 2017"
+    [1] "############################### start  139 Tue May  2 20:40:45 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00139_informalexample_8.5_of_section_8.1.3.R"
     [1] "#####   in directory ../Protein"
 
@@ -140,8 +144,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > # (informalexample 8.5 of section 8.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
     > 
     > rect.hclust(pfit, k=5)
-    [1] "############################### end  139 Fri Jun 17 10:51:15 2016"
-    [1] "############################### start  140 Fri Jun 17 10:51:15 2016"
+    [1] "############################### end  139 Tue May  2 20:40:45 2017"
+    [1] "############################### start  140 Tue May  2 20:40:45 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00140_example_8.4_of_section_8.1.3.R"
     [1] "#####   in directory ../Protein"
 
@@ -239,8 +243,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   this section. Note that the function is hardcoded 
     > #   for the protein dataset. 
     > 
-    [1] "############################### end  140 Fri Jun 17 10:51:15 2016"
-    [1] "############################### start  141 Fri Jun 17 10:51:15 2016"
+    [1] "############################### end  140 Tue May  2 20:40:45 2017"
+    [1] "############################### start  141 Tue May  2 20:40:45 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00141_example_8.5_of_section_8.1.3.R"
     [1] "#####   in directory ../Protein"
 
@@ -254,7 +258,7 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
 
     > nComp <- 2
 
-    > project <- predict(princ, newdata=pmatrix)[,1:nComp]          # Note: 2 
+    > project <- (pmatrix %*% princ$rotation)[,1:nComp]             # Note: 2 
 
     > project.plus <- cbind(as.data.frame(project),                 # Note: 3 
                           cluster=as.factor(groups),
@@ -286,8 +290,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > # Note 4: 
     > #   Plot it. 
     > 
-    [1] "############################### end  141 Fri Jun 17 10:51:15 2016"
-    [1] "############################### start  142 Fri Jun 17 10:51:15 2016"
+    [1] "############################### end  141 Tue May  2 20:40:45 2017"
+    [1] "############################### start  142 Tue May  2 20:40:45 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00142_example_8.6_of_section_8.1.3.R"
     [1] "#####   in directory ../Protein"
 
@@ -496,11 +500,11 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > ## 17 Portugal     6.2 14.2    7.9
     > ## 19    Spain     7.1  7.0    7.2
     > cboot.hclust$bootmean                                     # Note: 7 
-    [1] 0.8458333 0.7789048 0.6102738 0.9235476 0.7608333
+    [1] 0.7958333 0.7882421 0.6631746 0.9151190 0.7596667
 
     > ## [1] 0.7905000 0.7990913 0.6173056 0.9312857 0.7560000
     > cboot.hclust$bootbrd                                      # Note: 8 
-    [1] 15 11 52 10 32
+    [1] 23 15 41 11 36
 
     > ## [1] 25 11 47  8 35
     > 
@@ -540,8 +544,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   dissolved. By default clusterboot() runs 100 
     > #   bootstrap iterations. 
     > 
-    [1] "############################### end  142 Fri Jun 17 10:51:16 2016"
-    [1] "############################### start  143 Fri Jun 17 10:51:16 2016"
+    [1] "############################### end  142 Tue May  2 20:40:46 2017"
+    [1] "############################### start  143 Tue May  2 20:40:46 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00143_example_8.7_of_section_8.1.3.R"
     [1] "#####   in directory ../Protein"
 
@@ -592,8 +596,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   Extract each cluster, calculate the 
     > #   cluster’s WSS, and sum all the values. 
     > 
-    [1] "############################### end  143 Fri Jun 17 10:51:16 2016"
-    [1] "############################### start  144 Fri Jun 17 10:51:16 2016"
+    [1] "############################### end  143 Tue May  2 20:40:46 2017"
+    [1] "############################### start  144 Tue May  2 20:40:46 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00144_example_8.8_of_section_8.1.3.R"
     [1] "#####   in directory ../Protein"
 
@@ -673,8 +677,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   k from 1 to kmax. Also return total sum of 
     > #   squares. 
     > 
-    [1] "############################### end  144 Fri Jun 17 10:51:16 2016"
-    [1] "############################### start  145 Fri Jun 17 10:51:16 2016"
+    [1] "############################### end  144 Tue May  2 20:40:46 2017"
+    [1] "############################### start  145 Tue May  2 20:40:46 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00145_example_8.9_of_section_8.1.3.R"
     [1] "#####   in directory ../Protein"
 
@@ -726,8 +730,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > # Note 5: 
     > #   Plot it. 
     > 
-    [1] "############################### end  145 Fri Jun 17 10:51:16 2016"
-    [1] "############################### start  146 Fri Jun 17 10:51:16 2016"
+    [1] "############################### end  145 Tue May  2 20:40:46 2017"
+    [1] "############################### start  146 Tue May  2 20:40:46 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00146_example_8.10_of_section_8.1.4.R"
     [1] "#####   in directory ../Protein"
 
@@ -761,15 +765,15 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > pclusters$centers                                                 # Note: 3 
            RedMeat  WhiteMeat        Eggs       Milk       Fish    Cereals
     1  1.011180399  0.7421332  0.94084150  0.5700581 -0.2671539 -0.6877583
-    2 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
-    3 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
-    4  0.006572897 -0.2290150  0.19147892  1.3458748  1.1582546 -0.8722721
+    2  0.006572897 -0.2290150  0.19147892  1.3458748  1.1582546 -0.8722721
+    3 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
+    4 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
     5 -0.508801956 -1.1088009 -0.41248496 -0.8320414  0.9819154  0.1300253
           Starch       Nuts      Fr.Veg
     1  0.2288743 -0.5083895  0.02161979
-    2  0.7857609 -0.2679180  0.06873983
-    3 -1.4234267  0.9961313 -0.64360439
-    4  0.1676780 -0.9553392 -1.11480485
+    2  0.1676780 -0.9553392 -1.11480485
+    3  0.7857609 -0.2679180  0.06873983
+    4 -1.4234267  0.9961313 -0.64360439
     5 -0.1842010  1.3108846  1.62924487
 
     > ##        RedMeat  WhiteMeat        Eggs       Milk       Fish
@@ -785,7 +789,7 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > ## 4 -0.6877583  0.2288743 -0.5083895  0.02161979
     > ## 5  0.1300253 -0.1842010  1.3108846  1.62924487
     > pclusters$size                                                    # Note: 4 
-    [1] 8 5 4 4 4
+    [1] 8 4 5 4 4
 
     > ## [1] 4 4 5 8 4
     > 
@@ -803,24 +807,24 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     22          UK    17.4  4.3    3.3
     24   W Germany    11.4  3.4    3.8
     [1] "cluster 2"
+       Country RedMeat Fish Fr.Veg
+    6  Denmark    10.6  9.9    2.4
+    8  Finland     9.5  5.8    1.4
+    15  Norway     9.4  9.7    2.7
+    20  Sweden     9.9  7.5    2.0
+    [1] "cluster 3"
               Country RedMeat Fish Fr.Veg
     5  Czechoslovakia     9.7  2.0    4.0
     7       E Germany     8.4  5.4    3.6
     11        Hungary     5.3  0.3    4.2
     16         Poland     6.9  3.0    6.6
     23           USSR     9.3  3.0    2.9
-    [1] "cluster 3"
+    [1] "cluster 4"
           Country RedMeat Fish Fr.Veg
     1     Albania    10.1  0.2    1.7
     4    Bulgaria     7.8  1.2    4.2
     18    Romania     6.2  1.0    2.8
     25 Yugoslavia     4.4  0.6    3.2
-    [1] "cluster 4"
-       Country RedMeat Fish Fr.Veg
-    6  Denmark    10.6  9.9    2.4
-    8  Finland     9.5  5.8    1.4
-    15  Norway     9.4  9.7    2.7
-    20  Sweden     9.9  7.5    2.0
     [1] "cluster 5"
         Country RedMeat Fish Fr.Veg
     10   Greece    10.2  5.9    6.5
@@ -895,8 +899,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   the same clustering. This won’t always be 
     > #   true. 
     > 
-    [1] "############################### end  146 Fri Jun 17 10:51:16 2016"
-    [1] "############################### start  147 Fri Jun 17 10:51:16 2016"
+    [1] "############################### end  146 Tue May  2 20:40:46 2017"
+    [1] "############################### start  147 Tue May  2 20:40:46 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00147_example_8.11_of_section_8.1.4.R"
     [1] "#####   in directory ../Protein"
 
@@ -1000,8 +1004,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   kmeansruns() also returns the output of 
     > #   kmeans for k=bestk. 
     > 
-    [1] "############################### end  147 Fri Jun 17 10:51:17 2016"
-    [1] "############################### start  148 Fri Jun 17 10:51:17 2016"
+    [1] "############################### end  147 Tue May  2 20:40:47 2017"
+    [1] "############################### start  148 Tue May  2 20:40:47 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00148_example_8.12_of_section_8.1.4.R"
     [1] "#####   in directory ../Protein"
 
@@ -1202,8 +1206,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   We’ve set the seed for the random generator 
     > #   so the results are reproducible. 
     > 
-    [1] "############################### end  148 Fri Jun 17 10:51:21 2016"
-    [1] "############################### start  149 Fri Jun 17 10:51:21 2016"
+    [1] "############################### end  148 Tue May  2 20:40:51 2017"
+    [1] "############################### start  149 Tue May  2 20:40:51 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00149_example_8.13_of_section_8.1.5.R"
     [1] "#####   in directory ../Protein"
 
@@ -1236,8 +1240,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   Return the cluster number of the closest 
     > #   centroid. 
     > 
-    [1] "############################### end  149 Fri Jun 17 10:51:21 2016"
-    [1] "############################### start  150 Fri Jun 17 10:51:21 2016"
+    [1] "############################### end  149 Tue May  2 20:40:51 2017"
+    [1] "############################### start  150 Tue May  2 20:40:51 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00150_example_8.14_of_section_8.1.5.R"
     [1] "#####   in directory ../Protein"
 
@@ -1426,7 +1430,7 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > # Note 17: 
     > #   It’s assigned to cluster 2. 
     > 
-    [1] "############################### end  150 Fri Jun 17 10:51:21 2016"
+    [1] "############################### end  150 Tue May  2 20:40:51 2017"
 
 ``` r
 rm(list=ls())
@@ -1439,7 +1443,7 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
       '../Bookdata',first=152)
 ```
 
-    [1] "############################### start  152 Fri Jun 17 10:51:21 2016"
+    [1] "############################### start  152 Tue May  2 20:40:51 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00152_example_8.15_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -1492,8 +1496,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   duplicate entries (for example, multiple entries 
     > #   for “The Hobbit” by the same user). 
     > 
-    [1] "############################### end  152 Fri Jun 17 10:51:38 2016"
-    [1] "############################### start  153 Fri Jun 17 10:51:38 2016"
+    [1] "############################### end  152 Tue May  2 20:41:06 2017"
+    [1] "############################### start  153 Tue May  2 20:41:06 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00153_example_8.16_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -1556,8 +1560,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > # Note 5: 
     > #   The rows are labeled by customer. 
     > 
-    [1] "############################### end  153 Fri Jun 17 10:51:38 2016"
-    [1] "############################### start  154 Fri Jun 17 10:51:38 2016"
+    [1] "############################### end  153 Tue May  2 20:41:06 2017"
+    [1] "############################### start  154 Tue May  2 20:41:06 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00154_informalexample_8.7_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -1573,8 +1577,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
     > ##     1.0     1.0     1.0    11.1     4.0 10250.0
     > 
-    [1] "############################### end  154 Fri Jun 17 10:51:38 2016"
-    [1] "############################### start  155 Fri Jun 17 10:51:38 2016"
+    [1] "############################### end  154 Tue May  2 20:41:06 2017"
+    [1] "############################### start  155 Tue May  2 20:41:06 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00155_example_8.17_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -1605,8 +1609,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   Plot the distribution to get a better 
     > #   look. 
     > 
-    [1] "############################### end  155 Fri Jun 17 10:51:38 2016"
-    [1] "############################### start  156 Fri Jun 17 10:51:38 2016"
+    [1] "############################### end  155 Tue May  2 20:41:06 2017"
+    [1] "############################### start  156 Tue May  2 20:41:06 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00156_informalexample_8.8_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -1624,8 +1628,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
 
     > ## [1] 11.09909
     > 
-    [1] "############################### end  156 Fri Jun 17 10:51:38 2016"
-    [1] "############################### start  157 Fri Jun 17 10:51:38 2016"
+    [1] "############################### end  156 Tue May  2 20:41:06 2017"
+    [1] "############################### start  157 Tue May  2 20:41:06 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00157_example_8.18_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -1704,8 +1708,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   The most popular book in the dataset 
     > #   occurred in fewer than 3% of the baskets. 
     > 
-    [1] "############################### end  157 Fri Jun 17 10:51:38 2016"
-    [1] "############################### start  158 Fri Jun 17 10:51:38 2016"
+    [1] "############################### end  157 Tue May  2 20:41:07 2017"
+    [1] "############################### start  158 Tue May  2 20:41:07 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00158_informalexample_8.9_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -1719,8 +1723,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
 
     > ## [1]  40822 220447
     > 
-    [1] "############################### end  158 Fri Jun 17 10:51:38 2016"
-    [1] "############################### start  159 Fri Jun 17 10:51:38 2016"
+    [1] "############################### end  158 Tue May  2 20:41:07 2017"
+    [1] "############################### start  159 Tue May  2 20:41:07 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00159_example_8.19_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -1733,10 +1737,10 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     Apriori
 
     Parameter specification:
-     confidence minval smax arem  aval originalSupport support minlen maxlen
-           0.75    0.1    1 none FALSE            TRUE   0.002      1     10
-     target   ext
-      rules FALSE
+     confidence minval smax arem  aval originalSupport maxtime support minlen
+           0.75    0.1    1 none FALSE            TRUE       5   0.002      1
+     maxlen target   ext
+         10  rules FALSE
 
     Algorithmic control:
      filter tree heap memopt load sort verbose
@@ -1745,10 +1749,10 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     Absolute minimum support count: 81 
 
     set item appearances ...[0 item(s)] done [0.00s].
-    set transactions ...[216031 item(s), 40822 transaction(s)] done [0.44s].
+    set transactions ...[216031 item(s), 40822 transaction(s)] done [0.45s].
     sorting and recoding items ... [1256 item(s)] done [0.03s].
     creating transaction tree ... done [0.01s].
-    checking subsets of size 1 2 3 4 5 done [0.04s].
+    checking subsets of size 1 2 3 4 5 done [0.05s].
     writing ... [191 rule(s)] done [0.00s].
     creating S4 object  ... done [0.05s].
 
@@ -1819,8 +1823,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   ...and some information on how apriori() was 
     > #   called. 
     > 
-    [1] "############################### end  159 Fri Jun 17 10:51:39 2016"
-    [1] "############################### start  160 Fri Jun 17 10:51:39 2016"
+    [1] "############################### end  159 Tue May  2 20:41:08 2017"
+    [1] "############################### start  160 Tue May  2 20:41:08 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00160_example_8.20_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -1866,8 +1870,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   that reflect all the customers, not just the ones 
     > #   who showed interest in more than one book. 
     > 
-    [1] "############################### end  160 Fri Jun 17 10:51:39 2016"
-    [1] "############################### start  161 Fri Jun 17 10:51:39 2016"
+    [1] "############################### end  160 Tue May  2 20:41:08 2017"
+    [1] "############################### start  161 Tue May  2 20:41:08 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00161_informalexample_8.10_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -1875,28 +1879,28 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > # (informalexample 8.10 of section 8.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
     > 
     > inspect(head((sort(rules, by="confidence")), n=5))
-      lhs                                               rhs                                                support confidence      lift
-    1 {Four to Score,                                                                                                                  
-       High Five,                                                                                                                      
-       Seven Up,                                                                                                                       
-       Two for the Dough}                            => {Three To Get Deadly : A Stephanie Plum Novel} 0.002057714  0.9882353 165.33500
-    2 {Harry Potter and the Order of the Phoenix,                                                                                      
-       Harry Potter and the Prisoner of Azkaban,                                                                                       
-       Harry Potter and the Sorcerer's Stone}        => {Harry Potter and the Chamber of Secrets}      0.002866102  0.9669421  72.82751
-    3 {Four to Score,                                                                                                                  
-       High Five,                                                                                                                      
-       One for the Money,                                                                                                              
-       Two for the Dough}                            => {Three To Get Deadly : A Stephanie Plum Novel} 0.002082211  0.9659091 161.59976
-    4 {Four to Score,                                                                                                                  
-       Seven Up,                                                                                                                       
-       Three To Get Deadly : A Stephanie Plum Novel,                                                                                   
-       Two for the Dough}                            => {High Five}                                    0.002057714  0.9655172 180.79975
-    5 {High Five,                                                                                                                      
-       Seven Up,                                                                                                                       
-       Three To Get Deadly : A Stephanie Plum Novel,                                                                                   
-       Two for the Dough}                            => {Four to Score}                                0.002057714  0.9655172 167.72062
-    [1] "############################### end  161 Fri Jun 17 10:51:40 2016"
-    [1] "############################### start  162 Fri Jun 17 10:51:40 2016"
+        lhs                                               rhs                                                support confidence      lift
+    [1] {Four to Score,                                                                                                                  
+         High Five,                                                                                                                      
+         Seven Up,                                                                                                                       
+         Two for the Dough}                            => {Three To Get Deadly : A Stephanie Plum Novel} 0.002057714  0.9882353 165.33500
+    [2] {Harry Potter and the Order of the Phoenix,                                                                                      
+         Harry Potter and the Prisoner of Azkaban,                                                                                       
+         Harry Potter and the Sorcerer's Stone}        => {Harry Potter and the Chamber of Secrets}      0.002866102  0.9669421  72.82751
+    [3] {Four to Score,                                                                                                                  
+         High Five,                                                                                                                      
+         One for the Money,                                                                                                              
+         Two for the Dough}                            => {Three To Get Deadly : A Stephanie Plum Novel} 0.002082211  0.9659091 161.59976
+    [4] {Four to Score,                                                                                                                  
+         Seven Up,                                                                                                                       
+         Three To Get Deadly : A Stephanie Plum Novel,                                                                                   
+         Two for the Dough}                            => {High Five}                                    0.002057714  0.9655172 180.79975
+    [5] {High Five,                                                                                                                      
+         Seven Up,                                                                                                                       
+         Three To Get Deadly : A Stephanie Plum Novel,                                                                                   
+         Two for the Dough}                            => {Four to Score}                                0.002057714  0.9655172 167.72062
+    [1] "############################### end  161 Tue May  2 20:41:08 2017"
+    [1] "############################### start  162 Tue May  2 20:41:08 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00162_example_8.21_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -1912,10 +1916,10 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     Apriori
 
     Parameter specification:
-     confidence minval smax arem  aval originalSupport support minlen maxlen
-            0.6    0.1    1 none FALSE            TRUE   0.001      1     10
-     target   ext
-      rules FALSE
+     confidence minval smax arem  aval originalSupport maxtime support minlen
+            0.6    0.1    1 none FALSE            TRUE       5   0.001      1
+     maxlen target   ext
+         10  rules FALSE
 
     Algorithmic control:
      filter tree heap memopt load sort verbose
@@ -1924,12 +1928,12 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     Absolute minimum support count: 40 
 
     set item appearances ...[1 item(s)] done [0.00s].
-    set transactions ...[216031 item(s), 40822 transaction(s)] done [0.43s].
+    set transactions ...[216031 item(s), 40822 transaction(s)] done [0.42s].
     sorting and recoding items ... [3172 item(s)] done [0.03s].
     creating transaction tree ... done [0.01s].
     checking subsets of size 1 2 3 4 5 6 7 8 done [0.22s].
-    writing ... [46 rule(s)] done [0.04s].
-    creating S4 object  ... done [0.05s].
+    writing ... [46 rule(s)] done [0.05s].
+    creating S4 object  ... done [0.07s].
 
     > summary(brules)
     set of 46 rules
@@ -1989,8 +1993,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   By default, all the books can go into the 
     > #   left side of the rules. 
     > 
-    [1] "############################### end  162 Fri Jun 17 10:51:41 2016"
-    [1] "############################### start  163 Fri Jun 17 10:51:41 2016"
+    [1] "############################### end  162 Tue May  2 20:41:09 2017"
+    [1] "############################### start  163 Tue May  2 20:41:09 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00163_example_8.22_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -2001,17 +2005,17 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > brulesConf <- sort(brules, by="confidence")   # Note: 1 
 
     > inspect(head(lhs(brulesConf), n=5))       # Note: 2 
-      items                                                       
-    1 {Divine Secrets of the Ya-Ya Sisterhood: A Novel,           
-       Lucky : A Memoir}                                          
-    2 {Lucky : A Memoir,                                          
-       The Notebook}                                              
-    3 {Lucky : A Memoir,                                          
-       Wild Animus}                                               
-    4 {Midwives: A Novel,                                         
-       Wicked: The Life and Times of the Wicked Witch of the West}
-    5 {Lucky : A Memoir,                                          
-       Summer Sisters}                                            
+        items                                                       
+    [1] {Divine Secrets of the Ya-Ya Sisterhood: A Novel,           
+         Lucky : A Memoir}                                          
+    [2] {Lucky : A Memoir,                                          
+         The Notebook}                                              
+    [3] {Lucky : A Memoir,                                          
+         Wild Animus}                                               
+    [4] {Midwives: A Novel,                                         
+         Wicked: The Life and Times of the Wicked Witch of the West}
+    [5] {Lucky : A Memoir,                                          
+         Summer Sisters}                                            
 
     > ##   items
     > ## 1 {Divine Secrets of the Ya-Ya Sisterhood: A Novel,
@@ -2033,8 +2037,8 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   itemsets of each rule; then inspect the top 
     > #   five. 
     > 
-    [1] "############################### end  163 Fri Jun 17 10:51:41 2016"
-    [1] "############################### start  164 Fri Jun 17 10:51:41 2016"
+    [1] "############################### end  163 Tue May  2 20:41:10 2017"
+    [1] "############################### start  164 Tue May  2 20:41:10 2017"
     [1] "#####  running  ../CodeExamples/c08_Unsupervised_methods/00164_example_8.23_of_section_8.2.3.R"
     [1] "#####   in directory ../Bookdata"
 
@@ -2047,18 +2051,18 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > brulesConf <- sort(brulesSub, by="confidence")
 
     > inspect(head(lhs(brulesConf), n=5))
-      items                                                       
-    1 {Midwives: A Novel,                                         
-       Wicked: The Life and Times of the Wicked Witch of the West}
-    2 {She's Come Undone,                                         
-       The Secret Life of Bees,                                   
-       Wild Animus}                                               
-    3 {A Walk to Remember,                                        
-       The Nanny Diaries: A Novel}                                
-    4 {Beloved,                                                   
-       The Red Tent}                                              
-    5 {The Da Vinci Code,                                         
-       The Reader}                                                
+        items                                                       
+    [1] {Midwives: A Novel,                                         
+         Wicked: The Life and Times of the Wicked Witch of the West}
+    [2] {She's Come Undone,                                         
+         The Secret Life of Bees,                                   
+         Wild Animus}                                               
+    [3] {A Walk to Remember,                                        
+         The Nanny Diaries: A Novel}                                
+    [4] {Beloved,                                                   
+         The Red Tent}                                              
+    [5] {The Da Vinci Code,                                         
+         The Reader}                                                
 
     > ##   items
     > ## 1 {Midwives: A Novel,
@@ -2078,4 +2082,4 @@ runDir('../CodeExamples/c08_Unsupervised_methods',
     > #   Lucky is not in the left 
     > #   side. 
     > 
-    [1] "############################### end  164 Fri Jun 17 10:51:41 2016"
+    [1] "############################### end  164 Tue May  2 20:41:10 2017"

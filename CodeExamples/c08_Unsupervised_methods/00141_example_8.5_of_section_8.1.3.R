@@ -5,7 +5,7 @@
 library(ggplot2)
 princ <- prcomp(pmatrix)    	# Note: 1 
 nComp <- 2
-project <- predict(princ, newdata=pmatrix)[,1:nComp]      	# Note: 2 
+project <- (pmatrix %*% princ$rotation)[,1:nComp]         	# Note: 2 
 project.plus <- cbind(as.data.frame(project),             	# Note: 3 
                      cluster=as.factor(groups),
                      country=protein$Country)

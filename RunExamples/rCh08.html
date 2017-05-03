@@ -3,7 +3,7 @@
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
 <span class="kw">runDir</span>(<span class="st">&#39;../CodeExamples/c08_Unsupervised_methods&#39;</span>,
       <span class="st">&#39;../Protein&#39;</span>,<span class="dt">last=</span><span class="dv">151</span>)</code></pre></div>
-<pre><code>[1] &quot;############################### start  136 Fri Jun 17 10:51:15 2016&quot;
+<pre><code>[1] &quot;############################### start  136 Tue May  2 20:40:45 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00136_example_8.1_of_section_8.1.2.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -63,8 +63,8 @@
 &gt; ##  3rd Qu.:4.700   3rd Qu.:4.900
 &gt; ##  Max.   :7.800   Max.   :7.900
 &gt; 
-[1] &quot;############################### end  136 Fri Jun 17 10:51:15 2016&quot;
-[1] &quot;############################### start  137 Fri Jun 17 10:51:15 2016&quot;
+[1] &quot;############################### end  136 Tue May  2 20:40:45 2017&quot;
+[1] &quot;############################### start  137 Tue May  2 20:40:45 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00137_example_8.2_of_section_8.1.2.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -79,6 +79,10 @@
 &gt; pcenter &lt;- attr(pmatrix, &quot;scaled:center&quot;)     # Note: 3 
 
 &gt; pscale &lt;- attr(pmatrix, &quot;scaled:scale&quot;)
+
+&gt; attr(pmatrix, &quot;scaled:center&quot;) &lt;- NULL
+
+&gt; attr(pmatrix, &quot;scaled:scale&quot;) &lt;- NULL
 
 &gt; # Note 1: 
 &gt; #   Use all the columns except the first 
@@ -98,8 +102,8 @@
 &gt; #   these away so you can “unscale” the data 
 &gt; #   later. 
 &gt; 
-[1] &quot;############################### end  137 Fri Jun 17 10:51:15 2016&quot;
-[1] &quot;############################### start  138 Fri Jun 17 10:51:15 2016&quot;
+[1] &quot;############################### end  137 Tue May  2 20:40:45 2017&quot;
+[1] &quot;############################### start  138 Tue May  2 20:40:45 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00138_example_8.3_of_section_8.1.3.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -125,8 +129,8 @@
 &gt; # Note 3: 
 &gt; #   Plot the dendrogram. 
 &gt; 
-[1] &quot;############################### end  138 Fri Jun 17 10:51:15 2016&quot;
-[1] &quot;############################### start  139 Fri Jun 17 10:51:15 2016&quot;
+[1] &quot;############################### end  138 Tue May  2 20:40:45 2017&quot;
+[1] &quot;############################### start  139 Tue May  2 20:40:45 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00139_informalexample_8.5_of_section_8.1.3.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -134,8 +138,8 @@
 &gt; # (informalexample 8.5 of section 8.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 &gt; 
 &gt; rect.hclust(pfit, k=5)
-[1] &quot;############################### end  139 Fri Jun 17 10:51:15 2016&quot;
-[1] &quot;############################### start  140 Fri Jun 17 10:51:15 2016&quot;
+[1] &quot;############################### end  139 Tue May  2 20:40:45 2017&quot;
+[1] &quot;############################### start  140 Tue May  2 20:40:45 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00140_example_8.4_of_section_8.1.3.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -233,8 +237,8 @@
 &gt; #   this section. Note that the function is hardcoded 
 &gt; #   for the protein dataset. 
 &gt; 
-[1] &quot;############################### end  140 Fri Jun 17 10:51:15 2016&quot;
-[1] &quot;############################### start  141 Fri Jun 17 10:51:15 2016&quot;
+[1] &quot;############################### end  140 Tue May  2 20:40:45 2017&quot;
+[1] &quot;############################### start  141 Tue May  2 20:40:45 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00141_example_8.5_of_section_8.1.3.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -248,7 +252,7 @@
 
 &gt; nComp &lt;- 2
 
-&gt; project &lt;- predict(princ, newdata=pmatrix)[,1:nComp]          # Note: 2 
+&gt; project &lt;- (pmatrix %*% princ$rotation)[,1:nComp]             # Note: 2 
 
 &gt; project.plus &lt;- cbind(as.data.frame(project),                 # Note: 3 
                       cluster=as.factor(groups),
@@ -280,8 +284,8 @@
 &gt; # Note 4: 
 &gt; #   Plot it. 
 &gt; 
-[1] &quot;############################### end  141 Fri Jun 17 10:51:15 2016&quot;
-[1] &quot;############################### start  142 Fri Jun 17 10:51:15 2016&quot;
+[1] &quot;############################### end  141 Tue May  2 20:40:45 2017&quot;
+[1] &quot;############################### start  142 Tue May  2 20:40:45 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00142_example_8.6_of_section_8.1.3.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -490,11 +494,11 @@ nccl           1     -none- numeric
 &gt; ## 17 Portugal     6.2 14.2    7.9
 &gt; ## 19    Spain     7.1  7.0    7.2
 &gt; cboot.hclust$bootmean                                     # Note: 7 
-[1] 0.8458333 0.7789048 0.6102738 0.9235476 0.7608333
+[1] 0.7958333 0.7882421 0.6631746 0.9151190 0.7596667
 
 &gt; ## [1] 0.7905000 0.7990913 0.6173056 0.9312857 0.7560000
 &gt; cboot.hclust$bootbrd                                      # Note: 8 
-[1] 15 11 52 10 32
+[1] 23 15 41 11 36
 
 &gt; ## [1] 25 11 47  8 35
 &gt; 
@@ -534,8 +538,8 @@ nccl           1     -none- numeric
 &gt; #   dissolved. By default clusterboot() runs 100 
 &gt; #   bootstrap iterations. 
 &gt; 
-[1] &quot;############################### end  142 Fri Jun 17 10:51:16 2016&quot;
-[1] &quot;############################### start  143 Fri Jun 17 10:51:16 2016&quot;
+[1] &quot;############################### end  142 Tue May  2 20:40:46 2017&quot;
+[1] &quot;############################### start  143 Tue May  2 20:40:46 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00143_example_8.7_of_section_8.1.3.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -586,8 +590,8 @@ nccl           1     -none- numeric
 &gt; #   Extract each cluster, calculate the 
 &gt; #   cluster’s WSS, and sum all the values. 
 &gt; 
-[1] &quot;############################### end  143 Fri Jun 17 10:51:16 2016&quot;
-[1] &quot;############################### start  144 Fri Jun 17 10:51:16 2016&quot;
+[1] &quot;############################### end  143 Tue May  2 20:40:46 2017&quot;
+[1] &quot;############################### start  144 Tue May  2 20:40:46 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00144_example_8.8_of_section_8.1.3.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -667,8 +671,8 @@ nccl           1     -none- numeric
 &gt; #   k from 1 to kmax. Also return total sum of 
 &gt; #   squares. 
 &gt; 
-[1] &quot;############################### end  144 Fri Jun 17 10:51:16 2016&quot;
-[1] &quot;############################### start  145 Fri Jun 17 10:51:16 2016&quot;
+[1] &quot;############################### end  144 Tue May  2 20:40:46 2017&quot;
+[1] &quot;############################### start  145 Tue May  2 20:40:46 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00145_example_8.9_of_section_8.1.3.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -720,8 +724,8 @@ Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
 &gt; # Note 5: 
 &gt; #   Plot it. 
 &gt; 
-[1] &quot;############################### end  145 Fri Jun 17 10:51:16 2016&quot;
-[1] &quot;############################### start  146 Fri Jun 17 10:51:16 2016&quot;
+[1] &quot;############################### end  145 Tue May  2 20:40:46 2017&quot;
+[1] &quot;############################### start  146 Tue May  2 20:40:46 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00146_example_8.10_of_section_8.1.4.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -755,15 +759,15 @@ ifault        1     -none- numeric
 &gt; pclusters$centers                                                 # Note: 3 
        RedMeat  WhiteMeat        Eggs       Milk       Fish    Cereals
 1  1.011180399  0.7421332  0.94084150  0.5700581 -0.2671539 -0.6877583
-2 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
-3 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
-4  0.006572897 -0.2290150  0.19147892  1.3458748  1.1582546 -0.8722721
+2  0.006572897 -0.2290150  0.19147892  1.3458748  1.1582546 -0.8722721
+3 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
+4 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
 5 -0.508801956 -1.1088009 -0.41248496 -0.8320414  0.9819154  0.1300253
       Starch       Nuts      Fr.Veg
 1  0.2288743 -0.5083895  0.02161979
-2  0.7857609 -0.2679180  0.06873983
-3 -1.4234267  0.9961313 -0.64360439
-4  0.1676780 -0.9553392 -1.11480485
+2  0.1676780 -0.9553392 -1.11480485
+3  0.7857609 -0.2679180  0.06873983
+4 -1.4234267  0.9961313 -0.64360439
 5 -0.1842010  1.3108846  1.62924487
 
 &gt; ##        RedMeat  WhiteMeat        Eggs       Milk       Fish
@@ -779,7 +783,7 @@ ifault        1     -none- numeric
 &gt; ## 4 -0.6877583  0.2288743 -0.5083895  0.02161979
 &gt; ## 5  0.1300253 -0.1842010  1.3108846  1.62924487
 &gt; pclusters$size                                                    # Note: 4 
-[1] 8 5 4 4 4
+[1] 8 4 5 4 4
 
 &gt; ## [1] 4 4 5 8 4
 &gt; 
@@ -797,24 +801,24 @@ ifault        1     -none- numeric
 22          UK    17.4  4.3    3.3
 24   W Germany    11.4  3.4    3.8
 [1] &quot;cluster 2&quot;
+   Country RedMeat Fish Fr.Veg
+6  Denmark    10.6  9.9    2.4
+8  Finland     9.5  5.8    1.4
+15  Norway     9.4  9.7    2.7
+20  Sweden     9.9  7.5    2.0
+[1] &quot;cluster 3&quot;
           Country RedMeat Fish Fr.Veg
 5  Czechoslovakia     9.7  2.0    4.0
 7       E Germany     8.4  5.4    3.6
 11        Hungary     5.3  0.3    4.2
 16         Poland     6.9  3.0    6.6
 23           USSR     9.3  3.0    2.9
-[1] &quot;cluster 3&quot;
+[1] &quot;cluster 4&quot;
       Country RedMeat Fish Fr.Veg
 1     Albania    10.1  0.2    1.7
 4    Bulgaria     7.8  1.2    4.2
 18    Romania     6.2  1.0    2.8
 25 Yugoslavia     4.4  0.6    3.2
-[1] &quot;cluster 4&quot;
-   Country RedMeat Fish Fr.Veg
-6  Denmark    10.6  9.9    2.4
-8  Finland     9.5  5.8    1.4
-15  Norway     9.4  9.7    2.7
-20  Sweden     9.9  7.5    2.0
 [1] &quot;cluster 5&quot;
     Country RedMeat Fish Fr.Veg
 10   Greece    10.2  5.9    6.5
@@ -889,8 +893,8 @@ ifault        1     -none- numeric
 &gt; #   the same clustering. This won’t always be 
 &gt; #   true. 
 &gt; 
-[1] &quot;############################### end  146 Fri Jun 17 10:51:16 2016&quot;
-[1] &quot;############################### start  147 Fri Jun 17 10:51:16 2016&quot;
+[1] &quot;############################### end  146 Tue May  2 20:40:46 2017&quot;
+[1] &quot;############################### start  147 Tue May  2 20:40:46 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00147_example_8.11_of_section_8.1.4.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -994,8 +998,8 @@ bestk         1     -none- numeric
 &gt; #   kmeansruns() also returns the output of 
 &gt; #   kmeans for k=bestk. 
 &gt; 
-[1] &quot;############################### end  147 Fri Jun 17 10:51:17 2016&quot;
-[1] &quot;############################### start  148 Fri Jun 17 10:51:17 2016&quot;
+[1] &quot;############################### end  147 Tue May  2 20:40:47 2017&quot;
+[1] &quot;############################### start  148 Tue May  2 20:40:47 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00148_example_8.12_of_section_8.1.4.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -1196,8 +1200,8 @@ boot 100
 &gt; #   We’ve set the seed for the random generator 
 &gt; #   so the results are reproducible. 
 &gt; 
-[1] &quot;############################### end  148 Fri Jun 17 10:51:21 2016&quot;
-[1] &quot;############################### start  149 Fri Jun 17 10:51:21 2016&quot;
+[1] &quot;############################### end  148 Tue May  2 20:40:51 2017&quot;
+[1] &quot;############################### start  149 Tue May  2 20:40:51 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00149_example_8.13_of_section_8.1.5.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -1230,8 +1234,8 @@ boot 100
 &gt; #   Return the cluster number of the closest 
 &gt; #   centroid. 
 &gt; 
-[1] &quot;############################### end  149 Fri Jun 17 10:51:21 2016&quot;
-[1] &quot;############################### start  150 Fri Jun 17 10:51:21 2016&quot;
+[1] &quot;############################### end  149 Tue May  2 20:40:51 2017&quot;
+[1] &quot;############################### start  150 Tue May  2 20:40:51 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00150_example_8.14_of_section_8.1.5.R&quot;
 [1] &quot;#####   in directory ../Protein&quot;
 
@@ -1420,13 +1424,13 @@ boot 100
 &gt; # Note 17: 
 &gt; #   It’s assigned to cluster 2. 
 &gt; 
-[1] &quot;############################### end  150 Fri Jun 17 10:51:21 2016&quot;</code></pre>
+[1] &quot;############################### end  150 Tue May  2 20:40:51 2017&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
 <span class="kw">source</span>(<span class="st">&#39;runDir.R&#39;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
 <span class="kw">runDir</span>(<span class="st">&#39;../CodeExamples/c08_Unsupervised_methods&#39;</span>,
       <span class="st">&#39;../Bookdata&#39;</span>,<span class="dt">first=</span><span class="dv">152</span>)</code></pre></div>
-<pre><code>[1] &quot;############################### start  152 Fri Jun 17 10:51:21 2016&quot;
+<pre><code>[1] &quot;############################### start  152 Tue May  2 20:40:51 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00152_example_8.15_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1479,8 +1483,8 @@ items
 &gt; #   duplicate entries (for example, multiple entries 
 &gt; #   for “The Hobbit” by the same user). 
 &gt; 
-[1] &quot;############################### end  152 Fri Jun 17 10:51:38 2016&quot;
-[1] &quot;############################### start  153 Fri Jun 17 10:51:38 2016&quot;
+[1] &quot;############################### end  152 Tue May  2 20:41:06 2017&quot;
+[1] &quot;############################### start  153 Tue May  2 20:41:06 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00153_example_8.16_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1543,8 +1547,8 @@ transactions in sparse format with
 &gt; # Note 5: 
 &gt; #   The rows are labeled by customer. 
 &gt; 
-[1] &quot;############################### end  153 Fri Jun 17 10:51:38 2016&quot;
-[1] &quot;############################### start  154 Fri Jun 17 10:51:38 2016&quot;
+[1] &quot;############################### end  153 Tue May  2 20:41:06 2017&quot;
+[1] &quot;############################### start  154 Tue May  2 20:41:06 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00154_informalexample_8.7_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1560,8 +1564,8 @@ transactions in sparse format with
 &gt; ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
 &gt; ##     1.0     1.0     1.0    11.1     4.0 10250.0
 &gt; 
-[1] &quot;############################### end  154 Fri Jun 17 10:51:38 2016&quot;
-[1] &quot;############################### start  155 Fri Jun 17 10:51:38 2016&quot;
+[1] &quot;############################### end  154 Tue May  2 20:41:06 2017&quot;
+[1] &quot;############################### start  155 Tue May  2 20:41:06 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00155_example_8.17_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1592,8 +1596,8 @@ transactions in sparse format with
 &gt; #   Plot the distribution to get a better 
 &gt; #   look. 
 &gt; 
-[1] &quot;############################### end  155 Fri Jun 17 10:51:38 2016&quot;
-[1] &quot;############################### start  156 Fri Jun 17 10:51:38 2016&quot;
+[1] &quot;############################### end  155 Tue May  2 20:41:06 2017&quot;
+[1] &quot;############################### start  156 Tue May  2 20:41:06 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00156_informalexample_8.8_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1611,8 +1615,8 @@ transactions in sparse format with
 
 &gt; ## [1] 11.09909
 &gt; 
-[1] &quot;############################### end  156 Fri Jun 17 10:51:38 2016&quot;
-[1] &quot;############################### start  157 Fri Jun 17 10:51:38 2016&quot;
+[1] &quot;############################### end  156 Tue May  2 20:41:06 2017&quot;
+[1] &quot;############################### start  157 Tue May  2 20:41:06 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00157_example_8.18_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1691,8 +1695,8 @@ Wild Animus
 &gt; #   The most popular book in the dataset 
 &gt; #   occurred in fewer than 3% of the baskets. 
 &gt; 
-[1] &quot;############################### end  157 Fri Jun 17 10:51:38 2016&quot;
-[1] &quot;############################### start  158 Fri Jun 17 10:51:38 2016&quot;
+[1] &quot;############################### end  157 Tue May  2 20:41:07 2017&quot;
+[1] &quot;############################### start  158 Tue May  2 20:41:07 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00158_informalexample_8.9_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1706,8 +1710,8 @@ Wild Animus
 
 &gt; ## [1]  40822 220447
 &gt; 
-[1] &quot;############################### end  158 Fri Jun 17 10:51:38 2016&quot;
-[1] &quot;############################### start  159 Fri Jun 17 10:51:38 2016&quot;
+[1] &quot;############################### end  158 Tue May  2 20:41:07 2017&quot;
+[1] &quot;############################### start  159 Tue May  2 20:41:07 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00159_example_8.19_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1720,10 +1724,10 @@ Wild Animus
 Apriori
 
 Parameter specification:
- confidence minval smax arem  aval originalSupport support minlen maxlen
-       0.75    0.1    1 none FALSE            TRUE   0.002      1     10
- target   ext
-  rules FALSE
+ confidence minval smax arem  aval originalSupport maxtime support minlen
+       0.75    0.1    1 none FALSE            TRUE       5   0.002      1
+ maxlen target   ext
+     10  rules FALSE
 
 Algorithmic control:
  filter tree heap memopt load sort verbose
@@ -1732,10 +1736,10 @@ Algorithmic control:
 Absolute minimum support count: 81 
 
 set item appearances ...[0 item(s)] done [0.00s].
-set transactions ...[216031 item(s), 40822 transaction(s)] done [0.44s].
+set transactions ...[216031 item(s), 40822 transaction(s)] done [0.45s].
 sorting and recoding items ... [1256 item(s)] done [0.03s].
 creating transaction tree ... done [0.01s].
-checking subsets of size 1 2 3 4 5 done [0.04s].
+checking subsets of size 1 2 3 4 5 done [0.05s].
 writing ... [191 rule(s)] done [0.00s].
 creating S4 object  ... done [0.05s].
 
@@ -1806,8 +1810,8 @@ mining info:
 &gt; #   ...and some information on how apriori() was 
 &gt; #   called. 
 &gt; 
-[1] &quot;############################### end  159 Fri Jun 17 10:51:39 2016&quot;
-[1] &quot;############################### start  160 Fri Jun 17 10:51:39 2016&quot;
+[1] &quot;############################### end  159 Tue May  2 20:41:08 2017&quot;
+[1] &quot;############################### start  160 Tue May  2 20:41:08 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00160_example_8.20_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1853,8 +1857,8 @@ mining info:
 &gt; #   that reflect all the customers, not just the ones 
 &gt; #   who showed interest in more than one book. 
 &gt; 
-[1] &quot;############################### end  160 Fri Jun 17 10:51:39 2016&quot;
-[1] &quot;############################### start  161 Fri Jun 17 10:51:39 2016&quot;
+[1] &quot;############################### end  160 Tue May  2 20:41:08 2017&quot;
+[1] &quot;############################### start  161 Tue May  2 20:41:08 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00161_informalexample_8.10_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1862,28 +1866,28 @@ mining info:
 &gt; # (informalexample 8.10 of section 8.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
 &gt; 
 &gt; inspect(head((sort(rules, by=&quot;confidence&quot;)), n=5))
-  lhs                                               rhs                                                support confidence      lift
-1 {Four to Score,                                                                                                                  
-   High Five,                                                                                                                      
-   Seven Up,                                                                                                                       
-   Two for the Dough}                            =&gt; {Three To Get Deadly : A Stephanie Plum Novel} 0.002057714  0.9882353 165.33500
-2 {Harry Potter and the Order of the Phoenix,                                                                                      
-   Harry Potter and the Prisoner of Azkaban,                                                                                       
-   Harry Potter and the Sorcerer&#39;s Stone}        =&gt; {Harry Potter and the Chamber of Secrets}      0.002866102  0.9669421  72.82751
-3 {Four to Score,                                                                                                                  
-   High Five,                                                                                                                      
-   One for the Money,                                                                                                              
-   Two for the Dough}                            =&gt; {Three To Get Deadly : A Stephanie Plum Novel} 0.002082211  0.9659091 161.59976
-4 {Four to Score,                                                                                                                  
-   Seven Up,                                                                                                                       
-   Three To Get Deadly : A Stephanie Plum Novel,                                                                                   
-   Two for the Dough}                            =&gt; {High Five}                                    0.002057714  0.9655172 180.79975
-5 {High Five,                                                                                                                      
-   Seven Up,                                                                                                                       
-   Three To Get Deadly : A Stephanie Plum Novel,                                                                                   
-   Two for the Dough}                            =&gt; {Four to Score}                                0.002057714  0.9655172 167.72062
-[1] &quot;############################### end  161 Fri Jun 17 10:51:40 2016&quot;
-[1] &quot;############################### start  162 Fri Jun 17 10:51:40 2016&quot;
+    lhs                                               rhs                                                support confidence      lift
+[1] {Four to Score,                                                                                                                  
+     High Five,                                                                                                                      
+     Seven Up,                                                                                                                       
+     Two for the Dough}                            =&gt; {Three To Get Deadly : A Stephanie Plum Novel} 0.002057714  0.9882353 165.33500
+[2] {Harry Potter and the Order of the Phoenix,                                                                                      
+     Harry Potter and the Prisoner of Azkaban,                                                                                       
+     Harry Potter and the Sorcerer&#39;s Stone}        =&gt; {Harry Potter and the Chamber of Secrets}      0.002866102  0.9669421  72.82751
+[3] {Four to Score,                                                                                                                  
+     High Five,                                                                                                                      
+     One for the Money,                                                                                                              
+     Two for the Dough}                            =&gt; {Three To Get Deadly : A Stephanie Plum Novel} 0.002082211  0.9659091 161.59976
+[4] {Four to Score,                                                                                                                  
+     Seven Up,                                                                                                                       
+     Three To Get Deadly : A Stephanie Plum Novel,                                                                                   
+     Two for the Dough}                            =&gt; {High Five}                                    0.002057714  0.9655172 180.79975
+[5] {High Five,                                                                                                                      
+     Seven Up,                                                                                                                       
+     Three To Get Deadly : A Stephanie Plum Novel,                                                                                   
+     Two for the Dough}                            =&gt; {Four to Score}                                0.002057714  0.9655172 167.72062
+[1] &quot;############################### end  161 Tue May  2 20:41:08 2017&quot;
+[1] &quot;############################### start  162 Tue May  2 20:41:08 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00162_example_8.21_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1899,10 +1903,10 @@ mining info:
 Apriori
 
 Parameter specification:
- confidence minval smax arem  aval originalSupport support minlen maxlen
-        0.6    0.1    1 none FALSE            TRUE   0.001      1     10
- target   ext
-  rules FALSE
+ confidence minval smax arem  aval originalSupport maxtime support minlen
+        0.6    0.1    1 none FALSE            TRUE       5   0.001      1
+ maxlen target   ext
+     10  rules FALSE
 
 Algorithmic control:
  filter tree heap memopt load sort verbose
@@ -1911,12 +1915,12 @@ Algorithmic control:
 Absolute minimum support count: 40 
 
 set item appearances ...[1 item(s)] done [0.00s].
-set transactions ...[216031 item(s), 40822 transaction(s)] done [0.43s].
+set transactions ...[216031 item(s), 40822 transaction(s)] done [0.42s].
 sorting and recoding items ... [3172 item(s)] done [0.03s].
 creating transaction tree ... done [0.01s].
 checking subsets of size 1 2 3 4 5 6 7 8 done [0.22s].
-writing ... [46 rule(s)] done [0.04s].
-creating S4 object  ... done [0.05s].
+writing ... [46 rule(s)] done [0.05s].
+creating S4 object  ... done [0.07s].
 
 &gt; summary(brules)
 set of 46 rules
@@ -1976,8 +1980,8 @@ mining info:
 &gt; #   By default, all the books can go into the 
 &gt; #   left side of the rules. 
 &gt; 
-[1] &quot;############################### end  162 Fri Jun 17 10:51:41 2016&quot;
-[1] &quot;############################### start  163 Fri Jun 17 10:51:41 2016&quot;
+[1] &quot;############################### end  162 Tue May  2 20:41:09 2017&quot;
+[1] &quot;############################### start  163 Tue May  2 20:41:09 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00163_example_8.22_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -1988,17 +1992,17 @@ mining info:
 &gt; brulesConf &lt;- sort(brules, by=&quot;confidence&quot;)   # Note: 1 
 
 &gt; inspect(head(lhs(brulesConf), n=5))       # Note: 2 
-  items                                                       
-1 {Divine Secrets of the Ya-Ya Sisterhood: A Novel,           
-   Lucky : A Memoir}                                          
-2 {Lucky : A Memoir,                                          
-   The Notebook}                                              
-3 {Lucky : A Memoir,                                          
-   Wild Animus}                                               
-4 {Midwives: A Novel,                                         
-   Wicked: The Life and Times of the Wicked Witch of the West}
-5 {Lucky : A Memoir,                                          
-   Summer Sisters}                                            
+    items                                                       
+[1] {Divine Secrets of the Ya-Ya Sisterhood: A Novel,           
+     Lucky : A Memoir}                                          
+[2] {Lucky : A Memoir,                                          
+     The Notebook}                                              
+[3] {Lucky : A Memoir,                                          
+     Wild Animus}                                               
+[4] {Midwives: A Novel,                                         
+     Wicked: The Life and Times of the Wicked Witch of the West}
+[5] {Lucky : A Memoir,                                          
+     Summer Sisters}                                            
 
 &gt; ##   items
 &gt; ## 1 {Divine Secrets of the Ya-Ya Sisterhood: A Novel,
@@ -2020,8 +2024,8 @@ mining info:
 &gt; #   itemsets of each rule; then inspect the top 
 &gt; #   five. 
 &gt; 
-[1] &quot;############################### end  163 Fri Jun 17 10:51:41 2016&quot;
-[1] &quot;############################### start  164 Fri Jun 17 10:51:41 2016&quot;
+[1] &quot;############################### end  163 Tue May  2 20:41:10 2017&quot;
+[1] &quot;############################### start  164 Tue May  2 20:41:10 2017&quot;
 [1] &quot;#####  running  ../CodeExamples/c08_Unsupervised_methods/00164_example_8.23_of_section_8.2.3.R&quot;
 [1] &quot;#####   in directory ../Bookdata&quot;
 
@@ -2034,18 +2038,18 @@ mining info:
 &gt; brulesConf &lt;- sort(brulesSub, by=&quot;confidence&quot;)
 
 &gt; inspect(head(lhs(brulesConf), n=5))
-  items                                                       
-1 {Midwives: A Novel,                                         
-   Wicked: The Life and Times of the Wicked Witch of the West}
-2 {She&#39;s Come Undone,                                         
-   The Secret Life of Bees,                                   
-   Wild Animus}                                               
-3 {A Walk to Remember,                                        
-   The Nanny Diaries: A Novel}                                
-4 {Beloved,                                                   
-   The Red Tent}                                              
-5 {The Da Vinci Code,                                         
-   The Reader}                                                
+    items                                                       
+[1] {Midwives: A Novel,                                         
+     Wicked: The Life and Times of the Wicked Witch of the West}
+[2] {She&#39;s Come Undone,                                         
+     The Secret Life of Bees,                                   
+     Wild Animus}                                               
+[3] {A Walk to Remember,                                        
+     The Nanny Diaries: A Novel}                                
+[4] {Beloved,                                                   
+     The Red Tent}                                              
+[5] {The Da Vinci Code,                                         
+     The Reader}                                                
 
 &gt; ##   items
 &gt; ## 1 {Midwives: A Novel,
@@ -2065,4 +2069,4 @@ mining info:
 &gt; #   Lucky is not in the left 
 &gt; #   side. 
 &gt; 
-[1] &quot;############################### end  164 Fri Jun 17 10:51:41 2016&quot;</code></pre>
+[1] &quot;############################### end  164 Tue May  2 20:41:10 2017&quot;</code></pre>

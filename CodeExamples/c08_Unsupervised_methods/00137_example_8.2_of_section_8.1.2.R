@@ -6,6 +6,8 @@ vars.to.use <- colnames(protein)[-1]       	# Note: 1
 pmatrix <- scale(protein[,vars.to.use])    	# Note: 2 
 pcenter <- attr(pmatrix, "scaled:center")  	# Note: 3 
 pscale <- attr(pmatrix, "scaled:scale")
+attr(pmatrix, "scaled:center") <- NULL
+attr(pmatrix, "scaled:scale") <- NULL
 
 # Note 1: 
 #   Use all the columns except the first 

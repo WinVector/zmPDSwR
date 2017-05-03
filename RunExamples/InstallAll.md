@@ -10,7 +10,7 @@ install.packages(   c('RJDBC', 'ROCR', 'Rook', 'arules', 'class', 'ctv', 'e1071'
 
     ## 
     ## The downloaded binary packages are in
-    ##  /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//Rtmpei8FMt/downloaded_packages
+    ##  /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//RtmplxLeco/downloaded_packages
 
 ``` r
 # 'grDevices', 'grid' # included with R
