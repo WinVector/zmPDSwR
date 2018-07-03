@@ -26,7 +26,8 @@ sub-models.
 date()
 #load some libraries
 library('vtreat')
-library('WVPlots') # https://github.com/WinVector/WVPlots
+packageVersion("vtreat")
+library('WVPlots') 
 
 library('parallel')
 library('gbm')
