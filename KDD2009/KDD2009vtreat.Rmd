@@ -63,7 +63,8 @@ yTarget = 1
 
 set.seed(239525)
 
-cl = parallel::makeCluster(4)
+ncore <- parallel::detectCores()
+cl = parallel::makeCluster(ncore)
 date()
 ```
 
@@ -108,7 +109,7 @@ print(paste(mname,length(selvars)))
 
 params <- list(max_depth = 5, 
               objective = "binary:logistic",
-              nthread = 4)
+              nthread = ncore)
 model <- xgb.cv(data = as.matrix(treatedTrainM[, selvars, drop = FALSE]),
                 label = treatedTrainM[[yName]],
                 nrounds = 400,
