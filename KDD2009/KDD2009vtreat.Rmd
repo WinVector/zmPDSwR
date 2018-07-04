@@ -30,8 +30,8 @@ packageVersion("vtreat")
 library('WVPlots') 
 
 library('parallel')
-library('gbm')
-library('class')
+library('xgboost')
+
 
 
 # load the data as in the book
@@ -103,21 +103,29 @@ date()
 
 ```{r kddmodels, tidy=FALSE}
 date()
-formulaS = paste(yName,paste(selvars,collapse=' + '),sep=' ~ ')
-mname = 'gbmPred'
+mname = 'xgbPred'
 print(paste(mname,length(selvars)))
-modelGBMs = gbm(as.formula(formulaS),
-                data=treatedTrainM,
-                distribution='bernoulli',
-                n.trees=4000,
-                interaction.depth=3,
-                keep.data=FALSE,
-                cv.folds=5)
-nTrees = gbm.perf(modelGBMs)
-print(nTrees)
-treatedTrainP[[mname]] = predict(modelGBMs,newdata=treatedTrainM,type='response',
-                                 n.trees=nTrees) 
-treatedTestP[[mname]] = predict(modelGBMs,newdata=treatedTest,type='response',
+
+params <- list(max_depth = 5, 
+              objective = "binary:logistic",
+              nthread = 4)
+model <- xgb.cv(data = as.matrix(treatedTrainM[, selvars, drop = FALSE]),
+                label = treatedTrainM[[yName]],
+                nrounds = 400,
+                params = params,
+                nfold = 5,
+                early_stopping_rounds = 5)
+nrounds <- model$best_iteration
+print(paste("nrounds", nrounds))
+model <- xgboost(data = as.matrix(treatedTrainM[, selvars, drop = FALSE]),
+                 label = treatedTrainM[[yName]],
+                 nrounds = nrounds,
+                 params = params)
+treatedTrainP[[mname]] = predict(model, 
+                                 newdata=as.matrix(treatedTrainM[, selvars, drop = FALSE]), 
+                                 type='response')
+treatedTestP[[mname]] = predict(model,
+                                newdata=as.matrix(treatedTest[, selvars, drop = FALSE]), 
                                 n.trees=nTrees)
 date()
 ```
