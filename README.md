@@ -1,8 +1,10 @@
-# Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
+# Example code and data for "Practical Data Science with R 1st Edition" by Nina Zumel and John Mount, Manning 2014.
+
+Please consider upgrading to the in-progress ["Practical Data Science with R 2nd Edition" by Nina Zumel and John Mount (Manning 2019)](https://www.manning.com/books/practical-data-science-with-r-second-edition) (code/data/examples [here](https://github.com/WinVector/PDSwR2)).
 
 ## The book:
 
- * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](https://www.manning.com/books/practical-data-science-with-r) (book copyright Manning Publications Co., all rights reserved)
+ * The book: ["Practical Data Science with R 1st Edition" by Nina Zumel and John Mount, Manning 2014](https://www.manning.com/books/practical-data-science-with-r) (book copyright Manning Publications Co., all rights reserved)
  * The book at [Amazon.com](http://www.amazon.com/Practical-Data-Science-Nina-Zumel/dp/1617291560/)
 
 ## Additional materials
