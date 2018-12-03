@@ -68,16 +68,29 @@ cl = parallel::makeCluster(ncore)
 date()
 ```
 
+```{r kddvarsel}
+date()
 
+var_values <- vtreat::value_variables_C(dTrain,
+    vars,yName,yTarget,
+    smFactor=2.0, 
+    parallelCluster=cl
+    )
+summary(var_values$sig < 1/nrow(var_values))
+vars <- var_values$var[var_values$sig < 1/nrow(var_values)]
+
+
+date()
+```
 
 
 ```{r kddtreat, tidy=FALSE}
 date()
+
 # Run other models (with proper coding/training separation).
 #
 # This gets us back to AUC 0.72 range
 
-kddPrune = 0.05
 
 cfe = mkCrossFrameCExperiment(dTrain,
     vars,yName,yTarget,
@@ -85,7 +98,7 @@ cfe = mkCrossFrameCExperiment(dTrain,
     parallelCluster=cl)
 treatmentsC = cfe$treatments
 scoreFrame = treatmentsC$scoreFrame
-selvars <- scoreFrame$varName[scoreFrame$sig<=kddPrune]
+selvars <- scoreFrame$varName
 treatedTrainM <- cfe$crossFrame[,c(yName,selvars),drop=FALSE]
 treatedTrainM[[yName]] = treatedTrainM[[yName]]==yTarget
 
