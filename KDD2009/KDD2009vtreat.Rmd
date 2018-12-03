@@ -91,11 +91,15 @@ date()
 #
 # This gets us back to AUC 0.72 range
 
-
+customCoders = list('c.PiecewiseV.num' = vtreat::solve_piecewise,
+                    'n.PiecewiseV.num' = vtreat::solve_piecewise)
 cfe = mkCrossFrameCExperiment(dTrain,
-    vars,yName,yTarget,
-    smFactor=2.0, 
-    parallelCluster=cl)
+                              vars,yName,yTarget,
+                              customCoders=customCoders,
+                              smFactor=2.0, 
+                              parallelCluster=cl)
+
+
 treatmentsC = cfe$treatments
 scoreFrame = treatmentsC$scoreFrame
 selvars <- scoreFrame$varName
@@ -128,7 +132,8 @@ model <- xgb.cv(data = as.matrix(treatedTrainM[, selvars, drop = FALSE]),
                 nrounds = 400,
                 params = params,
                 nfold = 5,
-                early_stopping_rounds = 5)
+                early_stopping_rounds = 10,
+                eval_metric = "logloss")
 nrounds <- model$best_iteration
 print(paste("nrounds", nrounds))
 model <- xgboost(data = as.matrix(treatedTrainM[, selvars, drop = FALSE]),
