@@ -36,7 +36,9 @@ library('xgboost')
 
 # load the data as in the book
 # change this path to match your directory structure
-dir = '~/Documents/work/PracticalDataScienceWithR/zmPDSwR/KDD2009/' 
+#dir = '~/Documents/work/PracticalDataScienceWithR/zmPDSwR/KDD2009/' 
+dir = '~/Documents/work/zmPDSwR/KDD2009/' 
+
 
 d = read.table(paste(dir,'orange_small_train.data.gz',sep=''),
                 header=T,sep='\t',na.strings=c('NA',''), 
@@ -98,7 +100,13 @@ date()
 customCoders = list('c.PiecewiseV.num' = vtreat::solve_piecewise,
                     'n.PiecewiseV.num' = vtreat::solve_piecewise,
                     'c.knearest.num' = vtreat::square_window,
-                    'n.knearest.num' = vtreat::square_window)
+                    'n.knearest.num' = vtreat::square_window,
+                    'n.poolN.center' = vtreat::ppCoderN, 
+                    'c.poolC.center' = vtreat::ppCoderC)
+                   # 'n.NonDecreasingV.num' = vtreat::solveNonDecreasing,
+                   # 'n.NonIncreasingV.num' = vtreat::solveNonIncreasing, 
+                   # 'c.NonDecreasingV.num' = vtreat::solveNonDecreasing,
+                   # 'c.NonIncreasingV.num' = vtreat::solveNonIncreasing)
 cfe = mkCrossFrameCExperiment(dTrain,
                               vars,yName,yTarget,
                               customCoders=customCoders,
