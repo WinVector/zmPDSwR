@@ -55,6 +55,10 @@ d$rgroup = runif(dim(d)[[1]])
 dTrain = subset(d,rgroup<=0.9)  # set for building models and impact coding
 dTest = subset(d,rgroup>0.9) # set for evaluation
 rm(list=c('d','churn','appetency','upselling','dir'))
+
+dim(dTrain)
+dim(dTest)
+
 outcomes = c('churn','appetency','upselling')
 vars = setdiff(colnames(dTrain),
                 c(outcomes,'rgroup'))
