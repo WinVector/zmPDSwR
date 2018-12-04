@@ -96,7 +96,9 @@ date()
 # This gets us back to AUC 0.72 range
 
 customCoders = list('c.PiecewiseV.num' = vtreat::solve_piecewise,
-                    'n.PiecewiseV.num' = vtreat::solve_piecewise)
+                    'n.PiecewiseV.num' = vtreat::solve_piecewise,
+                    'c.knearest.num' = vtreat::square_window,
+                    'n.knearest.num' = vtreat::square_window)
 cfe = mkCrossFrameCExperiment(dTrain,
                               vars,yName,yTarget,
                               customCoders=customCoders,
