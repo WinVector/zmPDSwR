@@ -100,9 +100,9 @@ date()
 customCoders = list('c.PiecewiseV.num' = vtreat::solve_piecewise,
                     'n.PiecewiseV.num' = vtreat::solve_piecewise,
                     'c.knearest.num' = vtreat::square_window,
-                    'n.knearest.num' = vtreat::square_window,
-                    'n.poolN.center' = vtreat::ppCoderN, 
-                    'c.poolC.center' = vtreat::ppCoderC)
+                    'n.knearest.num' = vtreat::square_window)
+                   # 'n.poolN.center' = vtreat::ppCoderN, 
+                   # 'c.poolC.center' = vtreat::ppCoderC)
                    # 'n.NonDecreasingV.num' = vtreat::solveNonDecreasing,
                    # 'n.NonIncreasingV.num' = vtreat::solveNonIncreasing, 
                    # 'c.NonDecreasingV.num' = vtreat::solveNonDecreasing,
