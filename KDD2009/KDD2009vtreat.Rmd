@@ -87,6 +87,9 @@ var_values <- vtreat::value_variables_C(dTrain,
     smFactor=2.0, 
     parallelCluster=cl
     )
+
+knitr::kable(var_values)
+
 summary(var_values$sig < 1/nrow(var_values))
 vars <- var_values$var[var_values$sig < 1/nrow(var_values)]
 
