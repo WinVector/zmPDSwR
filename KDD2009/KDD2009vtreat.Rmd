@@ -1,3 +1,8 @@
+---
+title: "KDD2009vtreat"
+author: "John Mount"
+output: github_document
+---
 
 
 Practical data science with R built chapter 6 built a number of single variable models.
