@@ -3,11 +3,11 @@
 <p>Practical data science with R built chapter 6 built a number of single variable models. In Listing 6.11 it used an ad-hoc entropy based out of sample effect size estimate for variable selection. This likely (though it isn't completely rigorous) picked variables conservatively.</p>
 <p>We show here how to repeat this work on the KDD2009 dataset using more standard techniques more quickly. For vtreat details see: <a href="http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/" class="uri">http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/</a> and Chapter 6 of Practical Data Science with R: <a href="http://www.amazon.com/Practical-Data-Science/dp/1617291560" class="uri">http://www.amazon.com/Practical-Data-Science/dp/1617291560</a> For details on data see: <a href="https://github.com/WinVector/zmPDSwR/tree/master/KDD2009" class="uri">https://github.com/WinVector/zmPDSwR/tree/master/KDD2009</a> There is an issue that any data row used to build the single variable models isn't exchangable with future unseen rows for the purposes of scoring and training. So the most hygienic way to work is to use one subset of data to build the single variable models, and then another to built the composite model, and a third for scoring. In particular models trained using rows used to build sub-models think the sub-models have large effects that the sub-models will in the future, and under-estimate degrees of freedom of complicated sub-models.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 17 11:20:04 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Dec 27 15:41:42 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#load some libraries</span>
 <span class="kw">library</span>(<span class="st">&#39;vtreat&#39;</span>)
 <span class="kw">packageVersion</span>(<span class="st">&quot;vtreat&quot;</span>)</code></pre></div>
-<pre><code>## [1] &#39;1.3.3&#39;</code></pre>
+<pre><code>## [1] &#39;1.3.4&#39;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&#39;WVPlots&#39;</span>) 
 
 <span class="kw">library</span>(<span class="st">&#39;parallel&#39;</span>)
@@ -54,9 +54,9 @@ yTarget =<span class="st"> </span><span class="dv">1</span>
 ncore &lt;-<span class="st"> </span>parallel<span class="op">::</span><span class="kw">detectCores</span>()
 cl =<span class="st"> </span>parallel<span class="op">::</span><span class="kw">makeCluster</span>(ncore)
 <span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 17 11:20:09 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Dec 27 15:41:48 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 17 11:20:09 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Dec 27 15:41:48 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">var_values &lt;-<span class="st"> </span>vtreat<span class="op">::</span><span class="kw">value_variables_C</span>(dTrain,
     vars,yName,yTarget,
     <span class="dt">smFactor=</span><span class="fl">2.0</span>, 
@@ -92,7 +92,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="odd">
 <td>Var100</td>
 <td align="right">3.502919e-05</td>
-<td align="right">4</td>
+<td align="right">3</td>
 <td align="right">1.0000000</td>
 <td align="left">Var100</td>
 </tr>
@@ -134,8 +134,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="odd">
 <td>Var106</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">3</td>
+<td align="right">0.0000056</td>
 <td align="left">Var106</td>
 </tr>
 <tr class="even">
@@ -147,30 +147,30 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var108</td>
-<td align="right">2.411380e-05</td>
+<td align="right">3.561887e-05</td>
 <td align="right">4</td>
 <td align="right">1.0000000</td>
 <td align="left">Var108</td>
 </tr>
 <tr class="even">
 <td>Var109</td>
-<td align="right">1.988511e-04</td>
+<td align="right">2.108524e-04</td>
 <td align="right">4</td>
-<td align="right">0.1198059</td>
+<td align="right">0.1015967</td>
 <td align="left">Var109</td>
 </tr>
 <tr class="odd">
 <td>Var11</td>
 <td align="right">8.812072e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000195</td>
+<td align="right">3</td>
+<td align="right">0.0000147</td>
 <td align="left">Var11</td>
 </tr>
 <tr class="even">
 <td>Var110</td>
 <td align="right">1.029613e-04</td>
-<td align="right">4</td>
-<td align="right">0.4731582</td>
+<td align="right">3</td>
+<td align="right">0.3548687</td>
 <td align="left">Var110</td>
 </tr>
 <tr class="odd">
@@ -182,15 +182,15 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var112</td>
-<td align="right">2.772074e-03</td>
+<td align="right">3.447896e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var112</td>
 </tr>
 <tr class="odd">
 <td>Var113</td>
-<td align="right">7.103110e-03</td>
-<td align="right">3</td>
+<td align="right">7.269665e-03</td>
+<td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var113</td>
 </tr>
@@ -211,8 +211,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="even">
 <td>Var116</td>
 <td align="right">2.376463e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var116</td>
 </tr>
 <tr class="odd">
@@ -231,14 +231,14 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var119</td>
-<td align="right">2.674282e-03</td>
+<td align="right">4.359449e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var119</td>
 </tr>
 <tr class="even">
 <td>Var12</td>
-<td align="right">3.286502e-05</td>
+<td align="right">4.081390e-05</td>
 <td align="right">4</td>
 <td align="right">1.0000000</td>
 <td align="left">Var12</td>
@@ -252,21 +252,21 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var121</td>
-<td align="right">2.376463e-05</td>
+<td align="right">2.897780e-05</td>
 <td align="right">4</td>
 <td align="right">1.0000000</td>
 <td align="left">Var121</td>
 </tr>
 <tr class="odd">
 <td>Var122</td>
-<td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">8.933594e-04</td>
+<td align="right">3</td>
+<td align="right">0.0000126</td>
 <td align="left">Var122</td>
 </tr>
 <tr class="even">
 <td>Var123</td>
-<td align="right">2.772074e-03</td>
+<td align="right">2.752908e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var123</td>
@@ -274,20 +274,20 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="odd">
 <td>Var124</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">3</td>
+<td align="right">0.0000056</td>
 <td align="left">Var124</td>
 </tr>
 <tr class="even">
 <td>Var125</td>
-<td align="right">2.063834e-03</td>
+<td align="right">9.581065e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var125</td>
 </tr>
 <tr class="odd">
 <td>Var126</td>
-<td align="right">1.382784e-02</td>
+<td align="right">4.242057e-02</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var126</td>
@@ -308,14 +308,14 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var129</td>
-<td align="right">2.376463e-05</td>
+<td align="right">2.210144e-04</td>
 <td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">0.0884318</td>
 <td align="left">Var129</td>
 </tr>
 <tr class="odd">
 <td>Var13</td>
-<td align="right">5.312771e-03</td>
+<td align="right">1.406003e-02</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var13</td>
@@ -323,34 +323,34 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="even">
 <td>Var130</td>
 <td align="right">8.812072e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000195</td>
+<td align="right">2</td>
+<td align="right">0.0000098</td>
 <td align="left">Var130</td>
 </tr>
 <tr class="odd">
 <td>Var131</td>
 <td align="right">8.857586e-05</td>
-<td align="right">4</td>
-<td align="right">0.5896059</td>
+<td align="right">3</td>
+<td align="right">0.4422044</td>
 <td align="left">Var131</td>
 </tr>
 <tr class="even">
 <td>Var132</td>
-<td align="right">2.772074e-03</td>
-<td align="right">4</td>
+<td align="right">2.752908e-03</td>
+<td align="right">3</td>
 <td align="right">0.0000000</td>
 <td align="left">Var132</td>
 </tr>
 <tr class="odd">
 <td>Var133</td>
-<td align="right">2.772074e-03</td>
+<td align="right">3.306253e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var133</td>
 </tr>
 <tr class="even">
 <td>Var134</td>
-<td align="right">2.772074e-03</td>
+<td align="right">2.884412e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var134</td>
@@ -379,8 +379,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="even">
 <td>Var138</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var138</td>
 </tr>
 <tr class="odd">
@@ -392,14 +392,14 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var14</td>
-<td align="right">8.812072e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000195</td>
+<td align="right">9.190994e-04</td>
+<td align="right">3</td>
+<td align="right">0.0000092</td>
 <td align="left">Var14</td>
 </tr>
 <tr class="odd">
 <td>Var140</td>
-<td align="right">2.972593e-03</td>
+<td align="right">1.256557e-02</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var140</td>
@@ -413,14 +413,14 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var143</td>
-<td align="right">2.772074e-03</td>
-<td align="right">4</td>
+<td align="right">2.752908e-03</td>
+<td align="right">3</td>
 <td align="right">0.0000000</td>
 <td align="left">Var143</td>
 </tr>
 <tr class="even">
 <td>Var144</td>
-<td align="right">5.421069e-03</td>
+<td align="right">7.754394e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var144</td>
@@ -435,15 +435,15 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="even">
 <td>Var146</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">3</td>
+<td align="right">0.0000043</td>
 <td align="left">Var146</td>
 </tr>
 <tr class="odd">
 <td>Var147</td>
-<td align="right">9.813199e-04</td>
+<td align="right">1.189134e-03</td>
 <td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">0.0000004</td>
 <td align="left">Var147</td>
 </tr>
 <tr class="even">
@@ -455,9 +455,9 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var149</td>
-<td align="right">3.035956e-04</td>
+<td align="right">4.654635e-04</td>
 <td align="right">4</td>
-<td align="right">0.0292566</td>
+<td align="right">0.0035862</td>
 <td align="left">Var149</td>
 </tr>
 <tr class="even">
@@ -483,14 +483,14 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var153</td>
-<td align="right">2.772074e-03</td>
+<td align="right">4.872040e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var153</td>
 </tr>
 <tr class="even">
 <td>Var154</td>
-<td align="right">2.376463e-05</td>
+<td align="right">2.929530e-05</td>
 <td align="right">4</td>
 <td align="right">1.0000000</td>
 <td align="left">Var154</td>
@@ -498,15 +498,15 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="odd">
 <td>Var155</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">3</td>
+<td align="right">0.0000056</td>
 <td align="left">Var155</td>
 </tr>
 <tr class="even">
 <td>Var156</td>
-<td align="right">1.905424e-05</td>
+<td align="right">1.374562e-04</td>
 <td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">0.2844365</td>
 <td align="left">Var156</td>
 </tr>
 <tr class="odd">
@@ -526,8 +526,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="odd">
 <td>Var159</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">3</td>
+<td align="right">0.0000141</td>
 <td align="left">Var159</td>
 </tr>
 <tr class="even">
@@ -539,7 +539,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var160</td>
-<td align="right">2.772074e-03</td>
+<td align="right">3.869272e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var160</td>
@@ -547,8 +547,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="even">
 <td>Var161</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">3</td>
+<td align="right">0.0000056</td>
 <td align="left">Var161</td>
 </tr>
 <tr class="odd">
@@ -560,7 +560,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var163</td>
-<td align="right">2.772074e-03</td>
+<td align="right">2.752908e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var163</td>
@@ -568,15 +568,15 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="odd">
 <td>Var164</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">3</td>
+<td align="right">0.0000056</td>
 <td align="left">Var164</td>
 </tr>
 <tr class="even">
 <td>Var165</td>
-<td align="right">6.009046e-04</td>
+<td align="right">6.462596e-04</td>
 <td align="right">4</td>
-<td align="right">0.0006439</td>
+<td align="right">0.0003641</td>
 <td align="left">Var165</td>
 </tr>
 <tr class="odd">
@@ -623,8 +623,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var173</td>
-<td align="right">2.772074e-03</td>
-<td align="right">4</td>
+<td align="right">2.752908e-03</td>
+<td align="right">3</td>
 <td align="right">0.0000000</td>
 <td align="left">Var173</td>
 </tr>
@@ -637,9 +637,9 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var176</td>
-<td align="right">8.812072e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000195</td>
+<td align="right">8.996031e-04</td>
+<td align="right">3</td>
+<td align="right">0.0000117</td>
 <td align="left">Var176</td>
 </tr>
 <tr class="even">
@@ -651,36 +651,36 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var178</td>
-<td align="right">1.729184e-04</td>
+<td align="right">2.022110e-04</td>
 <td align="right">4</td>
-<td align="right">0.1717806</td>
+<td align="right">0.1143891</td>
 <td align="left">Var178</td>
 </tr>
 <tr class="even">
 <td>Var179</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">3</td>
+<td align="right">0.0000056</td>
 <td align="left">Var179</td>
 </tr>
 <tr class="odd">
 <td>Var18</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">3</td>
+<td align="right">0.0000056</td>
 <td align="left">Var18</td>
 </tr>
 <tr class="even">
 <td>Var180</td>
-<td align="right">2.376463e-05</td>
+<td align="right">4.520505e-05</td>
 <td align="right">4</td>
 <td align="right">1.0000000</td>
 <td align="left">Var180</td>
 </tr>
 <tr class="odd">
 <td>Var181</td>
-<td align="right">2.772074e-03</td>
-<td align="right">4</td>
+<td align="right">2.752908e-03</td>
+<td align="right">3</td>
 <td align="right">0.0000000</td>
 <td align="left">Var181</td>
 </tr>
@@ -728,7 +728,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var189</td>
-<td align="right">1.215778e-02</td>
+<td align="right">1.277810e-02</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var189</td>
@@ -736,15 +736,15 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="odd">
 <td>Var19</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">3</td>
+<td align="right">0.0000056</td>
 <td align="left">Var19</td>
 </tr>
 <tr class="even">
 <td>Var190</td>
-<td align="right">7.148827e-05</td>
+<td align="right">8.343681e-05</td>
 <td align="right">4</td>
-<td align="right">0.7722865</td>
+<td align="right">0.6387594</td>
 <td align="left">Var190</td>
 </tr>
 <tr class="odd">
@@ -813,8 +813,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="even">
 <td>Var2</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var2</td>
 </tr>
 <tr class="odd">
@@ -882,7 +882,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var21</td>
-<td align="right">2.674282e-03</td>
+<td align="right">4.331757e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var21</td>
@@ -959,7 +959,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var22</td>
-<td align="right">2.772074e-03</td>
+<td align="right">4.472317e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var22</td>
@@ -1043,14 +1043,14 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var24</td>
-<td align="right">2.381645e-04</td>
+<td align="right">3.348608e-04</td>
 <td align="right">4</td>
-<td align="right">0.0700741</td>
+<td align="right">0.0193947</td>
 <td align="left">Var24</td>
 </tr>
 <tr class="even">
 <td>Var25</td>
-<td align="right">2.772074e-03</td>
+<td align="right">2.752908e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var25</td>
@@ -1058,20 +1058,20 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="odd">
 <td>Var26</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">3</td>
+<td align="right">0.0000043</td>
 <td align="left">Var26</td>
 </tr>
 <tr class="even">
 <td>Var27</td>
-<td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">9.842395e-04</td>
+<td align="right">3</td>
+<td align="right">0.0000041</td>
 <td align="left">Var27</td>
 </tr>
 <tr class="odd">
 <td>Var28</td>
-<td align="right">2.777872e-03</td>
+<td align="right">3.736472e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var28</td>
@@ -1079,15 +1079,15 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="even">
 <td>Var29</td>
 <td align="right">2.992132e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">2</td>
+<td align="right">0.7995316</td>
 <td align="left">Var29</td>
 </tr>
 <tr class="odd">
 <td>Var3</td>
-<td align="right">8.812072e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000195</td>
+<td align="right">9.706533e-04</td>
+<td align="right">3</td>
+<td align="right">0.0000049</td>
 <td align="left">Var3</td>
 </tr>
 <tr class="even">
@@ -1106,15 +1106,15 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var34</td>
-<td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">9.380711e-04</td>
+<td align="right">3</td>
+<td align="right">0.0000073</td>
 <td align="left">Var34</td>
 </tr>
 <tr class="odd">
 <td>Var35</td>
-<td align="right">2.772074e-03</td>
-<td align="right">4</td>
+<td align="right">2.752908e-03</td>
+<td align="right">3</td>
 <td align="right">0.0000000</td>
 <td align="left">Var35</td>
 </tr>
@@ -1134,7 +1134,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var38</td>
-<td align="right">2.772074e-03</td>
+<td align="right">3.117658e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var38</td>
@@ -1142,8 +1142,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="odd">
 <td>Var4</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">3</td>
+<td align="right">0.0000056</td>
 <td align="left">Var4</td>
 </tr>
 <tr class="even">
@@ -1155,22 +1155,22 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var41</td>
-<td align="right">2.376463e-05</td>
+<td align="right">1.822623e-04</td>
 <td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">0.1507580</td>
 <td align="left">Var41</td>
 </tr>
 <tr class="even">
 <td>Var43</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">3</td>
+<td align="right">0.0000141</td>
 <td align="left">Var43</td>
 </tr>
 <tr class="odd">
 <td>Var44</td>
-<td align="right">2.772074e-03</td>
-<td align="right">4</td>
+<td align="right">2.752908e-03</td>
+<td align="right">3</td>
 <td align="right">0.0000000</td>
 <td align="left">Var44</td>
 </tr>
@@ -1190,16 +1190,16 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var47</td>
-<td align="right">2.376463e-05</td>
-<td align="right">4</td>
+<td align="right">2.633464e-05</td>
+<td align="right">3</td>
 <td align="right">1.0000000</td>
 <td align="left">Var47</td>
 </tr>
 <tr class="odd">
 <td>Var49</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">3</td>
+<td align="right">0.0000141</td>
 <td align="left">Var49</td>
 </tr>
 <tr class="even">
@@ -1211,9 +1211,9 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var50</td>
-<td align="right">2.376463e-05</td>
+<td align="right">7.044158e-05</td>
 <td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">0.7854527</td>
 <td align="left">Var50</td>
 </tr>
 <tr class="even">
@@ -1225,9 +1225,9 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var53</td>
-<td align="right">9.100583e-05</td>
+<td align="right">2.219833e-04</td>
 <td align="right">4</td>
-<td align="right">0.5678636</td>
+<td align="right">0.0872727</td>
 <td align="left">Var53</td>
 </tr>
 <tr class="even">
@@ -1246,14 +1246,14 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var57</td>
-<td align="right">1.529366e-04</td>
-<td align="right">3</td>
-<td align="right">0.1708488</td>
+<td align="right">2.195186e-04</td>
+<td align="right">4</td>
+<td align="right">0.0902529</td>
 <td align="left">Var57</td>
 </tr>
 <tr class="odd">
 <td>Var58</td>
-<td align="right">2.376463e-05</td>
+<td align="right">3.211591e-05</td>
 <td align="right">4</td>
 <td align="right">1.0000000</td>
 <td align="left">Var58</td>
@@ -1267,7 +1267,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var6</td>
-<td align="right">2.674282e-03</td>
+<td align="right">7.045921e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var6</td>
@@ -1289,50 +1289,50 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="even">
 <td>Var62</td>
 <td align="right">1.707981e-05</td>
-<td align="right">4</td>
+<td align="right">3</td>
 <td align="right">1.0000000</td>
 <td align="left">Var62</td>
 </tr>
 <tr class="odd">
 <td>Var63</td>
-<td align="right">1.905424e-05</td>
+<td align="right">3.590263e-05</td>
 <td align="right">4</td>
 <td align="right">1.0000000</td>
 <td align="left">Var63</td>
 </tr>
 <tr class="even">
 <td>Var64</td>
-<td align="right">7.138463e-05</td>
+<td align="right">1.651070e-04</td>
 <td align="right">4</td>
-<td align="right">0.7735786</td>
+<td align="right">0.1917178</td>
 <td align="left">Var64</td>
 </tr>
 <tr class="odd">
 <td>Var65</td>
-<td align="right">2.974265e-03</td>
+<td align="right">5.781885e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var65</td>
 </tr>
 <tr class="even">
 <td>Var66</td>
-<td align="right">1.905424e-05</td>
+<td align="right">1.099209e-04</td>
 <td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">0.4261780</td>
 <td align="left">Var66</td>
 </tr>
 <tr class="odd">
 <td>Var67</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var67</td>
 </tr>
 <tr class="even">
 <td>Var68</td>
-<td align="right">8.842007e-04</td>
+<td align="right">1.065001e-03</td>
 <td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">0.0000020</td>
 <td align="left">Var68</td>
 </tr>
 <tr class="odd">
@@ -1344,7 +1344,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var7</td>
-<td align="right">9.401229e-03</td>
+<td align="right">1.184595e-02</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var7</td>
@@ -1372,14 +1372,14 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var73</td>
-<td align="right">1.852376e-02</td>
-<td align="right">3</td>
+<td align="right">1.999596e-02</td>
+<td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var73</td>
 </tr>
 <tr class="odd">
 <td>Var74</td>
-<td align="right">6.365026e-03</td>
+<td align="right">1.502785e-02</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var74</td>
@@ -1393,22 +1393,22 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var76</td>
-<td align="right">2.772074e-03</td>
+<td align="right">3.240031e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var76</td>
 </tr>
 <tr class="even">
 <td>Var77</td>
-<td align="right">3.158199e-05</td>
+<td align="right">1.240411e-04</td>
 <td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">0.3457840</td>
 <td align="left">Var77</td>
 </tr>
 <tr class="odd">
 <td>Var78</td>
-<td align="right">2.772074e-03</td>
-<td align="right">4</td>
+<td align="right">2.752908e-03</td>
+<td align="right">3</td>
 <td align="right">0.0000000</td>
 <td align="left">Var78</td>
 </tr>
@@ -1421,21 +1421,21 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var81</td>
-<td align="right">2.674282e-03</td>
+<td align="right">6.356204e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var81</td>
 </tr>
 <tr class="even">
 <td>Var82</td>
-<td align="right">9.593148e-04</td>
+<td align="right">1.019069e-03</td>
 <td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">0.0000036</td>
 <td align="left">Var82</td>
 </tr>
 <tr class="odd">
 <td>Var83</td>
-<td align="right">2.772074e-03</td>
+<td align="right">2.752908e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var83</td>
@@ -1443,27 +1443,27 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="even">
 <td>Var84</td>
 <td align="right">8.812072e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000195</td>
+<td align="right">3</td>
+<td align="right">0.0000147</td>
 <td align="left">Var84</td>
 </tr>
 <tr class="odd">
 <td>Var85</td>
-<td align="right">2.772074e-03</td>
+<td align="right">3.059878e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var85</td>
 </tr>
 <tr class="even">
 <td>Var86</td>
-<td align="right">2.376463e-05</td>
+<td align="right">3.676970e-05</td>
 <td align="right">4</td>
 <td align="right">1.0000000</td>
 <td align="left">Var86</td>
 </tr>
 <tr class="odd">
 <td>Var87</td>
-<td align="right">2.376463e-05</td>
+<td align="right">2.920052e-05</td>
 <td align="right">4</td>
 <td align="right">1.0000000</td>
 <td align="left">Var87</td>
@@ -1484,16 +1484,16 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="even">
 <td>Var9</td>
-<td align="right">2.376463e-05</td>
+<td align="right">1.105532e-04</td>
 <td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">0.4221714</td>
 <td align="left">Var9</td>
 </tr>
 <tr class="odd">
 <td>Var90</td>
 <td align="right">2.376463e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var90</td>
 </tr>
 <tr class="even">
@@ -1505,16 +1505,16 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </tr>
 <tr class="odd">
 <td>Var92</td>
-<td align="right">1.829928e-05</td>
+<td align="right">2.573893e-04</td>
 <td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">0.0540965</td>
 <td align="left">Var92</td>
 </tr>
 <tr class="even">
 <td>Var93</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">3</td>
+<td align="right">0.0000043</td>
 <td align="left">Var93</td>
 </tr>
 <tr class="odd">
@@ -1527,8 +1527,8 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="even">
 <td>Var95</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">3</td>
+<td align="right">0.0000141</td>
 <td align="left">Var95</td>
 </tr>
 <tr class="odd">
@@ -1541,15 +1541,15 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 <tr class="even">
 <td>Var97</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">3</td>
+<td align="right">0.0000043</td>
 <td align="left">Var97</td>
 </tr>
 <tr class="odd">
 <td>Var98</td>
-<td align="right">1.749498e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">6.687011e-05</td>
+<td align="right">3</td>
+<td align="right">0.6243033</td>
 <td align="left">Var98</td>
 </tr>
 <tr class="even">
@@ -1563,22 +1563,24 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </table>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(var_values<span class="op">$</span>sig <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="kw">nrow</span>(var_values))</code></pre></div>
 <pre><code>##    Mode   FALSE    TRUE 
-## logical      59     153</code></pre>
+## logical      58     154</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vars &lt;-<span class="st"> </span>var_values<span class="op">$</span>var[var_values<span class="op">$</span>sig <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="kw">nrow</span>(var_values)]
 
 
 <span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 17 11:22:33 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Dec 27 15:43:55 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 17 11:22:33 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Dec 27 15:43:56 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Run other models (with proper coding/training separation).</span>
 <span class="co">#</span>
-<span class="co"># This gets us back to AUC 0.72 range</span>
+<span class="co"># This gets us back to AUC 0.74 range</span>
 
 customCoders =<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;c.PiecewiseV.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>solve_piecewise,
                     <span class="st">&#39;n.PiecewiseV.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>solve_piecewise,
                     <span class="st">&#39;c.knearest.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>square_window,
-                    <span class="st">&#39;n.knearest.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>square_window)
+                    <span class="st">&#39;n.knearest.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>square_window,
+                    <span class="st">&#39;c.spline.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>spline_variable,
+                    <span class="st">&#39;n.spline.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>spline_variable)
                    <span class="co"># &#39;n.poolN.center&#39; = vtreat::ppCoderN, </span>
                    <span class="co"># &#39;c.poolC.center&#39; = vtreat::ppCoderC)</span>
                    <span class="co"># &#39;n.NonDecreasingV.num&#39; = vtreat::solveNonDecreasing,</span>
@@ -1590,12 +1592,18 @@ cfe =<span class="st"> </span><span class="kw">mkCrossFrameCExperiment</span>(dT
                               <span class="dt">customCoders=</span>customCoders,
                               <span class="dt">smFactor=</span><span class="fl">2.0</span>, 
                               <span class="dt">parallelCluster=</span>cl)</code></pre></div>
-<pre><code>## [1] &quot;vtreat 1.3.3 start initial treatment design Mon Dec 17 11:22:33 2018&quot;
-## [1] &quot; start cross frame work Mon Dec 17 11:24:21 2018&quot;
-## [1] &quot; vtreat::mkCrossFrameCExperiment done Mon Dec 17 11:25:09 2018&quot;</code></pre>
+<pre><code>## [1] &quot;vtreat 1.3.4 start initial treatment design Thu Dec 27 15:43:56 2018&quot;
+## [1] &quot; start cross frame work Thu Dec 27 15:45:35 2018&quot;
+## [1] &quot; vtreat::mkCrossFrameCExperiment done Thu Dec 27 15:46:17 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">treatmentsC =<span class="st"> </span>cfe<span class="op">$</span>treatments
 scoreFrame =<span class="st"> </span>treatmentsC<span class="op">$</span>scoreFrame
-selvars &lt;-<span class="st"> </span>scoreFrame<span class="op">$</span>varName
+<span class="kw">table</span>(scoreFrame<span class="op">$</span>code)</code></pre></div>
+<pre><code>## 
+##       catB       catP      clean      isBAD   knearest        lev 
+##         28         28        123        121          2        121 
+## PiecewiseV     spline 
+##        119         87</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">selvars &lt;-<span class="st"> </span>scoreFrame<span class="op">$</span>varName
 treatedTrainM &lt;-<span class="st"> </span>cfe<span class="op">$</span>crossFrame[,<span class="kw">c</span>(yName,selvars),drop=<span class="ot">FALSE</span>]
 treatedTrainM[[yName]] =<span class="st"> </span>treatedTrainM[[yName]]<span class="op">==</span>yTarget
 
@@ -1610,12 +1618,12 @@ treatedTest[[yName]] =<span class="st"> </span>treatedTest[[yName]]<span class="
 treatedTrainP =<span class="st"> </span>treatedTrainM[, yName, drop=<span class="ot">FALSE</span>]
 treatedTestP =<span class="st"> </span>treatedTest[, yName, drop=<span class="ot">FALSE</span>]
 <span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 17 11:25:10 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Dec 27 15:46:17 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 17 11:25:10 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Dec 27 15:46:17 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mname =<span class="st"> &#39;xgbPred&#39;</span>
 <span class="kw">print</span>(<span class="kw">paste</span>(mname,<span class="kw">length</span>(selvars)))</code></pre></div>
-<pre><code>## [1] &quot;xgbPred 663&quot;</code></pre>
+<pre><code>## [1] &quot;xgbPred 629&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">params &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">max_depth =</span> <span class="dv">5</span>, 
               <span class="dt">objective =</span> <span class="st">&quot;binary:logistic&quot;</span>,
               <span class="dt">nthread =</span> ncore)
@@ -1626,38 +1634,38 @@ model &lt;-<span class="st"> </span><span class="kw">xgb.cv</span>(<span class="
                 <span class="dt">nfold =</span> <span class="dv">5</span>,
                 <span class="dt">early_stopping_rounds =</span> <span class="dv">10</span>,
                 <span class="dt">eval_metric =</span> <span class="st">&quot;logloss&quot;</span>)</code></pre></div>
-<pre><code>## [1]  train-logloss:0.503570+0.000287 test-logloss:0.504513+0.000482 
+<pre><code>## [1]  train-logloss:0.502572+0.000289 test-logloss:0.503955+0.000789 
 ## Multiple eval metrics are present. Will use test_logloss for early stopping.
 ## Will train until test_logloss hasn&#39;t improved in 10 rounds.
 ## 
-## [2]  train-logloss:0.400955+0.000461 test-logloss:0.402648+0.001128 
-## [3]  train-logloss:0.339258+0.000548 test-logloss:0.341947+0.001486 
-## [4]  train-logloss:0.300467+0.000556 test-logloss:0.303972+0.001908 
-## [5]  train-logloss:0.275290+0.000557 test-logloss:0.280038+0.002113 
-## [6]  train-logloss:0.258865+0.000602 test-logloss:0.264881+0.002367 
-## [7]  train-logloss:0.247651+0.000508 test-logloss:0.254890+0.002347 
-## [8]  train-logloss:0.239907+0.000685 test-logloss:0.248584+0.002349 
-## [9]  train-logloss:0.234543+0.000655 test-logloss:0.244387+0.002425 
-## [10] train-logloss:0.230393+0.000658 test-logloss:0.241935+0.002730 
-## [11] train-logloss:0.227143+0.000686 test-logloss:0.240089+0.002730 
-## [12] train-logloss:0.224396+0.000562 test-logloss:0.239014+0.002910 
-## [13] train-logloss:0.222046+0.000520 test-logloss:0.238253+0.002891 
-## [14] train-logloss:0.219965+0.000574 test-logloss:0.237751+0.002914 
-## [15] train-logloss:0.218051+0.000772 test-logloss:0.237379+0.003008 
-## [16] train-logloss:0.216251+0.000859 test-logloss:0.237136+0.002933 
-## [17] train-logloss:0.214680+0.000716 test-logloss:0.236931+0.002785 
-## [18] train-logloss:0.213242+0.000881 test-logloss:0.237123+0.002995 
-## [19] train-logloss:0.211472+0.000923 test-logloss:0.237112+0.003061 
-## [20] train-logloss:0.210179+0.001068 test-logloss:0.237074+0.003091 
-## [21] train-logloss:0.208908+0.000997 test-logloss:0.237097+0.002826 
-## [22] train-logloss:0.207752+0.001194 test-logloss:0.237323+0.002761 
-## [23] train-logloss:0.206457+0.001447 test-logloss:0.237230+0.002845 
-## [24] train-logloss:0.205430+0.001495 test-logloss:0.237183+0.002822 
-## [25] train-logloss:0.204437+0.001279 test-logloss:0.237295+0.002744 
-## [26] train-logloss:0.202841+0.001118 test-logloss:0.237367+0.002988 
-## [27] train-logloss:0.201744+0.001210 test-logloss:0.237407+0.003015 
+## [2]  train-logloss:0.399347+0.000546 test-logloss:0.401641+0.001153 
+## [3]  train-logloss:0.337179+0.000615 test-logloss:0.340794+0.001447 
+## [4]  train-logloss:0.297980+0.000617 test-logloss:0.302823+0.001869 
+## [5]  train-logloss:0.272629+0.000743 test-logloss:0.278756+0.002087 
+## [6]  train-logloss:0.256026+0.000635 test-logloss:0.263359+0.002239 
+## [7]  train-logloss:0.244625+0.000777 test-logloss:0.253522+0.002444 
+## [8]  train-logloss:0.236886+0.000681 test-logloss:0.247362+0.002457 
+## [9]  train-logloss:0.231295+0.000811 test-logloss:0.243654+0.002617 
+## [10] train-logloss:0.227146+0.000816 test-logloss:0.241105+0.002578 
+## [11] train-logloss:0.223828+0.000932 test-logloss:0.239419+0.002496 
+## [12] train-logloss:0.221109+0.000831 test-logloss:0.238480+0.002423 
+## [13] train-logloss:0.218843+0.000934 test-logloss:0.237888+0.002521 
+## [14] train-logloss:0.216800+0.000869 test-logloss:0.237660+0.002323 
+## [15] train-logloss:0.214737+0.000856 test-logloss:0.237362+0.002375 
+## [16] train-logloss:0.213023+0.000953 test-logloss:0.237196+0.002175 
+## [17] train-logloss:0.211184+0.001075 test-logloss:0.236985+0.002004 
+## [18] train-logloss:0.209559+0.000938 test-logloss:0.237021+0.001988 
+## [19] train-logloss:0.207970+0.001119 test-logloss:0.237059+0.001921 
+## [20] train-logloss:0.206355+0.001308 test-logloss:0.237129+0.001929 
+## [21] train-logloss:0.204742+0.001289 test-logloss:0.237293+0.001773 
+## [22] train-logloss:0.203538+0.001010 test-logloss:0.237429+0.001838 
+## [23] train-logloss:0.202625+0.001069 test-logloss:0.237424+0.001833 
+## [24] train-logloss:0.201755+0.001241 test-logloss:0.237507+0.001910 
+## [25] train-logloss:0.200727+0.001495 test-logloss:0.237633+0.001927 
+## [26] train-logloss:0.199614+0.001604 test-logloss:0.237833+0.002032 
+## [27] train-logloss:0.198494+0.001732 test-logloss:0.238008+0.002047 
 ## Stopping. Best iteration:
-## [17] train-logloss:0.214680+0.000716 test-logloss:0.236931+0.002785</code></pre>
+## [17] train-logloss:0.211184+0.001075 test-logloss:0.236985+0.002004</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nrounds &lt;-<span class="st"> </span>model<span class="op">$</span>best_iteration
 <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;nrounds&quot;</span>, nrounds))</code></pre></div>
 <pre><code>## [1] &quot;nrounds 17&quot;</code></pre>
@@ -1665,23 +1673,23 @@ model &lt;-<span class="st"> </span><span class="kw">xgb.cv</span>(<span class="
                  <span class="dt">label =</span> treatedTrainM[[yName]],
                  <span class="dt">nrounds =</span> nrounds,
                  <span class="dt">params =</span> params)</code></pre></div>
-<pre><code>## [1]  train-error:0.072555 
-## [2]  train-error:0.072666 
-## [3]  train-error:0.072599 
-## [4]  train-error:0.072444 
-## [5]  train-error:0.072466 
-## [6]  train-error:0.072577 
-## [7]  train-error:0.072755 
-## [8]  train-error:0.072755 
-## [9]  train-error:0.072555 
-## [10] train-error:0.072488 
-## [11] train-error:0.072422 
-## [12] train-error:0.072422 
-## [13] train-error:0.072022 
-## [14] train-error:0.071955 
-## [15] train-error:0.071667 
-## [16] train-error:0.071511 
-## [17] train-error:0.071333</code></pre>
+<pre><code>## [1]  train-error:0.071600 
+## [2]  train-error:0.071755 
+## [3]  train-error:0.071977 
+## [4]  train-error:0.071622 
+## [5]  train-error:0.071311 
+## [6]  train-error:0.071600 
+## [7]  train-error:0.071689 
+## [8]  train-error:0.071755 
+## [9]  train-error:0.071467 
+## [10] train-error:0.071311 
+## [11] train-error:0.071200 
+## [12] train-error:0.071178 
+## [13] train-error:0.070911 
+## [14] train-error:0.070756 
+## [15] train-error:0.070645 
+## [16] train-error:0.070201 
+## [17] train-error:0.070068</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">treatedTrainP[[mname]] =<span class="st"> </span><span class="kw">predict</span>(model, 
                                  <span class="dt">newdata=</span><span class="kw">as.matrix</span>(treatedTrainM[, selvars, <span class="dt">drop =</span> <span class="ot">FALSE</span>]), 
                                  <span class="dt">type=</span><span class="st">&#39;response&#39;</span>)
@@ -1689,9 +1697,9 @@ treatedTestP[[mname]] =<span class="st"> </span><span class="kw">predict</span>(
                                 <span class="dt">newdata=</span><span class="kw">as.matrix</span>(treatedTest[, selvars, <span class="dt">drop =</span> <span class="ot">FALSE</span>]), 
                                 <span class="dt">n.trees=</span>nTrees)
 <span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 17 11:26:37 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Dec 27 15:47:47 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 17 11:26:37 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Dec 27 15:47:47 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t1 =<span class="st"> </span><span class="kw">paste</span>(mname,<span class="st">&#39;trainingM data&#39;</span>)
 <span class="kw">print</span>(<span class="kw">DoubleDensityPlot</span>(treatedTrainP, mname, yName, 
                         <span class="dt">title=</span>t1))</code></pre></div>
@@ -1731,11 +1739,11 @@ treatedTestP[[mname]] =<span class="st"> </span><span class="kw">predict</span>(
 
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">date</span>())</code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 17 11:26:40 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Dec 27 15:47:50 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;*****************************&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;*****************************&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Mon Dec 17 11:26:40 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Dec 27 15:47:50 2018&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">is.null</span>(cl)) {
     parallel<span class="op">::</span><span class="kw">stopCluster</span>(cl)
     cl =<span class="st"> </span><span class="ot">NULL</span>

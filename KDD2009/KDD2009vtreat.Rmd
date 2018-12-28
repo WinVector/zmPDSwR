@@ -103,12 +103,14 @@ date()
 
 # Run other models (with proper coding/training separation).
 #
-# This gets us back to AUC 0.72 range
+# This gets us back to AUC 0.74 range
 
 customCoders = list('c.PiecewiseV.num' = vtreat::solve_piecewise,
                     'n.PiecewiseV.num' = vtreat::solve_piecewise,
                     'c.knearest.num' = vtreat::square_window,
-                    'n.knearest.num' = vtreat::square_window)
+                    'n.knearest.num' = vtreat::square_window,
+                    'c.spline.num' = vtreat::spline_variable,
+                    'n.spline.num' = vtreat::spline_variable)
                    # 'n.poolN.center' = vtreat::ppCoderN, 
                    # 'c.poolC.center' = vtreat::ppCoderC)
                    # 'n.NonDecreasingV.num' = vtreat::solveNonDecreasing,
@@ -124,6 +126,7 @@ cfe = mkCrossFrameCExperiment(dTrain,
 
 treatmentsC = cfe$treatments
 scoreFrame = treatmentsC$scoreFrame
+table(scoreFrame$code)
 selvars <- scoreFrame$varName
 treatedTrainM <- cfe$crossFrame[,c(yName,selvars),drop=FALSE]
 treatedTrainM[[yName]] = treatedTrainM[[yName]]==yTarget
