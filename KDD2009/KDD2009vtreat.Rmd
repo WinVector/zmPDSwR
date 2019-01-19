@@ -42,7 +42,8 @@ library('xgboost')
 # load the data as in the book
 # change this path to match your directory structure
 #dir = '~/Documents/work/PracticalDataScienceWithR/zmPDSwR/KDD2009/' 
-dir = '~/Documents/work/zmPDSwR/KDD2009/' 
+#dir = '~/Documents/work/zmPDSwR/KDD2009/' 
+dir = "./"
 
 
 d = read.table(paste(dir,'orange_small_train.data.gz',sep=''),

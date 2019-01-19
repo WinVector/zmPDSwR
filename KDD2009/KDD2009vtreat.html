@@ -3,11 +3,11 @@
 <p>Practical data science with R built chapter 6 built a number of single variable models. In Listing 6.11 it used an ad-hoc entropy based out of sample effect size estimate for variable selection. This likely (though it isn't completely rigorous) picked variables conservatively.</p>
 <p>We show here how to repeat this work on the KDD2009 dataset using more standard techniques more quickly. For vtreat details see: <a href="http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/" class="uri">http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/</a> and Chapter 6 of Practical Data Science with R: <a href="http://www.amazon.com/Practical-Data-Science/dp/1617291560" class="uri">http://www.amazon.com/Practical-Data-Science/dp/1617291560</a> For details on data see: <a href="https://github.com/WinVector/zmPDSwR/tree/master/KDD2009" class="uri">https://github.com/WinVector/zmPDSwR/tree/master/KDD2009</a> There is an issue that any data row used to build the single variable models isn't exchangable with future unseen rows for the purposes of scoring and training. So the most hygienic way to work is to use one subset of data to build the single variable models, and then another to built the composite model, and a third for scoring. In particular models trained using rows used to build sub-models think the sub-models have large effects that the sub-models will in the future, and under-estimate degrees of freedom of complicated sub-models.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Thu Dec 27 15:41:42 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Sat Jan 19 07:31:43 2019&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#load some libraries</span>
 <span class="kw">library</span>(<span class="st">&#39;vtreat&#39;</span>)
 <span class="kw">packageVersion</span>(<span class="st">&quot;vtreat&quot;</span>)</code></pre></div>
-<pre><code>## [1] &#39;1.3.4&#39;</code></pre>
+<pre><code>## [1] &#39;1.3.5&#39;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&#39;WVPlots&#39;</span>) 
 
 <span class="kw">library</span>(<span class="st">&#39;parallel&#39;</span>)
@@ -18,7 +18,8 @@
 <span class="co"># load the data as in the book</span>
 <span class="co"># change this path to match your directory structure</span>
 <span class="co">#dir = &#39;~/Documents/work/PracticalDataScienceWithR/zmPDSwR/KDD2009/&#39; </span>
-dir =<span class="st"> &#39;~/Documents/work/zmPDSwR/KDD2009/&#39;</span> 
+<span class="co">#dir = &#39;~/Documents/work/zmPDSwR/KDD2009/&#39; </span>
+dir =<span class="st"> &quot;./&quot;</span>
 
 
 d =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">paste</span>(dir,<span class="st">&#39;orange_small_train.data.gz&#39;</span>,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>),
@@ -26,17 +27,17 @@ d =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">
                <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)
 churn =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">paste</span>(dir,<span class="st">&#39;orange_small_train_churn.labels.txt&#39;</span>,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>),
                     <span class="dt">header=</span>F,<span class="dt">sep=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)
-d<span class="op">$</span>churn =<span class="st"> </span>churn<span class="op">$</span>V1
+d$churn =<span class="st"> </span>churn$V1
 appetency =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">paste</span>(dir,<span class="st">&#39;orange_small_train_appetency.labels.txt&#39;</span>,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>),
                         <span class="dt">header=</span>F,<span class="dt">sep=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)
-d<span class="op">$</span>appetency =<span class="st"> </span>appetency<span class="op">$</span>V1
+d$appetency =<span class="st"> </span>appetency$V1
 upselling =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">paste</span>(dir,<span class="st">&#39;orange_small_train_upselling.labels.txt&#39;</span>,<span class="dt">sep=</span><span class="st">&#39;&#39;</span>),
                         <span class="dt">header=</span>F,<span class="dt">sep=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)
-d<span class="op">$</span>upselling =<span class="st"> </span>upselling<span class="op">$</span>V1
+d$upselling =<span class="st"> </span>upselling$V1
 <span class="kw">set.seed</span>(<span class="dv">729375</span>)
-d<span class="op">$</span>rgroup =<span class="st"> </span><span class="kw">runif</span>(<span class="kw">dim</span>(d)[[<span class="dv">1</span>]])
-dTrain =<span class="st"> </span><span class="kw">subset</span>(d,rgroup<span class="op">&lt;=</span><span class="fl">0.9</span>)  <span class="co"># set for building models and impact coding</span>
-dTest =<span class="st"> </span><span class="kw">subset</span>(d,rgroup<span class="op">&gt;</span><span class="fl">0.9</span>) <span class="co"># set for evaluation</span>
+d$rgroup =<span class="st"> </span><span class="kw">runif</span>(<span class="kw">dim</span>(d)[[<span class="dv">1</span>]])
+dTrain =<span class="st"> </span><span class="kw">subset</span>(d,rgroup&lt;=<span class="fl">0.9</span>)  <span class="co"># set for building models and impact coding</span>
+dTest =<span class="st"> </span><span class="kw">subset</span>(d,rgroup&gt;<span class="fl">0.9</span>) <span class="co"># set for evaluation</span>
 <span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">c</span>(<span class="st">&#39;d&#39;</span>,<span class="st">&#39;churn&#39;</span>,<span class="st">&#39;appetency&#39;</span>,<span class="st">&#39;upselling&#39;</span>,<span class="st">&#39;dir&#39;</span>))
 
 <span class="kw">dim</span>(dTrain)</code></pre></div>
@@ -51,23 +52,23 @@ yTarget =<span class="st"> </span><span class="dv">1</span>
 
 <span class="kw">set.seed</span>(<span class="dv">239525</span>)
 
-ncore &lt;-<span class="st"> </span>parallel<span class="op">::</span><span class="kw">detectCores</span>()
-cl =<span class="st"> </span>parallel<span class="op">::</span><span class="kw">makeCluster</span>(ncore)
+ncore &lt;-<span class="st"> </span>parallel::<span class="kw">detectCores</span>()
+cl =<span class="st"> </span>parallel::<span class="kw">makeCluster</span>(ncore)
 <span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Thu Dec 27 15:41:48 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Sat Jan 19 07:31:50 2019&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Thu Dec 27 15:41:48 2018&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">var_values &lt;-<span class="st"> </span>vtreat<span class="op">::</span><span class="kw">value_variables_C</span>(dTrain,
+<pre><code>## [1] &quot;Sat Jan 19 07:31:50 2019&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">var_values &lt;-<span class="st"> </span>vtreat::<span class="kw">value_variables_C</span>(dTrain,
     vars,yName,yTarget,
     <span class="dt">smFactor=</span><span class="fl">2.0</span>, 
     <span class="dt">parallelCluster=</span>cl
     )
 
-knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code></pre></div>
+knitr::<span class="kw">kable</span>(var_values)</code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th></th>
+<th align="left"></th>
 <th align="right">rsq</th>
 <th align="right">count</th>
 <th align="right">sig</th>
@@ -76,1511 +77,1511 @@ knitr<span class="op">::</span><span class="kw">kable</span>(var_values)</code><
 </thead>
 <tbody>
 <tr class="odd">
-<td>Var1</td>
+<td align="left">Var1</td>
 <td align="right">2.376463e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var1</td>
 </tr>
 <tr class="even">
-<td>Var10</td>
+<td align="left">Var10</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var10</td>
 </tr>
 <tr class="odd">
-<td>Var100</td>
+<td align="left">Var100</td>
 <td align="right">3.502919e-05</td>
-<td align="right">3</td>
-<td align="right">1.0000000</td>
+<td align="right">2</td>
+<td align="right">0.7245050</td>
 <td align="left">Var100</td>
 </tr>
 <tr class="even">
-<td>Var101</td>
+<td align="left">Var101</td>
 <td align="right">6.009046e-04</td>
-<td align="right">4</td>
-<td align="right">0.0006439</td>
+<td align="right">2</td>
+<td align="right">0.0003219</td>
 <td align="left">Var101</td>
 </tr>
 <tr class="odd">
-<td>Var102</td>
+<td align="left">Var102</td>
 <td align="right">1.742866e-04</td>
-<td align="right">4</td>
-<td align="right">0.1685190</td>
+<td align="right">2</td>
+<td align="right">0.0842595</td>
 <td align="left">Var102</td>
 </tr>
 <tr class="even">
-<td>Var103</td>
+<td align="left">Var103</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var103</td>
 </tr>
 <tr class="odd">
-<td>Var104</td>
+<td align="left">Var104</td>
 <td align="right">2.278508e-04</td>
-<td align="right">4</td>
-<td align="right">0.0805808</td>
+<td align="right">2</td>
+<td align="right">0.0402904</td>
 <td align="left">Var104</td>
 </tr>
 <tr class="even">
-<td>Var105</td>
+<td align="left">Var105</td>
 <td align="right">2.278508e-04</td>
-<td align="right">4</td>
-<td align="right">0.0805808</td>
+<td align="right">2</td>
+<td align="right">0.0402904</td>
 <td align="left">Var105</td>
 </tr>
 <tr class="odd">
-<td>Var106</td>
+<td align="left">Var106</td>
 <td align="right">9.593148e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000056</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var106</td>
 </tr>
 <tr class="even">
-<td>Var107</td>
+<td align="left">Var107</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var107</td>
 </tr>
 <tr class="odd">
-<td>Var108</td>
-<td align="right">3.561887e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="left">Var108</td>
+<td align="right">2.411380e-05</td>
+<td align="right">2</td>
+<td align="right">0.8993961</td>
 <td align="left">Var108</td>
 </tr>
 <tr class="even">
-<td>Var109</td>
-<td align="right">2.108524e-04</td>
-<td align="right">4</td>
-<td align="right">0.1015967</td>
+<td align="left">Var109</td>
+<td align="right">1.922021e-04</td>
+<td align="right">2</td>
+<td align="right">0.0656641</td>
 <td align="left">Var109</td>
 </tr>
 <tr class="odd">
-<td>Var11</td>
+<td align="left">Var11</td>
 <td align="right">8.812072e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000147</td>
+<td align="right">2</td>
+<td align="right">0.0000098</td>
 <td align="left">Var11</td>
 </tr>
 <tr class="even">
-<td>Var110</td>
+<td align="left">Var110</td>
 <td align="right">1.029613e-04</td>
-<td align="right">3</td>
-<td align="right">0.3548687</td>
+<td align="right">2</td>
+<td align="right">0.2365791</td>
 <td align="left">Var110</td>
 </tr>
 <tr class="odd">
-<td>Var111</td>
+<td align="left">Var111</td>
 <td align="right">8.364368e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000340</td>
+<td align="right">2</td>
+<td align="right">0.0000170</td>
 <td align="left">Var111</td>
 </tr>
 <tr class="even">
-<td>Var112</td>
-<td align="right">3.447896e-03</td>
-<td align="right">4</td>
+<td align="left">Var112</td>
+<td align="right">2.752908e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var112</td>
 </tr>
 <tr class="odd">
-<td>Var113</td>
-<td align="right">7.269665e-03</td>
+<td align="left">Var113</td>
+<td align="right">6.466721e-03</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var113</td>
 </tr>
 <tr class="even">
-<td>Var114</td>
+<td align="left">Var114</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var114</td>
 </tr>
 <tr class="odd">
-<td>Var115</td>
+<td align="left">Var115</td>
 <td align="right">2.278508e-04</td>
-<td align="right">4</td>
-<td align="right">0.0805808</td>
+<td align="right">2</td>
+<td align="right">0.0402904</td>
 <td align="left">Var115</td>
 </tr>
 <tr class="even">
-<td>Var116</td>
+<td align="left">Var116</td>
 <td align="right">2.376463e-05</td>
 <td align="right">2</td>
 <td align="right">0.9059967</td>
 <td align="left">Var116</td>
 </tr>
 <tr class="odd">
-<td>Var117</td>
+<td align="left">Var117</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var117</td>
 </tr>
 <tr class="even">
-<td>Var118</td>
+<td align="left">Var118</td>
 <td align="right">5.017689e-07</td>
 <td align="right">1</td>
 <td align="right">0.9131691</td>
 <td align="left">Var118</td>
 </tr>
 <tr class="odd">
-<td>Var119</td>
-<td align="right">4.359449e-03</td>
-<td align="right">4</td>
+<td align="left">Var119</td>
+<td align="right">2.669092e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var119</td>
 </tr>
 <tr class="even">
-<td>Var12</td>
-<td align="right">4.081390e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="left">Var12</td>
+<td align="right">3.286502e-05</td>
+<td align="right">2</td>
+<td align="right">0.7550253</td>
 <td align="left">Var12</td>
 </tr>
 <tr class="odd">
-<td>Var120</td>
+<td align="left">Var120</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var120</td>
 </tr>
 <tr class="even">
-<td>Var121</td>
-<td align="right">2.897780e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="left">Var121</td>
+<td align="right">2.376463e-05</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var121</td>
 </tr>
 <tr class="odd">
-<td>Var122</td>
-<td align="right">8.933594e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000126</td>
+<td align="left">Var122</td>
+<td align="right">8.842007e-04</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var122</td>
 </tr>
 <tr class="even">
-<td>Var123</td>
+<td align="left">Var123</td>
 <td align="right">2.752908e-03</td>
-<td align="right">4</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var123</td>
 </tr>
 <tr class="odd">
-<td>Var124</td>
+<td align="left">Var124</td>
 <td align="right">9.593148e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000056</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var124</td>
 </tr>
 <tr class="even">
-<td>Var125</td>
-<td align="right">9.581065e-03</td>
-<td align="right">4</td>
+<td align="left">Var125</td>
+<td align="right">2.013427e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var125</td>
 </tr>
 <tr class="odd">
-<td>Var126</td>
-<td align="right">4.242057e-02</td>
-<td align="right">4</td>
+<td align="left">Var126</td>
+<td align="right">1.382784e-02</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var126</td>
 </tr>
 <tr class="even">
-<td>Var127</td>
+<td align="left">Var127</td>
 <td align="right">5.822901e-04</td>
-<td align="right">4</td>
-<td align="right">0.0008141</td>
+<td align="right">2</td>
+<td align="right">0.0004071</td>
 <td align="left">Var127</td>
 </tr>
 <tr class="odd">
-<td>Var128</td>
+<td align="left">Var128</td>
 <td align="right">5.822901e-04</td>
-<td align="right">4</td>
-<td align="right">0.0008141</td>
+<td align="right">2</td>
+<td align="right">0.0004071</td>
 <td align="left">Var128</td>
 </tr>
 <tr class="even">
-<td>Var129</td>
-<td align="right">2.210144e-04</td>
-<td align="right">4</td>
-<td align="right">0.0884318</td>
+<td align="left">Var129</td>
+<td align="right">2.376463e-05</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var129</td>
 </tr>
 <tr class="odd">
-<td>Var13</td>
-<td align="right">1.406003e-02</td>
-<td align="right">4</td>
+<td align="left">Var13</td>
+<td align="right">5.312771e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var13</td>
 </tr>
 <tr class="even">
-<td>Var130</td>
+<td align="left">Var130</td>
 <td align="right">8.812072e-04</td>
 <td align="right">2</td>
 <td align="right">0.0000098</td>
 <td align="left">Var130</td>
 </tr>
 <tr class="odd">
-<td>Var131</td>
+<td align="left">Var131</td>
 <td align="right">8.857586e-05</td>
-<td align="right">3</td>
-<td align="right">0.4422044</td>
+<td align="right">2</td>
+<td align="right">0.2948029</td>
 <td align="left">Var131</td>
 </tr>
 <tr class="even">
-<td>Var132</td>
+<td align="left">Var132</td>
 <td align="right">2.752908e-03</td>
-<td align="right">3</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var132</td>
 </tr>
 <tr class="odd">
-<td>Var133</td>
-<td align="right">3.306253e-03</td>
-<td align="right">4</td>
+<td align="left">Var133</td>
+<td align="right">2.752908e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var133</td>
 </tr>
 <tr class="even">
-<td>Var134</td>
-<td align="right">2.884412e-03</td>
-<td align="right">4</td>
+<td align="left">Var134</td>
+<td align="right">2.752908e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var134</td>
 </tr>
 <tr class="odd">
-<td>Var135</td>
+<td align="left">Var135</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var135</td>
 </tr>
 <tr class="even">
-<td>Var136</td>
+<td align="left">Var136</td>
 <td align="right">6.724954e-05</td>
-<td align="right">4</td>
-<td align="right">0.8272622</td>
+<td align="right">2</td>
+<td align="right">0.4136311</td>
 <td align="left">Var136</td>
 </tr>
 <tr class="odd">
-<td>Var137</td>
+<td align="left">Var137</td>
 <td align="right">2.376463e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var137</td>
 </tr>
 <tr class="even">
-<td>Var138</td>
+<td align="left">Var138</td>
 <td align="right">9.593148e-04</td>
 <td align="right">2</td>
 <td align="right">0.0000037</td>
 <td align="left">Var138</td>
 </tr>
 <tr class="odd">
-<td>Var139</td>
+<td align="left">Var139</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var139</td>
 </tr>
 <tr class="even">
-<td>Var14</td>
-<td align="right">9.190994e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000092</td>
+<td align="left">Var14</td>
+<td align="right">8.812072e-04</td>
+<td align="right">2</td>
+<td align="right">0.0000098</td>
 <td align="left">Var14</td>
 </tr>
 <tr class="odd">
-<td>Var140</td>
-<td align="right">1.256557e-02</td>
-<td align="right">4</td>
+<td align="left">Var140</td>
+<td align="right">2.972593e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var140</td>
 </tr>
 <tr class="even">
-<td>Var142</td>
+<td align="left">Var142</td>
 <td align="right">8.540294e-05</td>
-<td align="right">4</td>
-<td align="right">0.6194248</td>
+<td align="right">2</td>
+<td align="right">0.3097124</td>
 <td align="left">Var142</td>
 </tr>
 <tr class="odd">
-<td>Var143</td>
+<td align="left">Var143</td>
 <td align="right">2.752908e-03</td>
-<td align="right">3</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var143</td>
 </tr>
 <tr class="even">
-<td>Var144</td>
-<td align="right">7.754394e-03</td>
-<td align="right">4</td>
+<td align="left">Var144</td>
+<td align="right">5.421069e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var144</td>
 </tr>
 <tr class="odd">
-<td>Var145</td>
+<td align="left">Var145</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var145</td>
 </tr>
 <tr class="even">
-<td>Var146</td>
+<td align="left">Var146</td>
 <td align="right">9.813199e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000043</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var146</td>
 </tr>
 <tr class="odd">
-<td>Var147</td>
-<td align="right">1.189134e-03</td>
-<td align="right">4</td>
-<td align="right">0.0000004</td>
+<td align="left">Var147</td>
+<td align="right">9.813199e-04</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var147</td>
 </tr>
 <tr class="even">
-<td>Var148</td>
+<td align="left">Var148</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var148</td>
 </tr>
 <tr class="odd">
-<td>Var149</td>
-<td align="right">4.654635e-04</td>
-<td align="right">4</td>
-<td align="right">0.0035862</td>
+<td align="left">Var149</td>
+<td align="right">3.035956e-04</td>
+<td align="right">2</td>
+<td align="right">0.0146283</td>
 <td align="left">Var149</td>
 </tr>
 <tr class="even">
-<td>Var150</td>
+<td align="left">Var150</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var150</td>
 </tr>
 <tr class="odd">
-<td>Var151</td>
+<td align="left">Var151</td>
 <td align="right">6.334417e-04</td>
-<td align="right">4</td>
-<td align="right">0.0004277</td>
+<td align="right">2</td>
+<td align="right">0.0002138</td>
 <td align="left">Var151</td>
 </tr>
 <tr class="even">
-<td>Var152</td>
+<td align="left">Var152</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var152</td>
 </tr>
 <tr class="odd">
-<td>Var153</td>
-<td align="right">4.872040e-03</td>
-<td align="right">4</td>
+<td align="left">Var153</td>
+<td align="right">2.752908e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var153</td>
 </tr>
 <tr class="even">
-<td>Var154</td>
-<td align="right">2.929530e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="left">Var154</td>
+<td align="right">2.376463e-05</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var154</td>
 </tr>
 <tr class="odd">
-<td>Var155</td>
+<td align="left">Var155</td>
 <td align="right">9.593148e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000056</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var155</td>
 </tr>
 <tr class="even">
-<td>Var156</td>
-<td align="right">1.374562e-04</td>
-<td align="right">4</td>
-<td align="right">0.2844365</td>
+<td align="left">Var156</td>
+<td align="right">1.905424e-05</td>
+<td align="right">2</td>
+<td align="right">1.0000000</td>
 <td align="left">Var156</td>
 </tr>
 <tr class="odd">
-<td>Var157</td>
+<td align="left">Var157</td>
 <td align="right">8.364368e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000340</td>
+<td align="right">2</td>
+<td align="right">0.0000170</td>
 <td align="left">Var157</td>
 </tr>
 <tr class="even">
-<td>Var158</td>
+<td align="left">Var158</td>
 <td align="right">6.009046e-04</td>
-<td align="right">4</td>
-<td align="right">0.0006439</td>
+<td align="right">2</td>
+<td align="right">0.0003219</td>
 <td align="left">Var158</td>
 </tr>
 <tr class="odd">
-<td>Var159</td>
+<td align="left">Var159</td>
 <td align="right">8.842007e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000141</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var159</td>
 </tr>
 <tr class="even">
-<td>Var16</td>
+<td align="left">Var16</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var16</td>
 </tr>
 <tr class="odd">
-<td>Var160</td>
-<td align="right">3.869272e-03</td>
-<td align="right">4</td>
+<td align="left">Var160</td>
+<td align="right">2.752908e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var160</td>
 </tr>
 <tr class="even">
-<td>Var161</td>
+<td align="left">Var161</td>
 <td align="right">9.593148e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000056</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var161</td>
 </tr>
 <tr class="odd">
-<td>Var162</td>
+<td align="left">Var162</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var162</td>
 </tr>
 <tr class="even">
-<td>Var163</td>
+<td align="left">Var163</td>
 <td align="right">2.752908e-03</td>
-<td align="right">4</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var163</td>
 </tr>
 <tr class="odd">
-<td>Var164</td>
+<td align="left">Var164</td>
 <td align="right">9.593148e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000056</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var164</td>
 </tr>
 <tr class="even">
-<td>Var165</td>
-<td align="right">6.462596e-04</td>
-<td align="right">4</td>
-<td align="right">0.0003641</td>
+<td align="left">Var165</td>
+<td align="right">6.009046e-04</td>
+<td align="right">2</td>
+<td align="right">0.0003219</td>
 <td align="left">Var165</td>
 </tr>
 <tr class="odd">
-<td>Var166</td>
+<td align="left">Var166</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var166</td>
 </tr>
 <tr class="even">
-<td>Var168</td>
+<td align="left">Var168</td>
 <td align="right">2.632379e-04</td>
-<td align="right">4</td>
-<td align="right">0.0500202</td>
+<td align="right">2</td>
+<td align="right">0.0250101</td>
 <td align="left">Var168</td>
 </tr>
 <tr class="odd">
-<td>Var17</td>
+<td align="left">Var17</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var17</td>
 </tr>
 <tr class="even">
-<td>Var170</td>
+<td align="left">Var170</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var170</td>
 </tr>
 <tr class="odd">
-<td>Var171</td>
+<td align="left">Var171</td>
 <td align="right">5.822901e-04</td>
-<td align="right">4</td>
-<td align="right">0.0008141</td>
+<td align="right">2</td>
+<td align="right">0.0004071</td>
 <td align="left">Var171</td>
 </tr>
 <tr class="even">
-<td>Var172</td>
+<td align="left">Var172</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var172</td>
 </tr>
 <tr class="odd">
-<td>Var173</td>
+<td align="left">Var173</td>
 <td align="right">2.752908e-03</td>
-<td align="right">3</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var173</td>
 </tr>
 <tr class="even">
-<td>Var174</td>
+<td align="left">Var174</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var174</td>
 </tr>
 <tr class="odd">
-<td>Var176</td>
-<td align="right">8.996031e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000117</td>
+<td align="left">Var176</td>
+<td align="right">8.812072e-04</td>
+<td align="right">2</td>
+<td align="right">0.0000098</td>
 <td align="left">Var176</td>
 </tr>
 <tr class="even">
-<td>Var177</td>
+<td align="left">Var177</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var177</td>
 </tr>
 <tr class="odd">
-<td>Var178</td>
-<td align="right">2.022110e-04</td>
-<td align="right">4</td>
-<td align="right">0.1143891</td>
+<td align="left">Var178</td>
+<td align="right">1.729184e-04</td>
+<td align="right">2</td>
+<td align="right">0.0858903</td>
 <td align="left">Var178</td>
 </tr>
 <tr class="even">
-<td>Var179</td>
+<td align="left">Var179</td>
 <td align="right">9.593148e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000056</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var179</td>
 </tr>
 <tr class="odd">
-<td>Var18</td>
+<td align="left">Var18</td>
 <td align="right">9.593148e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000056</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var18</td>
 </tr>
 <tr class="even">
-<td>Var180</td>
-<td align="right">4.520505e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="left">Var180</td>
+<td align="right">2.376463e-05</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var180</td>
 </tr>
 <tr class="odd">
-<td>Var181</td>
+<td align="left">Var181</td>
 <td align="right">2.752908e-03</td>
-<td align="right">3</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var181</td>
 </tr>
 <tr class="even">
-<td>Var182</td>
+<td align="left">Var182</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var182</td>
 </tr>
 <tr class="odd">
-<td>Var183</td>
+<td align="left">Var183</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var183</td>
 </tr>
 <tr class="even">
-<td>Var184</td>
+<td align="left">Var184</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var184</td>
 </tr>
 <tr class="odd">
-<td>Var186</td>
+<td align="left">Var186</td>
 <td align="right">2.376463e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var186</td>
 </tr>
 <tr class="even">
-<td>Var187</td>
+<td align="left">Var187</td>
 <td align="right">2.376463e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var187</td>
 </tr>
 <tr class="odd">
-<td>Var188</td>
+<td align="left">Var188</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var188</td>
 </tr>
 <tr class="even">
-<td>Var189</td>
-<td align="right">1.277810e-02</td>
-<td align="right">4</td>
+<td align="left">Var189</td>
+<td align="right">1.215778e-02</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var189</td>
 </tr>
 <tr class="odd">
-<td>Var19</td>
+<td align="left">Var19</td>
 <td align="right">9.593148e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000056</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var19</td>
 </tr>
 <tr class="even">
-<td>Var190</td>
-<td align="right">8.343681e-05</td>
-<td align="right">4</td>
-<td align="right">0.6387594</td>
+<td align="left">Var190</td>
+<td align="right">7.148827e-05</td>
+<td align="right">2</td>
+<td align="right">0.3861432</td>
 <td align="left">Var190</td>
 </tr>
 <tr class="odd">
-<td>Var191</td>
+<td align="left">Var191</td>
 <td align="right">5.823458e-04</td>
 <td align="right">2</td>
 <td align="right">0.0004068</td>
 <td align="left">Var191</td>
 </tr>
 <tr class="even">
-<td>Var192</td>
+<td align="left">Var192</td>
 <td align="right">7.538690e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var192</td>
 </tr>
 <tr class="odd">
-<td>Var193</td>
+<td align="left">Var193</td>
 <td align="right">7.297381e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var193</td>
 </tr>
 <tr class="even">
-<td>Var194</td>
+<td align="left">Var194</td>
 <td align="right">6.782668e-04</td>
 <td align="right">2</td>
 <td align="right">0.0001219</td>
 <td align="left">Var194</td>
 </tr>
 <tr class="odd">
-<td>Var195</td>
+<td align="left">Var195</td>
 <td align="right">8.627715e-04</td>
 <td align="right">2</td>
 <td align="right">0.0000123</td>
 <td align="left">Var195</td>
 </tr>
 <tr class="even">
-<td>Var196</td>
+<td align="left">Var196</td>
 <td align="right">1.183184e-04</td>
 <td align="right">2</td>
 <td align="right">0.1880904</td>
 <td align="left">Var196</td>
 </tr>
 <tr class="odd">
-<td>Var197</td>
+<td align="left">Var197</td>
 <td align="right">9.815205e-04</td>
 <td align="right">2</td>
 <td align="right">0.0000028</td>
 <td align="left">Var197</td>
 </tr>
 <tr class="even">
-<td>Var198</td>
+<td align="left">Var198</td>
 <td align="right">4.063878e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var198</td>
 </tr>
 <tr class="odd">
-<td>Var199</td>
+<td align="left">Var199</td>
 <td align="right">8.723234e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var199</td>
 </tr>
 <tr class="even">
-<td>Var2</td>
+<td align="left">Var2</td>
 <td align="right">8.842007e-04</td>
 <td align="right">2</td>
 <td align="right">0.0000094</td>
 <td align="left">Var2</td>
 </tr>
 <tr class="odd">
-<td>Var200</td>
+<td align="left">Var200</td>
 <td align="right">5.221674e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var200</td>
 </tr>
 <tr class="even">
-<td>Var201</td>
+<td align="left">Var201</td>
 <td align="right">6.700742e-04</td>
 <td align="right">2</td>
 <td align="right">0.0001351</td>
 <td align="left">Var201</td>
 </tr>
 <tr class="odd">
-<td>Var202</td>
+<td align="left">Var202</td>
 <td align="right">3.211780e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var202</td>
 </tr>
 <tr class="even">
-<td>Var203</td>
+<td align="left">Var203</td>
 <td align="right">2.116357e-04</td>
 <td align="right">2</td>
 <td align="right">0.0502565</td>
 <td align="left">Var203</td>
 </tr>
 <tr class="odd">
-<td>Var204</td>
+<td align="left">Var204</td>
 <td align="right">1.544907e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var204</td>
 </tr>
 <tr class="even">
-<td>Var205</td>
+<td align="left">Var205</td>
 <td align="right">7.465653e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var205</td>
 </tr>
 <tr class="odd">
-<td>Var206</td>
+<td align="left">Var206</td>
 <td align="right">1.256862e-02</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var206</td>
 </tr>
 <tr class="even">
-<td>Var207</td>
+<td align="left">Var207</td>
 <td align="right">5.645282e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var207</td>
 </tr>
 <tr class="odd">
-<td>Var208</td>
+<td align="left">Var208</td>
 <td align="right">8.615999e-05</td>
 <td align="right">2</td>
 <td align="right">0.3060790</td>
 <td align="left">Var208</td>
 </tr>
 <tr class="even">
-<td>Var21</td>
-<td align="right">4.331757e-03</td>
-<td align="right">4</td>
+<td align="left">Var21</td>
+<td align="right">2.669092e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var21</td>
 </tr>
 <tr class="odd">
-<td>Var210</td>
+<td align="left">Var210</td>
 <td align="right">3.973929e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var210</td>
 </tr>
 <tr class="even">
-<td>Var211</td>
+<td align="left">Var211</td>
 <td align="right">1.984996e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var211</td>
 </tr>
 <tr class="odd">
-<td>Var212</td>
+<td align="left">Var212</td>
 <td align="right">9.894754e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var212</td>
 </tr>
 <tr class="even">
-<td>Var213</td>
+<td align="left">Var213</td>
 <td align="right">8.374278e-04</td>
 <td align="right">2</td>
 <td align="right">0.0000168</td>
 <td align="left">Var213</td>
 </tr>
 <tr class="odd">
-<td>Var214</td>
+<td align="left">Var214</td>
 <td align="right">5.221674e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var214</td>
 </tr>
 <tr class="even">
-<td>Var215</td>
+<td align="left">Var215</td>
 <td align="right">1.897240e-05</td>
 <td align="right">2</td>
 <td align="right">1.0000000</td>
 <td align="left">Var215</td>
 </tr>
 <tr class="odd">
-<td>Var216</td>
+<td align="left">Var216</td>
 <td align="right">4.231456e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var216</td>
 </tr>
 <tr class="even">
-<td>Var217</td>
+<td align="left">Var217</td>
 <td align="right">1.185090e-02</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var217</td>
 </tr>
 <tr class="odd">
-<td>Var218</td>
+<td align="left">Var218</td>
 <td align="right">1.226579e-02</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var218</td>
 </tr>
 <tr class="even">
-<td>Var219</td>
+<td align="left">Var219</td>
 <td align="right">2.900977e-04</td>
 <td align="right">2</td>
 <td align="right">0.0174888</td>
 <td align="left">Var219</td>
 </tr>
 <tr class="odd">
-<td>Var22</td>
-<td align="right">4.472317e-03</td>
-<td align="right">4</td>
+<td align="left">Var22</td>
+<td align="right">2.752908e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var22</td>
 </tr>
 <tr class="even">
-<td>Var220</td>
+<td align="left">Var220</td>
 <td align="right">4.063878e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var220</td>
 </tr>
 <tr class="odd">
-<td>Var221</td>
+<td align="left">Var221</td>
 <td align="right">3.967108e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var221</td>
 </tr>
 <tr class="even">
-<td>Var222</td>
+<td align="left">Var222</td>
 <td align="right">4.063878e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var222</td>
 </tr>
 <tr class="odd">
-<td>Var223</td>
+<td align="left">Var223</td>
 <td align="right">2.357560e-04</td>
 <td align="right">2</td>
 <td align="right">0.0361969</td>
 <td align="left">Var223</td>
 </tr>
 <tr class="even">
-<td>Var224</td>
+<td align="left">Var224</td>
 <td align="right">2.279200e-04</td>
 <td align="right">2</td>
 <td align="right">0.0402526</td>
 <td align="left">Var224</td>
 </tr>
 <tr class="odd">
-<td>Var225</td>
+<td align="left">Var225</td>
 <td align="right">5.707283e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var225</td>
 </tr>
 <tr class="even">
-<td>Var226</td>
+<td align="left">Var226</td>
 <td align="right">2.448209e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var226</td>
 </tr>
 <tr class="odd">
-<td>Var227</td>
+<td align="left">Var227</td>
 <td align="right">5.561409e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var227</td>
 </tr>
 <tr class="even">
-<td>Var228</td>
+<td align="left">Var228</td>
 <td align="right">7.882398e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var228</td>
 </tr>
 <tr class="odd">
-<td>Var229</td>
+<td align="left">Var229</td>
 <td align="right">7.019455e-03</td>
 <td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var229</td>
 </tr>
 <tr class="even">
-<td>Var23</td>
+<td align="left">Var23</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var23</td>
 </tr>
 <tr class="odd">
-<td>Var24</td>
-<td align="right">3.348608e-04</td>
-<td align="right">4</td>
-<td align="right">0.0193947</td>
+<td align="left">Var24</td>
+<td align="right">2.381645e-04</td>
+<td align="right">2</td>
+<td align="right">0.0350371</td>
 <td align="left">Var24</td>
 </tr>
 <tr class="even">
-<td>Var25</td>
+<td align="left">Var25</td>
 <td align="right">2.752908e-03</td>
-<td align="right">4</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var25</td>
 </tr>
 <tr class="odd">
-<td>Var26</td>
+<td align="left">Var26</td>
 <td align="right">9.813199e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000043</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var26</td>
 </tr>
 <tr class="even">
-<td>Var27</td>
-<td align="right">9.842395e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000041</td>
+<td align="left">Var27</td>
+<td align="right">9.813199e-04</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var27</td>
 </tr>
 <tr class="odd">
-<td>Var28</td>
-<td align="right">3.736472e-03</td>
-<td align="right">4</td>
+<td align="left">Var28</td>
+<td align="right">2.758522e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var28</td>
 </tr>
 <tr class="even">
-<td>Var29</td>
+<td align="left">Var29</td>
 <td align="right">2.992132e-05</td>
 <td align="right">2</td>
 <td align="right">0.7995316</td>
 <td align="left">Var29</td>
 </tr>
 <tr class="odd">
-<td>Var3</td>
-<td align="right">9.706533e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000049</td>
+<td align="left">Var3</td>
+<td align="right">8.812072e-04</td>
+<td align="right">2</td>
+<td align="right">0.0000098</td>
 <td align="left">Var3</td>
 </tr>
 <tr class="even">
-<td>Var30</td>
+<td align="left">Var30</td>
 <td align="right">2.376463e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var30</td>
 </tr>
 <tr class="odd">
-<td>Var33</td>
+<td align="left">Var33</td>
 <td align="right">6.334417e-04</td>
-<td align="right">4</td>
-<td align="right">0.0004277</td>
+<td align="right">2</td>
+<td align="right">0.0002138</td>
 <td align="left">Var33</td>
 </tr>
 <tr class="even">
-<td>Var34</td>
-<td align="right">9.380711e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000073</td>
+<td align="left">Var34</td>
+<td align="right">8.842007e-04</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var34</td>
 </tr>
 <tr class="odd">
-<td>Var35</td>
+<td align="left">Var35</td>
 <td align="right">2.752908e-03</td>
-<td align="right">3</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var35</td>
 </tr>
 <tr class="even">
-<td>Var36</td>
+<td align="left">Var36</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var36</td>
 </tr>
 <tr class="odd">
-<td>Var37</td>
+<td align="left">Var37</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var37</td>
 </tr>
 <tr class="even">
-<td>Var38</td>
-<td align="right">3.117658e-03</td>
-<td align="right">4</td>
+<td align="left">Var38</td>
+<td align="right">2.752908e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var38</td>
 </tr>
 <tr class="odd">
-<td>Var4</td>
+<td align="left">Var4</td>
 <td align="right">9.593148e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000056</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var4</td>
 </tr>
 <tr class="even">
-<td>Var40</td>
+<td align="left">Var40</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var40</td>
 </tr>
 <tr class="odd">
-<td>Var41</td>
-<td align="right">1.822623e-04</td>
-<td align="right">4</td>
-<td align="right">0.1507580</td>
+<td align="left">Var41</td>
+<td align="right">2.376463e-05</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var41</td>
 </tr>
 <tr class="even">
-<td>Var43</td>
+<td align="left">Var43</td>
 <td align="right">8.842007e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000141</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var43</td>
 </tr>
 <tr class="odd">
-<td>Var44</td>
+<td align="left">Var44</td>
 <td align="right">2.752908e-03</td>
-<td align="right">3</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var44</td>
 </tr>
 <tr class="even">
-<td>Var45</td>
+<td align="left">Var45</td>
 <td align="right">6.815674e-05</td>
-<td align="right">4</td>
-<td align="right">0.8151188</td>
+<td align="right">2</td>
+<td align="right">0.4075594</td>
 <td align="left">Var45</td>
 </tr>
 <tr class="odd">
-<td>Var46</td>
+<td align="left">Var46</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var46</td>
 </tr>
 <tr class="even">
-<td>Var47</td>
-<td align="right">2.633464e-05</td>
-<td align="right">3</td>
-<td align="right">1.0000000</td>
+<td align="left">Var47</td>
+<td align="right">2.376463e-05</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var47</td>
 </tr>
 <tr class="odd">
-<td>Var49</td>
+<td align="left">Var49</td>
 <td align="right">8.842007e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000141</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var49</td>
 </tr>
 <tr class="even">
-<td>Var5</td>
+<td align="left">Var5</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var5</td>
 </tr>
 <tr class="odd">
-<td>Var50</td>
-<td align="right">7.044158e-05</td>
-<td align="right">4</td>
-<td align="right">0.7854527</td>
+<td align="left">Var50</td>
+<td align="right">2.376463e-05</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var50</td>
 </tr>
 <tr class="even">
-<td>Var51</td>
+<td align="left">Var51</td>
 <td align="right">6.809351e-04</td>
-<td align="right">4</td>
-<td align="right">0.0002358</td>
+<td align="right">2</td>
+<td align="right">0.0001179</td>
 <td align="left">Var51</td>
 </tr>
 <tr class="odd">
-<td>Var53</td>
-<td align="right">2.219833e-04</td>
-<td align="right">4</td>
-<td align="right">0.0872727</td>
+<td align="left">Var53</td>
+<td align="right">9.100583e-05</td>
+<td align="right">2</td>
+<td align="right">0.2839318</td>
 <td align="left">Var53</td>
 </tr>
 <tr class="even">
-<td>Var54</td>
+<td align="left">Var54</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var54</td>
 </tr>
 <tr class="odd">
-<td>Var56</td>
+<td align="left">Var56</td>
 <td align="right">1.729184e-04</td>
-<td align="right">4</td>
-<td align="right">0.1717806</td>
+<td align="right">2</td>
+<td align="right">0.0858903</td>
 <td align="left">Var56</td>
 </tr>
 <tr class="even">
-<td>Var57</td>
-<td align="right">2.195186e-04</td>
+<td align="left">Var57</td>
+<td align="right">2.868417e-04</td>
 <td align="right">4</td>
-<td align="right">0.0902529</td>
+<td align="right">0.0365215</td>
 <td align="left">Var57</td>
 </tr>
 <tr class="odd">
-<td>Var58</td>
-<td align="right">3.211591e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="left">Var58</td>
+<td align="right">2.376463e-05</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var58</td>
 </tr>
 <tr class="even">
-<td>Var59</td>
+<td align="left">Var59</td>
 <td align="right">2.278508e-04</td>
-<td align="right">4</td>
-<td align="right">0.0805808</td>
+<td align="right">2</td>
+<td align="right">0.0402904</td>
 <td align="left">Var59</td>
 </tr>
 <tr class="odd">
-<td>Var6</td>
-<td align="right">7.045921e-03</td>
-<td align="right">4</td>
+<td align="left">Var6</td>
+<td align="right">2.669092e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var6</td>
 </tr>
 <tr class="even">
-<td>Var60</td>
+<td align="left">Var60</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var60</td>
 </tr>
 <tr class="odd">
-<td>Var61</td>
+<td align="left">Var61</td>
 <td align="right">6.334417e-04</td>
-<td align="right">4</td>
-<td align="right">0.0004277</td>
+<td align="right">2</td>
+<td align="right">0.0002138</td>
 <td align="left">Var61</td>
 </tr>
 <tr class="even">
-<td>Var62</td>
+<td align="left">Var62</td>
 <td align="right">1.707981e-05</td>
-<td align="right">3</td>
+<td align="right">2</td>
 <td align="right">1.0000000</td>
 <td align="left">Var62</td>
 </tr>
 <tr class="odd">
-<td>Var63</td>
-<td align="right">3.590263e-05</td>
-<td align="right">4</td>
+<td align="left">Var63</td>
+<td align="right">1.905424e-05</td>
+<td align="right">2</td>
 <td align="right">1.0000000</td>
 <td align="left">Var63</td>
 </tr>
 <tr class="even">
-<td>Var64</td>
-<td align="right">1.651070e-04</td>
-<td align="right">4</td>
-<td align="right">0.1917178</td>
+<td align="left">Var64</td>
+<td align="right">7.138463e-05</td>
+<td align="right">2</td>
+<td align="right">0.3867893</td>
 <td align="left">Var64</td>
 </tr>
 <tr class="odd">
-<td>Var65</td>
-<td align="right">5.781885e-03</td>
-<td align="right">4</td>
+<td align="left">Var65</td>
+<td align="right">2.974265e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var65</td>
 </tr>
 <tr class="even">
-<td>Var66</td>
-<td align="right">1.099209e-04</td>
-<td align="right">4</td>
-<td align="right">0.4261780</td>
+<td align="left">Var66</td>
+<td align="right">1.905424e-05</td>
+<td align="right">2</td>
+<td align="right">1.0000000</td>
 <td align="left">Var66</td>
 </tr>
 <tr class="odd">
-<td>Var67</td>
+<td align="left">Var67</td>
 <td align="right">9.813199e-04</td>
 <td align="right">2</td>
 <td align="right">0.0000028</td>
 <td align="left">Var67</td>
 </tr>
 <tr class="even">
-<td>Var68</td>
-<td align="right">1.065001e-03</td>
-<td align="right">4</td>
-<td align="right">0.0000020</td>
+<td align="left">Var68</td>
+<td align="right">8.842007e-04</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var68</td>
 </tr>
 <tr class="odd">
-<td>Var69</td>
+<td align="left">Var69</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var69</td>
 </tr>
 <tr class="even">
-<td>Var7</td>
-<td align="right">1.184595e-02</td>
-<td align="right">4</td>
+<td align="left">Var7</td>
+<td align="right">9.401229e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var7</td>
 </tr>
 <tr class="odd">
-<td>Var70</td>
+<td align="left">Var70</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var70</td>
 </tr>
 <tr class="even">
-<td>Var71</td>
+<td align="left">Var71</td>
 <td align="right">8.364368e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000340</td>
+<td align="right">2</td>
+<td align="right">0.0000170</td>
 <td align="left">Var71</td>
 </tr>
 <tr class="odd">
-<td>Var72</td>
+<td align="left">Var72</td>
 <td align="right">2.007878e-03</td>
-<td align="right">4</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var72</td>
 </tr>
 <tr class="even">
-<td>Var73</td>
-<td align="right">1.999596e-02</td>
+<td align="left">Var73</td>
+<td align="right">1.984716e-02</td>
 <td align="right">4</td>
 <td align="right">0.0000000</td>
 <td align="left">Var73</td>
 </tr>
 <tr class="odd">
-<td>Var74</td>
-<td align="right">1.502785e-02</td>
-<td align="right">4</td>
+<td align="left">Var74</td>
+<td align="right">6.365026e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var74</td>
 </tr>
 <tr class="even">
-<td>Var75</td>
+<td align="left">Var75</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var75</td>
 </tr>
 <tr class="odd">
-<td>Var76</td>
-<td align="right">3.240031e-03</td>
-<td align="right">4</td>
+<td align="left">Var76</td>
+<td align="right">2.752908e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var76</td>
 </tr>
 <tr class="even">
-<td>Var77</td>
-<td align="right">1.240411e-04</td>
-<td align="right">4</td>
-<td align="right">0.3457840</td>
+<td align="left">Var77</td>
+<td align="right">3.158199e-05</td>
+<td align="right">2</td>
+<td align="right">0.7739775</td>
 <td align="left">Var77</td>
 </tr>
 <tr class="odd">
-<td>Var78</td>
+<td align="left">Var78</td>
 <td align="right">2.752908e-03</td>
-<td align="right">3</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var78</td>
 </tr>
 <tr class="even">
-<td>Var80</td>
+<td align="left">Var80</td>
 <td align="right">9.813199e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000057</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var80</td>
 </tr>
 <tr class="odd">
-<td>Var81</td>
-<td align="right">6.356204e-03</td>
-<td align="right">4</td>
+<td align="left">Var81</td>
+<td align="right">2.669092e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var81</td>
 </tr>
 <tr class="even">
-<td>Var82</td>
-<td align="right">1.019069e-03</td>
-<td align="right">4</td>
-<td align="right">0.0000036</td>
+<td align="left">Var82</td>
+<td align="right">9.593148e-04</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var82</td>
 </tr>
 <tr class="odd">
-<td>Var83</td>
+<td align="left">Var83</td>
 <td align="right">2.752908e-03</td>
-<td align="right">4</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var83</td>
 </tr>
 <tr class="even">
-<td>Var84</td>
+<td align="left">Var84</td>
 <td align="right">8.812072e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000147</td>
+<td align="right">2</td>
+<td align="right">0.0000098</td>
 <td align="left">Var84</td>
 </tr>
 <tr class="odd">
-<td>Var85</td>
-<td align="right">3.059878e-03</td>
-<td align="right">4</td>
+<td align="left">Var85</td>
+<td align="right">2.752908e-03</td>
+<td align="right">2</td>
 <td align="right">0.0000000</td>
 <td align="left">Var85</td>
 </tr>
 <tr class="even">
-<td>Var86</td>
-<td align="right">3.676970e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="left">Var86</td>
+<td align="right">2.376463e-05</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var86</td>
 </tr>
 <tr class="odd">
-<td>Var87</td>
-<td align="right">2.920052e-05</td>
-<td align="right">4</td>
-<td align="right">1.0000000</td>
+<td align="left">Var87</td>
+<td align="right">2.376463e-05</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var87</td>
 </tr>
 <tr class="even">
-<td>Var88</td>
+<td align="left">Var88</td>
 <td align="right">5.822901e-04</td>
-<td align="right">4</td>
-<td align="right">0.0008141</td>
+<td align="right">2</td>
+<td align="right">0.0004071</td>
 <td align="left">Var88</td>
 </tr>
 <tr class="odd">
-<td>Var89</td>
+<td align="left">Var89</td>
 <td align="right">1.729184e-04</td>
-<td align="right">4</td>
-<td align="right">0.1717806</td>
+<td align="right">2</td>
+<td align="right">0.0858903</td>
 <td align="left">Var89</td>
 </tr>
 <tr class="even">
-<td>Var9</td>
-<td align="right">1.105532e-04</td>
-<td align="right">4</td>
-<td align="right">0.4221714</td>
+<td align="left">Var9</td>
+<td align="right">2.376463e-05</td>
+<td align="right">2</td>
+<td align="right">0.9059967</td>
 <td align="left">Var9</td>
 </tr>
 <tr class="odd">
-<td>Var90</td>
+<td align="left">Var90</td>
 <td align="right">2.376463e-05</td>
 <td align="right">2</td>
 <td align="right">0.9059967</td>
 <td align="left">Var90</td>
 </tr>
 <tr class="even">
-<td>Var91</td>
+<td align="left">Var91</td>
 <td align="right">8.364368e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000340</td>
+<td align="right">2</td>
+<td align="right">0.0000170</td>
 <td align="left">Var91</td>
 </tr>
 <tr class="odd">
-<td>Var92</td>
-<td align="right">2.573893e-04</td>
-<td align="right">4</td>
-<td align="right">0.0540965</td>
+<td align="left">Var92</td>
+<td align="right">1.829928e-05</td>
+<td align="right">2</td>
+<td align="right">1.0000000</td>
 <td align="left">Var92</td>
 </tr>
 <tr class="even">
-<td>Var93</td>
+<td align="left">Var93</td>
 <td align="right">9.813199e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000043</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var93</td>
 </tr>
 <tr class="odd">
-<td>Var94</td>
+<td align="left">Var94</td>
 <td align="right">3.706455e-04</td>
-<td align="right">4</td>
-<td align="right">0.0121620</td>
+<td align="right">2</td>
+<td align="right">0.0060810</td>
 <td align="left">Var94</td>
 </tr>
 <tr class="even">
-<td>Var95</td>
+<td align="left">Var95</td>
 <td align="right">8.842007e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000141</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var95</td>
 </tr>
 <tr class="odd">
-<td>Var96</td>
+<td align="left">Var96</td>
 <td align="right">8.842007e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000188</td>
+<td align="right">2</td>
+<td align="right">0.0000094</td>
 <td align="left">Var96</td>
 </tr>
 <tr class="even">
-<td>Var97</td>
+<td align="left">Var97</td>
 <td align="right">9.813199e-04</td>
-<td align="right">3</td>
-<td align="right">0.0000043</td>
+<td align="right">2</td>
+<td align="right">0.0000028</td>
 <td align="left">Var97</td>
 </tr>
 <tr class="odd">
-<td>Var98</td>
-<td align="right">6.687011e-05</td>
-<td align="right">3</td>
-<td align="right">0.6243033</td>
+<td align="left">Var98</td>
+<td align="right">1.749498e-05</td>
+<td align="right">2</td>
+<td align="right">1.0000000</td>
 <td align="left">Var98</td>
 </tr>
 <tr class="even">
-<td>Var99</td>
+<td align="left">Var99</td>
 <td align="right">9.593148e-04</td>
-<td align="right">4</td>
-<td align="right">0.0000074</td>
+<td align="right">2</td>
+<td align="right">0.0000037</td>
 <td align="left">Var99</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(var_values<span class="op">$</span>sig <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="kw">nrow</span>(var_values))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(var_values$sig &lt;<span class="st"> </span><span class="dv">1</span>/<span class="kw">nrow</span>(var_values))</code></pre></div>
 <pre><code>##    Mode   FALSE    TRUE 
-## logical      58     154</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vars &lt;-<span class="st"> </span>var_values<span class="op">$</span>var[var_values<span class="op">$</span>sig <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="kw">nrow</span>(var_values)]
+## logical      59     153</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vars &lt;-<span class="st"> </span>var_values$var[var_values$sig &lt;<span class="st"> </span><span class="dv">1</span>/<span class="kw">nrow</span>(var_values)]
 
 
 <span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Thu Dec 27 15:43:55 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Sat Jan 19 07:37:10 2019&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Thu Dec 27 15:43:56 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Sat Jan 19 07:37:10 2019&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Run other models (with proper coding/training separation).</span>
 <span class="co">#</span>
 <span class="co"># This gets us back to AUC 0.74 range</span>
 
-customCoders =<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;c.PiecewiseV.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>solve_piecewise,
-                    <span class="st">&#39;n.PiecewiseV.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>solve_piecewise,
-                    <span class="st">&#39;c.knearest.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>square_window,
-                    <span class="st">&#39;n.knearest.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>square_window,
-                    <span class="st">&#39;c.spline.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>spline_variable,
-                    <span class="st">&#39;n.spline.num&#39;</span> =<span class="st"> </span>vtreat<span class="op">::</span>spline_variable)
+customCoders =<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;c.PiecewiseV.num&#39;</span> =<span class="st"> </span>vtreat::solve_piecewise,
+                    <span class="st">&#39;n.PiecewiseV.num&#39;</span> =<span class="st"> </span>vtreat::solve_piecewise,
+                    <span class="st">&#39;c.knearest.num&#39;</span> =<span class="st"> </span>vtreat::square_window,
+                    <span class="st">&#39;n.knearest.num&#39;</span> =<span class="st"> </span>vtreat::square_window,
+                    <span class="st">&#39;c.spline.num&#39;</span> =<span class="st"> </span>vtreat::spline_variable,
+                    <span class="st">&#39;n.spline.num&#39;</span> =<span class="st"> </span>vtreat::spline_variable)
                    <span class="co"># &#39;n.poolN.center&#39; = vtreat::ppCoderN, </span>
                    <span class="co"># &#39;c.poolC.center&#39; = vtreat::ppCoderC)</span>
                    <span class="co"># &#39;n.NonDecreasingV.num&#39; = vtreat::solveNonDecreasing,</span>
@@ -1592,38 +1593,38 @@ cfe =<span class="st"> </span><span class="kw">mkCrossFrameCExperiment</span>(dT
                               <span class="dt">customCoders=</span>customCoders,
                               <span class="dt">smFactor=</span><span class="fl">2.0</span>, 
                               <span class="dt">parallelCluster=</span>cl)</code></pre></div>
-<pre><code>## [1] &quot;vtreat 1.3.4 start initial treatment design Thu Dec 27 15:43:56 2018&quot;
-## [1] &quot; start cross frame work Thu Dec 27 15:45:35 2018&quot;
-## [1] &quot; vtreat::mkCrossFrameCExperiment done Thu Dec 27 15:46:17 2018&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">treatmentsC =<span class="st"> </span>cfe<span class="op">$</span>treatments
-scoreFrame =<span class="st"> </span>treatmentsC<span class="op">$</span>scoreFrame
-<span class="kw">table</span>(scoreFrame<span class="op">$</span>code)</code></pre></div>
+<pre><code>## [1] &quot;vtreat 1.3.5 start initial treatment design Sat Jan 19 07:37:10 2019&quot;
+## [1] &quot; start cross frame work Sat Jan 19 07:42:54 2019&quot;
+## [1] &quot; vtreat::mkCrossFrameCExperiment done Sat Jan 19 07:45:31 2019&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">treatmentsC =<span class="st"> </span>cfe$treatments
+scoreFrame =<span class="st"> </span>treatmentsC$scoreFrame
+<span class="kw">table</span>(scoreFrame$code)</code></pre></div>
 <pre><code>## 
 ##       catB       catP      clean      isBAD   knearest        lev 
-##         28         28        123        121          2        121 
+##         28         28        122        120          2        121 
 ## PiecewiseV     spline 
-##        119         87</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">selvars &lt;-<span class="st"> </span>scoreFrame<span class="op">$</span>varName
-treatedTrainM &lt;-<span class="st"> </span>cfe<span class="op">$</span>crossFrame[,<span class="kw">c</span>(yName,selvars),drop=<span class="ot">FALSE</span>]
-treatedTrainM[[yName]] =<span class="st"> </span>treatedTrainM[[yName]]<span class="op">==</span>yTarget
+##        118         81</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">selvars &lt;-<span class="st"> </span>scoreFrame$varName
+treatedTrainM &lt;-<span class="st"> </span>cfe$crossFrame[,<span class="kw">c</span>(yName,selvars),drop=<span class="ot">FALSE</span>]
+treatedTrainM[[yName]] =<span class="st"> </span>treatedTrainM[[yName]]==yTarget
 
 treatedTest =<span class="st"> </span><span class="kw">prepare</span>(treatmentsC,
                       dTest,
                       <span class="dt">pruneSig=</span><span class="ot">NULL</span>, 
                       <span class="dt">varRestriction =</span> selvars,
                       <span class="dt">parallelCluster=</span>cl)
-treatedTest[[yName]] =<span class="st"> </span>treatedTest[[yName]]<span class="op">==</span>yTarget
+treatedTest[[yName]] =<span class="st"> </span>treatedTest[[yName]]==yTarget
 
 <span class="co"># prepare plotting frames</span>
 treatedTrainP =<span class="st"> </span>treatedTrainM[, yName, drop=<span class="ot">FALSE</span>]
 treatedTestP =<span class="st"> </span>treatedTest[, yName, drop=<span class="ot">FALSE</span>]
 <span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Thu Dec 27 15:46:17 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Sat Jan 19 07:45:32 2019&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Thu Dec 27 15:46:17 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Sat Jan 19 07:45:32 2019&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mname =<span class="st"> &#39;xgbPred&#39;</span>
 <span class="kw">print</span>(<span class="kw">paste</span>(mname,<span class="kw">length</span>(selvars)))</code></pre></div>
-<pre><code>## [1] &quot;xgbPred 629&quot;</code></pre>
+<pre><code>## [1] &quot;xgbPred 620&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">params &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">max_depth =</span> <span class="dv">5</span>, 
               <span class="dt">objective =</span> <span class="st">&quot;binary:logistic&quot;</span>,
               <span class="dt">nthread =</span> ncore)
@@ -1634,62 +1635,66 @@ model &lt;-<span class="st"> </span><span class="kw">xgb.cv</span>(<span class="
                 <span class="dt">nfold =</span> <span class="dv">5</span>,
                 <span class="dt">early_stopping_rounds =</span> <span class="dv">10</span>,
                 <span class="dt">eval_metric =</span> <span class="st">&quot;logloss&quot;</span>)</code></pre></div>
-<pre><code>## [1]  train-logloss:0.502572+0.000289 test-logloss:0.503955+0.000789 
+<pre><code>## [1]  train-logloss:0.502616+0.000299 test-logloss:0.504000+0.000803 
 ## Multiple eval metrics are present. Will use test_logloss for early stopping.
 ## Will train until test_logloss hasn&#39;t improved in 10 rounds.
 ## 
-## [2]  train-logloss:0.399347+0.000546 test-logloss:0.401641+0.001153 
-## [3]  train-logloss:0.337179+0.000615 test-logloss:0.340794+0.001447 
-## [4]  train-logloss:0.297980+0.000617 test-logloss:0.302823+0.001869 
-## [5]  train-logloss:0.272629+0.000743 test-logloss:0.278756+0.002087 
-## [6]  train-logloss:0.256026+0.000635 test-logloss:0.263359+0.002239 
-## [7]  train-logloss:0.244625+0.000777 test-logloss:0.253522+0.002444 
-## [8]  train-logloss:0.236886+0.000681 test-logloss:0.247362+0.002457 
-## [9]  train-logloss:0.231295+0.000811 test-logloss:0.243654+0.002617 
-## [10] train-logloss:0.227146+0.000816 test-logloss:0.241105+0.002578 
-## [11] train-logloss:0.223828+0.000932 test-logloss:0.239419+0.002496 
-## [12] train-logloss:0.221109+0.000831 test-logloss:0.238480+0.002423 
-## [13] train-logloss:0.218843+0.000934 test-logloss:0.237888+0.002521 
-## [14] train-logloss:0.216800+0.000869 test-logloss:0.237660+0.002323 
-## [15] train-logloss:0.214737+0.000856 test-logloss:0.237362+0.002375 
-## [16] train-logloss:0.213023+0.000953 test-logloss:0.237196+0.002175 
-## [17] train-logloss:0.211184+0.001075 test-logloss:0.236985+0.002004 
-## [18] train-logloss:0.209559+0.000938 test-logloss:0.237021+0.001988 
-## [19] train-logloss:0.207970+0.001119 test-logloss:0.237059+0.001921 
-## [20] train-logloss:0.206355+0.001308 test-logloss:0.237129+0.001929 
-## [21] train-logloss:0.204742+0.001289 test-logloss:0.237293+0.001773 
-## [22] train-logloss:0.203538+0.001010 test-logloss:0.237429+0.001838 
-## [23] train-logloss:0.202625+0.001069 test-logloss:0.237424+0.001833 
-## [24] train-logloss:0.201755+0.001241 test-logloss:0.237507+0.001910 
-## [25] train-logloss:0.200727+0.001495 test-logloss:0.237633+0.001927 
-## [26] train-logloss:0.199614+0.001604 test-logloss:0.237833+0.002032 
-## [27] train-logloss:0.198494+0.001732 test-logloss:0.238008+0.002047 
+## [2]  train-logloss:0.399195+0.000428 test-logloss:0.401812+0.001288 
+## [3]  train-logloss:0.336918+0.000570 test-logloss:0.340757+0.001416 
+## [4]  train-logloss:0.297712+0.000604 test-logloss:0.302991+0.001817 
+## [5]  train-logloss:0.272387+0.000608 test-logloss:0.279138+0.002217 
+## [6]  train-logloss:0.255662+0.000620 test-logloss:0.263674+0.002387 
+## [7]  train-logloss:0.244599+0.000676 test-logloss:0.253806+0.002369 
+## [8]  train-logloss:0.236854+0.000654 test-logloss:0.247623+0.002542 
+## [9]  train-logloss:0.231218+0.000697 test-logloss:0.243699+0.002502 
+## [10] train-logloss:0.227080+0.000712 test-logloss:0.241149+0.002779 
+## [11] train-logloss:0.223743+0.000724 test-logloss:0.239539+0.002973 
+## [12] train-logloss:0.221013+0.000735 test-logloss:0.238369+0.002860 
+## [13] train-logloss:0.218636+0.000769 test-logloss:0.237717+0.002819 
+## [14] train-logloss:0.216642+0.000994 test-logloss:0.237281+0.002833 
+## [15] train-logloss:0.214661+0.000967 test-logloss:0.237138+0.002776 
+## [16] train-logloss:0.212911+0.000978 test-logloss:0.236982+0.002765 
+## [17] train-logloss:0.211458+0.001023 test-logloss:0.236942+0.002738 
+## [18] train-logloss:0.209730+0.001204 test-logloss:0.236790+0.002731 
+## [19] train-logloss:0.208084+0.001188 test-logloss:0.236765+0.002771 
+## [20] train-logloss:0.206488+0.001440 test-logloss:0.236774+0.002770 
+## [21] train-logloss:0.204901+0.001567 test-logloss:0.236827+0.002820 
+## [22] train-logloss:0.203319+0.001559 test-logloss:0.237039+0.002799 
+## [23] train-logloss:0.202416+0.001753 test-logloss:0.237012+0.002880 
+## [24] train-logloss:0.201297+0.001860 test-logloss:0.237045+0.003129 
+## [25] train-logloss:0.200311+0.001691 test-logloss:0.237097+0.003120 
+## [26] train-logloss:0.199239+0.001898 test-logloss:0.237003+0.003128 
+## [27] train-logloss:0.198337+0.001795 test-logloss:0.237141+0.003030 
+## [28] train-logloss:0.197086+0.001667 test-logloss:0.237420+0.003011 
+## [29] train-logloss:0.196092+0.001655 test-logloss:0.237641+0.003020 
 ## Stopping. Best iteration:
-## [17] train-logloss:0.211184+0.001075 test-logloss:0.236985+0.002004</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nrounds &lt;-<span class="st"> </span>model<span class="op">$</span>best_iteration
+## [19] train-logloss:0.208084+0.001188 test-logloss:0.236765+0.002771</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nrounds &lt;-<span class="st"> </span>model$best_iteration
 <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;nrounds&quot;</span>, nrounds))</code></pre></div>
-<pre><code>## [1] &quot;nrounds 17&quot;</code></pre>
+<pre><code>## [1] &quot;nrounds 19&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> </span><span class="kw">xgboost</span>(<span class="dt">data =</span> <span class="kw">as.matrix</span>(treatedTrainM[, selvars, <span class="dt">drop =</span> <span class="ot">FALSE</span>]),
                  <span class="dt">label =</span> treatedTrainM[[yName]],
                  <span class="dt">nrounds =</span> nrounds,
                  <span class="dt">params =</span> params)</code></pre></div>
-<pre><code>## [1]  train-error:0.071600 
-## [2]  train-error:0.071755 
-## [3]  train-error:0.071977 
-## [4]  train-error:0.071622 
-## [5]  train-error:0.071311 
-## [6]  train-error:0.071600 
-## [7]  train-error:0.071689 
-## [8]  train-error:0.071755 
-## [9]  train-error:0.071467 
-## [10] train-error:0.071311 
-## [11] train-error:0.071200 
-## [12] train-error:0.071178 
-## [13] train-error:0.070911 
-## [14] train-error:0.070756 
-## [15] train-error:0.070645 
-## [16] train-error:0.070201 
-## [17] train-error:0.070068</code></pre>
+<pre><code>## [1]  train-error:0.071622 
+## [2]  train-error:0.071555 
+## [3]  train-error:0.071422 
+## [4]  train-error:0.071578 
+## [5]  train-error:0.071489 
+## [6]  train-error:0.071267 
+## [7]  train-error:0.071311 
+## [8]  train-error:0.071222 
+## [9]  train-error:0.071289 
+## [10] train-error:0.071356 
+## [11] train-error:0.071378 
+## [12] train-error:0.071245 
+## [13] train-error:0.071311 
+## [14] train-error:0.070956 
+## [15] train-error:0.070534 
+## [16] train-error:0.070445 
+## [17] train-error:0.070112 
+## [18] train-error:0.069845 
+## [19] train-error:0.069712</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">treatedTrainP[[mname]] =<span class="st"> </span><span class="kw">predict</span>(model, 
                                  <span class="dt">newdata=</span><span class="kw">as.matrix</span>(treatedTrainM[, selvars, <span class="dt">drop =</span> <span class="ot">FALSE</span>]), 
                                  <span class="dt">type=</span><span class="st">&#39;response&#39;</span>)
@@ -1697,54 +1702,54 @@ treatedTestP[[mname]] =<span class="st"> </span><span class="kw">predict</span>(
                                 <span class="dt">newdata=</span><span class="kw">as.matrix</span>(treatedTest[, selvars, <span class="dt">drop =</span> <span class="ot">FALSE</span>]), 
                                 <span class="dt">n.trees=</span>nTrees)
 <span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Thu Dec 27 15:47:47 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Sat Jan 19 07:51:23 2019&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Thu Dec 27 15:47:47 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Sat Jan 19 07:51:23 2019&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t1 =<span class="st"> </span><span class="kw">paste</span>(mname,<span class="st">&#39;trainingM data&#39;</span>)
 <span class="kw">print</span>(<span class="kw">DoubleDensityPlot</span>(treatedTrainP, mname, yName, 
                         <span class="dt">title=</span>t1))</code></pre></div>
 <div class="figure">
-<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-1.png" />
+<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-1.png" alt="" />
 
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">ROCPlot</span>(treatedTrainP, mname, yName, yTarget,
               <span class="dt">title=</span>t1))</code></pre></div>
 <div class="figure">
-<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-2.png" />
+<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-2.png" alt="" />
 
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(WVPlots<span class="op">::</span><span class="kw">PRPlot</span>(treatedTrainP, mname, yName, yTarget,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(WVPlots::<span class="kw">PRPlot</span>(treatedTrainP, mname, yName, yTarget,
               <span class="dt">title=</span>t1))</code></pre></div>
 <div class="figure">
-<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-3.png" />
+<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-3.png" alt="" />
 
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t2 =<span class="st"> </span><span class="kw">paste</span>(mname,<span class="st">&#39;test data&#39;</span>)
 <span class="kw">print</span>(<span class="kw">DoubleDensityPlot</span>(treatedTestP, mname, yName, 
                         <span class="dt">title=</span>t2))</code></pre></div>
 <div class="figure">
-<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-4.png" />
+<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-4.png" alt="" />
 
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">ROCPlot</span>(treatedTestP, mname, yName, yTarget,
               <span class="dt">title=</span>t2))</code></pre></div>
 <div class="figure">
-<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-5.png" />
+<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-5.png" alt="" />
 
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(WVPlots<span class="op">::</span><span class="kw">PRPlot</span>(treatedTestP, mname, yName, yTarget,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(WVPlots::<span class="kw">PRPlot</span>(treatedTestP, mname, yName, yTarget,
               <span class="dt">title=</span>t2))</code></pre></div>
 <div class="figure">
-<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-6.png" />
+<img src="KDD2009vtreat_files/figure-markdown_github/kddplot-6.png" alt="" />
 
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">date</span>())</code></pre></div>
-<pre><code>## [1] &quot;Thu Dec 27 15:47:50 2018&quot;</code></pre>
+<pre><code>## [1] &quot;Sat Jan 19 07:51:28 2019&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;*****************************&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;*****************************&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
-<pre><code>## [1] &quot;Thu Dec 27 15:47:50 2018&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">is.null</span>(cl)) {
-    parallel<span class="op">::</span><span class="kw">stopCluster</span>(cl)
+<pre><code>## [1] &quot;Sat Jan 19 07:51:28 2019&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if(!<span class="kw">is.null</span>(cl)) {
+    parallel::<span class="kw">stopCluster</span>(cl)
     cl =<span class="st"> </span><span class="ot">NULL</span>
 }</code></pre></div>
