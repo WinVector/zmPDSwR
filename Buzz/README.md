@@ -1,9 +1,9 @@
 
-# Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
+# Example code and data for "Practical Data Science with R, 2nd Edition" by Nina Zumel and John Mount, Manning 2019.
 
 
- * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://www.manning.com/zumel/)  (book copyright Manning Publications Co., all rights reserved)
- * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
+ * The book: ["Practical Data Science with R, 2nd Edition" by Nina Zumel and John Mount, Manning 2019](http://www.practicaldatascience.com)  (book copyright Manning Publications Co., all rights reserved)
+ * The support site: [GitHub WinVector/PDSwR2](https://github.com/WinVector/PDSwR2)
 
 
 ## The code and data in this directory supports examples from:
@@ -34,7 +34,7 @@ R objects produced by commands in rsteps.R saved in thRS500.Rdata
 
 11-6-2013
 
-Adding latex ( https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzz.pdf ) and markdown ( https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzzm.md ) versions of the documentation.
+Adding latex ( https://github.com/WinVector/PDSwR2/blob/master/Buzz/buzz.pdf ) and markdown ( https://github.com/WinVector/PDSwR2/blob/master/Buzz/buzzm.md ) versions of the documentation.
 
 
 

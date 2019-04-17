@@ -1,16 +1,18 @@
+---
+title: "Buzz model"
+output: github_document
+---
 
 # Markdown version of Buzz data analysis
 
 by: Nina Zumel and John Mount
 Win-Vector LLC
-11-8-2013
 
 
-To run this example you need a system with R installed (see [http://cran.r-project.org](http://cran.r-project.org)), and data from 
-[https://github.com/WinVector/zmPDSwR/tree/master/Buzz](https://github.com/WinVector/zmPDSwR/tree/master/Buzz).
+To run this example you need a system with R installed (see [http://cran.r-project.org](http://cran.r-project.org)), and data from [https://github.com/WinVector/PDSwR2/tree/master/Buzz](https://github.com/WinVector/PDSwR2/tree/master/Buzz).
 
 
-We are not perfoming any new analysis here, just supplying a direct application of Random Forests on the data.
+We are not performing any new analysis here, just supplying a direct application of Random Forests on the data.
 
 Data from: [http://ama.liglab.fr/datasets/buzz/](http://ama.liglab.fr/datasets/buzz/)
 Using: 
@@ -28,54 +30,48 @@ shasum TomsHardware-*.txt
 To run this example you need a system with R installed 
 (see [cran](http://cran.r-project.org)),
 Latex (see [tug](http://tug.org)) and data from 
-[zmPDSwR](https://github.com/WinVector/zmPDSwR/tree/master/Buzz).
+[PDSwR2](https://github.com/WinVector/PDSwR2/tree/master/Buzz).
 
 To run this example:
 * Download buzzm.Rmd and TomsHardware-Relative-Sigma-500.data.txt from the github URL.
 * Start a copy of R, use setwd() to move to the directory you have stored the files.
 * Make sure knitr is loaded into R ( install.packages('knitr') and
 library(knitr) ).
-* In R run: (produces [buzzm.md](https://github.com/WinVector/zmPDSwR/blob/master/Buzz/buzzm.md) from buzzm.Rmd).
+* In R run: (produces [buzzm.md](https://github.com/WinVector/PDSwR2/blob/master/Buzz/buzzm.md) from buzzm.Rmd).
 ```{r knitsteps,tidy=F,eval=F}
 knit('buzzm.Rmd')
 ```
 
-<!-- set up caching and knitr chunk dependency calculation -->
-<!-- note: you will want to do clean re-runs once in a while to make sure -->
-<!-- you are not seeing stale cache results. -->
-```{setup,tidy=F,cache=F,eval=T,echo=F,results='hide'}
-opts_chunk$set(autodep=T)
-dep_auto()
-```
 
 
 Now you can run the following data prep steps:
 
-```{r dataprep,tidy=F,cache=T}
+```{r dataprep}
 infile <- "TomsHardware-Relative-Sigma-500.data.txt"
-paste('checked at',date())
-system(paste('shasum',infile),intern=T)  # write down file hash
-buzzdata <- read.table(infile, header=F, sep=",")
+paste('checked at', date())
+system(paste('shasum', infile), intern=T)  # write down file hash
+buzzdata <- read.table(infile, header = FALSE, sep = ",")
 
-makevars <- function(colname, ndays=7) {
-  paste(colname, 0:ndays, sep='')
+makevars <- function(colname, ndays = 7) {
+  sprintf("%s_%02g", colname, 0:ndays)
 }
 
-varnames <- c("num.new.disc",
-             "burstiness",
-             "number.total.disc",
-             "auth.increase",
-             "atomic.containers", # not documented
-             "num.displays", # number of times topic displayed to user (measure of interest)
-             "contribution.sparseness", # not documented
-             "avg.auths.per.disc",
-             "num.authors.topic", # total authors on the topic
-             "avg.disc.length",
-             "attention.level.author",
-             "attention.level.contrib"
+varnames <- c(
+  "num.new.disc",
+  "burstiness",
+  "number.total.disc",
+  "auth.increase",
+  "atomic.containers", # not documented
+  "num.displays", # number of times topic displayed to user (measure of interest)
+  "contribution.sparseness", # not documented
+  "avg.auths.per.disc",
+  "num.authors.topic", # total authors on the topic
+  "avg.disc.length",
+  "attention.level.author",
+  "attention.level.contrib"
 )
 
-colnames <- as.vector(sapply(varnames, FUN=makevars))
+colnames <- unlist(lapply(varnames, FUN=makevars))
 colnames <-  c(colnames, "buzz")
 colnames(buzzdata) <- colnames
 
@@ -92,134 +88,140 @@ This currently returns a training set with `r dim(buzztrain)[[1]]` rows and a te
 as when this document was prepared.
 
 Notice we have exploded the basic column names into the following:
-```{r colnames,tidy=F,cache=T}
+```{r colnames}
 print(colnames)
 ```
 
 We are now ready to create a simple model predicting "buzz" as function of the
 other columns.
 
-```{r model,tidy=F,cache=T}
+```{r model}
 # build a model
 # let's use all the input variables
 nlist = varnames
 varslist = as.vector(sapply(nlist, FUN=makevars))
 
-# these were defined previously,  in Chapter 9
+# these were defined previously in Practical Data Science with R
 loglikelihood <- function(y, py) {
-  pysmooth <- ifelse(py==0, 1e-12,
-                     ifelse(py==1, 1-1e-12, py))
-  sum(y * log(pysmooth) + (1-y)*log(1 - pysmooth))
+  pysmooth <- ifelse(py == 0, 1e-12,
+                     ifelse(py == 1, 1-1e-12, py))
+  sum(y * log(pysmooth) + (1 - y) * log(1 - pysmooth))
 }
+
 accuracyMeasures <- function(pred, truth, threshold=0.5, name="model") {
-  dev.norm <- -2*loglikelihood(as.numeric(truth), pred)/length(pred)
-  ctable = table(truth=truth,
-                 pred=pred)
-  accuracy <- sum(diag(ctable))/sum(ctable)
-  precision <- ctable[2,2]/sum(ctable[,2])
-  recall <- ctable[2,2]/sum(ctable[2,])
-  f1 <- precision*recall
+  dev.norm <- -2 * loglikelihood(as.numeric(truth), pred) / length(pred)
+  ctable = table(truth = truth,
+                 pred = pred > threshold)
+  accuracy <- sum(diag(ctable)) / sum(ctable)
+  precision <- ctable[2, 2] / sum(ctable[, 2])
+  recall <- ctable[2, 2] / sum(ctable[2, ])
+  f1 <- 2 * precision * recall / (precision + recall)
   print(paste("precision=", precision, "; recall=" , recall))
   print(ctable)
-  data.frame(model=name, accuracy=accuracy, f1=f1, dev.norm)
+  data.frame(model = name, 
+             accuracy = accuracy, 
+             f1 = f1, 
+             dev.norm = dev.norm,
+             AUC = sigr::calcAUC(pred, truth))
 }
 
 
-library(randomForest)
-bzFormula <- paste('as.factor(buzz) ~ ',paste(varslist,collapse=' + '))
+library("randomForest")
+bzFormula <- paste('as.factor(buzz) ~ ', paste(varslist, collapse = ' + '))
 fmodel <- randomForest(as.formula(bzFormula),
-                      data=buzztrain,
-                      mtry=floor(sqrt(length(varslist))),
-                      ntree=101,
-                      importance=T)
+                      data = buzztrain,
+                      importance = TRUE)
 
 print('training')
-rtrain <- data.frame(truth=buzztrain$buzz, pred=predict(fmodel, newdata=buzztrain))
+rtrain <- data.frame(truth = buzztrain$buzz, 
+                     pred = predict(fmodel, newdata = buzztrain, type="prob")[, 2, drop = TRUE])
 print(accuracyMeasures(rtrain$pred, rtrain$truth))
+WVPlots::ROCPlot(rtrain, "pred", "truth", TRUE, "RF train performance, large model")
 
 print('test')
-rtest <- data.frame(truth=buzztest$buzz, pred=predict(fmodel, newdata=buzztest))
+rtest <- data.frame(truth = buzztest$buzz, 
+                    pred = predict(fmodel, newdata=buzztest, type="prob")[, 2, drop = TRUE])
 print(accuracyMeasures(rtest$pred, rtest$truth))
+WVPlots::ROCPlot(rtest, "pred", "truth", TRUE, "RF train performance, large model")
 ```
 
 Notice the extreme fall-off from training to test performance, the random forest
-over fit.  In fact the random forest fit all the data if it sees it during training:
-
-```{r modelA,tidy=F,cache=T}
-fmodel <- randomForest(as.formula(bzFormula),
-                      data=buzzdata,
-                      mtry=floor(sqrt(length(varslist))),
-                      ntree=101,
-                      importance=T)
-print('all data')
-rall <- data.frame(truth=buzztrain$buzz, pred=predict(fmodel, newdata=buzztrain))
-print(accuracyMeasures(rall$pred, rall$truth))
-```
+over fit on training.  We see good accuracy on test (around 92%), but not the 
+perfect fit seen on training.
 
 To try and control the over-fitting we build a new model with the tree
-complexity limited to 100 nodes and the node size to at least 20.
+complexity limited to 50 nodes and the node size to at least 100.
 This is not necessarily a better model (in fact it scores slightly
 poorer on test), but it is one where the training procedure didn't
 have enough freedom to memorize the training data (and therefore maybe
-had visibility into some trade-offs.
+had better visibility into some trade-offs.
 
-```{r model2,tidy=F,cache=T}
+```{r model2}
 fmodel <- randomForest(as.formula(bzFormula),
-                      data=buzztrain,
-                      mtry=floor(sqrt(length(varslist))),
-                      ntree=101,
-                      maxnodes=100,
-                      nodesize=20,
-                      importance=T)
+                      data = buzztrain,
+                      maxnodes = 50,
+                      nodesize = 100,
+                      importance = TRUE)
 
 print('training')
-rtrain <- data.frame(truth=buzztrain$buzz, pred=predict(fmodel, newdata=buzztrain))
+rtrain <- data.frame(truth = buzztrain$buzz, 
+                     pred = predict(fmodel, newdata=buzztrain, type="prob")[, 2, drop = TRUE])
 print(accuracyMeasures(rtrain$pred, rtrain$truth))
 
 print('test')
-rtest <- data.frame(truth=buzztest$buzz, pred=predict(fmodel, newdata=buzztest))
+rtest <- data.frame(truth = buzztest$buzz, 
+                    pred = predict(fmodel, newdata=buzztest, type="prob")[, 2, drop = TRUE])
 print(accuracyMeasures(rtest$pred, rtest$truth))
 ```
 
 And we can also make plots.
 
 Training performance:
-<!-- Trick: since this block is cached the side-effect (saving a new copy -->
-<!-- of the PDF will not happen unless the block is re-run. -->
-```{r plottrain, tidy=F,cache=F}
-library(ggplot2)
-ggplot(rtrain, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
-   geom_density(adjust=0.1,)
+
+```{r plottrain}
+WVPlots::ROCPlot(rtrain, "pred", "truth", TRUE, "RF train performance, simpler model")
 ```
 
 Test performance:
-<!-- Trick: since this block is cached the side-effect (saving a new copy -->
-<!-- of the PDF will not happen unless the block is re-run. -->
-```{r plottest,tidy=F,cache=F}
-ggplot(rtest, aes(x=pred, color=(truth==1),linetype=(truth==1))) + 
-   geom_density(adjust=0.1)
+
+```{r plottest,}
+WVPlots::ROCPlot(rtest, "pred", "truth", TRUE, "RF test performance, simpler model")
 ```
 
-Note the classifier scores are concentrated near zero and one
-(meaning the printed confusion matrices pretty much capture the whole
-story and the density plots or any sort of ROC plot doesn't add much
-value in this case).
+Notice this has similar test performance as the first model.  This
+is typical of random forests: the degree of over-fit in the training data
+is not a good predictor of good or bad performance on test data.
+
+So we are now left with a choice, unfortunately without clear guidance: which model do we use?
+In this case we are going to say: use the simpler model fit on all the data.  The idea
+is the simpler model didn't test much worse and more data lets helps the model reduce over-fitting.
+
+```{r model3}
+# train on all the data
+fmodel <- randomForest(as.formula(bzFormula),
+                      data = buzzdata,
+                      maxnodes = 50,
+                      nodesize = 100,
+                      importance = T)
+```
+
+
+
 
 Save prepared R environment.
-<!-- Another way to conditionally save, check for file. -->
-<!-- message=F is letting message() calls get routed to console instead -->
-<!-- of the document. -->
-```{r save,tidy=F,cache=F,message=F,eval=T}
+
+```{r save,,message=F,eval=T}
 fname <- 'thRS500.Rdata'
+items <- c("colnames", "fmodel")
 if(!file.exists(fname)) {
-   save(list=ls(),file=fname)
-   message(paste('saved',fname))  # message to running R console
-   print(paste('saved',fname))    # print to document
+   save(list = items, file = fname)
+   message(paste('saved', fname))  # message to running R console
+   print(paste('saved', fname))    # print to document
 } else {
-   message(paste('skipped saving',fname)) # message to running R console
-   print(paste('skipped saving',fname))   # print to document
+   message(paste('skipped saving', fname)) # message to running R console
+   print(paste('skipped saving', fname))   # print to document
 }
-paste('checked at',date())
-system(paste('shasum',fname),intern=T)  # write down file hash
+paste('checked at', date())
+system(paste('shasum', fname), intern = TRUE)  # write down file hash
 ```
 
