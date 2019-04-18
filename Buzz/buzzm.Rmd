@@ -208,20 +208,16 @@ fmodel <- randomForest(as.formula(bzFormula),
 
 
 
-Save prepared R environment.
+Save a prepared R environment.
 
-```{r save,,message=F,eval=T}
+```{r save,message=F,eval=T}
 fname <- 'thRS500.Rdata'
-items <- c("colnames", "fmodel")
-if(!file.exists(fname)) {
-   save(list = items, file = fname)
-   message(paste('saved', fname))  # message to running R console
-   print(paste('saved', fname))    # print to document
-} else {
-   message(paste('skipped saving', fname)) # message to running R console
-   print(paste('skipped saving', fname))   # print to document
-}
-paste('checked at', date())
+items <- c("varslist", "fmodel", "buzztrain")
+save(list = items, file = fname)
+message(paste('saved', fname))  # message to running R console
+print(paste('saved', fname))    # print to document
+
+paste('finished at', date())
 system(paste('shasum', fname), intern = TRUE)  # write down file hash
 ```
 

@@ -31,7 +31,7 @@ infile <- "TomsHardware-Relative-Sigma-500.data.txt"
 paste('checked at', date())
 ```
 
-    ## [1] "checked at Wed Apr 17 16:37:16 2019"
+    ## [1] "checked at Wed Apr 17 18:18:37 2019"
 
 ``` r
 system(paste('shasum', infile), intern=T)  # write down file hash
@@ -308,31 +308,26 @@ fmodel <- randomForest(as.formula(bzFormula),
                       importance = T)
 ```
 
-Save prepared R environment.
+Save a prepared R environment.
 
 ``` r
 fname <- 'thRS500.Rdata'
-items <- c("colnames", "fmodel")
-if(!file.exists(fname)) {
-   save(list = items, file = fname)
-   message(paste('saved', fname))  # message to running R console
-   print(paste('saved', fname))    # print to document
-} else {
-   message(paste('skipped saving', fname)) # message to running R console
-   print(paste('skipped saving', fname))   # print to document
-}
+items <- c("varslist", "fmodel", "buzztrain")
+save(list = items, file = fname)
+message(paste('saved', fname))  # message to running R console
+print(paste('saved', fname))    # print to document
 ```
 
-    ## [1] "skipped saving thRS500.Rdata"
+    ## [1] "saved thRS500.Rdata"
 
 ``` r
-paste('checked at', date())
+paste('finished at', date())
 ```
 
-    ## [1] "checked at Wed Apr 17 16:40:38 2019"
+    ## [1] "finished at Wed Apr 17 18:22:09 2019"
 
 ``` r
 system(paste('shasum', fname), intern = TRUE)  # write down file hash
 ```
 
-    ## [1] "353b2f1e8600e38e4352b3950400338434af06ab  thRS500.Rdata"
+    ## [1] "8745498698060af164ac2105100b04a8ada8360e  thRS500.Rdata"
